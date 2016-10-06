@@ -7,6 +7,7 @@ target 'FriendStagram' do
 
   # Pods for FriendStagram
   pod 'Alamofire'
+  pod 'SkyFloatingLabelTextField', git: 'https://github.com/MLSDev/SkyFloatingLabelTextField.git', branch: 'swift3'
 
   target 'FriendStagramTests' do
     inherit! :search_paths
