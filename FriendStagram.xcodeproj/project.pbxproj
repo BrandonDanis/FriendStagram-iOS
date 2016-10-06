@@ -1,0 +1,535 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CA9A34471DA6DF8700AED7FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9A34461DA6DF8700AED7FF /* AppDelegate.swift */; };
+		CA9A34491DA6DF8700AED7FF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9A34481DA6DF8700AED7FF /* ViewController.swift */; };
+		CA9A344C1DA6DF8700AED7FF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA9A344A1DA6DF8700AED7FF /* Main.storyboard */; };
+		CA9A344E1DA6DF8700AED7FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA9A344D1DA6DF8700AED7FF /* Assets.xcassets */; };
+		CA9A34511DA6DF8700AED7FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA9A344F1DA6DF8700AED7FF /* LaunchScreen.storyboard */; };
+		CA9A345C1DA6DF8700AED7FF /* FriendStagramTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9A345B1DA6DF8700AED7FF /* FriendStagramTests.swift */; };
+		CA9A34671DA6DF8700AED7FF /* FriendStagramUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9A34661DA6DF8700AED7FF /* FriendStagramUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CA9A34581DA6DF8700AED7FF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CA9A343B1DA6DF8700AED7FF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CA9A34421DA6DF8700AED7FF;
+			remoteInfo = FriendStagram;
+		};
+		CA9A34631DA6DF8700AED7FF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CA9A343B1DA6DF8700AED7FF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CA9A34421DA6DF8700AED7FF;
+			remoteInfo = FriendStagram;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CA9A34431DA6DF8700AED7FF /* FriendStagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FriendStagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA9A34461DA6DF8700AED7FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CA9A34481DA6DF8700AED7FF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CA9A344B1DA6DF8700AED7FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CA9A344D1DA6DF8700AED7FF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CA9A34501DA6DF8700AED7FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CA9A34521DA6DF8700AED7FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CA9A34571DA6DF8700AED7FF /* FriendStagramTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FriendStagramTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA9A345B1DA6DF8700AED7FF /* FriendStagramTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendStagramTests.swift; sourceTree = "<group>"; };
+		CA9A345D1DA6DF8700AED7FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CA9A34621DA6DF8700AED7FF /* FriendStagramUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FriendStagramUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA9A34661DA6DF8700AED7FF /* FriendStagramUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendStagramUITests.swift; sourceTree = "<group>"; };
+		CA9A34681DA6DF8700AED7FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CA9A34401DA6DF8700AED7FF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CA9A34541DA6DF8700AED7FF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CA9A345F1DA6DF8700AED7FF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CA9A343A1DA6DF8700AED7FF = {
+			isa = PBXGroup;
+			children = (
+				CA9A34451DA6DF8700AED7FF /* FriendStagram */,
+				CA9A345A1DA6DF8700AED7FF /* FriendStagramTests */,
+				CA9A34651DA6DF8700AED7FF /* FriendStagramUITests */,
+				CA9A34441DA6DF8700AED7FF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CA9A34441DA6DF8700AED7FF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CA9A34431DA6DF8700AED7FF /* FriendStagram.app */,
+				CA9A34571DA6DF8700AED7FF /* FriendStagramTests.xctest */,
+				CA9A34621DA6DF8700AED7FF /* FriendStagramUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CA9A34451DA6DF8700AED7FF /* FriendStagram */ = {
+			isa = PBXGroup;
+			children = (
+				CA9A34461DA6DF8700AED7FF /* AppDelegate.swift */,
+				CA9A34481DA6DF8700AED7FF /* ViewController.swift */,
+				CA9A344A1DA6DF8700AED7FF /* Main.storyboard */,
+				CA9A344D1DA6DF8700AED7FF /* Assets.xcassets */,
+				CA9A344F1DA6DF8700AED7FF /* LaunchScreen.storyboard */,
+				CA9A34521DA6DF8700AED7FF /* Info.plist */,
+			);
+			path = FriendStagram;
+			sourceTree = "<group>";
+		};
+		CA9A345A1DA6DF8700AED7FF /* FriendStagramTests */ = {
+			isa = PBXGroup;
+			children = (
+				CA9A345B1DA6DF8700AED7FF /* FriendStagramTests.swift */,
+				CA9A345D1DA6DF8700AED7FF /* Info.plist */,
+			);
+			path = FriendStagramTests;
+			sourceTree = "<group>";
+		};
+		CA9A34651DA6DF8700AED7FF /* FriendStagramUITests */ = {
+			isa = PBXGroup;
+			children = (
+				CA9A34661DA6DF8700AED7FF /* FriendStagramUITests.swift */,
+				CA9A34681DA6DF8700AED7FF /* Info.plist */,
+			);
+			path = FriendStagramUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CA9A34421DA6DF8700AED7FF /* FriendStagram */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CA9A346B1DA6DF8700AED7FF /* Build configuration list for PBXNativeTarget "FriendStagram" */;
+			buildPhases = (
+				CA9A343F1DA6DF8700AED7FF /* Sources */,
+				CA9A34401DA6DF8700AED7FF /* Frameworks */,
+				CA9A34411DA6DF8700AED7FF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FriendStagram;
+			productName = FriendStagram;
+			productReference = CA9A34431DA6DF8700AED7FF /* FriendStagram.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CA9A34561DA6DF8700AED7FF /* FriendStagramTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CA9A346E1DA6DF8700AED7FF /* Build configuration list for PBXNativeTarget "FriendStagramTests" */;
+			buildPhases = (
+				CA9A34531DA6DF8700AED7FF /* Sources */,
+				CA9A34541DA6DF8700AED7FF /* Frameworks */,
+				CA9A34551DA6DF8700AED7FF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CA9A34591DA6DF8700AED7FF /* PBXTargetDependency */,
+			);
+			name = FriendStagramTests;
+			productName = FriendStagramTests;
+			productReference = CA9A34571DA6DF8700AED7FF /* FriendStagramTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		CA9A34611DA6DF8700AED7FF /* FriendStagramUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CA9A34711DA6DF8700AED7FF /* Build configuration list for PBXNativeTarget "FriendStagramUITests" */;
+			buildPhases = (
+				CA9A345E1DA6DF8700AED7FF /* Sources */,
+				CA9A345F1DA6DF8700AED7FF /* Frameworks */,
+				CA9A34601DA6DF8700AED7FF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CA9A34641DA6DF8700AED7FF /* PBXTargetDependency */,
+			);
+			name = FriendStagramUITests;
+			productName = FriendStagramUITests;
+			productReference = CA9A34621DA6DF8700AED7FF /* FriendStagramUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CA9A343B1DA6DF8700AED7FF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0800;
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = RBSoftware;
+				TargetAttributes = {
+					CA9A34421DA6DF8700AED7FF = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = R2BSM46C49;
+						ProvisioningStyle = Automatic;
+					};
+					CA9A34561DA6DF8700AED7FF = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = R2BSM46C49;
+						ProvisioningStyle = Automatic;
+						TestTargetID = CA9A34421DA6DF8700AED7FF;
+					};
+					CA9A34611DA6DF8700AED7FF = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = R2BSM46C49;
+						ProvisioningStyle = Automatic;
+						TestTargetID = CA9A34421DA6DF8700AED7FF;
+					};
+				};
+			};
+			buildConfigurationList = CA9A343E1DA6DF8700AED7FF /* Build configuration list for PBXProject "FriendStagram" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CA9A343A1DA6DF8700AED7FF;
+			productRefGroup = CA9A34441DA6DF8700AED7FF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CA9A34421DA6DF8700AED7FF /* FriendStagram */,
+				CA9A34561DA6DF8700AED7FF /* FriendStagramTests */,
+				CA9A34611DA6DF8700AED7FF /* FriendStagramUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CA9A34411DA6DF8700AED7FF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA9A34511DA6DF8700AED7FF /* LaunchScreen.storyboard in Resources */,
+				CA9A344E1DA6DF8700AED7FF /* Assets.xcassets in Resources */,
+				CA9A344C1DA6DF8700AED7FF /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CA9A34551DA6DF8700AED7FF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CA9A34601DA6DF8700AED7FF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CA9A343F1DA6DF8700AED7FF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA9A34491DA6DF8700AED7FF /* ViewController.swift in Sources */,
+				CA9A34471DA6DF8700AED7FF /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CA9A34531DA6DF8700AED7FF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA9A345C1DA6DF8700AED7FF /* FriendStagramTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CA9A345E1DA6DF8700AED7FF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA9A34671DA6DF8700AED7FF /* FriendStagramUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CA9A34591DA6DF8700AED7FF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CA9A34421DA6DF8700AED7FF /* FriendStagram */;
+			targetProxy = CA9A34581DA6DF8700AED7FF /* PBXContainerItemProxy */;
+		};
+		CA9A34641DA6DF8700AED7FF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CA9A34421DA6DF8700AED7FF /* FriendStagram */;
+			targetProxy = CA9A34631DA6DF8700AED7FF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CA9A344A1DA6DF8700AED7FF /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CA9A344B1DA6DF8700AED7FF /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		CA9A344F1DA6DF8700AED7FF /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CA9A34501DA6DF8700AED7FF /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CA9A34691DA6DF8700AED7FF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CA9A346A1DA6DF8700AED7FF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CA9A346C1DA6DF8700AED7FF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = R2BSM46C49;
+				INFOPLIST_FILE = FriendStagram/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = RBSoftware.FriendStagram;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		CA9A346D1DA6DF8700AED7FF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = R2BSM46C49;
+				INFOPLIST_FILE = FriendStagram/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = RBSoftware.FriendStagram;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		CA9A346F1DA6DF8700AED7FF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = R2BSM46C49;
+				INFOPLIST_FILE = FriendStagramTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = RBSoftware.FriendStagramTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FriendStagram.app/FriendStagram";
+			};
+			name = Debug;
+		};
+		CA9A34701DA6DF8700AED7FF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = R2BSM46C49;
+				INFOPLIST_FILE = FriendStagramTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = RBSoftware.FriendStagramTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FriendStagram.app/FriendStagram";
+			};
+			name = Release;
+		};
+		CA9A34721DA6DF8700AED7FF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = R2BSM46C49;
+				INFOPLIST_FILE = FriendStagramUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = RBSoftware.FriendStagramUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = FriendStagram;
+			};
+			name = Debug;
+		};
+		CA9A34731DA6DF8700AED7FF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = R2BSM46C49;
+				INFOPLIST_FILE = FriendStagramUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = RBSoftware.FriendStagramUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = FriendStagram;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CA9A343E1DA6DF8700AED7FF /* Build configuration list for PBXProject "FriendStagram" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA9A34691DA6DF8700AED7FF /* Debug */,
+				CA9A346A1DA6DF8700AED7FF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CA9A346B1DA6DF8700AED7FF /* Build configuration list for PBXNativeTarget "FriendStagram" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA9A346C1DA6DF8700AED7FF /* Debug */,
+				CA9A346D1DA6DF8700AED7FF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		CA9A346E1DA6DF8700AED7FF /* Build configuration list for PBXNativeTarget "FriendStagramTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA9A346F1DA6DF8700AED7FF /* Debug */,
+				CA9A34701DA6DF8700AED7FF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		CA9A34711DA6DF8700AED7FF /* Build configuration list for PBXNativeTarget "FriendStagramUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA9A34721DA6DF8700AED7FF /* Debug */,
+				CA9A34731DA6DF8700AED7FF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CA9A343B1DA6DF8700AED7FF /* Project object */;
+}
