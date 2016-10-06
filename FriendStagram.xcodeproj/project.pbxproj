@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		BB5FF035D0000D455E1A6501 /* Pods_FriendStagramUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F2BF24B07344D411E7F1FBE /* Pods_FriendStagramUITests.framework */; };
+		CA63DF7C1DA6E2BC00F57C81 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA63DF7B1DA6E2BC00F57C81 /* LoginViewController.swift */; };
+		CA63DF7E1DA6E35B00F57C81 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA63DF7D1DA6E35B00F57C81 /* RegisterViewController.swift */; };
+		CA63DF801DA6E48900F57C81 /* StartupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA63DF7F1DA6E48900F57C81 /* StartupViewController.swift */; };
+		CA63DF821DA6F76900F57C81 /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = CA63DF811DA6E89700F57C81 /* FontAwesome.otf */; };
 		CA9A34471DA6DF8700AED7FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9A34461DA6DF8700AED7FF /* AppDelegate.swift */; };
 		CA9A34491DA6DF8700AED7FF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9A34481DA6DF8700AED7FF /* ViewController.swift */; };
 		CA9A344C1DA6DF8700AED7FF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA9A344A1DA6DF8700AED7FF /* Main.storyboard */; };
@@ -43,6 +47,10 @@
 		69F22E5B61FCF4318B9B2265 /* Pods-FriendStagram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendStagram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FriendStagram/Pods-FriendStagram.debug.xcconfig"; sourceTree = "<group>"; };
 		978EDBC8704C59C81AA35EEF /* Pods_FriendStagramTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FriendStagramTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8CE5AEC226D5B8F7B1AF90D /* Pods-FriendStagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendStagram.release.xcconfig"; path = "Pods/Target Support Files/Pods-FriendStagram/Pods-FriendStagram.release.xcconfig"; sourceTree = "<group>"; };
+		CA63DF7B1DA6E2BC00F57C81 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		CA63DF7D1DA6E35B00F57C81 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		CA63DF7F1DA6E48900F57C81 /* StartupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartupViewController.swift; sourceTree = "<group>"; };
+		CA63DF811DA6E89700F57C81 /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.otf; sourceTree = "<group>"; };
 		CA9A34431DA6DF8700AED7FF /* FriendStagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FriendStagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA9A34461DA6DF8700AED7FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA9A34481DA6DF8700AED7FF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +120,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		CA63DF831DA6F79D00F57C81 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				CA63DF811DA6E89700F57C81 /* FontAwesome.otf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
 		CA9A343A1DA6DF8700AED7FF = {
 			isa = PBXGroup;
 			children = (
@@ -137,8 +153,12 @@
 		CA9A34451DA6DF8700AED7FF /* FriendStagram */ = {
 			isa = PBXGroup;
 			children = (
+				CA63DF831DA6F79D00F57C81 /* Fonts */,
 				CA9A34461DA6DF8700AED7FF /* AppDelegate.swift */,
 				CA9A34481DA6DF8700AED7FF /* ViewController.swift */,
+				CA63DF7B1DA6E2BC00F57C81 /* LoginViewController.swift */,
+				CA63DF7D1DA6E35B00F57C81 /* RegisterViewController.swift */,
+				CA63DF7F1DA6E48900F57C81 /* StartupViewController.swift */,
 				CA9A344A1DA6DF8700AED7FF /* Main.storyboard */,
 				CA9A344D1DA6DF8700AED7FF /* Assets.xcassets */,
 				CA9A344F1DA6DF8700AED7FF /* LaunchScreen.storyboard */,
@@ -284,6 +304,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA63DF821DA6F76900F57C81 /* FontAwesome.otf in Resources */,
 				CA9A34511DA6DF8700AED7FF /* LaunchScreen.storyboard in Resources */,
 				CA9A344E1DA6DF8700AED7FF /* Assets.xcassets in Resources */,
 				CA9A344C1DA6DF8700AED7FF /* Main.storyboard in Resources */,
@@ -449,8 +470,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA63DF7C1DA6E2BC00F57C81 /* LoginViewController.swift in Sources */,
 				CA9A34491DA6DF8700AED7FF /* ViewController.swift in Sources */,
 				CA9A34471DA6DF8700AED7FF /* AppDelegate.swift in Sources */,
+				CA63DF7E1DA6E35B00F57C81 /* RegisterViewController.swift in Sources */,
+				CA63DF801DA6E48900F57C81 /* StartupViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
