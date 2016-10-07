@@ -22,7 +22,7 @@
                                 <frame key="frameInset" width="414" height="359"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="5co-k1-3XL">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg2" translatesAutoresizingMaskIntoConstraints="NO" id="5co-k1-3XL">
                                         <frame key="frameInset" minX="132" minY="8" width="150" height="150"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
@@ -190,7 +190,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bg" width="1242" height="2208"/>
+        <image name="bg2" width="1080" height="1920"/>
         <image name="home" width="25" height="25"/>
         <image name="user" width="25" height="25"/>
     </resources>

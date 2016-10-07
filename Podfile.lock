@@ -1,9 +1,13 @@
 PODS:
   - Alamofire (4.0.1)
+  - SDWebImage (3.8.2):
+    - SDWebImage/Core (= 3.8.2)
+  - SDWebImage/Core (3.8.2)
   - SkyFloatingLabelTextField (1.2.1)
 
 DEPENDENCIES:
   - Alamofire
+  - SDWebImage
   - SkyFloatingLabelTextField (from `https://github.com/MLSDev/SkyFloatingLabelTextField.git`, branch `swift3`)
 
 EXTERNAL SOURCES:
@@ -18,8 +22,9 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
+  SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   SkyFloatingLabelTextField: 3f6610aded18e778df5cfab3b9e12a11b3e014e9
 
-PODFILE CHECKSUM: febf9ea4acd057f827ed7c2c0c5afdf056b00b09
+PODFILE CHECKSUM: 96bab03d113f8306b844bc7dff9182f24a168efe
 
 COCOAPODS: 1.1.0.rc.2
