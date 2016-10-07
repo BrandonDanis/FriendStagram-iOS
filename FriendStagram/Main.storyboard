@@ -9,7 +9,7 @@
         <!--Profile-->
         <scene sceneID="g9g-DW-9NM">
             <objects>
-                <viewController id="fmY-qE-zrg" sceneMemberID="viewController">
+                <viewController id="fmY-qE-zrg" customClass="ProfileViewController" customModule="FriendStagram" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="BcP-AS-xry"/>
                         <viewControllerLayoutGuide type="bottom" id="NDj-Dz-b57"/>

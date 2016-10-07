@@ -1,5 +1,5 @@
 //
-//  FeedViewController.swift
+//  ProfileViewController.swift
 //  FriendStagram
 //
 //  Created by Brandon Danis on 2016-10-06.
@@ -9,18 +9,16 @@
 import Foundation
 import UIKit
 
-class FeedViewController : UIViewController {
+class ProfileViewController : UIViewController {
     
-    @IBOutlet var testLabel: UILabel!
     
     override func viewDidLoad() {
-        
-        print("Main View Loaded")
-        
+        print("Profile View Loaded")
     }
     
     override func didReceiveMemoryWarning() {
-        print("Uh-oh")
+        print("Uh-Oh")
     }
+    
     
 }
