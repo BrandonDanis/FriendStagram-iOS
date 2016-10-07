@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vmh-tL-8gS" userLabel="ProfileHeader">
-                                <frame key="frameInset" width="414" height="347"/>
+                                <frame key="frameInset" width="414" height="359"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="5co-k1-3XL">
@@ -34,7 +34,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kxp-Oj-P1y">
-                                        <frame key="frameInset" minX="61" minY="202" width="293" height="79"/>
+                                        <frame key="frameInset" minX="61" minY="201" width="293" height="79"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <string key="text">This is a long description to test out the functonality if ever some asshole decides to put a very large description to his profile</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -86,11 +86,43 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.40000000600000002" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="E3b-tt-ls4">
+                                <frame key="frameInset" minY="355" width="414" height="332"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hbA-yH-dfi">
+                                    <size key="itemSize" width="83" height="136"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="3yo-XT-GFq">
+                                        <rect key="frame" x="0.0" y="0.0" width="83" height="136"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="83" height="136"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="x6h-Tl-Dfa"/>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="x6h-Tl-Dfa" firstAttribute="height" secondItem="3yo-XT-GFq" secondAttribute="height" id="RT8-0K-lJe"/>
+                                            <constraint firstItem="x6h-Tl-Dfa" firstAttribute="centerX" secondItem="3yo-XT-GFq" secondAttribute="centerX" id="a1c-Wb-n3c"/>
+                                            <constraint firstItem="x6h-Tl-Dfa" firstAttribute="width" secondItem="3yo-XT-GFq" secondAttribute="width" id="bUh-EB-MfA"/>
+                                            <constraint firstItem="x6h-Tl-Dfa" firstAttribute="centerY" secondItem="3yo-XT-GFq" secondAttribute="centerY" id="iu8-Y4-QCy"/>
+                                        </constraints>
+                                        <size key="customSize" width="83" height="136"/>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" selectedImage="user" id="caH-De-egQ"/>
                     <connections>
+                        <outlet property="collectionView" destination="E3b-tt-ls4" id="utd-8k-tdS"/>
                         <outlet property="profileHeaderView" destination="vmh-tL-8gS" id="X8E-2a-RSU"/>
                         <outlet property="profileNameLabel" destination="wG7-qZ-bf8" id="UvV-JU-vzT"/>
                         <outlet property="profilePicture" destination="5co-k1-3XL" id="4oQ-AC-0se"/>
@@ -100,10 +132,10 @@
             </objects>
             <point key="canvasLocation" x="317.39130434782612" y="457.33695652173918"/>
         </scene>
-        <!--asdfasdf-->
+        <!--Feed-->
         <scene sceneID="mzR-mK-V0S">
             <objects>
-                <viewController id="BJt-8D-ZvX" customClass="FeedViewController" customModule="FriendStagram" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BJt-8D-ZvX" userLabel="Feed" customClass="FeedViewController" customModule="FriendStagram" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="CPW-mo-H8D"/>
                         <viewControllerLayoutGuide type="bottom" id="byL-J4-Gq4"/>
@@ -127,7 +159,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="asdfasdf" selectedImage="home" id="r3I-ZV-aGk">
+                    <tabBarItem key="tabBarItem" title="asdfasdf" selectedImage="home" id="r3I-ZV-aGk" userLabel="Feed">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-1"/>
                     </tabBarItem>
                     <connections>
