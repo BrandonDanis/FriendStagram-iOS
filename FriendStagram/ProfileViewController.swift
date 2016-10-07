@@ -60,15 +60,18 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
         
     }
     
+    //set cell sizes
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         print("Getting cell size")
         return CGSize(width: collectionView.frame.width/3, height: collectionView.frame.width/3)
     }
     
+    //set cell left/right padding
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
     
+    //set cell bottom padding
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
