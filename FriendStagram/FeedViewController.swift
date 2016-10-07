@@ -23,4 +23,8 @@ class FeedViewController : UIViewController {
         print("Uh-oh")
     }
     
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
 }
