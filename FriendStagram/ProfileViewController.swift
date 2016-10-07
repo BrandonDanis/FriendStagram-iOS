@@ -48,7 +48,7 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
         
         profilePicture.layer.cornerRadius = profilePicture.frame.size.width/2
         profilePicture.clipsToBounds = true
-        profilePicture.image = UIImage(named: "bg")
+        profilePicture.image = UIImage(named: "kyle")
         
         
     }
@@ -75,7 +75,7 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
         let imageView = cell.viewWithTag(1) as! UIImageView
         
         //let imageURL = images
-        imageView.sd_setImage(with: URL(string: images[indexPath.row]))
+        imageView.sd_setImage(with: URL(string: images[indexPath.row]), placeholderImage: UIImage(named: "kyle"))
         
         return cell
         
