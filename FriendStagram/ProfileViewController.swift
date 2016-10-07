@@ -33,9 +33,11 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
     @IBOutlet var profileHeaderView : UIView!
     @IBOutlet var profilePicture : UIImageView!
     @IBOutlet var profileNameLabel : UILabel!
+    @IBOutlet var followButton : UIButton!
     
     @IBOutlet var collectionView : UICollectionView!
     
+    var following = false
     
     override func viewDidLoad() {
         print("Profile View Loaded")
@@ -48,8 +50,14 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
         
         profilePicture.layer.cornerRadius = profilePicture.frame.size.width/2
         profilePicture.clipsToBounds = true
-        profilePicture.image = UIImage(named: "kyle")
+        profilePicture.image = UIImage(named: "bg")
         
+        followButton.titleLabel!.font = UIFont(name: "FontAwesome", size: 20)
+        followButton.setTitleColor(UIColor.white, for: UIControlState.normal)
+        followButton.setTitleColor(UIColor.white, for: UIControlState.highlighted)
+        followButton.backgroundColor = UIColor.black
+        followButton.layer.cornerRadius = followButton.frame.width/2
+        followButton.setTitle("\u{f067}", for: .normal)
         
     }
     
@@ -94,6 +102,18 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
     //set cell bottom padding
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
+    }
+    
+    @IBAction func followButtonClicked(_ sender: AnyObject) {
+        if(following){
+            following = false
+            followButton.backgroundColor = UIColor.black
+            followButton.setTitle("\u{f067}", for: .normal)
+        }else{
+            following = true
+            followButton.backgroundColor = UIColor(red:0.22, green:0.79, blue:0.45, alpha:1.00)
+            followButton.setTitle("\u{f00c}", for: .normal)
+        }
     }
     
 }

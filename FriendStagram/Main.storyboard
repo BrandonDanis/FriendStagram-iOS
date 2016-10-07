@@ -5,6 +5,11 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="FontAwesome.otf">
+            <string>FontAwesome</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Profile-->
         <scene sceneID="g9g-DW-9NM">
@@ -83,6 +88,15 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g70-HF-OKf">
+                                        <frame key="frameInset" minX="364" minY="8" width="45" height="45"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="17"/>
+                                        <state key="normal" title="-"/>
+                                        <connections>
+                                            <action selector="followButtonClicked:" destination="fmY-qE-zrg" eventType="touchUpInside" id="nAu-HW-q3x"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.40000000600000002" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
@@ -123,6 +137,7 @@
                     <tabBarItem key="tabBarItem" title="Profile" selectedImage="user" id="caH-De-egQ"/>
                     <connections>
                         <outlet property="collectionView" destination="E3b-tt-ls4" id="utd-8k-tdS"/>
+                        <outlet property="followButton" destination="g70-HF-OKf" id="AkV-CI-I8b"/>
                         <outlet property="profileHeaderView" destination="vmh-tL-8gS" id="X8E-2a-RSU"/>
                         <outlet property="profileNameLabel" destination="wG7-qZ-bf8" id="UvV-JU-vzT"/>
                         <outlet property="profilePicture" destination="5co-k1-3XL" id="4oQ-AC-0se"/>
