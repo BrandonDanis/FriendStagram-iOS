@@ -40,14 +40,17 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
         print("Uh-Oh")
     }
     
+    //removing status bar
     override var prefersStatusBarHidden: Bool {
         return true
     }
     
+    // amount of cell in collection view
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 15
     }
     
+    // creating cells
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
