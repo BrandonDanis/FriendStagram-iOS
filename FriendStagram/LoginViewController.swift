@@ -142,18 +142,22 @@ class LoginViewController : UIViewController, UITextFieldDelegate
         let pssd = self.passwordTextBox.text!
         
         if(user == ""){
-            usernameTextBox.errorColor = UIColor.red
+            usernameTextBox.errorColor = UIColor(red:0.75, green:0.23, blue:0.19, alpha:1.00)
             usernameTextBox.errorMessage = "Missing Username"
             return
         }
         
         if(pssd == ""){
-            passwordTextBox.errorColor = UIColor.red
+            passwordTextBox.errorColor = UIColor(red:0.75, green:0.23, blue:0.19, alpha:1.00)
             passwordTextBox.errorMessage = "Missing Password"
             return
         }
         
         // attempt to login with API
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateInitialViewController()! as UIViewController
+        self.present(vc, animated: true, completion: nil)
         
     }
     
