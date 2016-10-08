@@ -131,6 +131,8 @@ class FeedViewController : UIViewController, UITableViewDelegate, UITableViewDat
         let upvoteCount = cell.viewWithTag(_upvoteCountID) as! UILabel
         let usernameLabel = cell.viewWithTag(_usernameLabelID) as! UILabel
         
+        cell.selectionStyle = UITableViewCellSelectionStyle.none
+        
         imageView.sd_setImage(with: URL(string: posts[indexPath.row]["imageURL"]!), placeholderImage: _placeHolderUIImage)
         
         upvoteButton.setTitle(_fullHeart, for: .normal)
