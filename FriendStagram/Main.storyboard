@@ -28,17 +28,17 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hbA-yH-dfi">
-                                    <size key="itemSize" width="83" height="136"/>
+                                    <size key="itemSize" width="149" height="136"/>
                                     <size key="headerReferenceSize" width="50" height="341"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="3yo-XT-GFq">
-                                        <rect key="frame" x="0.0" y="341" width="83" height="136"/>
+                                        <rect key="frame" x="0.0" y="341" width="149" height="136"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="83" height="136"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="149" height="136"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="x6h-Tl-Dfa"/>
@@ -50,7 +50,7 @@
                                             <constraint firstItem="x6h-Tl-Dfa" firstAttribute="width" secondItem="3yo-XT-GFq" secondAttribute="width" id="bUh-EB-MfA"/>
                                             <constraint firstItem="x6h-Tl-Dfa" firstAttribute="centerY" secondItem="3yo-XT-GFq" secondAttribute="centerY" id="iu8-Y4-QCy"/>
                                         </constraints>
-                                        <size key="customSize" width="83" height="136"/>
+                                        <size key="customSize" width="149" height="136"/>
                                     </collectionViewCell>
                                 </cells>
                                 <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="headerCell" id="wfs-tP-IeV">
@@ -132,6 +132,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" selectedImage="user" id="caH-De-egQ"/>
                     <navigationItem key="navigationItem" title="Profile" id="WGr-uB-puj"/>
+                    <nil key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="E3b-tt-ls4" id="utd-8k-tdS"/>
                     </connections>
@@ -159,6 +160,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m4x-8i-rPu">
+                                <frame key="frameInset" minX="20" minY="90" width="374" height="394"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h6Z-Vf-Ldi">
                                 <frame key="frameInset" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -166,13 +171,10 @@
                                     <navigationItem title="Photo" id="ayN-ag-Cga"/>
                                 </items>
                             </navigationBar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m4x-8i-rPu">
-                                <frame key="frameInset" minX="20" minY="90" width="374" height="394"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <nil key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="imageView" destination="m4x-8i-rPu" id="MQQ-wI-klJ"/>
                         <outlet property="usernameLabel" destination="iLB-Kr-m9E" id="ikE-bI-c8a"/>
@@ -180,14 +182,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VOA-Nf-Bct" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1907" y="469"/>
+            <point key="canvasLocation" x="1862" y="469"/>
         </scene>
         <!--Item-->
         <scene sceneID="RNm-nh-ThW">
             <objects>
                 <navigationController id="g1B-C2-aNG" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="oSI-cn-k6u"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="79l-ne-3Bz">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="79l-ne-3Bz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -224,7 +226,7 @@
                                         <rect key="frame" x="0.0" y="28" width="414" height="429"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="e2M-cu-N3W" id="iRC-5N-w8d">
-                                            <frame key="frameInset" width="414" height="428"/>
+                                            <frame key="frameInset" width="414" height="428.66666666666669"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pD0-wV-fAf">
