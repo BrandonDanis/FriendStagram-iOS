@@ -146,6 +146,58 @@
             </objects>
             <point key="canvasLocation" x="317.39130434782612" y="457.33695652173918"/>
         </scene>
+        <!--Image View Controller-->
+        <scene sceneID="Vy9-0O-TFx">
+            <objects>
+                <viewController storyboardIdentifier="imageView" id="vbV-O5-2BT" customClass="ImageViewController" customModule="FriendStagram" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="W5w-c4-sRB"/>
+                        <viewControllerLayoutGuide type="bottom" id="MsB-7b-UC0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="IbA-5y-gf5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9vX-cs-xFK">
+                                <frame key="frameInset" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Photo" id="vzk-UM-bR3">
+                                        <barButtonItem key="backBarButtonItem" title="yes" id="dEF-kV-SMe"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m4x-8i-rPu">
+                                <frame key="frameInset" minX="20" minY="131" width="374" height="394"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Person's Name Is Long" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iLB-Kr-m9E">
+                                <frame key="frameInset" minX="20" minY="102" width="374" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MxT-kg-ZKZ">
+                                <frame key="frameInset" minX="184" minY="615" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="testing:" destination="vbV-O5-2BT" eventType="touchUpInside" id="PiC-QD-rYj"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="m4x-8i-rPu" id="MQQ-wI-klJ"/>
+                        <outlet property="usernameLabel" destination="iLB-Kr-m9E" id="ikE-bI-c8a"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VOA-Nf-Bct" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1071.0144927536232" y="456.52173913043481"/>
+        </scene>
         <!--Feed-->
         <scene sceneID="mzR-mK-V0S">
             <objects>
@@ -200,7 +252,7 @@
                                 </prototypes>
                             </tableView>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kjO-R8-J0f">
-                                <frame key="frameInset" height="44"/>
+                                <frame key="frameInset" minX="-0.5" height="44" maxX="0.5"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="FriendStagram" id="P2h-AN-flg"/>

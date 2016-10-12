@@ -32,6 +32,8 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
     
     @IBOutlet var collectionView : UICollectionView!
     
+    @IBOutlet var navigationBar : UINavigationController!
+    
     var following = false
     
     override func viewDidLoad() {
@@ -72,6 +74,8 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
     //setting collection view header
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
+        print("Getting header")
+        
         var reusableview : UICollectionReusableView
             
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "headerCell", for: indexPath)
@@ -101,6 +105,20 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
         reusableview = header
         
         return reusableview
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didEndDisplayingSupplementaryView view: UICollectionReusableView, forElementOfKind elementKind: String, at indexPath: IndexPath) {
+        print("Dealocating header")
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(indexPath)
+        
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "imageView") as! ImageViewController
+        
+        //self.present(vc, animated: true, completion: nil)
+        
+        //self.navigationController!.pushViewController(vc, animated: true)
     }
     
     //set cell sizes
