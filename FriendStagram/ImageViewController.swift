@@ -25,6 +25,8 @@ class ImageViewController: UIViewController {
         
         self.title = "Picture"
         
+        
+        
     }
     
     func setup(imageURL: String, username: String){
