@@ -46,18 +46,18 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
         collectionView.dataSource = self
         
         
-        profileHeaderView.backgroundColor = UIColor.white
-        
-        profilePicture.layer.cornerRadius = profilePicture.frame.size.width/2
-        profilePicture.clipsToBounds = true
-        profilePicture.image = UIImage(named: "bg")
-        
-        followButton.titleLabel!.font = UIFont(name: "FontAwesome", size: 20)
-        followButton.setTitleColor(UIColor.white, for: UIControlState.normal)
-        followButton.setTitleColor(UIColor.white, for: UIControlState.highlighted)
-        followButton.backgroundColor = UIColor.black
-        followButton.layer.cornerRadius = followButton.frame.width/2
-        followButton.setTitle("\u{f067}", for: .normal)
+//        profileHeaderView.backgroundColor = UIColor.white
+//        
+//        profilePicture.layer.cornerRadius = profilePicture.frame.size.width/2
+//        profilePicture.clipsToBounds = true
+//        profilePicture.image = UIImage(named: "bg")
+//        
+//        followButton.titleLabel!.font = UIFont(name: "FontAwesome", size: 20)
+//        followButton.setTitleColor(UIColor.white, for: UIControlState.normal)
+//        followButton.setTitleColor(UIColor.white, for: UIControlState.highlighted)
+//        followButton.backgroundColor = UIColor.black
+//        followButton.layer.cornerRadius = followButton.frame.width/2
+//        followButton.setTitle("\u{f067}", for: .normal)
         
     }
     
@@ -87,6 +87,12 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
         
         return cell
         
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        print("header where are you?")
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "headerCell", for: indexPath) as! UICollectionReusableView
+        return header
     }
     
     //set cell sizes
