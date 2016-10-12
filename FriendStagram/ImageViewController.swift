@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import SDWebImage
 
 class ImageViewController: UIViewController {
     
@@ -15,17 +16,29 @@ class ImageViewController: UIViewController {
     @IBOutlet var usernameLabel : UILabel!
     @IBOutlet var imageView : UIImageView!
     
+    var imageURL : String =  ""
+    var username : String = ""
+    
     override func viewDidLoad() {
+        imageView.sd_setImage(with: URL(string: imageURL), placeholderImage: UIImage(named: "bg"))
+        usernameLabel.text = username
         
+        self.title = "Picture"
         
-        
+    }
+    
+    func setup(imageURL: String, username: String){
+        self.imageURL = imageURL
+        self.username = username
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    @IBAction func testing(_ sender: AnyObject) {
-        self.dismiss(animated: true, completion: {});
+    //removing status bar
+    override var prefersStatusBarHidden: Bool {
+        return true
     }
+    
 }

@@ -32,8 +32,6 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
     
     @IBOutlet var collectionView : UICollectionView!
     
-    @IBOutlet var navigationBar : UINavigationController!
-    
     var following = false
     
     override func viewDidLoad() {
@@ -115,10 +113,9 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
         print(indexPath)
         
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "imageView") as! ImageViewController
+        vc.setup(imageURL: images[indexPath.row], username: "Brandon")
+        self.navigationController?.pushViewController(vc, animated: true)
         
-        //self.present(vc, animated: true, completion: nil)
-        
-        //self.navigationController!.pushViewController(vc, animated: true)
     }
     
     //set cell sizes
