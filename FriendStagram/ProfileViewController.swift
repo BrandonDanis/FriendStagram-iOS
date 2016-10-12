@@ -58,6 +58,7 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
     
     // creating cells
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
         
         let imageView = cell.viewWithTag(1) as! UIImageView
@@ -70,9 +71,11 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
     
     //setting collection view header
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        print("header where are you?")
-        let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "headerCell", for: indexPath)
         
+        var reusableview : UICollectionReusableView
+            
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "headerCell", for: indexPath)
+            
         header.backgroundColor = UIColor.white
         
         let followButton = header.viewWithTag(1) as! UIButton
@@ -80,16 +83,24 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
         followButton.titleLabel!.font = UIFont(name: "FontAwesome", size: 20)
         followButton.setTitleColor(UIColor.white, for: UIControlState.normal)
         followButton.setTitleColor(UIColor.white, for: UIControlState.highlighted)
-        followButton.backgroundColor = UIColor.black
         followButton.layer.cornerRadius = followButton.frame.width/2
-        followButton.setTitle("\u{f067}", for: .normal)
+        
+        if(following){
+            followButton.backgroundColor = UIColor(red:0.22, green:0.79, blue:0.45, alpha:1.00)
+            followButton.setTitle("\u{f00c}", for: .normal)
+        }else{
+            followButton.backgroundColor = UIColor.black
+            followButton.setTitle("\u{f067}", for: .normal)
+        }
         
         let profilePicture = header.viewWithTag(2) as! UIImageView
         profilePicture.layer.cornerRadius = profilePicture.frame.size.width/2
         profilePicture.clipsToBounds = true
         profilePicture.image = UIImage(named: "bg")
+            
+        reusableview = header
         
-        return header
+        return reusableview
     }
     
     //set cell sizes
@@ -108,6 +119,7 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
     }
     
     func followButtonClicked(_ sender: UIButton) {
+        
         if(following){
             following = false
             sender.backgroundColor = UIColor.black
