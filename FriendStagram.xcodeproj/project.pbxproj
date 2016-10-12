@@ -22,6 +22,7 @@
 		CA9A34511DA6DF8700AED7FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA9A344F1DA6DF8700AED7FF /* LaunchScreen.storyboard */; };
 		CA9A345C1DA6DF8700AED7FF /* FriendStagramTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9A345B1DA6DF8700AED7FF /* FriendStagramTests.swift */; };
 		CA9A34671DA6DF8700AED7FF /* FriendStagramUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9A34661DA6DF8700AED7FF /* FriendStagramUITests.swift */; };
+		CAA9B5431DADE6E40060FF32 /* ProfileHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA9B5421DADE6E40060FF32 /* ProfileHeaderCell.swift */; };
 		CAB28E2F1DA7336500298E78 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB28E2E1DA7336500298E78 /* ProfileViewController.swift */; };
 		CC9A817D208CA36DC2AB0AB0 /* Pods_FriendStagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBB33C1F5D209993F1368EC3 /* Pods_FriendStagram.framework */; };
 		D7CA04E8B0E7724CBF4EC34B /* Pods_FriendStagramTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 978EDBC8704C59C81AA35EEF /* Pods_FriendStagramTests.framework */; };
@@ -71,6 +72,7 @@
 		CA9A34621DA6DF8700AED7FF /* FriendStagramUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FriendStagramUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA9A34661DA6DF8700AED7FF /* FriendStagramUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendStagramUITests.swift; sourceTree = "<group>"; };
 		CA9A34681DA6DF8700AED7FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CAA9B5421DADE6E40060FF32 /* ProfileHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileHeaderCell.swift; sourceTree = "<group>"; };
 		CAB28E2E1DA7336500298E78 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		EB0743F8E5D65CA270DF0E93 /* Pods-FriendStagramUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendStagramUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FriendStagramUITests/Pods-FriendStagramUITests.release.xcconfig"; sourceTree = "<group>"; };
 		EBB33C1F5D209993F1368EC3 /* Pods_FriendStagram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FriendStagram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -175,6 +177,7 @@
 				CA42EF9C1DA7246E0067176D /* FeedViewController.swift */,
 				CA42EF9E1DA7266A0067176D /* MainTabBarController.swift */,
 				CAB28E2E1DA7336500298E78 /* ProfileViewController.swift */,
+				CAA9B5421DADE6E40060FF32 /* ProfileHeaderCell.swift */,
 			);
 			path = FriendStagram;
 			sourceTree = "<group>";
@@ -486,6 +489,7 @@
 				CA63DF7C1DA6E2BC00F57C81 /* LoginViewController.swift in Sources */,
 				CA9A34491DA6DF8700AED7FF /* ViewController.swift in Sources */,
 				CA9A34471DA6DF8700AED7FF /* AppDelegate.swift in Sources */,
+				CAA9B5431DADE6E40060FF32 /* ProfileHeaderCell.swift in Sources */,
 				CA42EF9F1DA7266A0067176D /* MainTabBarController.swift in Sources */,
 				CA63DF7E1DA6E35B00F57C81 /* RegisterViewController.swift in Sources */,
 				CA42EF9D1DA7246E0067176D /* FeedViewController.swift in Sources */,
