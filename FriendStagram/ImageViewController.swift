@@ -12,9 +12,14 @@ import SDWebImage
 
 class ImageViewController: UIViewController {
     
+    let _emptyHeart : String = "\u{f08a}"
+    let _fullHeart : String = "\u{f004}"
     
     @IBOutlet var usernameLabel : UILabel!
     @IBOutlet var imageView : UIImageView!
+    @IBOutlet var likeButton : UIButton!
+    @IBOutlet var likeCount : UILabel!
+    @IBOutlet var descriptionTextView : UITextView!
     
     var imageURL : String =  ""
     var username : String = ""
@@ -25,7 +30,12 @@ class ImageViewController: UIViewController {
         
         self.title = "Picture"
         
+        likeButton.titleLabel?.font = UIFont(name: "FontAwesome", size: 17)
+        likeButton.setTitle(_emptyHeart, for: .normal)
+        likeButton.setTitleColor(UIColor.red, for: .normal)
         
+        descriptionTextView.isScrollEnabled = false
+        descriptionTextView.isEditable = false
         
     }
     
