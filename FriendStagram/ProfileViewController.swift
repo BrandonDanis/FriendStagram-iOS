@@ -115,7 +115,7 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
         print(indexPath)
         
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "imageView") as! ImageViewController
-        vc.setup(imageURL: images[indexPath.row], username: "Brandon")
+        vc.setup(imageURL: images[indexPath.row], username: "Person's Name Is Too Long")
         self.navigationController?.pushViewController(vc, animated: true)
         
     }

@@ -15,7 +15,7 @@ class ImageViewController: UIViewController {
     let _emptyHeart : String = "\u{f08a}"
     let _fullHeart : String = "\u{f004}"
     
-    @IBOutlet var usernameLabel : UILabel!
+    @IBOutlet var usernameButton : UIButton!
     @IBOutlet var imageView : UIImageView!
     @IBOutlet var likeButton : UIButton!
     @IBOutlet var likeCount : UILabel!
@@ -25,8 +25,10 @@ class ImageViewController: UIViewController {
     var username : String = ""
     
     override func viewDidLoad() {
+        
         imageView.sd_setImage(with: URL(string: imageURL), placeholderImage: UIImage(named: "bg"))
-        usernameLabel.text = username
+        
+        usernameButton.setTitle(username, for: .normal)
         
         self.title = "Picture"
         
@@ -51,6 +53,14 @@ class ImageViewController: UIViewController {
     //removing status bar
     override var prefersStatusBarHidden: Bool {
         return true
+    }
+    
+    @IBAction func usernamePressed(sender: Any?){
+        
+        let vc = storyboard?.instantiateViewController(withIdentifier: "profileView") as! ProfileViewController
+        
+        self.navigationController?.pushViewController(vc, animated: true)
+        
     }
     
 }
