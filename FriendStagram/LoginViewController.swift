@@ -40,9 +40,9 @@ class LoginViewController : UIViewController, UITextFieldDelegate
         self.view.insertSubview(dim, aboveSubview: bg)
         
         // setting up title label
-        //titleLabel.font = UIFont(name: "FontAwesome", size: 110)
+        titleLabel.font = UIFont(name: "Billabong", size: 60)
         titleLabel.textColor = UIColor.white
-        titleLabel.text = "FriendStagram"
+        titleLabel.text = "Friendstagram"
         
         // setting this view controller as textField delegate
         usernameTextBox.delegate = self

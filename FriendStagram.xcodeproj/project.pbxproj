@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		BB5FF035D0000D455E1A6501 /* Pods_FriendStagramUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F2BF24B07344D411E7F1FBE /* Pods_FriendStagramUITests.framework */; };
 		CA38BB7A1DB0932B00AB161B /* UserListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA38BB791DB0932B00AB161B /* UserListView.swift */; };
+		CA38BB7C1DB158DA00AB161B /* Billabong.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA38BB7B1DB158DA00AB161B /* Billabong.ttf */; };
 		CA42EF9B1DA7210E0067176D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA42EF9A1DA7210E0067176D /* Main.storyboard */; };
 		CA42EF9D1DA7246E0067176D /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA42EF9C1DA7246E0067176D /* FeedViewController.swift */; };
 		CA42EF9F1DA7266A0067176D /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA42EF9E1DA7266A0067176D /* MainTabBarController.swift */; };
@@ -54,6 +55,7 @@
 		978EDBC8704C59C81AA35EEF /* Pods_FriendStagramTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FriendStagramTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8CE5AEC226D5B8F7B1AF90D /* Pods-FriendStagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendStagram.release.xcconfig"; path = "Pods/Target Support Files/Pods-FriendStagram/Pods-FriendStagram.release.xcconfig"; sourceTree = "<group>"; };
 		CA38BB791DB0932B00AB161B /* UserListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListView.swift; sourceTree = "<group>"; };
+		CA38BB7B1DB158DA00AB161B /* Billabong.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Billabong.ttf; sourceTree = "<group>"; };
 		CA42EF9A1DA7210E0067176D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		CA42EF9C1DA7246E0067176D /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		CA42EF9E1DA7266A0067176D /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 		CA63DF831DA6F79D00F57C81 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				CA38BB7B1DB158DA00AB161B /* Billabong.ttf */,
 				CA63DF811DA6E89700F57C81 /* FontAwesome.otf */,
 			);
 			name = Fonts;
@@ -322,6 +325,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA38BB7C1DB158DA00AB161B /* Billabong.ttf in Resources */,
 				CA63DF821DA6F76900F57C81 /* FontAwesome.otf in Resources */,
 				CA42EF9B1DA7210E0067176D /* Main.storyboard in Resources */,
 				CA9A34511DA6DF8700AED7FF /* LaunchScreen.storyboard in Resources */,

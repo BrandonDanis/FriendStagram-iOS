@@ -91,6 +91,7 @@ class FeedViewController : UIViewController, UITableViewDelegate, UITableViewDat
     
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var postListView : UITableView!
+    @IBOutlet var navigationBar : UINavigationBar!
     
     let _uiImageID = 1
     let _upvoteButtonID = 2
@@ -107,6 +108,8 @@ class FeedViewController : UIViewController, UITableViewDelegate, UITableViewDat
         
         postListView.delegate = self
         postListView.dataSource = self
+        
+        navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Billabong", size: 28)!,  NSForegroundColorAttributeName: UIColor.black]
         
     }
     
