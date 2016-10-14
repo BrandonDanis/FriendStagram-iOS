@@ -20,7 +20,7 @@ class ImageViewController: UIViewController {
     @IBOutlet var usernameButton : UIButton!
     @IBOutlet var imageView : UIImageView!
     @IBOutlet var likeButton : UIButton!
-    @IBOutlet var likeCount : UILabel!
+    @IBOutlet var likeCountButton : UIButton!
     @IBOutlet var descriptionTextView : UITextView!
     
     var imageURL : String =  ""
@@ -75,6 +75,11 @@ class ImageViewController: UIViewController {
             sender.setTitle(_fullHeart, for: .normal)
         }
         
+    }
+    
+    @IBAction func likeCountClicked(sender: UIButton){
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "userListView") as! UserListView
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
 }

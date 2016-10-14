@@ -180,13 +180,6 @@
                                     <action selector="likeButtonClickedWithSender:" destination="vbV-O5-2BT" eventType="touchUpInside" id="qeB-fu-YKL"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1234 likes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dy3-M5-A7w">
-                                <frame key="frameInset" minX="58" minY="497" width="201" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6A4-HK-N6u">
                                 <frame key="frameInset" minX="20" minY="63" width="374" height="19"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -198,6 +191,17 @@
                                     <action selector="usernamePressedWithSender:" destination="vbV-O5-2BT" eventType="touchUpInside" id="E4u-zS-rYL"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tzx-A0-tHW">
+                                <frame key="frameInset" minX="58" minY="492" width="94" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                <state key="normal" title="1234 Likes">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="likeCountClickedWithSender:" destination="vbV-O5-2BT" eventType="touchUpInside" id="EwH-Wc-UV2"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -206,7 +210,7 @@
                         <outlet property="descriptionTextView" destination="uhe-1E-Aat" id="6FR-17-rFf"/>
                         <outlet property="imageView" destination="m4x-8i-rPu" id="MQQ-wI-klJ"/>
                         <outlet property="likeButton" destination="Pkm-Rz-bjm" id="Geb-nz-32X"/>
-                        <outlet property="likeCount" destination="dy3-M5-A7w" id="X17-gw-WIt"/>
+                        <outlet property="likeCountButton" destination="Tzx-A0-tHW" id="32g-z3-lJs"/>
                         <outlet property="usernameButton" destination="6A4-HK-N6u" id="wkt-mm-lGb"/>
                     </connections>
                 </viewController>
@@ -217,7 +221,7 @@
         <!--User List View-->
         <scene sceneID="Yr1-og-IOB">
             <objects>
-                <viewController id="rQa-Fh-Jxi" customClass="UserListView" customModule="FriendStagram" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="userListView" id="rQa-Fh-Jxi" customClass="UserListView" customModule="FriendStagram" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="peY-cS-RWv"/>
                         <viewControllerLayoutGuide type="bottom" id="Cru-Ei-eqZ"/>
@@ -226,34 +230,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="68" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="98q-U7-OIw">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="52" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="98q-U7-OIw">
                                 <frame key="frameInset" width="414" height="736"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="68" id="dFS-eW-sqT">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="68"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="52" id="dFS-eW-sqT">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="52"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dFS-eW-sqT" id="hrG-ay-ezT">
-                                            <frame key="frameInset" width="414" height="67.666666666666671"/>
+                                            <frame key="frameInset" width="414" height="51.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X3p-z9-1Ra">
-                                                    <frame key="frameInset" minX="8" minY="3" width="60" height="60"/>
+                                                    <frame key="frameInset" minX="8" minY="3" width="45" height="45"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Person's Very Looooong Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tcr-gh-A9s">
-                                                    <frame key="frameInset" minX="76" minY="8" width="255" height="55"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bdanis" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u5m-s8-HCT">
+                                                    <frame key="frameInset" minX="61" minY="26" width="255" height="19"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
+                                                    <color key="textColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bJt-Z3-tyl">
+                                                    <frame key="frameInset" minX="366" minY="5" width="40" height="40"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="&lt;3"/>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Brandon Danis" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tcr-gh-A9s">
+                                                    <frame key="frameInset" minX="61" minY="8" width="255" height="24"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bJt-Z3-tyl">
-                                                    <frame key="frameInset" minX="346" minY="3" width="60" height="60"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="&lt;3"/>
-                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
