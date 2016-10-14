@@ -176,6 +176,9 @@
                                 <frame key="frameInset" minX="20" minY="492" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="&lt;3"/>
+                                <connections>
+                                    <action selector="likeButtonClickedWithSender:" destination="vbV-O5-2BT" eventType="touchUpInside" id="qeB-fu-YKL"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1234 likes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dy3-M5-A7w">
                                 <frame key="frameInset" minX="58" minY="497" width="201" height="21"/>
@@ -253,7 +256,7 @@
                                         <rect key="frame" x="0.0" y="28" width="414" height="429"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="e2M-cu-N3W" id="iRC-5N-w8d">
-                                            <frame key="frameInset" width="414" height="428.66666666666669"/>
+                                            <frame key="frameInset" width="414" height="428.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pD0-wV-fAf">

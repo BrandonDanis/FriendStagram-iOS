@@ -15,6 +15,8 @@ class ImageViewController: UIViewController {
     let _emptyHeart : String = "\u{f08a}"
     let _fullHeart : String = "\u{f004}"
     
+    var following = false
+    
     @IBOutlet var usernameButton : UIButton!
     @IBOutlet var imageView : UIImageView!
     @IBOutlet var likeButton : UIButton!
@@ -60,6 +62,18 @@ class ImageViewController: UIViewController {
         let vc = storyboard?.instantiateViewController(withIdentifier: "profileView") as! ProfileViewController
         
         self.navigationController?.pushViewController(vc, animated: true)
+
+    }
+    
+    @IBAction func likeButtonClicked(sender: UIButton) {
+        
+        if(following){
+            following = false
+            sender.setTitle(_emptyHeart, for: .normal)
+        }else{
+            following = true
+            sender.setTitle(_fullHeart, for: .normal)
+        }
         
     }
     
