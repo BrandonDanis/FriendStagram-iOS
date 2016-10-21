@@ -127,10 +127,11 @@ class FeedViewController : UIViewController, UITableViewDelegate, UITableViewDat
         
         let cell = postListView.dequeueReusableCell(withIdentifier: "basicCell", for: indexPath)
         
+        print(indexPath.row)
         let imageView = cell.viewWithTag(_uiImageID) as! UIImageView
         let upvoteButton = cell.viewWithTag(_upvoteButtonID) as! UIButton
         let upvoteCount = cell.viewWithTag(_upvoteCountID) as! UILabel
-        
+        let usernameButton = cell.viewWithTag(_usernameButtonID) as! UIButton
         
         
         cell.selectionStyle = UITableViewCellSelectionStyle.none
@@ -142,11 +143,11 @@ class FeedViewController : UIViewController, UITableViewDelegate, UITableViewDat
         upvoteButton.setTitleColor(UIColor.red, for: .normal)
         
         // username button attributes
-        let usernameButton = cell.viewWithTag(_usernameButtonID) as! UIButton
         usernameButton.setTitle(posts[indexPath.row]["user"], for: .normal)
         usernameButton.tintColor = UIColor.black
-        usernameButton.addTarget(self, action: #selector(usernameButtonClicked(_:)), for: .touchUpInside)
-        usernameButton.tag = indexPath.row
+        //usernameButton.addTarget(self, action: #selector(usernameButtonClicked(_:)), for: .touchUpInside)
+        //usernameButton.tag = indexPath.row // will make listview crash
+        
         
         upvoteCount.text = posts[indexPath.row]["likes"]! + " likes"
         
