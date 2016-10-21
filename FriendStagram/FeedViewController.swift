@@ -145,7 +145,7 @@ class FeedViewController : UIViewController, UITableViewDelegate, UITableViewDat
         // username button attributes
         usernameButton.setTitle(posts[indexPath.row]["user"], for: .normal)
         usernameButton.tintColor = UIColor.black
-        //usernameButton.addTarget(self, action: #selector(usernameButtonClicked(_:)), for: .touchUpInside)
+        usernameButton.addTarget(self, action: #selector(usernameButtonClicked(_:)), for: .touchUpInside)
         //usernameButton.tag = indexPath.row // will make listview crash
         
         
@@ -157,8 +157,6 @@ class FeedViewController : UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func usernameButtonClicked(_ sender: UIButton){
-        let index = sender.tag
-        print("Index: ",index)
         
     }
     
