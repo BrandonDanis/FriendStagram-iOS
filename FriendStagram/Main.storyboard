@@ -20,7 +20,7 @@
                         <viewControllerLayoutGuide type="bottom" id="NDj-Dz-b57"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="sPc-Ew-Ddk">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="E3b-tt-ls4">
@@ -150,7 +150,7 @@
                         <viewControllerLayoutGuide type="bottom" id="MsB-7b-UC0"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="IbA-5y-gf5">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m4x-8i-rPu">
@@ -227,7 +227,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Cru-Ei-eqZ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="xCn-4Z-M9h">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="52" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="98q-U7-OIw">
@@ -239,7 +239,7 @@
                                         <rect key="frame" x="0.0" y="28" width="414" height="52"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dFS-eW-sqT" id="hrG-ay-ezT">
-                                            <frame key="frameInset" width="414" height="51"/>
+                                            <frame key="frameInset" width="414" height="51.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X3p-z9-1Ra">
@@ -311,7 +311,7 @@
                         <viewControllerLayoutGuide type="bottom" id="byL-J4-Gq4"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="3u4-Xx-1OK">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="434" sectionHeaderHeight="28" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="zCB-l1-urn">
@@ -323,7 +323,7 @@
                                         <rect key="frame" x="0.0" y="72" width="414" height="434"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="e2M-cu-N3W" id="iRC-5N-w8d">
-                                            <frame key="frameInset" width="414" height="433"/>
+                                            <frame key="frameInset" width="414" height="433.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pD0-wV-fAf">
@@ -398,6 +398,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hAO-r4-VMd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="BJt-8D-ZvX" kind="relationship" relationship="rootViewController" id="dQW-zh-rhi"/>

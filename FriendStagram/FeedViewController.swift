@@ -108,6 +108,9 @@ class FeedViewController : UIViewController, UITableViewDelegate, UITableViewDat
         postListView.dataSource = self
         
         self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Billabong", size: 28)!,  NSForegroundColorAttributeName: UIColor.black]
+        self.navigationController?.navigationBar.tintColor = UIColor.black
+        
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
     }
     
