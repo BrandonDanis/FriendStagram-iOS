@@ -32,6 +32,8 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
     
     @IBOutlet var collectionView : UICollectionView!
     
+    var _username : String = "A Very Long Username"
+    
     var following = false
     
     override func viewDidLoad() {
@@ -42,6 +44,10 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
+    }
+    
+    func setupFriendProfile(username: String){
+        _username = username
     }
     
     override func didReceiveMemoryWarning() {
@@ -89,6 +95,9 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
         followButton.setTitleColor(UIColor.white, for: UIControlState.highlighted)
         followButton.layer.cornerRadius = followButton.frame.width/2
         
+        let usernameLabel = header.viewWithTag(3) as! UILabel
+        usernameLabel.text = _username
+        
         if(following){
             followButton.backgroundColor = UIColor(red:0.22, green:0.79, blue:0.45, alpha:1.00)
             followButton.setTitle("\u{f00c}", for: .normal)
@@ -107,7 +116,8 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
         return reusableview
     }
     
-    func collectionView(_ collectionView: UICollectionView, didEndDisplayingSupplementaryView view: UICollectionReusableView, forElementOfKind elementKind: String, at indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didEndDisplayingSupplementaryView view: UICollectionReusableView, forElementOfKind elementKind: String, at indexPath: IndexPath)
+    {
         print("Dealocating header")
     }
     
@@ -115,7 +125,7 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
         print(indexPath)
         
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "imageView") as! ImageViewController
-        vc.setup(imageURL: images[indexPath.row], username: "Person's Name Is Too Long")
+        vc.setup(imageURL: images[indexPath.row], username: _username)
         self.navigationController?.pushViewController(vc, animated: true)
         
     }
