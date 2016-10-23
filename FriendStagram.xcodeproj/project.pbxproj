@@ -54,7 +54,7 @@
 		69F22E5B61FCF4318B9B2265 /* Pods-FriendStagram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendStagram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FriendStagram/Pods-FriendStagram.debug.xcconfig"; sourceTree = "<group>"; };
 		978EDBC8704C59C81AA35EEF /* Pods_FriendStagramTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FriendStagramTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8CE5AEC226D5B8F7B1AF90D /* Pods-FriendStagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendStagram.release.xcconfig"; path = "Pods/Target Support Files/Pods-FriendStagram/Pods-FriendStagram.release.xcconfig"; sourceTree = "<group>"; };
-		CA38BB791DB0932B00AB161B /* UserListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListView.swift; sourceTree = "<group>"; };
+		CA38BB791DB0932B00AB161B /* UserListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserListView.swift; path = ../UserListView.swift; sourceTree = "<group>"; };
 		CA38BB7B1DB158DA00AB161B /* Billabong.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Billabong.ttf; sourceTree = "<group>"; };
 		CA42EF9A1DA7210E0067176D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		CA42EF9C1DA7246E0067176D /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
@@ -146,7 +146,6 @@
 		CA9A343A1DA6DF8700AED7FF = {
 			isa = PBXGroup;
 			children = (
-				CA38BB791DB0932B00AB161B /* UserListView.swift */,
 				CA9A34451DA6DF8700AED7FF /* FriendStagram */,
 				CA9A345A1DA6DF8700AED7FF /* FriendStagramTests */,
 				CA9A34651DA6DF8700AED7FF /* FriendStagramUITests */,
@@ -175,6 +174,7 @@
 				CA63DF7B1DA6E2BC00F57C81 /* LoginViewController.swift */,
 				CA63DF7D1DA6E35B00F57C81 /* RegisterViewController.swift */,
 				CA63DF7F1DA6E48900F57C81 /* StartupViewController.swift */,
+				CA38BB791DB0932B00AB161B /* UserListView.swift */,
 				CA9A344A1DA6DF8700AED7FF /* Login.storyboard */,
 				CA9A344D1DA6DF8700AED7FF /* Assets.xcassets */,
 				CA9A344F1DA6DF8700AED7FF /* LaunchScreen.storyboard */,

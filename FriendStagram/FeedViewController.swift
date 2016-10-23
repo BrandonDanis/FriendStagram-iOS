@@ -156,8 +156,11 @@ class FeedViewController : UIViewController, UITableViewDelegate, UITableViewDat
         
     }
     
+    // uses button postion within list view to figure out what row it is.
     func usernameButtonClicked(_ sender: UIButton){
-        
+        let position : CGPoint = sender.convert(CGPoint.zero, to: self.postListView)
+        let indexPath = self.postListView.indexPathForRow(at: position)
+        print(indexPath?.row)
     }
     
 }
