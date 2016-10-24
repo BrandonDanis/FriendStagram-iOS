@@ -27,7 +27,11 @@ class MainTabBarViewController : UITabBarController {
         
         tabBarItems[1].title = nil
         tabBarItems[1].imageInsets = UIEdgeInsetsMake(6,0,-6,0)
-        tabBarItems[1].image = UIImage(named: "user")
+        tabBarItems[1].image = UIImage(named: "camera")
+        
+        tabBarItems[2].title = nil
+        tabBarItems[2].imageInsets = UIEdgeInsetsMake(6,0,-6,0)
+        tabBarItems[2].image = UIImage(named: "user")
         
     }
     
