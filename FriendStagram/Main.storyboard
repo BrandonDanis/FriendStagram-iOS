@@ -29,10 +29,10 @@
             </objects>
             <point key="canvasLocation" x="316" y="133"/>
         </scene>
-        <!--View Controller-->
+        <!--Camera View Controller-->
         <scene sceneID="umn-fF-EI3">
             <objects>
-                <viewController id="oWe-hU-t2P" sceneMemberID="viewController">
+                <viewController id="oWe-hU-t2P" customClass="CameraViewController" customModule="FriendStagram" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="m3N-mM-pWZ"/>
                         <viewControllerLayoutGuide type="bottom" id="5ef-LI-wU2"/>
@@ -41,6 +41,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ktc-Tv-XxI">
+                                <frame key="frameInset" width="414" height="687"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Picture View" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bCf-zI-CNc">
                                 <frame key="frameInset" minX="20" minY="358" width="374" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -50,8 +54,17 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ktc-Tv-XxI" firstAttribute="centerY" secondItem="MNI-Bl-c1d" secondAttribute="centerY" id="Azg-Ld-SdT"/>
+                            <constraint firstItem="ktc-Tv-XxI" firstAttribute="height" secondItem="MNI-Bl-c1d" secondAttribute="height" id="Plb-ci-Vyn"/>
+                            <constraint firstItem="ktc-Tv-XxI" firstAttribute="centerX" secondItem="MNI-Bl-c1d" secondAttribute="centerX" id="U3w-3d-Iur"/>
+                            <constraint firstItem="ktc-Tv-XxI" firstAttribute="width" secondItem="MNI-Bl-c1d" secondAttribute="width" id="b04-7Q-RaK"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="74e-1v-jRb"/>
+                    <connections>
+                        <outlet property="cameraView" destination="ktc-Tv-XxI" id="B2D-i3-2IQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h3g-33-CiW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
