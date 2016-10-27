@@ -61,12 +61,29 @@
                                     <action selector="swapCamera:" destination="oWe-hU-t2P" eventType="touchUpInside" id="71y-pY-6ao"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Esq-i0-czk">
+                                <frame key="frameInset" minX="10" minY="10" width="48" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancelPicture:" destination="oWe-hU-t2P" eventType="touchUpInside" id="fvS-of-vy0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qon-Cs-kx1">
+                                <frame key="frameInset" minX="165" minY="649" width="85" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Take Picture"/>
+                                <connections>
+                                    <action selector="takePicture:" destination="oWe-hU-t2P" eventType="touchUpInside" id="WTm-12-NAc"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="74e-1v-jRb"/>
                     <connections>
                         <outlet property="cameraView" destination="ktc-Tv-XxI" id="B2D-i3-2IQ"/>
+                        <outlet property="cancelButton" destination="Esq-i0-czk" id="fn8-EK-7ER"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h3g-33-CiW" userLabel="First Responder" sceneMemberID="firstResponder"/>

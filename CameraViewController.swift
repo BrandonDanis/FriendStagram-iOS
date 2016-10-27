@@ -14,8 +14,11 @@ import CameraManager
 class CameraViewController : UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet var cameraView : UIView!
+    @IBOutlet var cancelButton: UIButton!
     
     var frontFacing : Bool = false
+    
+    var myImage : UIImage!
     
     let cameraManager = CameraManager()
     
@@ -27,8 +30,14 @@ class CameraViewController : UIViewController, UIImagePickerControllerDelegate, 
         super.viewWillAppear(true)
         
         cameraManager.addPreviewLayerToView(self.cameraView)
-        cameraManager.cameraDevice = .front
+        cameraManager.cameraDevice = .back
         cameraManager.cameraOutputMode = .videoOnly
+        cameraManager.cameraOutputQuality = .high
+        
+        cancelButton.isHidden = true
+        cancelButton.isUserInteractionEnabled = false
+        
+        cameraManager.showAccessPermissionPopupAutomatically = true
         
     }
     
@@ -44,6 +53,18 @@ class CameraViewController : UIViewController, UIImagePickerControllerDelegate, 
             frontFacing = true
         }
         
+    }
+    
+    @IBAction func takePicture(_ sender: AnyObject) {
+        cameraManager.capturePictureWithCompletion({ (image, error) -> Void in
+            self.myImage = image
+        })
+    }
+    
+    @IBAction func cancelPicture(_ sender: AnyObject) {
+        cameraManager.cameraOutputMode = .videoOnly
+        cancelButton.isHidden = true
+        cancelButton.isUserInteractionEnabled = false
     }
     
 }
