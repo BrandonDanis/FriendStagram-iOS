@@ -9,15 +9,15 @@
 import Foundation
 import UIKit
 import AVFoundation
+import CameraManager
 
 class CameraViewController : UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet var cameraView : UIView!
     
-    var captureSession : AVCaptureSession?
-    var stillImageOutput : AVCapturePhotoOutput?
-    var previewLayer : AVCaptureVideoPreviewLayer?
+    var frontFacing : Bool = false
     
+    let cameraManager = CameraManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,29 +26,23 @@ class CameraViewController : UIViewController, UIImagePickerControllerDelegate, 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        captureSession = AVCaptureSession()
-        captureSession?.sessionPreset = AVCaptureSessionPreset1920x1080
+        cameraManager.addPreviewLayerToView(self.cameraView)
+        cameraManager.cameraDevice = .front
+        cameraManager.cameraOutputMode = .videoOnly
         
-        let backCamera = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
+    }
+    
+    
+    
+    @IBAction func swapCamera(_ sender: AnyObject) {
         
-        let input = try? AVCaptureDeviceInput(device: backCamera)
-        
-        captureSession?.addInput(input)
-        
-        stillImageOutput = AVCapturePhotoOutput()
-        
-        
-        
-        if(captureSession?.canAddOutput(stillImageOutput) != nil){
-            captureSession?.addOutput(stillImageOutput)
-            previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-            previewLayer?.videoGravity = AVLayerVideoGravityResizeAspect
-            previewLayer?.connection.videoOrientation = AVCaptureVideoOrientation.portrait
-            cameraView.layer.addSublayer(previewLayer!)
-            captureSession?.startRunning()
-            print("Success?")
+        if(frontFacing){
+            cameraManager.cameraDevice = .back
+            frontFacing = false
+        }else{
+            cameraManager.cameraDevice = .front
+            frontFacing = true
         }
-        
         
     }
     

@@ -17,7 +17,7 @@
                 <navigationController navigationBarHidden="YES" id="EDo-03-4Om" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="G4u-yd-upi"/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mQO-7w-ev1">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="mQO-7w-ev1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -41,8 +41,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ktc-Tv-XxI">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ktc-Tv-XxI">
                                 <frame key="frameInset" width="414" height="687"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Picture View" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bCf-zI-CNc">
@@ -52,14 +53,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DmQ-dY-K37">
+                                <frame key="frameInset" minX="350" minY="10" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Swap"/>
+                                <connections>
+                                    <action selector="swapCamera:" destination="oWe-hU-t2P" eventType="touchUpInside" id="71y-pY-6ao"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="ktc-Tv-XxI" firstAttribute="centerY" secondItem="MNI-Bl-c1d" secondAttribute="centerY" id="Azg-Ld-SdT"/>
-                            <constraint firstItem="ktc-Tv-XxI" firstAttribute="height" secondItem="MNI-Bl-c1d" secondAttribute="height" id="Plb-ci-Vyn"/>
-                            <constraint firstItem="ktc-Tv-XxI" firstAttribute="centerX" secondItem="MNI-Bl-c1d" secondAttribute="centerX" id="U3w-3d-Iur"/>
-                            <constraint firstItem="ktc-Tv-XxI" firstAttribute="width" secondItem="MNI-Bl-c1d" secondAttribute="width" id="b04-7Q-RaK"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="74e-1v-jRb"/>
                     <connections>
@@ -298,7 +301,7 @@
                                         <rect key="frame" x="0.0" y="28" width="414" height="52"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dFS-eW-sqT" id="hrG-ay-ezT">
-                                            <frame key="frameInset" width="414" height="51"/>
+                                            <frame key="frameInset" width="414" height="51.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X3p-z9-1Ra">
@@ -345,7 +348,7 @@
             <objects>
                 <navigationController id="g1B-C2-aNG" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="oSI-cn-k6u"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="79l-ne-3Bz">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="79l-ne-3Bz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -382,7 +385,7 @@
                                         <rect key="frame" x="0.0" y="72" width="414" height="434"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="e2M-cu-N3W" id="iRC-5N-w8d">
-                                            <frame key="frameInset" width="414" height="433"/>
+                                            <frame key="frameInset" width="414" height="433.66666666666669"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pD0-wV-fAf">
@@ -455,7 +458,7 @@
             <objects>
                 <navigationController id="HcI-Wf-8Jj" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="uQF-lL-LHc"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hAO-r4-VMd">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="hAO-r4-VMd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>

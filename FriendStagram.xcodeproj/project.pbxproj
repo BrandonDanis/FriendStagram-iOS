@@ -60,7 +60,7 @@
 		CA42EF9A1DA7210E0067176D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		CA42EF9C1DA7246E0067176D /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		CA42EF9E1DA7266A0067176D /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
-		CA5842211DBDC4970071C28B /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		CA5842211DBDC4970071C28B /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CameraViewController.swift; path = ../CameraViewController.swift; sourceTree = "<group>"; };
 		CA63DF7B1DA6E2BC00F57C81 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CA63DF7D1DA6E35B00F57C81 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		CA63DF7F1DA6E48900F57C81 /* StartupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartupViewController.swift; sourceTree = "<group>"; };
@@ -148,7 +148,6 @@
 		CA9A343A1DA6DF8700AED7FF = {
 			isa = PBXGroup;
 			children = (
-				CA5842211DBDC4970071C28B /* CameraViewController.swift */,
 				CA9A34451DA6DF8700AED7FF /* FriendStagram */,
 				CA9A345A1DA6DF8700AED7FF /* FriendStagramTests */,
 				CA9A34651DA6DF8700AED7FF /* FriendStagramUITests */,
@@ -175,6 +174,7 @@
 				CA9A34461DA6DF8700AED7FF /* AppDelegate.swift */,
 				CA9A34481DA6DF8700AED7FF /* ViewController.swift */,
 				CA63DF7B1DA6E2BC00F57C81 /* LoginViewController.swift */,
+				CA5842211DBDC4970071C28B /* CameraViewController.swift */,
 				CA63DF7D1DA6E35B00F57C81 /* RegisterViewController.swift */,
 				CA63DF7F1DA6E48900F57C81 /* StartupViewController.swift */,
 				CA38BB791DB0932B00AB161B /* UserListView.swift */,
