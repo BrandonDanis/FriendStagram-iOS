@@ -6,6 +6,7 @@ PODS:
   - SDWebImage/Core (3.8.2)
   - SkyFloatingLabelTextField (1.2.1)
   - Spring (1.0.3)
+  - SwiftyJSON (3.1.0)
 
 DEPENDENCIES:
   - Alamofire
@@ -13,6 +14,7 @@ DEPENDENCIES:
   - SDWebImage
   - SkyFloatingLabelTextField (from `https://github.com/MLSDev/SkyFloatingLabelTextField.git`, branch `swift3`)
   - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift3`)
+  - SwiftyJSON
 
 EXTERNAL SOURCES:
   SkyFloatingLabelTextField:
@@ -36,7 +38,8 @@ SPEC CHECKSUMS:
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   SkyFloatingLabelTextField: 3f6610aded18e778df5cfab3b9e12a11b3e014e9
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
+  SwiftyJSON: 29b9f2a64f118c07e691667c2ba1efe536acfe0b
 
-PODFILE CHECKSUM: 0aaba3434cf00ff97bdd869168f1fb0f33245271
+PODFILE CHECKSUM: a8a998f4b37bfd6fc3c7260c94b1943a7c78b70e
 
 COCOAPODS: 1.1.0.rc.2

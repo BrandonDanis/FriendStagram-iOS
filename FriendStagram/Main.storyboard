@@ -20,7 +20,7 @@
                 <navigationController navigationBarHidden="YES" id="EDo-03-4Om" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="G4u-yd-upi"/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="mQO-7w-ev1">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mQO-7w-ev1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -186,9 +186,14 @@
                                             <color key="textColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg2" translatesAutoresizingMaskIntoConstraints="NO" id="5co-k1-3XL">
+                                        <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg2" translatesAutoresizingMaskIntoConstraints="NO" id="5co-k1-3XL" customClass="SpringImageView" customModule="Spring">
                                             <rect key="frame" x="141" y="22" width="133" height="133"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="autohide" value="YES"/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="animation" value="slideDown"/>
+                                            </userDefinedRuntimeAttributes>
                                         </imageView>
                                         <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g70-HF-OKf">
                                             <rect key="frame" x="361" y="8" width="45" height="45"/>
@@ -358,7 +363,7 @@
             <objects>
                 <navigationController id="g1B-C2-aNG" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="oSI-cn-k6u"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="79l-ne-3Bz">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="79l-ne-3Bz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -468,7 +473,7 @@
             <objects>
                 <navigationController id="HcI-Wf-8Jj" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="uQF-lL-LHc"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="hAO-r4-VMd">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hAO-r4-VMd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>

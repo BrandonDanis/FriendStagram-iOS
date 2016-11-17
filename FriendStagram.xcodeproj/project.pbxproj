@@ -18,6 +18,7 @@
 		CA63DF7E1DA6E35B00F57C81 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA63DF7D1DA6E35B00F57C81 /* RegisterViewController.swift */; };
 		CA63DF801DA6E48900F57C81 /* StartupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA63DF7F1DA6E48900F57C81 /* StartupViewController.swift */; };
 		CA63DF821DA6F76900F57C81 /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = CA63DF811DA6E89700F57C81 /* FontAwesome.otf */; };
+		CA6751401DD5854900D50DEF /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA67513F1DD5854900D50DEF /* API.swift */; };
 		CA9A34471DA6DF8700AED7FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9A34461DA6DF8700AED7FF /* AppDelegate.swift */; };
 		CA9A34491DA6DF8700AED7FF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9A34481DA6DF8700AED7FF /* ViewController.swift */; };
 		CA9A344C1DA6DF8700AED7FF /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA9A344A1DA6DF8700AED7FF /* Login.storyboard */; };
@@ -65,6 +66,7 @@
 		CA63DF7D1DA6E35B00F57C81 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		CA63DF7F1DA6E48900F57C81 /* StartupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartupViewController.swift; sourceTree = "<group>"; };
 		CA63DF811DA6E89700F57C81 /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.otf; sourceTree = "<group>"; };
+		CA67513F1DD5854900D50DEF /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		CA9A34431DA6DF8700AED7FF /* FriendStagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FriendStagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA9A34461DA6DF8700AED7FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA9A34481DA6DF8700AED7FF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 				CA42EF9E1DA7266A0067176D /* MainTabBarController.swift */,
 				CAB28E2E1DA7336500298E78 /* ProfileViewController.swift */,
 				CAA9B5441DAEACE80060FF32 /* ImageViewController.swift */,
+				CA67513F1DD5854900D50DEF /* API.swift */,
 			);
 			path = FriendStagram;
 			sourceTree = "<group>";
@@ -506,6 +509,7 @@
 				CA63DF7E1DA6E35B00F57C81 /* RegisterViewController.swift in Sources */,
 				CA42EF9D1DA7246E0067176D /* FeedViewController.swift in Sources */,
 				CAB28E2F1DA7336500298E78 /* ProfileViewController.swift in Sources */,
+				CA6751401DD5854900D50DEF /* API.swift in Sources */,
 				CA63DF801DA6E48900F57C81 /* StartupViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

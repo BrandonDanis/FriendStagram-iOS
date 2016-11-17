@@ -103,6 +103,8 @@ class LoginViewController : UIViewController, UITextFieldDelegate
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(LoginViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
         
+        AppDelegate.globalAPI.post(endpoint: "/login", params: ["user_name": "brando", "password": "1234"])
+        
     }
     
     override func didReceiveMemoryWarning() {
