@@ -46,8 +46,6 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
         self.navigationController?.navigationBar.tintColor = UIColor.black
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-     
-        public_api.test();
         
     }
     

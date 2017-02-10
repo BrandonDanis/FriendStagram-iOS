@@ -289,7 +289,7 @@
 				TargetAttributes = {
 					CA9A34421DA6DF8700AED7FF = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = R2BSM46C49;
+						DevelopmentTeam = G4WCMQ2TB2;
 						ProvisioningStyle = Automatic;
 					};
 					CA9A34561DA6DF8700AED7FF = {
@@ -661,10 +661,10 @@
 			baseConfigurationReference = 69F22E5B61FCF4318B9B2265 /* Pods-FriendStagram.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = R2BSM46C49;
+				DEVELOPMENT_TEAM = G4WCMQ2TB2;
 				INFOPLIST_FILE = FriendStagram/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = RBSoftware.FriendStagram;
+				PRODUCT_BUNDLE_IDENTIFIER = RBSoft.FriendStagram;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -675,10 +675,10 @@
 			baseConfigurationReference = A8CE5AEC226D5B8F7B1AF90D /* Pods-FriendStagram.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = R2BSM46C49;
+				DEVELOPMENT_TEAM = G4WCMQ2TB2;
 				INFOPLIST_FILE = FriendStagram/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = RBSoftware.FriendStagram;
+				PRODUCT_BUNDLE_IDENTIFIER = RBSoft.FriendStagram;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
