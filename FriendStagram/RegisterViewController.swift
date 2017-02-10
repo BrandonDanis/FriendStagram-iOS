@@ -10,7 +10,9 @@ class RegisterViewController : UIViewController, UITextFieldDelegate
     
     @IBOutlet var passwordTextbox: SkyFloatingLabelTextField!
     
-    @IBOutlet var confirmPasswordTextbox: SkyFloatingLabelTextField!
+    @IBOutlet var emailTextbox: SkyFloatingLabelTextField!
+    
+    @IBOutlet var nameTextbox: SkyFloatingLabelTextField!
     
     @IBOutlet var registerButton: UIButton!
     
@@ -73,26 +75,30 @@ class RegisterViewController : UIViewController, UITextFieldDelegate
         passwordTextbox.tintColor = UIColor.white
         passwordTextbox.lineColor = UIColor.white
         passwordTextbox.titleColor = UIColor.white
-//        passwordTextbox.iconFont = UIFont(name: "FontAwesome", size: 13)
-//        passwordTextbox.iconText = "\u{f023}"
-//        passwordTextbox.iconColor = UIColor.white
-//        passwordTextbox.selectedIconColor = UIColor.white
         
-        // setting confirm password textField attributes
-        confirmPasswordTextbox.placeholder = "Confirm Password"
-        confirmPasswordTextbox.title = "Confirm Password"
-        confirmPasswordTextbox.textColor = UIColor.white
-        confirmPasswordTextbox.placeholderColor = UIColor.white
-        confirmPasswordTextbox.backgroundColor = UIColor.clear
-        confirmPasswordTextbox.selectedLineColor = UIColor.white
-        confirmPasswordTextbox.selectedTitleColor = UIColor.white
-        confirmPasswordTextbox.tintColor = UIColor.white
-        confirmPasswordTextbox.lineColor = UIColor.white
-        confirmPasswordTextbox.titleColor = UIColor.white
-//        confirmPasswordTextbox.iconFont = UIFont(name: "FontAwesome", size: 13)
-//        confirmPasswordTextbox.iconText = "\u{f023}"
-//        confirmPasswordTextbox.iconColor = UIColor.white
-//        confirmPasswordTextbox.selectedIconColor = UIColor.white
+        // setting email textField attributes
+        emailTextbox.placeholder = "Email"
+        emailTextbox.title = "Email"
+        emailTextbox.textColor = UIColor.white
+        emailTextbox.placeholderColor = UIColor.white
+        emailTextbox.backgroundColor = UIColor.clear
+        emailTextbox.selectedLineColor = UIColor.white
+        emailTextbox.selectedTitleColor = UIColor.white
+        emailTextbox.tintColor = UIColor.white
+        emailTextbox.lineColor = UIColor.white
+        emailTextbox.titleColor = UIColor.white
+        
+        // setting email textField attributes
+        nameTextbox.placeholder = "Name"
+        nameTextbox.title = "Name"
+        nameTextbox.textColor = UIColor.white
+        nameTextbox.placeholderColor = UIColor.white
+        nameTextbox.backgroundColor = UIColor.clear
+        nameTextbox.selectedLineColor = UIColor.white
+        nameTextbox.selectedTitleColor = UIColor.white
+        nameTextbox.tintColor = UIColor.white
+        nameTextbox.lineColor = UIColor.white
+        nameTextbox.titleColor = UIColor.white
         
         // setting error label attributes
         errorMessage.textColor = UIColor.white
@@ -132,8 +138,10 @@ class RegisterViewController : UIViewController, UITextFieldDelegate
         if(textField == usernameTextbox){
             passwordTextbox.becomeFirstResponder()
         }else if(textField == passwordTextbox){
-            confirmPasswordTextbox.becomeFirstResponder()
-        }else if(textField == confirmPasswordTextbox){
+            emailTextbox.becomeFirstResponder()
+        }else if(textField == emailTextbox){
+            nameTextbox.becomeFirstResponder()
+        }else if(textField == nameTextbox){
             attemptingToRegister(self)
         }
         return true
@@ -155,10 +163,13 @@ class RegisterViewController : UIViewController, UITextFieldDelegate
             usernameTextbox.errorMessage = "Missing Username"
             return
         }else if(self.passwordTextbox.text == ""){
-            passwordTextbox.errorMessage = "Missing pPssword"
+            passwordTextbox.errorMessage = "Missing Password"
             return
-        }else if(self.confirmPasswordTextbox.text != self.confirmPasswordTextbox.text){
-            confirmPasswordTextbox.errorMessage = "Password Not Matching"
+        }else if(self.emailTextbox.text == ""){
+            emailTextbox.errorMessage = "Missing Email"
+            return
+        }else if(self.nameTextbox.text == ""){
+            nameTextbox.errorMessage = "Missing Name"
             return
         }
         
@@ -166,9 +177,17 @@ class RegisterViewController : UIViewController, UITextFieldDelegate
         
         let username = self.usernameTextbox.text!
         let password = self.passwordTextbox.text!
+        let email = self.emailTextbox.text!
+        let name = self.nameTextbox.text!
         
         
         // request register with API
+        AppDelegate.globalAPI.post(endpoint: "/users", params: [
+            "username": username,
+            "password": password,
+            "email": email,
+            "name": name
+        ])
         
     }
     
@@ -176,10 +195,12 @@ class RegisterViewController : UIViewController, UITextFieldDelegate
     func displayingView(){
         usernameTextbox.text = ""
         passwordTextbox.text = ""
-        confirmPasswordTextbox.text = ""
+        emailTextbox.text = ""
+        nameTextbox.text = ""
         usernameTextbox.errorMessage = ""
         passwordTextbox.errorMessage = ""
-        confirmPasswordTextbox.errorMessage = ""
+        emailTextbox.errorMessage = ""
+        nameTextbox.errorMessage = ""
     }
     
     @IBAction func backButtonClicked(_ sender: AnyObject) {

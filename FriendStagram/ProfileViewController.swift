@@ -25,7 +25,7 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
         "http://66.media.tumblr.com/tumblr_mdd8uyvpgQ1reash6o2_1280.jpg",
         "http://stupiddope.com/wp-content/uploads/2014/07/cory-staudacher-instagram-03.jpg",
         "http://static.boredpanda.com/blog/wp-content/uploads/2015/09/nature-photography-men-of-instagram-16__605.jpg",
-        "http://41.media.tumblr.com/eb2d4401b40f60d004c99d289a059590/tumblr_nqeudeGrEZ1u7vbhko2_1280.jpg",
+        "http://i.imgur.com/mpHgYA0.jpg",
         "http://s14.favim.com/610/160212/adventure-fun-girl-nature-Favim.com-3985099.jpg",
         "http://s8.favim.com/610/150421/alternative-art-background-beautiful-Favim.com-2669488.jpg",
         "http://s7.favim.com/610/151205/beach-boho-bright-instagram-Favim.com-3708977.jpg"];
