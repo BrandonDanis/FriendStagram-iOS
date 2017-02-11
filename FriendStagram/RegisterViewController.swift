@@ -47,6 +47,8 @@ class RegisterViewController : UIViewController, UITextFieldDelegate
         // setting this view controller as textField delegate
         usernameTextbox.delegate = self
         passwordTextbox.delegate = self
+        emailTextbox.delegate = self
+        nameTextbox.delegate = self
         
         // setting username textField attributes
         usernameTextbox.placeholder = "Username"
