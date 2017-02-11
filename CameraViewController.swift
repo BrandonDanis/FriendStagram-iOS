@@ -15,19 +15,19 @@ class CameraViewController : UIViewController, UIImagePickerControllerDelegate, 
     
     @IBOutlet var cameraView : UIView!
     @IBOutlet var cancelButton: UIButton!
+    @IBOutlet var imageView : UIImageView!
     
     var cameraManager = CameraManager()
     
     var frontFacing : Bool = false
+    var displayingPicture : Bool = false
     
     var myImage : UIImage!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("CAMERA LOADED");
-        
-        var cameraState = cameraManager.addPreviewLayerToView(self.cameraView)
+        cameraManager.addPreviewLayerToView(self.cameraView)
         cameraManager.cameraDevice = .back
         cameraManager.cameraOutputMode = .videoOnly
         cameraManager.cameraOutputQuality = .high
@@ -56,8 +56,14 @@ class CameraViewController : UIViewController, UIImagePickerControllerDelegate, 
     }
     
     @IBAction func takePicture(_ sender: AnyObject) {
+        if (displayingPicture){
+            return
+        }
         cameraManager.capturePictureWithCompletion({ (image, error) -> Void in
             self.myImage = image
+            self.imageView.image = image
+            self.cameraView.isHidden = true
+            self.displayingPicture = true
         })
     }
     
