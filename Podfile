@@ -7,7 +7,7 @@ target 'FriendStagram' do
 
   # Pods for FriendStagram
   pod 'Alamofire'
-  pod 'CameraManager', '~> 3.0'
+  pod 'CameraManager', '~> 3.1'
   pod 'SkyFloatingLabelTextField', git: 'https://github.com/MLSDev/SkyFloatingLabelTextField.git', branch: 'swift3'
   pod 'SDWebImage'
   pod 'SwiftyJSON'
