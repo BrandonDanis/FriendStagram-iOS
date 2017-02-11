@@ -16,32 +16,32 @@ class CameraViewController : UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet var cameraView : UIView!
     @IBOutlet var cancelButton: UIButton!
     
+    var cameraManager = CameraManager()
+    
     var frontFacing : Bool = false
     
     var myImage : UIImage!
     
-    let cameraManager = CameraManager()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
         
-        cameraManager.addPreviewLayerToView(self.cameraView)
+        print("CAMERA LOADED");
+        
+        var cameraState = cameraManager.addPreviewLayerToView(self.cameraView)
         cameraManager.cameraDevice = .back
         cameraManager.cameraOutputMode = .videoOnly
         cameraManager.cameraOutputQuality = .high
         
-        cancelButton.isHidden = true
-        cancelButton.isUserInteractionEnabled = false
+        cancelButton?.isHidden = true
+        cancelButton?.isUserInteractionEnabled = false
         
         cameraManager.showAccessPermissionPopupAutomatically = true
         
     }
     
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+    }
     
     @IBAction func swapCamera(_ sender: AnyObject) {
         
