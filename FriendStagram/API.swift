@@ -37,6 +37,13 @@ class API {
         self.session_key = _session
     }
     
+    func getUsername() -> String {
+        return username
+    }
+    
+    func getPassword() -> String {
+        return password
+    }
     
     func registerUser(_username : String, _password : String, _name : String, _email : String, completion: @escaping ([String : String]) -> Void){
         
