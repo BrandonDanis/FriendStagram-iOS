@@ -154,11 +154,18 @@ class LoginViewController : UIViewController, UITextFieldDelegate
         }
         
         // Attempting to Login
-        //AppDelegate.globalAPI.post(endpoint: "/login", params: ["username": user, "password": pssd])
-        
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateInitialViewController()! as UIViewController
-        self.present(vc, animated: true, completion: nil)
+        AppDelegate.globalAPI.loginUser(_username: user, _password: pssd, completion: { (res : [String : String]) in
+            
+            if(res["status"] == "200"){
+                self.displayingView()
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let vc = storyboard.instantiateInitialViewController()! as UIViewController
+                self.present(vc, animated: true, completion: nil)
+            }else{
+                self.displayError("Failed to login")
+            }
+            
+        })
         
     }
     

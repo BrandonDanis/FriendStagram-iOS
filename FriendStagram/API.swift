@@ -57,6 +57,29 @@ class API {
         
     }
     
+    func loginUser(_username : String, _password : String, completion: @escaping ([String : String]) -> Void){
+        
+        let params = ["username": _username, "password": _password]
+        
+        Alamofire.request(self.API_URL + "/login", method: .post, parameters: params, encoding: JSONEncoding.default).responseString {
+            response in
+            
+            let status_code = response.response?.statusCode
+            
+            let myJSON = JSON(response.result.value)
+            
+            self.session_key = myJSON["data"].stringValue
+            self.username = _username
+            self.password = _password
+            
+            completion([
+                "status": String(describing: status_code!)
+            ])
+            
+        }
+        
+    }
+    
     
     ///////////////////////////////
     /////  REQUEST FUNCTIONS  /////
