@@ -38,30 +38,44 @@ class API {
     }
     
     
+    func registerUser(_username : String, _password : String, _name : String, _email : String, completion: @escaping ([String : String]) -> Void){
+        
+        let params = ["username": _username, "password": _password, "email": _email, "name": _name]
+        
+        Alamofire.request(self.API_URL + "/users", method: .post, parameters: params, encoding: JSONEncoding.default).responseString{
+            response in
+            
+            let status_code = response.response?.statusCode
+            
+            let myJSON = JSON(response.result.value)
+            
+            completion([
+                "status": String(describing: status_code!)
+            ])
+            
+        }
+        
+    }
+    
     
     ///////////////////////////////
     /////  REQUEST FUNCTIONS  /////
     ///////////////////////////////
     
-    func post(endpoint: String, params: [String: String]){
+    private func post(endpoint: String, params: [String: String]){
         
-        Alamofire.request(
-            self.API_URL + endpoint,
-            method: .post,
-            parameters: params,
-            encoding: JSONEncoding.default)
-            .responseJSON { response in
+        Alamofire.request(self.API_URL + endpoint, method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
             
-                switch response.result {
-                    case .success:
-                        print("Validation Successful")
-                    case .failure(let error):
-                        print(error)
-                }
+            switch response.result {
+                case .success:
+                    print("Validation Successful")
+                case .failure(let error):
+                    print(error)
+            }
             
-                if let JSON = response.result.value {
-                    print("JSON: \(JSON)")
-                }
+            if let JSON = response.result.value {
+                print("JSON: \(JSON)")
+            }
                 
         }
         

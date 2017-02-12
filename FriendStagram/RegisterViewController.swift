@@ -2,6 +2,7 @@
 import Foundation
 import UIKit
 import SkyFloatingLabelTextField
+import SwiftyJSON
 
 class RegisterViewController : UIViewController, UITextFieldDelegate
 {
@@ -183,13 +184,20 @@ class RegisterViewController : UIViewController, UITextFieldDelegate
         let name = self.nameTextbox.text!
         
         
+        
         // request register with API
-        AppDelegate.globalAPI.post(endpoint: "/users", params: [
-            "username": username,
-            "password": password,
-            "email": email,
-            "name": name
-        ])
+        AppDelegate.globalAPI.registerUser(_username: username, _password: password, _name: email, _email: name, completion: { (res : [String:String]) in
+            
+            if(res["status"] == "201"){
+                self.displayingView()
+                
+                self.switchToLoginView(msg: "User Created!")
+                
+            }else{
+                self.displayError("Failed to create user")
+            }
+            
+        })
         
     }
     
@@ -208,6 +216,11 @@ class RegisterViewController : UIViewController, UITextFieldDelegate
     @IBAction func backButtonClicked(_ sender: AnyObject) {
         let parentViewController = self.parent as? StartupViewController
         parentViewController?.switchToLogin()
+    }
+    
+    private func switchToLoginView(msg : String = ""){
+        let parentViewController = self.parent as? StartupViewController
+        parentViewController?.switchToLogin(msg: msg)
     }
     
     func displayError(_ msg: String){

@@ -49,9 +49,10 @@ class StartupViewController: UIViewController
         
     }
     
-    func switchToLogin() {
+    func switchToLogin(msg : String = "") {
         let loginViewController = self.childViewControllers[1] as? LoginViewController
         loginViewController?.displayingView()
+        loginViewController?.displayError(msg)
         UIView.animate(withDuration: 0.5, animations: {
             self.loginContent.alpha = 1
             self.loginContent.isUserInteractionEnabled = true

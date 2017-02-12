@@ -154,7 +154,7 @@ class LoginViewController : UIViewController, UITextFieldDelegate
         }
         
         // Attempting to Login
-        AppDelegate.globalAPI.post(endpoint: "/login", params: ["username": user, "password": pssd])
+        //AppDelegate.globalAPI.post(endpoint: "/login", params: ["username": user, "password": pssd])
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateInitialViewController()! as UIViewController

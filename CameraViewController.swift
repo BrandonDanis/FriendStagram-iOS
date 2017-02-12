@@ -27,6 +27,8 @@ class CameraViewController : UIViewController, UIImagePickerControllerDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        imageView.contentMode = .scaleAspectFill
+        
         cameraManager.addPreviewLayerToView(self.cameraView)
         cameraManager.cameraDevice = .back
         cameraManager.cameraOutputMode = .videoOnly
@@ -59,8 +61,8 @@ class CameraViewController : UIViewController, UIImagePickerControllerDelegate, 
         if (displayingPicture){
             return
         }
+        self.displayingPicture = true
         cameraManager.capturePictureWithCompletion({ (image, error) -> Void in
-            self.myImage = image
             self.imageView.image = image
             self.cameraView.isHidden = true
             self.displayingPicture = true

@@ -24,7 +24,7 @@ class FeedViewController : UIViewController, UITableViewDelegate, UITableViewDat
         ],
         [
             "user": "Rushil",
-            "imageURL": "https://s-media-cache-ak0.pinimg.com/originals/58/50/77/585077f705e1e1e6385940fee0e6a4d7.jpg",
+            "imageURL": "http://i.imgur.com/tLhJOrE.png",
             "likes": "74"
         ],
         [
