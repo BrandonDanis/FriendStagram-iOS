@@ -10,6 +10,7 @@ target 'FriendStagram' do
   pod 'CameraManager', '~> 3.1'
   pod 'SkyFloatingLabelTextField', git: 'https://github.com/MLSDev/SkyFloatingLabelTextField.git', branch: 'swift3'
   pod 'SDWebImage'
+  pod 'Cloudinary'
   pod 'SwiftyJSON'
   pod 'Spring', git: 'https://github.com/MengTo/Spring.git', branch: 'swift3'
 
