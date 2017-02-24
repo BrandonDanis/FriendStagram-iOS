@@ -1,45 +1,43 @@
 PODS:
-  - Alamofire (4.0.1)
-  - CameraManager (3.0.0)
+  - Alamofire (4.3.0)
+  - CameraManager (3.1.0)
+  - Cloudinary (2.0.1):
+    - Alamofire (~> 4.1)
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
-  - SkyFloatingLabelTextField (1.2.1)
+  - SkyFloatingLabelTextField (2.0.1)
   - Spring (1.0.3)
   - SwiftyJSON (3.1.0)
 
 DEPENDENCIES:
-  - Alamofire
-  - CameraManager (~> 3.0)
+  - Alamofire (~> 4.1)
+  - CameraManager (~> 3.1)
+  - Cloudinary (~> 2.0.1)
   - SDWebImage
-  - SkyFloatingLabelTextField (from `https://github.com/MLSDev/SkyFloatingLabelTextField.git`, branch `swift3`)
+  - SkyFloatingLabelTextField (~> 2.0.1)
   - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift3`)
   - SwiftyJSON
 
 EXTERNAL SOURCES:
-  SkyFloatingLabelTextField:
-    :branch: swift3
-    :git: https://github.com/MLSDev/SkyFloatingLabelTextField.git
   Spring:
     :branch: swift3
     :git: https://github.com/MengTo/Spring.git
 
 CHECKOUT OPTIONS:
-  SkyFloatingLabelTextField:
-    :commit: 03177934f990c794060765f33c408268ce8afee0
-    :git: https://github.com/MLSDev/SkyFloatingLabelTextField.git
   Spring:
     :commit: 3a9227c6e9157e7b47f5ac1ee5abab2a56b50002
     :git: https://github.com/MengTo/Spring.git
 
 SPEC CHECKSUMS:
-  Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
-  CameraManager: 8b92bc0ab51b598d9a4c01998bc9f1efb9b681bf
+  Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
+  CameraManager: 8ef2dfb1bb11c38ef3cc0a236076096dfa8a5d8e
+  Cloudinary: c5e197d94ed36be5831901a0e197fea1505ea75b
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
-  SkyFloatingLabelTextField: 3f6610aded18e778df5cfab3b9e12a11b3e014e9
+  SkyFloatingLabelTextField: 070e749632ffd608d6fd9db3fa488a822524997c
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
   SwiftyJSON: 29b9f2a64f118c07e691667c2ba1efe536acfe0b
 
-PODFILE CHECKSUM: a8a998f4b37bfd6fc3c7260c94b1943a7c78b70e
+PODFILE CHECKSUM: 2d9672e49ac2b824739e4aa620a27920c325e7f8
 
-COCOAPODS: 1.1.0.rc.2
+COCOAPODS: 1.2.0

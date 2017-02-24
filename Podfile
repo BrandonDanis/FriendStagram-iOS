@@ -6,11 +6,11 @@ target 'FriendStagram' do
   use_frameworks!
 
   # Pods for FriendStagram
-  pod 'Alamofire'
+  pod 'Alamofire', '~> 4.1'
   pod 'CameraManager', '~> 3.1'
-  pod 'SkyFloatingLabelTextField', git: 'https://github.com/MLSDev/SkyFloatingLabelTextField.git', branch: 'swift3'
+  pod 'SkyFloatingLabelTextField', '~> 2.0.1'
   pod 'SDWebImage'
-  pod 'Cloudinary'
+  pod 'Cloudinary', '~> 2.0.1'
   pod 'SwiftyJSON'
   pod 'Spring', git: 'https://github.com/MengTo/Spring.git', branch: 'swift3'
 
