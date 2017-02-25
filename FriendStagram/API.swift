@@ -57,8 +57,6 @@ class API {
             
             let status_code = response.response?.statusCode
             
-            let myJSON = JSON(response.result.value)
-            
             completion([
                 "status": String(describing: status_code!)
             ])
@@ -71,21 +69,45 @@ class API {
         
         let params = ["username": _username, "password": _password]
         
-        Alamofire.request(self.API_URL + "/login", method: .post, parameters: params, encoding: JSONEncoding.default).responseString {
+        Alamofire.request(self.API_URL + "/login", method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON {
             response in
             
             let status_code = response.response?.statusCode
             
-            let myJSON = JSON(response.result.value)
-            
-            self.session_key = myJSON["data"].stringValue
-            self.username = _username
-            self.password = _password
-            
+            if(status_code == 200){
+                if let result = response.result.value {
+                    let JSON = result as! NSDictionary
+                    self.session_key = JSON["data"] as! String
+                    self.username = _username
+                    self.password = _password
+                }
+            }
+        
             completion([
                 "status": String(describing: status_code!)
             ])
             
+        }
+        
+    }
+    
+    func submitPost(_imageUrl : String, _desc : String, _tags : String, completion: @escaping ([String : String]) -> Void){
+        
+        let params = [
+            "url": _imageUrl,
+            "description": _desc,
+            "tags": _tags
+        ]
+        
+        let header: HTTPHeaders = [
+            "content-type": "application/json",
+            "token": session_key
+        ]
+        
+        Alamofire.request(self.API_URL + "/posts", method: HTTPMethod.post, parameters: params, encoding: JSONEncoding.default, headers: header).responseString {
+            response in
+            let status_code = response.response?.statusCode
+            completion(["status": String(describing: status_code!)])
         }
         
     }

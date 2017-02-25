@@ -40,8 +40,8 @@ class UploadViewController : UIViewController, UIImagePickerControllerDelegate, 
         let signature = CLDSignature(signature: "sgjfdoigfjdgfdogidf9g87df98gfdb8f7d6gfdg7gfd8", timestamp: 1346925631)
         let params = CLDUploadRequestParams()
         params.setSignature(signature)
-        
-        uploadButton.setTitle("Uploading...", for: .normal)
+        uploadButton.isUserInteractionEnabled = false
+        uploadButton.setTitle("Uploading to image server", for: .normal)
         
         cloudinary.createUploader().upload(data: UIImageJPEGRepresentation(image!, 1.0)!, uploadPreset: "sjfbnkp5", params: params, progress: {
             (progress) in
@@ -49,9 +49,20 @@ class UploadViewController : UIViewController, UIImagePickerControllerDelegate, 
         }, completionHandler: {
             (res, error) in
                 if(error == nil){
-                        print("Public id:", res!.publicId!)
-                        print("Signature: ", res!.signature!)
-                        print("Image URL: ", res!.url!)
+                    
+                    self.uploadButton.setTitle("Uploading to FriendStagram", for: .normal)
+                    
+                    AppDelegate.globalAPI.submitPost(_imageUrl: res!.url!, _desc: "Description!", _tags: "", completion: { (res) in
+                        
+                        if(res["status"] == "200"){
+                            self.uploadButton.setTitle("Success!", for: .normal)
+                        }else{
+                            self.uploadButton.setTitle("Failed to upload", for: .normal)
+                            self.uploadButton.backgroundColor = UIColor(red:0.75, green:0.23, blue:0.19, alpha:1.00)
+                        }
+                        
+                    })
+                    
                 }
         })
         
