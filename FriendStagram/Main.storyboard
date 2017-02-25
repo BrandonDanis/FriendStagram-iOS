@@ -25,12 +25,40 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="oWe-hU-t2P" kind="relationship" relationship="rootViewController" id="LEs-UI-WVY"/>
+                        <segue destination="ewU-iO-QHq" kind="relationship" relationship="rootViewController" id="MJO-7w-Jlk"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="abY-GV-JKj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="316" y="133"/>
+        </scene>
+        <!--Upload View Controller-->
+        <scene sceneID="4df-RA-FMp">
+            <objects>
+                <viewController id="ewU-iO-QHq" customClass="UploadViewController" customModule="FriendStagram" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OUG-Bg-2MT"/>
+                        <viewControllerLayoutGuide type="bottom" id="a6T-NT-iwQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zVO-cD-LIk">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GiV-Uu-tr9">
+                                <rect key="frame" x="82" y="28" width="250" height="250"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="hiC-Jt-LPB"/>
+                    <connections>
+                        <outlet property="imageView" destination="GiV-Uu-tr9" id="hfb-vm-fvk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Du-XX-t2M" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1119" y="133"/>
         </scene>
         <!--Camera View Controller-->
         <scene sceneID="umn-fF-EI3">
@@ -80,7 +108,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h3g-33-CiW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1118.840579710145" y="132.88043478260872"/>
+            <point key="canvasLocation" x="1862" y="133"/>
         </scene>
         <!--Profile-->
         <scene sceneID="g9g-DW-9NM">

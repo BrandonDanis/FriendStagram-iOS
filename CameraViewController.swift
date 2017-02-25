@@ -77,7 +77,12 @@ class CameraViewController : UIViewController, UIImagePickerControllerDelegate, 
             let signature = CLDSignature(signature: "sgjfdoigfjdgfdogidf9g87df98gfdb8f7d6gfdg7gfd8", timestamp: 1346925631)
             let params = CLDUploadRequestParams()
             params.setSignature(signature)
-            cloudinary.createUploader().upload(data: UIImageJPEGRepresentation(image!, 1.0)!, uploadPreset: "sjfbnkp5", params: params, progress: nil, completionHandler: {
+            cloudinary.createUploader().upload(data: UIImageJPEGRepresentation(image!, 1.0)!, uploadPreset: "sjfbnkp5", params: params, progress: {
+                (progress) in
+                
+                print(progress)
+                
+            }, completionHandler: {
                 (res, error) in
                 
                 if(error == nil){

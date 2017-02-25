@@ -28,6 +28,7 @@
 		CA9A34671DA6DF8700AED7FF /* FriendStagramUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9A34661DA6DF8700AED7FF /* FriendStagramUITests.swift */; };
 		CAA9B5451DAEACE80060FF32 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA9B5441DAEACE80060FF32 /* ImageViewController.swift */; };
 		CAB28E2F1DA7336500298E78 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB28E2E1DA7336500298E78 /* ProfileViewController.swift */; };
+		CAC8DF6D1E613FC1009C110A /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC8DF6C1E613FC1009C110A /* UploadViewController.swift */; };
 		CC9A817D208CA36DC2AB0AB0 /* Pods_FriendStagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBB33C1F5D209993F1368EC3 /* Pods_FriendStagram.framework */; };
 		D7CA04E8B0E7724CBF4EC34B /* Pods_FriendStagramTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 978EDBC8704C59C81AA35EEF /* Pods_FriendStagramTests.framework */; };
 /* End PBXBuildFile section */
@@ -82,6 +83,7 @@
 		CA9A34681DA6DF8700AED7FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CAA9B5441DAEACE80060FF32 /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		CAB28E2E1DA7336500298E78 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		CAC8DF6C1E613FC1009C110A /* UploadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadViewController.swift; sourceTree = "<group>"; };
 		EB0743F8E5D65CA270DF0E93 /* Pods-FriendStagramUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendStagramUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FriendStagramUITests/Pods-FriendStagramUITests.release.xcconfig"; sourceTree = "<group>"; };
 		EBB33C1F5D209993F1368EC3 /* Pods_FriendStagram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FriendStagram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE099313D282895AD9BD5D2D /* Pods-FriendStagramUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendStagramUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FriendStagramUITests/Pods-FriendStagramUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 				CAB28E2E1DA7336500298E78 /* ProfileViewController.swift */,
 				CAA9B5441DAEACE80060FF32 /* ImageViewController.swift */,
 				CA67513F1DD5854900D50DEF /* API.swift */,
+				CAC8DF6C1E613FC1009C110A /* UploadViewController.swift */,
 			);
 			path = FriendStagram;
 			sourceTree = "<group>";
@@ -284,7 +287,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = RBSoftware;
 				TargetAttributes = {
 					CA9A34421DA6DF8700AED7FF = {
@@ -499,6 +502,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAC8DF6D1E613FC1009C110A /* UploadViewController.swift in Sources */,
 				CA5842221DBDC4970071C28B /* CameraViewController.swift in Sources */,
 				CA63DF7C1DA6E2BC00F57C81 /* LoginViewController.swift in Sources */,
 				CA38BB7A1DB0932B00AB161B /* UserListView.swift in Sources */,
@@ -583,6 +587,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -632,6 +637,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
