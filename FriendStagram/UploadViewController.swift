@@ -14,6 +14,7 @@ class UploadViewController : UIViewController, UIImagePickerControllerDelegate, 
     
     @IBOutlet var imageView : UIImageView!
     @IBOutlet var uploadButton : UIButton!
+    @IBOutlet var progressBar : UIProgressView!
     
     override func viewDidLoad() {
         
@@ -23,6 +24,9 @@ class UploadViewController : UIViewController, UIImagePickerControllerDelegate, 
         uploadButton.setTitleColor(UIColor.white, for: UIControlState.normal)
         uploadButton.backgroundColor = UIColor(red: 0.20, green: 0.60, blue: 0.86, alpha: 1.00)
         uploadButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(SubmitPost)))
+        
+        progressBar.tintColor = UIColor(red:0.20, green:0.60, blue:0.86, alpha:1.00)
+        progressBar.setProgress(0.0, animated: false)
         
     }
     
@@ -36,9 +40,12 @@ class UploadViewController : UIViewController, UIImagePickerControllerDelegate, 
         let signature = CLDSignature(signature: "sgjfdoigfjdgfdogidf9g87df98gfdb8f7d6gfdg7gfd8", timestamp: 1346925631)
         let params = CLDUploadRequestParams()
         params.setSignature(signature)
+        
+        uploadButton.setTitle("Uploading...", for: .normal)
+        
         cloudinary.createUploader().upload(data: UIImageJPEGRepresentation(image!, 1.0)!, uploadPreset: "sjfbnkp5", params: params, progress: {
             (progress) in
-                print(progress)
+                self.progressBar.setProgress(Float(progress.fractionCompleted), animated: true)
         }, completionHandler: {
             (res, error) in
                 if(error == nil){
