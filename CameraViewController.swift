@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import AVFoundation
 import CameraManager
+import Cloudinary
 
 class CameraViewController : UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -21,6 +22,8 @@ class CameraViewController : UIViewController, UIImagePickerControllerDelegate, 
     
     var frontFacing : Bool = false
     var displayingPicture : Bool = false
+    
+    let config = CLDConfiguration(cloudName: "dajzmd3d8", apiKey: "386623978827134")
     
     var myImage : UIImage!
     
@@ -58,14 +61,33 @@ class CameraViewController : UIViewController, UIImagePickerControllerDelegate, 
     }
     
     @IBAction func takePicture(_ sender: AnyObject) {
+        
         if (displayingPicture){
             return
         }
         self.displayingPicture = true
+        
         cameraManager.capturePictureWithCompletion({ (image, error) -> Void in
             self.imageView.image = image
             self.cameraView.isHidden = true
             self.displayingPicture = true
+            
+            
+            let cloudinary = CLDCloudinary(configuration: self.config)
+            let signature = CLDSignature(signature: "sgjfdoigfjdgfdogidf9g87df98gfdb8f7d6gfdg7gfd8", timestamp: 1346925631)
+            let params = CLDUploadRequestParams()
+            params.setSignature(signature)
+            cloudinary.createUploader().upload(data: UIImageJPEGRepresentation(image!, 1.0)!, uploadPreset: "sjfbnkp5", params: params, progress: nil, completionHandler: {
+                (res, error) in
+                
+                if(error == nil){
+                    print("Public id:", res!.publicId!)
+                    print("Signature: ", res!.signature!)
+                    print("Image URL: ", res!.url!)
+                }
+                
+            })
+            
         })
     }
     
