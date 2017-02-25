@@ -96,7 +96,7 @@ class FeedViewController : UIViewController, UITableViewDelegate, UITableViewDat
     let _upvoteCountID = 3
     let _usernameButtonID = 4
     
-    let _placeHolderUIImage = UIImage(named: "bg")
+    let _placeHolderUIImage = UIImage(named: "placeholder")
     
     let _emptyHeart : String = "\u{f08a}"
     let _fullHeart : String = "\u{f004}"

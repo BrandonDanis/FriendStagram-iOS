@@ -77,7 +77,7 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
         let imageView = cell.viewWithTag(1) as! UIImageView
         
         //let imageURL = images
-        imageView.sd_setImage(with: URL(string: images[indexPath.row]), placeholderImage: UIImage(named: "kyle"))
+        imageView.sd_setImage(with: URL(string: images[indexPath.row]), placeholderImage: UIImage(named: "placeholder"))
         
         return cell
     }
