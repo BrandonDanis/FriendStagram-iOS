@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Cloudinary
 
 class UploadViewController : UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -21,10 +22,31 @@ class UploadViewController : UIViewController, UIImagePickerControllerDelegate, 
         
         uploadButton.setTitleColor(UIColor.white, for: UIControlState.normal)
         uploadButton.backgroundColor = UIColor(red: 0.20, green: 0.60, blue: 0.86, alpha: 1.00)
+        uploadButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(SubmitPost)))
         
     }
     
     override func didReceiveMemoryWarning() {
+        
+    }
+    
+    @IBAction func SubmitPost(){
+        let image = imageView.image
+        let cloudinary = CLDCloudinary(configuration: AppDelegate.globalAPI.config)
+        let signature = CLDSignature(signature: "sgjfdoigfjdgfdogidf9g87df98gfdb8f7d6gfdg7gfd8", timestamp: 1346925631)
+        let params = CLDUploadRequestParams()
+        params.setSignature(signature)
+        cloudinary.createUploader().upload(data: UIImageJPEGRepresentation(image!, 1.0)!, uploadPreset: "sjfbnkp5", params: params, progress: {
+            (progress) in
+                print(progress)
+        }, completionHandler: {
+            (res, error) in
+                if(error == nil){
+                        print("Public id:", res!.publicId!)
+                        print("Signature: ", res!.signature!)
+                        print("Image URL: ", res!.url!)
+                }
+        })
         
     }
     

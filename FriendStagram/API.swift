@@ -9,6 +9,7 @@
 import Foundation
 import SwiftyJSON
 import Alamofire
+import Cloudinary
 
 var public_api : API = API();
 
@@ -17,6 +18,8 @@ class API {
     private var username : String;
     private var password : String;
     private var session_key : String;
+    
+    let config = CLDConfiguration(cloudName: "dajzmd3d8", apiKey: "386623978827134")
     
     var API_URL = "http://159.203.24.18"
     //var API_URL = "localhost:8080"
