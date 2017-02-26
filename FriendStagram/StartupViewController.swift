@@ -30,6 +30,13 @@ class StartupViewController: UIViewController
     // cleaning up view before showing.
     override func viewWillAppear(_ animated: Bool) {
         
+        
+        if(AppDelegate.globalAPI.ValidSession()){
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateInitialViewController()! as UIViewController
+            self.present(vc, animated: true, completion: nil)
+        }
+        
         let registerViewController = self.childViewControllers[0] as? RegisterViewController
         registerViewController?.displayingView()
         

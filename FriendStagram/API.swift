@@ -16,7 +16,6 @@ var public_api : API = API();
 class API {
     
     private var username : String;
-    private var password : String;
     private var session_key : String;
     
     let config = CLDConfiguration(cloudName: "dajzmd3d8", apiKey: "386623978827134")
@@ -24,16 +23,28 @@ class API {
     var API_URL = "http://c1a735ae.ngrok.io"
     //var API_URL = "localhost:8080"
     
-    init(){
+    init() {
         print("GLobal API Object Created")
-        username = ""
-        password = ""
-        session_key = ""
+        
+        if let _user = UserDefaults.standard.string(forKey: "username") {
+            username = _user
+        }else{
+            username = ""
+        }
+        
+        if let _session = UserDefaults.standard.string(forKey: "session_key") {
+            session_key = _session
+        }else{
+            session_key = ""
+        }
+        
+        print("Session: ", session_key)
+        print("Username: ", username)
+        
     }
     
-    func SetCredentials(_username : String, _password : String){
+    func SetCredentials(_username : String){
         self.username = _username
-        self.password = _password
     }
     
     func SetSessionKey(_session : String){
@@ -44,8 +55,17 @@ class API {
         return username
     }
     
-    func GetPassword() -> String {
-        return password
+    func SaveDataBeforeClose(){
+        UserDefaults.standard.set(username, forKey: "username")
+        UserDefaults.standard.set(session_key, forKey: "session_key")
+        UserDefaults.standard.synchronize()
+    }
+    
+    func SessionExists() -> Bool {
+        if(session_key != ""){
+            return true
+        }
+        return false
     }
     
     func RegisterUser(_username : String, _password : String, _name : String, _email : String, completion: @escaping ([String : String]) -> Void){
@@ -79,7 +99,6 @@ class API {
                     let JSON = result as! NSDictionary
                     self.session_key = JSON["data"] as! String
                     self.username = _username
-                    self.password = _password
                 }
             }
         
