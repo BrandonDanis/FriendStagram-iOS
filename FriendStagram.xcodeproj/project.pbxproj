@@ -18,6 +18,7 @@
 		CA63DF801DA6E48900F57C81 /* StartupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA63DF7F1DA6E48900F57C81 /* StartupViewController.swift */; };
 		CA63DF821DA6F76900F57C81 /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = CA63DF811DA6E89700F57C81 /* FontAwesome.otf */; };
 		CA6751401DD5854900D50DEF /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA67513F1DD5854900D50DEF /* API.swift */; };
+		CA98243A1E635853004EFB5B /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9824391E635853004EFB5B /* LaunchViewController.swift */; };
 		CA9A34471DA6DF8700AED7FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9A34461DA6DF8700AED7FF /* AppDelegate.swift */; };
 		CA9A34491DA6DF8700AED7FF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9A34481DA6DF8700AED7FF /* ViewController.swift */; };
 		CA9A344C1DA6DF8700AED7FF /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA9A344A1DA6DF8700AED7FF /* Login.storyboard */; };
@@ -66,6 +67,7 @@
 		CA63DF7F1DA6E48900F57C81 /* StartupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartupViewController.swift; sourceTree = "<group>"; };
 		CA63DF811DA6E89700F57C81 /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.otf; sourceTree = "<group>"; };
 		CA67513F1DD5854900D50DEF /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		CA9824391E635853004EFB5B /* LaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		CA9A34431DA6DF8700AED7FF /* FriendStagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FriendStagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA9A34461DA6DF8700AED7FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA9A34481DA6DF8700AED7FF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 				CAA9B5441DAEACE80060FF32 /* ImageViewController.swift */,
 				CA67513F1DD5854900D50DEF /* API.swift */,
 				CAC8DF6C1E613FC1009C110A /* UploadViewController.swift */,
+				CA9824391E635853004EFB5B /* LaunchViewController.swift */,
 			);
 			path = FriendStagram;
 			sourceTree = "<group>";
@@ -499,6 +502,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA98243A1E635853004EFB5B /* LaunchViewController.swift in Sources */,
 				CAC8DF6D1E613FC1009C110A /* UploadViewController.swift in Sources */,
 				CA63DF7C1DA6E2BC00F57C81 /* LoginViewController.swift in Sources */,
 				CA38BB7A1DB0932B00AB161B /* UserListView.swift in Sources */,

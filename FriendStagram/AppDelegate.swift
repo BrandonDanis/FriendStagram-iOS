@@ -17,22 +17,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
-        self.window = UIWindow(frame: UIScreen.main.bounds)
-        
-        if(AppDelegate.globalAPI.SessionExists()){
-            print("LOGGED IN ALREADY")
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateInitialViewController()! as UIViewController
-            self.window?.rootViewController = vc
-            self.window?.makeKeyAndVisible()
-        }else{
-            let storyboard = UIStoryboard(name: "Login", bundle: nil)
-            let vc = storyboard.instantiateInitialViewController()! as UIViewController
-            self.window?.rootViewController = vc
-            self.window?.makeKeyAndVisible()
-        }
-        
         return true
     }
 
