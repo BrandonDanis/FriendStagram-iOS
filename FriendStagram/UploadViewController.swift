@@ -36,6 +36,11 @@ class UploadViewController : UIViewController, UIImagePickerControllerDelegate, 
     
     @IBAction func SubmitPost(){
         let image = imageView.image
+        
+        if(image == #imageLiteral(resourceName: "placeholder")){
+            return
+        }
+        
         let cloudinary = CLDCloudinary(configuration: AppDelegate.globalAPI.config)
         let signature = CLDSignature(signature: "sgjfdoigfjdgfdogidf9g87df98gfdb8f7d6gfdg7gfd8", timestamp: 1346925631)
         let params = CLDUploadRequestParams()
@@ -60,6 +65,10 @@ class UploadViewController : UIViewController, UIImagePickerControllerDelegate, 
                             self.uploadButton.setTitle("Failed to upload", for: .normal)
                             self.uploadButton.backgroundColor = UIColor(red:0.75, green:0.23, blue:0.19, alpha:1.00)
                         }
+                        
+                        self.uploadButton.isUserInteractionEnabled = true
+                        self.imageView.image = #imageLiteral(resourceName: "placeholder")
+                        self.uploadButton.setTitle("Upload", for: .normal)
                         
                     })
                     
