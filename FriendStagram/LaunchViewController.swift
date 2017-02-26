@@ -21,20 +21,23 @@ class LaunchViewController : UIViewController {
         startupLabel.textColor = UIColor.white
         startupLabel.text = "FriendStagram"
         
-        usleep(4000000)
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        if(AppDelegate.globalAPI.SessionExists()){
-            print("LOGGED IN ALREADY")
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateInitialViewController()! as UIViewController
-            self.present(vc, animated: true, completion: nil)
-        }else{
-            let storyboard = UIStoryboard(name: "Login", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "startVC")
-            self.present(vc, animated: true, completion: nil)
+        
+        UIView.animate(withDuration: 2.0, animations: {
+            self.startupLabel.alpha = 1.0
+        }) { (completed) in
+            if(AppDelegate.globalAPI.SessionExists()){
+                print("LOGGED IN ALREADY")
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let vc = storyboard.instantiateInitialViewController()! as UIViewController
+                self.present(vc, animated: true, completion: nil)
+            }else{
+                let storyboard = UIStoryboard(name: "Login", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "startVC")
+                self.present(vc, animated: true, completion: nil)
+            }
         }
     }
     
