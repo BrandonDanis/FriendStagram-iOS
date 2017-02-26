@@ -21,7 +21,7 @@ class API {
     
     let config = CLDConfiguration(cloudName: "dajzmd3d8", apiKey: "386623978827134")
     
-    var API_URL = "http://159.203.24.18"
+    var API_URL = "http://c1a735ae.ngrok.io"
     //var API_URL = "localhost:8080"
     
     init(){
@@ -69,7 +69,7 @@ class API {
         
         let params = ["username": _username, "password": _password]
         
-        Alamofire.request(self.API_URL + "/login", method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON {
+        Alamofire.request(self.API_URL + "/users/login", method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON {
             response in
             
             let status_code = response.response?.statusCode
