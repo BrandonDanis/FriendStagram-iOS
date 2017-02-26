@@ -112,7 +112,33 @@ class API {
         
     }
     
-    
+    func GetPostForUser(_username : String, completion: @escaping ([String : Any]) -> Void){
+        
+        let header: HTTPHeaders = [
+            "content-type": "application/json",
+            "token": session_key
+        ]
+        
+        var responseDict : [String : Any] = [:]
+        
+        Alamofire.request(self.API_URL + "/posts/" + _username, method: HTTPMethod.get, encoding: JSONEncoding.default, headers: header).responseJSON {
+            response in
+            
+            let status_code = response.response?.statusCode
+            
+            responseDict["status"] = status_code
+            
+            if(status_code == 200){
+                if let json = response.result.value as? [String: Any] {
+                    responseDict["data"] = json["data"] as! [Dictionary<String, String>]
+                }
+            }
+            
+            completion(responseDict)
+            
+        }
+        
+    }
     
     ///////////////////////////////
     /////  REQUEST FUNCTIONS  /////

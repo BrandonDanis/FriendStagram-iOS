@@ -36,6 +36,8 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
     
     var following = false
     
+    var posts : [Dictionary<String,String>] = [Dictionary<String,String>]()
+    
     override func viewDidLoad() {
         print("Profile View Loaded")
         
@@ -43,6 +45,12 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
         collectionView.dataSource = self
         
         _username = AppDelegate.globalAPI.GetUsername()
+        
+        AppDelegate.globalAPI.GetPostForUser(_username: _username, completion: {
+            (data) in
+            self.posts = data["data"] as! [[String:String]]
+            self.collectionView.reloadData()
+        })
         
         self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Billabong", size: 28)!,  NSForegroundColorAttributeName: UIColor.black]
         self.navigationController?.navigationBar.tintColor = UIColor.black
@@ -66,7 +74,7 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
     
     // amount of cell in collection view
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return images.count
+        return posts.count
     }
     
     // creating cells
@@ -75,9 +83,9 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
         
         let imageView = cell.viewWithTag(1) as! UIImageView
+        let post = self.posts[indexPath.row]
         
-        //let imageURL = images
-        imageView.sd_setImage(with: URL(string: images[indexPath.row]), placeholderImage: UIImage(named: "placeholder"))
+        imageView.sd_setImage(with: URL(string: post["url"]!), placeholderImage: UIImage(named: "placeholder"))
         
         return cell
     }
