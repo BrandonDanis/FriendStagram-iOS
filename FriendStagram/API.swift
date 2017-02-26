@@ -31,24 +31,24 @@ class API {
         session_key = ""
     }
     
-    func setCredentials(_username : String, _password : String){
+    func SetCredentials(_username : String, _password : String){
         self.username = _username
         self.password = _password
     }
     
-    func setSessionKey(_session : String){
+    func SetSessionKey(_session : String){
         self.session_key = _session
     }
     
-    func getUsername() -> String {
+    func GetUsername() -> String {
         return username
     }
     
-    func getPassword() -> String {
+    func GetPassword() -> String {
         return password
     }
     
-    func registerUser(_username : String, _password : String, _name : String, _email : String, completion: @escaping ([String : String]) -> Void){
+    func RegisterUser(_username : String, _password : String, _name : String, _email : String, completion: @escaping ([String : String]) -> Void){
         
         let params = ["username": _username, "password": _password, "email": _email, "name": _name]
         
@@ -65,7 +65,7 @@ class API {
         
     }
     
-    func loginUser(_username : String, _password : String, completion: @escaping ([String : String]) -> Void){
+    func LoginUser(_username : String, _password : String, completion: @escaping ([String : String]) -> Void){
         
         let params = ["username": _username, "password": _password]
         
@@ -91,7 +91,7 @@ class API {
         
     }
     
-    func submitPost(_imageUrl : String, _desc : String, _tags : String, completion: @escaping ([String : String]) -> Void){
+    func SubmitPost(_imageUrl : String, _desc : String, _tags : String, completion: @escaping ([String : String]) -> Void){
         
         let params = [
             "url": _imageUrl,
@@ -111,6 +111,7 @@ class API {
         }
         
     }
+    
     
     
     ///////////////////////////////

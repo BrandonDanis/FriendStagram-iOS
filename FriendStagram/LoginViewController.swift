@@ -154,7 +154,7 @@ class LoginViewController : UIViewController, UITextFieldDelegate
         }
         
         // Attempting to Login
-        AppDelegate.globalAPI.loginUser(_username: user, _password: pssd, completion: { (res : [String : String]) in
+        AppDelegate.globalAPI.LoginUser(_username: user, _password: pssd, completion: { (res : [String : String]) in
             
             if(res["status"] == "200"){
                 self.displayingView()

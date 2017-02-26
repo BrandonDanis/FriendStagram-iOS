@@ -42,7 +42,7 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        _username = AppDelegate.globalAPI.getUsername()
+        _username = AppDelegate.globalAPI.GetUsername()
         
         self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Billabong", size: 28)!,  NSForegroundColorAttributeName: UIColor.black]
         self.navigationController?.navigationBar.tintColor = UIColor.black

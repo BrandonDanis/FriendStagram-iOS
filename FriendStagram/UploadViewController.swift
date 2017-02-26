@@ -52,7 +52,7 @@ class UploadViewController : UIViewController, UIImagePickerControllerDelegate, 
                     
                     self.uploadButton.setTitle("Uploading to FriendStagram", for: .normal)
                     
-                    AppDelegate.globalAPI.submitPost(_imageUrl: res!.url!, _desc: "Description!", _tags: "", completion: { (res) in
+                    AppDelegate.globalAPI.SubmitPost(_imageUrl: res!.url!, _desc: "Description!", _tags: "", completion: { (res) in
                         
                         if(res["status"] == "200"){
                             self.uploadButton.setTitle("Success!", for: .normal)

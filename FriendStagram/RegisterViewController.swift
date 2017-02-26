@@ -186,7 +186,7 @@ class RegisterViewController : UIViewController, UITextFieldDelegate
         
         
         // request register with API
-        AppDelegate.globalAPI.registerUser(_username: username, _password: password, _name: email, _email: name, completion: { (res : [String:String]) in
+        AppDelegate.globalAPI.RegisterUser(_username: username, _password: password, _name: email, _email: name, completion: { (res : [String:String]) in
             
             if(res["status"] == "201"){
                 self.displayingView()
