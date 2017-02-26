@@ -38,6 +38,8 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
     
     var posts : [Dictionary<String,String>] = [Dictionary<String,String>]()
     
+    private let refreshControl = UIRefreshControl()
+    
     override func viewDidLoad() {
         print("Profile View Loaded")
         
@@ -51,6 +53,15 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
             self.posts = data["data"] as! [[String:String]]
             self.collectionView.reloadData()
         })
+        
+        
+        // grid view refresh control
+        if #available(iOS 10.0, *) {
+            collectionView.refreshControl = refreshControl
+        } else {
+            collectionView.addSubview(refreshControl)
+        }
+        refreshControl.addTarget(self, action: #selector(RefreshData), for: .valueChanged)
         
         self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Billabong", size: 28)!,  NSForegroundColorAttributeName: UIColor.black]
         self.navigationController?.navigationBar.tintColor = UIColor.black
@@ -75,6 +86,15 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
     // amount of cell in collection view
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return posts.count
+    }
+    
+    @IBAction func RefreshData(){
+        AppDelegate.globalAPI.GetPostForUser(_username: _username, completion: {
+            (data) in
+            self.posts = data["data"] as! [[String:String]]
+            self.collectionView.reloadData()
+            self.refreshControl.endRefreshing()
+        })
     }
     
     // creating cells
