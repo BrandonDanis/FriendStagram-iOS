@@ -65,8 +65,16 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
         
         self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Billabong", size: 28)!,  NSForegroundColorAttributeName: UIColor.black]
         self.navigationController?.navigationBar.tintColor = UIColor.black
-        
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        
+        let logoutButton : UIButton = UIButton()
+        logoutButton.setImage(#imageLiteral(resourceName: "door"), for: .normal)
+        logoutButton.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
+        logoutButton.addTarget(self, action: #selector(Logout), for: UIControlEvents.touchUpInside)
+        let logoutBarButton = UIBarButtonItem(customView: logoutButton)
+        navigationItem.rightBarButtonItem = logoutBarButton
+        navigationItem.rightBarButtonItem?.imageInsets = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0)
+        
         
     }
     
@@ -86,6 +94,13 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
     // amount of cell in collection view
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return posts.count
+    }
+    
+    @IBAction func Logout(){
+        AppDelegate.globalAPI.Logout()
+        let storyboard = UIStoryboard(name: "Login", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "loginVC")
+        self.present(vc, animated: true, completion: nil)
     }
     
     @IBAction func RefreshData(){

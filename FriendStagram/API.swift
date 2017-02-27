@@ -68,6 +68,13 @@ class API {
         return false
     }
     
+    func Logout() {
+        print("Logging out")
+        username = ""
+        session_key = ""
+        SaveDataBeforeClose()
+    }
+    
     func RegisterUser(_username : String, _password : String, _name : String, _email : String, completion: @escaping ([String : String]) -> Void){
         
         let params = ["username": _username, "password": _password, "email": _email, "name": _name]
