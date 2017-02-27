@@ -121,6 +121,12 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
             
         header.backgroundColor = UIColor.white
         
+        let backgroundImage = header.viewWithTag(4) as! UIImageView
+        backgroundImage.image = #imageLiteral(resourceName: "mountain")
+        
+        let imageFilter = header.viewWithTag(5) as! UIImageView
+        imageFilter.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
+        
         let followButton = header.viewWithTag(1) as! UIButton
         followButton.addTarget(self, action: #selector(followButtonClicked(_:)), for: UIControlEvents.touchUpInside)
         followButton.titleLabel!.font = UIFont(name: "FontAwesome", size: 20)
@@ -130,6 +136,7 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
         
         let usernameLabel = header.viewWithTag(3) as! UILabel
         usernameLabel.text = _username
+        usernameLabel.textColor = UIColor.white
         
         if(following){
             followButton.backgroundColor = UIColor(red:0.22, green:0.79, blue:0.45, alpha:1.00)
@@ -143,7 +150,7 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
         profilePicture.layer.cornerRadius = profilePicture.frame.size.width/2
         profilePicture.clipsToBounds = true
         profilePicture.image = UIImage(named: "bg")
-            
+        
         reusableview = header
         
         return reusableview
