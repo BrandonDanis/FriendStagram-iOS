@@ -231,7 +231,7 @@
         <!--startVC-->
         <scene sceneID="YIP-w6-S4N">
             <objects>
-                <viewController storyboardIdentifier="1" title="startVC" id="Z2q-rb-HbK" customClass="StartupViewController" customModule="FriendStagram" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginVC" title="startVC" id="Z2q-rb-HbK" customClass="StartupViewController" customModule="FriendStagram" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="e0s-BE-ZKj"/>
                         <viewControllerLayoutGuide type="bottom" id="wcn-pg-BuH"/>

@@ -35,7 +35,7 @@ class LaunchViewController : UIViewController {
                 self.present(vc, animated: true, completion: nil)
             }else{
                 let storyboard = UIStoryboard(name: "Login", bundle: nil)
-                let vc = storyboard.instantiateViewController(withIdentifier: "startVC")
+                let vc = storyboard.instantiateViewController(withIdentifier: "loginVC")
                 self.present(vc, animated: true, completion: nil)
             }
         }
