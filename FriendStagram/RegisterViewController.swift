@@ -43,6 +43,7 @@ class RegisterViewController : UIViewController, UITextFieldDelegate
         
         // setting up title label
         titleLabel.textColor = UIColor.white
+        titleLabel.font = UIFont(name: "Billabong", size: 60)
         titleLabel.text = "FriendStagram"
         
         // setting this view controller as textField delegate

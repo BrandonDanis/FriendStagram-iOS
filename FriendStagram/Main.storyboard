@@ -236,7 +236,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h6Z-Vf-Ldi">
-                                <rect key="frame" x="0.5" y="0.0" width="414.5" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="415" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Photo" id="ayN-ag-Cga"/>

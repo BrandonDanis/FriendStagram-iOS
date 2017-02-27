@@ -42,7 +42,7 @@ class LoginViewController : UIViewController, UITextFieldDelegate
         // setting up title label
         titleLabel.font = UIFont(name: "Billabong", size: 60)
         titleLabel.textColor = UIColor.white
-        titleLabel.text = "Friendstagram"
+        titleLabel.text = "FriendStagram"
         
         // setting this view controller as textField delegate
         usernameTextBox.delegate = self
