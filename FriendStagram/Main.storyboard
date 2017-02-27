@@ -60,11 +60,19 @@
                                 <rect key="frame" x="0.0" y="631" width="414" height="2"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </progressView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Error: File size too large. Got 10808674. Maximum is 10485760." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wRS-ZN-Azf">
+                                <rect key="frame" x="20" y="358" width="374" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="hiC-Jt-LPB"/>
                     <connections>
+                        <outlet property="errorLabel" destination="wRS-ZN-Azf" id="c4o-6s-yZ9"/>
                         <outlet property="imageView" destination="GiV-Uu-tr9" id="hfb-vm-fvk"/>
                         <outlet property="progressBar" destination="Lus-gq-LzP" id="Ol2-tC-A1o"/>
                         <outlet property="uploadButton" destination="4tV-OF-BBh" id="QES-8p-Q8H"/>

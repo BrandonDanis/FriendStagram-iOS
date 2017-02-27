@@ -15,6 +15,7 @@ class UploadViewController : UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet var imageView : UIImageView!
     @IBOutlet var uploadButton : UIButton!
     @IBOutlet var progressBar : UIProgressView!
+    @IBOutlet var errorLabel : UILabel!
     
     override func viewDidLoad() {
         
@@ -27,6 +28,8 @@ class UploadViewController : UIViewController, UIImagePickerControllerDelegate, 
         
         progressBar.tintColor = UIColor(red:0.20, green:0.60, blue:0.86, alpha:1.00)
         progressBar.setProgress(0.0, animated: false)
+        
+        errorLabel.alpha = 0
         
     }
     
@@ -63,16 +66,14 @@ class UploadViewController : UIViewController, UIImagePickerControllerDelegate, 
                             self.uploadButton.setTitle("Success!", for: .normal)
                         }else{
                             self.uploadButton.setTitle("Failed to upload", for: .normal)
+                            self.DisplayError("Failed to Upload. Error code: " + res["status"]!)
                             self.uploadButton.backgroundColor = UIColor(red:0.75, green:0.23, blue:0.19, alpha:1.00)
                         }
                         
-                        self.uploadButton.isUserInteractionEnabled = true
-                        self.imageView.image = #imageLiteral(resourceName: "placeholder")
-                        self.uploadButton.setTitle("Upload", for: .normal)
-                        
                     })
-                    
-                }
+                }else{
+                    self.DisplayError(error?.userInfo["message"] as! String)
+            }
         })
         
     }
@@ -100,6 +101,23 @@ class UploadViewController : UIViewController, UIImagePickerControllerDelegate, 
         
         self.present(actionSheet, animated: true, completion: nil)
         
+    }
+    
+    private func ResetDisplay(){
+        self.uploadButton.isUserInteractionEnabled = true
+        self.imageView.image = #imageLiteral(resourceName: "placeholder")
+        self.uploadButton.setTitle("Upload", for: .normal)
+    }
+    
+    private func DisplayError(_ msg: String){
+        self.errorLabel.text = msg
+        UIView.animate(withDuration: 1.0, animations: {
+            self.errorLabel.alpha = 1.0
+            
+            UIView.animate(withDuration: 1.0, delay: 8.0, options: .curveEaseIn, animations: {
+                self.errorLabel.alpha = 0.0
+            }, completion: nil)
+        })
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
