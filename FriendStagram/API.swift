@@ -147,7 +147,7 @@ class API {
         
         var responseDict : [String : Any] = [:]
         
-        Alamofire.request(self.API_URL + "/posts/" + _username, method: HTTPMethod.get, encoding: JSONEncoding.default, headers: header).responseJSON {
+        Alamofire.request(self.API_URL + "/posts/user/" + _username, method: HTTPMethod.get, encoding: JSONEncoding.default, headers: header).responseJSON {
             response in
             
             let status_code = response.response?.statusCode
