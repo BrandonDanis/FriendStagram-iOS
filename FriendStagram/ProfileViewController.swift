@@ -50,8 +50,12 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
         
         AppDelegate.globalAPI.GetPostForUser(_username: _username, completion: {
             (data) in
-            self.posts = data["data"] as! [[String:String]]
-            self.collectionView.reloadData()
+            if let myData = data["data"] {
+                self.posts = myData as! [[String:String]]
+                self.collectionView.reloadData()
+            }else{
+                print(data["status"] ?? "Error Occurred when pulling post")
+            }
         })
         
         
@@ -106,8 +110,12 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
     @IBAction func RefreshData(){
         AppDelegate.globalAPI.GetPostForUser(_username: _username, completion: {
             (data) in
-            self.posts = data["data"] as! [[String:String]]
-            self.collectionView.reloadData()
+            if let myData = data["data"] {
+                self.posts = myData as! [[String:String]]
+                self.collectionView.reloadData()
+            }else{
+                print(data["status"] ?? "Error Occurred when pulling post")
+            }
             self.refreshControl.endRefreshing()
         })
     }
