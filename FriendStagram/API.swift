@@ -133,6 +133,12 @@ class API {
         Alamofire.request(self.API_URL + "/posts", method: HTTPMethod.post, parameters: params, encoding: JSONEncoding.default, headers: header).responseString {
             response in
             let status_code = response.response?.statusCode
+            
+            if(status_code == 401 || status_code == 412 ){
+                print("BAD TOKEN")
+                AppDelegate.globalAPI.Logout()
+            }
+            
             completion(["status": String(describing: status_code!)])
         }
         
