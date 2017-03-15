@@ -92,9 +92,6 @@ class FeedViewController : UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet var postListView : UITableView!
     
     let _uiImageID = 1
-    let _upvoteButtonID = 2
-    let _upvoteCountID = 3
-    let _usernameButtonID = 4
     
     let _placeHolderUIImage = UIImage(named: "placeholder")
     
@@ -106,11 +103,15 @@ class FeedViewController : UIViewController, UITableViewDelegate, UITableViewDat
         
         postListView.delegate = self
         postListView.dataSource = self
+        postListView.sectionFooterHeight = 0.0;
+        postListView.sectionHeaderHeight = 0.0;
         
         self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Billabong", size: 28)!,  NSForegroundColorAttributeName: UIColor.black]
         self.navigationController?.navigationBar.tintColor = UIColor.black
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        
+        self.view.backgroundColor = UIColor(red:0.96, green:0.96, blue:0.96, alpha:1.00)
         
     }
     
@@ -129,49 +130,28 @@ class FeedViewController : UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = postListView.dequeueReusableCell(withIdentifier: "basicCell", for: indexPath)
-        
-        print(indexPath.row)
         let imageView = cell.viewWithTag(_uiImageID) as! UIImageView
-        let upvoteButton = cell.viewWithTag(_upvoteButtonID) as! UIButton
-        let upvoteCount = cell.viewWithTag(_upvoteCountID) as! UILabel
-        let usernameButton = cell.viewWithTag(_usernameButtonID) as! UIButton
-        
         
         cell.selectionStyle = UITableViewCellSelectionStyle.none
-        
         imageView.sd_setImage(with: URL(string: posts[indexPath.row]["imageURL"]!), placeholderImage: _placeHolderUIImage)
-        
-        upvoteButton.setTitle(_fullHeart, for: .normal)
-        
-        upvoteButton.setTitleColor(UIColor.red, for: .normal)
-        
-        // username button attributes
-        usernameButton.setTitle(posts[indexPath.row]["user"], for: .normal)
-        usernameButton.tintColor = UIColor.black
-        usernameButton.addTarget(self, action: #selector(usernameButtonClicked(_:)), for: .touchUpInside)
-        //usernameButton.tag = indexPath.row // will make listview crash
-        
-        
-        upvoteCount.text = posts[indexPath.row]["likes"]! + " likes"
-        
         
         return cell
         
     }
     
     // uses button postion within list view to figure out what row it is.
-    func usernameButtonClicked(_ sender: UIButton){
-        let position : CGPoint = sender.convert(CGPoint.zero, to: self.postListView)
-        let indexPath = self.postListView.indexPathForRow(at: position)
-        print(indexPath!.row)
-        print(posts[indexPath!.row]["user"]!)
-        print(posts[indexPath!.row]["imageURL"]!)
-        
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "profileView") as! ProfileViewController
-        vc.setupFriendProfile(username: posts[indexPath!.row]["user"]!)
-        self.navigationController?.pushViewController(vc, animated: true)
-        
-    }
+//    func usernameButtonClicked(_ sender: UIButton){
+//        let position : CGPoint = sender.convert(CGPoint.zero, to: self.postListView)
+//        let indexPath = self.postListView.indexPathForRow(at: position)
+//        print(indexPath!.row)
+//        print(posts[indexPath!.row]["user"]!)
+//        print(posts[indexPath!.row]["imageURL"]!)
+//        
+//        let vc = self.storyboard?.instantiateViewController(withIdentifier: "profileView") as! ProfileViewController
+//        vc.setupFriendProfile(username: posts[indexPath!.row]["user"]!)
+//        self.navigationController?.pushViewController(vc, animated: true)
+//        
+//    }
     
 }
 
