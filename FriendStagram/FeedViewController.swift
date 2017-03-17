@@ -113,6 +113,10 @@ class FeedViewController : UIViewController, UITableViewDelegate, UITableViewDat
         
         self.view.backgroundColor = UIColor(red:0.96, green:0.96, blue:0.96, alpha:1.00)
         
+        let listViewBackgroundView = UIView()
+        listViewBackgroundView.backgroundColor = UIColor(red:0.96, green:0.96, blue:0.96, alpha:1.00)
+        self.postListView.backgroundView = listViewBackgroundView
+        
     }
     
     override func didReceiveMemoryWarning() {
