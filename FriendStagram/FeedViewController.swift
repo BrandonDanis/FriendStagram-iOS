@@ -92,6 +92,7 @@ class FeedViewController : UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet var postListView : UITableView!
     
     let _uiImageID = 1
+    let _contentViewID = 2
     
     let _placeHolderUIImage = UIImage(named: "placeholder")
     
@@ -134,7 +135,11 @@ class FeedViewController : UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = postListView.dequeueReusableCell(withIdentifier: "basicCell", for: indexPath)
+        
         let imageView = cell.viewWithTag(_uiImageID) as! UIImageView
+        
+        let contentView = cell.viewWithTag(_contentViewID)! as UIView
+        contentView.backgroundColor = UIColor(red:0.96, green:0.96, blue:0.96, alpha:1.00)
         
         cell.selectionStyle = UITableViewCellSelectionStyle.none
         imageView.sd_setImage(with: URL(string: posts[indexPath.row]["imageURL"]!), placeholderImage: _placeHolderUIImage)
