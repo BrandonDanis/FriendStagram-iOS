@@ -93,6 +93,8 @@ class FeedViewController : UIViewController, UITableViewDelegate, UITableViewDat
     
     let _uiImageID = 1
     let _contentViewID = 2
+    let _cellViewContainerID = 3
+    let _profilePictureID = 4
     
     let _placeHolderUIImage = UIImage(named: "placeholder")
     
@@ -106,6 +108,7 @@ class FeedViewController : UIViewController, UITableViewDelegate, UITableViewDat
         postListView.dataSource = self
         postListView.sectionFooterHeight = 0.0;
         postListView.sectionHeaderHeight = 0.0;
+        postListView.separatorStyle = UITableViewCellSeparatorStyle.none
         
         self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Billabong", size: 28)!,  NSForegroundColorAttributeName: UIColor.black]
         self.navigationController?.navigationBar.tintColor = UIColor.black
@@ -135,14 +138,20 @@ class FeedViewController : UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = postListView.dequeueReusableCell(withIdentifier: "basicCell", for: indexPath)
+        cell.selectionStyle = UITableViewCellSelectionStyle.none
         
         let imageView = cell.viewWithTag(_uiImageID) as! UIImageView
+        imageView.sd_setImage(with: URL(string: posts[indexPath.row]["imageURL"]!), placeholderImage: _placeHolderUIImage)
+        
+        let profileImageView = cell.viewWithTag(_profilePictureID) as! UIImageView
+        profileImageView.image = UIImage(named: "user")
         
         let contentView = cell.viewWithTag(_contentViewID)! as UIView
         contentView.backgroundColor = UIColor(red:0.96, green:0.96, blue:0.96, alpha:1.00)
         
-        cell.selectionStyle = UITableViewCellSelectionStyle.none
-        imageView.sd_setImage(with: URL(string: posts[indexPath.row]["imageURL"]!), placeholderImage: _placeHolderUIImage)
+        let cellContentView = cell.viewWithTag(_cellViewContainerID)! as UIView
+        cellContentView.backgroundColor = UIColor.white
+        cellContentView.layer.cornerRadius = 10
         
         return cell
         
