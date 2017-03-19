@@ -170,24 +170,8 @@ class FeedViewController : UIViewController, UITableViewDelegate, UITableViewDat
         likeLabel.textColor = UIColor(red:0.75, green:0.23, blue:0.19, alpha:1.00)
         likeLabel.text = _fullHeart + " 1,425 likes"
         
-        let doubleTap = UITapGestureRecognizer(target: self, action: #selector(CellDoubleTapped))
-        doubleTap.numberOfTapsRequired = 2
-        cell.addGestureRecognizer(doubleTap)
-        
         return cell
         
-    }
-    
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for touch in touches {
-            if(touch.tapCount == 2){
-                print("Double touch!?")
-            }
-        }
-    }
-    
-    @objc private func CellDoubleTapped(){
-        print("double tap")
     }
     
     // uses button postion within list view to figure out what row it is.
