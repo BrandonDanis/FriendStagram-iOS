@@ -95,6 +95,8 @@ class FeedViewController : UIViewController, UITableViewDelegate, UITableViewDat
     let _contentViewID = 2
     let _cellViewContainerID = 3
     let _profilePictureID = 4
+    let _usernameLabelID = 5
+    let _descriptionTextViewID = 6
     
     let _placeHolderUIImage = UIImage(named: "placeholder")
     
@@ -144,7 +146,9 @@ class FeedViewController : UIViewController, UITableViewDelegate, UITableViewDat
         imageView.sd_setImage(with: URL(string: posts[indexPath.row]["imageURL"]!), placeholderImage: _placeHolderUIImage)
         
         let profileImageView = cell.viewWithTag(_profilePictureID) as! UIImageView
-        profileImageView.image = UIImage(named: "user")
+        profileImageView.layer.cornerRadius = profileImageView.frame.size.height / 2
+        profileImageView.clipsToBounds = true
+        profileImageView.image = UIImage(named: "mountain")
         
         let contentView = cell.viewWithTag(_contentViewID)! as UIView
         contentView.backgroundColor = UIColor(red:0.96, green:0.96, blue:0.96, alpha:1.00)
@@ -152,6 +156,12 @@ class FeedViewController : UIViewController, UITableViewDelegate, UITableViewDat
         let cellContentView = cell.viewWithTag(_cellViewContainerID)! as UIView
         cellContentView.backgroundColor = UIColor.white
         cellContentView.layer.cornerRadius = 10
+        
+        let usernameLabel = cell.viewWithTag(_usernameLabelID) as! UILabel
+        usernameLabel.text = "Brandon"
+        
+        let descriptionTextView = cell.viewWithTag(_descriptionTextViewID) as! UITextView
+        descriptionTextView.layoutMargins = UIEdgeInsetsMake(0, 0, 0, 0)
         
         return cell
         
