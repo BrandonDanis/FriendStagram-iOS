@@ -48,7 +48,7 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
         
         _username = AppDelegate.globalAPI.GetUsername()
         
-        AppDelegate.globalAPI.GetPostForUser(_username: _username, completion: {
+        AppDelegate.globalAPI.GetPostForUser(completion: {
             (data) in
             if let myData = data["data"] {
                 self.posts = myData as! [[String:String]]
@@ -108,7 +108,7 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
     }
     
     @IBAction func RefreshData(){
-        AppDelegate.globalAPI.GetPostForUser(_username: _username, completion: {
+        AppDelegate.globalAPI.GetPostForUser(completion: {
             (data) in
             if let myData = data["data"] {
                 self.posts = myData as! [[String:String]]

@@ -26,10 +26,14 @@ class FeedViewController : UIViewController, UITableViewDelegate, UITableViewDat
     
     let _placeHolderUIImage = UIImage(named: "placeholder")
     
+    let refreshControl = UIRefreshControl()
+    
     var posts : [Dictionary<String,String>] = [Dictionary<String,String>]()
     
     override func viewDidLoad() {
         print("Main View Loaded")
+        
+        print(AppDelegate.globalAPI.GetUsername())
         
         AppDelegate.globalAPI.GetAllPosts { (res : [String : Any]) in
             if let myData = res["data"] {
@@ -39,6 +43,13 @@ class FeedViewController : UIViewController, UITableViewDelegate, UITableViewDat
                 print(res["status"] ?? "Error Occurred when pulling post")
             }
         }
+        
+        if #available(iOS 10.0, *) {
+            postListView.refreshControl = refreshControl
+        } else {
+            postListView.addSubview(refreshControl)
+        }
+        refreshControl.addTarget(self, action: #selector(RefreshData), for: .valueChanged)
         
         postListView.delegate = self
         postListView.dataSource = self
@@ -69,6 +80,19 @@ class FeedViewController : UIViewController, UITableViewDelegate, UITableViewDat
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return posts.count
+    }
+    
+    @IBAction func RefreshData(){
+        AppDelegate.globalAPI.GetAllPosts(completion: {
+            (data) in
+            if let myData = data["data"] {
+                self.posts = myData as! [[String:String]]
+                self.postListView.reloadData()
+            }else{
+                print(data["status"] ?? "Error Occurred when pulling post")
+            }
+            self.refreshControl.endRefreshing()
+        })
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
