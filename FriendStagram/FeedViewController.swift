@@ -144,6 +144,7 @@ class FeedViewController : UIViewController, UITableViewDelegate, UITableViewDat
         cell.selectionStyle = UITableViewCellSelectionStyle.none
         
         let imageView = cell.viewWithTag(_uiImageID) as! UIImageView
+        imageView.contentMode = UIViewContentMode.scaleAspectFit
         imageView.sd_setImage(with: URL(string: posts[indexPath.row]["imageURL"]!), placeholderImage: _placeHolderUIImage)
         
         let profileImageView = cell.viewWithTag(_profilePictureID) as! UIImageView
@@ -152,7 +153,7 @@ class FeedViewController : UIViewController, UITableViewDelegate, UITableViewDat
         profileImageView.image = UIImage(named: "mountain")
         
         let contentView = cell.viewWithTag(_contentViewID)! as UIView
-        contentView.backgroundColor = UIColor(red:0.96, green:0.96, blue:0.96, alpha:1.00)
+        contentView.backgroundColor = UIColor(red:0.90, green:0.90, blue:0.90, alpha:1.00)
         
         let cellContentView = cell.viewWithTag(_cellViewContainerID)! as UIView
         cellContentView.backgroundColor = UIColor.white
