@@ -97,11 +97,12 @@ class FeedViewController : UIViewController, UITableViewDelegate, UITableViewDat
     let _profilePictureID = 4
     let _usernameLabelID = 5
     let _descriptionTextViewID = 6
-    
-    let _placeHolderUIImage = UIImage(named: "placeholder")
+    let _likesLabelID = 7
     
     let _emptyHeart : String = "\u{f08a}"
     let _fullHeart : String = "\u{f004}"
+    
+    let _placeHolderUIImage = UIImage(named: "placeholder")
     
     override func viewDidLoad() {
         print("Main View Loaded")
@@ -162,6 +163,11 @@ class FeedViewController : UIViewController, UITableViewDelegate, UITableViewDat
         
         let descriptionTextView = cell.viewWithTag(_descriptionTextViewID) as! UITextView
         descriptionTextView.layoutMargins = UIEdgeInsetsMake(0, 0, 0, 0)
+        
+        let likeLabel = cell.viewWithTag(_likesLabelID) as! UILabel
+        likeLabel.font = UIFont(name: "FontAwesome", size: 14)
+        likeLabel.textColor = UIColor(red:0.75, green:0.23, blue:0.19, alpha:1.00)
+        likeLabel.text = _fullHeart + " 1,425 likes"
         
         return cell
         
