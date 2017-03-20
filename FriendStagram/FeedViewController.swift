@@ -17,7 +17,7 @@ class FeedViewController : UIViewController, UITableViewDelegate, UITableViewDat
     let _contentViewID = 2
     let _cellViewContainerID = 3
     let _profilePictureID = 4
-    let _usernameLabelID = 5
+    let _usernameButtonID = 5
     let _descriptionTextViewID = 6
     let _likesLabelID = 7
     
@@ -116,8 +116,9 @@ class FeedViewController : UIViewController, UITableViewDelegate, UITableViewDat
         cellContentView.backgroundColor = UIColor.white
         cellContentView.layer.cornerRadius = 10
         
-        let usernameLabel = cell.viewWithTag(_usernameLabelID) as! UILabel
-        usernameLabel.text = posts[indexPath.row]["username"]!
+        let usernameButton = cell.viewWithTag(_usernameButtonID) as! UIButton
+        usernameButton.setTitle(posts[indexPath.row]["username"]!, for: UIControlState.normal)
+        usernameButton.addTarget(self, action: #selector(usernameButtonClicked(_:)), for: .touchUpInside)
         
         let descriptionTextView = cell.viewWithTag(_descriptionTextViewID) as! UITextView
         descriptionTextView.layoutMargins = UIEdgeInsetsMake(0, 0, 0, 0)
@@ -130,8 +131,17 @@ class FeedViewController : UIViewController, UITableViewDelegate, UITableViewDat
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
+    func usernameButtonClicked(_ sender: UIButton){
+        let position : CGPoint = sender.convert(CGPoint.zero, to: self.postListView)
+        let indexPath = self.postListView.indexPathForRow(at: position)
+        print(indexPath!.row)
+        print(posts[indexPath!.row]["username"]!)
+        print(posts[indexPath!.row]["url"]!)
+        
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "profileView") as! ProfileViewController
+        vc.setupFriendProfile(username: posts[indexPath!.row]["username"]!)
+        self.navigationController?.pushViewController(vc, animated: true)
+        
     }
     
 }
