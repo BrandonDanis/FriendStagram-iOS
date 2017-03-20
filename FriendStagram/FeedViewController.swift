@@ -102,6 +102,8 @@ class FeedViewController : UIViewController, UITableViewDelegate, UITableViewDat
         
         let imageView = cell.viewWithTag(_uiImageID) as! UIImageView
         imageView.contentMode = UIViewContentMode.scaleAspectFit
+        imageView.contentMode = UIViewContentMode.scaleAspectFill
+        imageView.clipsToBounds = true
         imageView.sd_setImage(with: URL(string: posts[indexPath.row]["url"]!), placeholderImage: _placeHolderUIImage)
         
         let profileImageView = cell.viewWithTag(_profilePictureID) as! UIImageView
