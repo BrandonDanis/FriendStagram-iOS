@@ -181,7 +181,7 @@ class API {
         
         var responseDict : [String : Any] = [:]
         
-        Alamofire.request(self.API_URL + "/posts", method: HTTPMethod.get, encoding: JSONEncoding.default, headers: header).responseJSON{
+        Alamofire.request(self.API_URL + "/posts?limit=2000", method: HTTPMethod.get, encoding: JSONEncoding.default, headers: header).responseJSON{
             response in
             
             let status_code = response.response?.statusCode

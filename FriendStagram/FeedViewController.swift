@@ -117,7 +117,7 @@ class FeedViewController : UIViewController, UITableViewDelegate, UITableViewDat
         cellContentView.layer.cornerRadius = 10
         
         let usernameLabel = cell.viewWithTag(_usernameLabelID) as! UILabel
-        usernameLabel.text = posts[indexPath.row]["_id"]!
+        usernameLabel.text = posts[indexPath.row]["username"]!
         
         let descriptionTextView = cell.viewWithTag(_descriptionTextViewID) as! UITextView
         descriptionTextView.layoutMargins = UIEdgeInsetsMake(0, 0, 0, 0)
@@ -128,7 +128,10 @@ class FeedViewController : UIViewController, UITableViewDelegate, UITableViewDat
         likeLabel.text = _fullHeart + " 1,425 likes"
         
         return cell
-        
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(indexPath.row)
     }
     
 }
