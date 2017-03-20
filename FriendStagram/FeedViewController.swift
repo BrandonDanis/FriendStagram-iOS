@@ -139,6 +139,7 @@ class FeedViewController : UIViewController, UITableViewDelegate, UITableViewDat
         print(posts[indexPath!.row]["url"]!)
         
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "profileView") as! ProfileViewController
+        print(posts[indexPath!.row]["username"]!)
         vc.setupFriendProfile(username: posts[indexPath!.row]["username"]!)
         self.navigationController?.pushViewController(vc, animated: true)
         

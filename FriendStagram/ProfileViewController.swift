@@ -46,9 +46,11 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        _username = AppDelegate.globalAPI.GetUsername()
+        if(_username == "A Very Long Username"){
+             _username = AppDelegate.globalAPI.GetUsername()
+        }
         
-        AppDelegate.globalAPI.GetPostForUser(completion: {
+        AppDelegate.globalAPI.GetPostForUser(user: _username, completion: {
             (data) in
             if let myData = data["data"] {
                 self.posts = myData as! [[String:String]]
@@ -83,6 +85,7 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
     }
     
     func setupFriendProfile(username: String){
+        print("setting to", username)
         _username = username
     }
     
@@ -108,7 +111,7 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
     }
     
     @IBAction func RefreshData(){
-        AppDelegate.globalAPI.GetPostForUser(completion: {
+        AppDelegate.globalAPI.GetPostForUser(user : _username, completion: {
             (data) in
             if let myData = data["data"] {
                 self.posts = myData as! [[String:String]]

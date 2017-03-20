@@ -144,7 +144,7 @@ class API {
         
     }
     
-    func GetPostForUser(completion: @escaping ([String : Any]) -> Void){
+    func GetPostForUser(user : String, completion: @escaping ([String : Any]) -> Void){
         
         let header: HTTPHeaders = [
             "content-type": "application/json",
@@ -153,7 +153,9 @@ class API {
         
         var responseDict : [String : Any] = [:]
         
-        Alamofire.request(self.API_URL + "/posts/user/" + username, method: HTTPMethod.get, encoding: JSONEncoding.default, headers: header).responseJSON {
+        print(user)
+        
+        Alamofire.request(self.API_URL + "/posts/user/" + user, method: HTTPMethod.get, encoding: JSONEncoding.default, headers: header).responseJSON {
             response in
             
             let status_code = response.response?.statusCode
