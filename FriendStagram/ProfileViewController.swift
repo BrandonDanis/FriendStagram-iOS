@@ -50,21 +50,7 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
              _username = AppDelegate.globalAPI.GetUsername()
         }
         
-        AppDelegate.globalAPI.GetPostForUser(user: _username, completion: {
-            (data) in
-            if let myData = data["data"] as? [[String:AnyObject]] {
-                if let myPosts = myData[0]["posts"] as? [[String:AnyObject]] {
-                    self.posts = myPosts
-                }else{
-                    print("Failed to pull posts")
-                }
-                
-                self.collectionView.reloadData()
-            }else{
-                print("Error Occurred when pulling post")
-            }
-        })
-        
+        PullPosts()
         
         // grid view refresh control
         if #available(iOS 10.0, *) {
@@ -116,21 +102,7 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
     }
     
     @IBAction func RefreshData(){
-        AppDelegate.globalAPI.GetPostForUser(user : _username, completion: {
-            (data : [String: AnyObject]) in
-            if let myData = data["data"] as? [[String:AnyObject]] {
-                if let myPosts = myData[0]["posts"] as? [[String:AnyObject]] {
-                    self.posts = myPosts
-                }else{
-                    print("Failed to pull posts")
-                }
-                
-                self.collectionView.reloadData()
-            }else{
-                print("Error Occurred when pulling post")
-            }
-            self.refreshControl.endRefreshing()
-        })
+        PullPosts()
     }
     
     // creating cells
@@ -144,6 +116,23 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
         imageView.sd_setImage(with: URL(string: post["url"] as! String), placeholderImage: UIImage(named: "placeholder"))
         
         return cell
+    }
+    
+    private func PullPosts() {
+        AppDelegate.globalAPI.GetPostForUser(user: _username, completion: {
+            (data) in
+            if let myData = data["data"] as? [[String:AnyObject]] {
+                if let myPosts = myData[0]["posts"] as? [[String:AnyObject]] {
+                    self.posts = myPosts
+                }else{
+                    print("Failed to pull posts")
+                }
+                
+                self.collectionView.reloadData()
+            }else{
+                print("Error Occurred when pulling post")
+            }
+        })
     }
     
     //setting collection view header
