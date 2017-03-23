@@ -71,8 +71,6 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
         let logoutBarButton = UIBarButtonItem(customView: logoutButton)
         navigationItem.rightBarButtonItem = logoutBarButton
         navigationItem.rightBarButtonItem?.imageInsets = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0)
-        
-        
     }
     
     func setupFriendProfile(username: String){
@@ -102,7 +100,7 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
     }
     
     @IBAction func RefreshData(){
-        PullPosts()
+        PullPosts(updating: true)
     }
     
     // creating cells
@@ -118,7 +116,7 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
         return cell
     }
     
-    private func PullPosts() {
+    private func PullPosts(updating : Bool = false) {
         AppDelegate.globalAPI.GetPostForUser(user: _username, completion: {
             (data) in
             if let myData = data["data"] as? [[String:AnyObject]] {
@@ -131,6 +129,9 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
                 self.collectionView.reloadData()
             }else{
                 print("Error Occurred when pulling post")
+            }
+            if(updating){
+                self.refreshControl.endRefreshing()
             }
         })
     }
