@@ -36,7 +36,7 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
     
     var following = false
     
-    var posts : [Dictionary<String,String>] = [Dictionary<String,String>]()
+    var posts : [Dictionary<String,AnyObject>] = [Dictionary<String,AnyObject>]()
     
     private let refreshControl = UIRefreshControl()
     
@@ -52,11 +52,16 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
         
         AppDelegate.globalAPI.GetPostForUser(user: _username, completion: {
             (data) in
-            if let myData = data["data"] {
-                self.posts = myData as! [[String:String]]
+            if let myData = data["data"] as? [[String:AnyObject]] {
+                if let myPosts = myData[0]["posts"] as? [[String:AnyObject]] {
+                    self.posts = myPosts
+                }else{
+                    print("Failed to pull posts")
+                }
+                
                 self.collectionView.reloadData()
             }else{
-                print(data["status"] ?? "Error Occurred when pulling post")
+                print("Error Occurred when pulling post")
             }
         })
         
@@ -112,12 +117,17 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
     
     @IBAction func RefreshData(){
         AppDelegate.globalAPI.GetPostForUser(user : _username, completion: {
-            (data) in
-            if let myData = data["data"] {
-                self.posts = myData as! [[String:String]]
+            (data : [String: AnyObject]) in
+            if let myData = data["data"] as? [[String:AnyObject]] {
+                if let myPosts = myData[0]["posts"] as? [[String:AnyObject]] {
+                    self.posts = myPosts
+                }else{
+                    print("Failed to pull posts")
+                }
+                
                 self.collectionView.reloadData()
             }else{
-                print(data["status"] ?? "Error Occurred when pulling post")
+                print("Error Occurred when pulling post")
             }
             self.refreshControl.endRefreshing()
         })
@@ -131,7 +141,7 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
         let imageView = cell.viewWithTag(1) as! UIImageView
         let post = self.posts[indexPath.row]
         
-        imageView.sd_setImage(with: URL(string: post["url"]!), placeholderImage: UIImage(named: "placeholder"))
+        imageView.sd_setImage(with: URL(string: post["url"] as! String), placeholderImage: UIImage(named: "placeholder"))
         
         return cell
     }
@@ -185,7 +195,7 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
         print(indexPath)
         
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "imageView") as! ImageViewController
-        vc.setup(imageURL: posts[indexPath.row]["url"]!, username: _username)
+        vc.setup(imageURL: posts[indexPath.row]["url"]! as! String, username: _username)
         self.navigationController?.pushViewController(vc, animated: true)
         
     }
