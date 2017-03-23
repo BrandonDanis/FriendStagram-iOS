@@ -144,7 +144,7 @@ class API {
         
     }
     
-    func GetPostForUser(user : String, completion: @escaping ([String : AnyObject]) -> Void){
+    func GetUserInfo(user : String, completion: @escaping ([String : AnyObject]) -> Void){
         
         let header: HTTPHeaders = [
             "content-type": "application/json",
@@ -153,14 +153,14 @@ class API {
         
         var responseDict : [String : AnyObject] = [:]
         
-        Alamofire.request(self.API_URL + "/posts/user/" + user, method: HTTPMethod.get, encoding: JSONEncoding.default, headers: header).responseJSON {
+        Alamofire.request(self.API_URL + "/users/" + user, method: HTTPMethod.get, encoding: JSONEncoding.default, headers: header).responseJSON {
             response in
             
             let status_code = response.response?.statusCode
             
             responseDict["status"] = status_code as AnyObject
             
-            if(status_code == 200){
+            if(status_code == 202){
                 if let json = response.result.value as? [String: AnyObject] {
                     responseDict["data"] = json["data"] as AnyObject
                 }

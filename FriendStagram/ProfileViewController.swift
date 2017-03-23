@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import SDWebImage
+import DZNEmptyDataSet
 
 class ProfileViewController : UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
@@ -111,16 +112,16 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
         let imageView = cell.viewWithTag(1) as! UIImageView
         let post = self.posts[indexPath.row]
         
-        imageView.sd_setImage(with: URL(string: post["url"] as! String), placeholderImage: UIImage(named: "placeholder"))
+        imageView.sd_setImage(with: URL(string: post["image_url"] as! String), placeholderImage: UIImage(named: "placeholder"))
         
         return cell
     }
     
     private func PullPosts(updating : Bool = false) {
-        AppDelegate.globalAPI.GetPostForUser(user: _username, completion: {
+        AppDelegate.globalAPI.GetUserInfo(user: _username, completion: {
             (data) in
-            if let myData = data["data"] as? [[String:AnyObject]] {
-                if let myPosts = myData[0]["posts"] as? [[String:AnyObject]] {
+            if let myData = data["data"] as? [String:AnyObject] {
+                if let myPosts = myData["posts"] as? [[String:AnyObject]] {
                     self.posts = myPosts
                 }else{
                     print("Failed to pull posts")
