@@ -186,7 +186,8 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
         print(indexPath)
         
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "imageView") as! ImageViewController
-        vc.setup(imageURL: posts[indexPath.row]["url"]! as! String, username: _username)
+        //vc.setup(imageId: posts[indexPath.row]["id"] as! String, username: _username)
+        vc.setup(imageId: posts[indexPath.row]["id"] as! Int, username: _username)
         self.navigationController?.pushViewController(vc, animated: true)
         
     }

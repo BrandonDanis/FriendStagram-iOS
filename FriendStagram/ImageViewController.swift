@@ -23,12 +23,12 @@ class ImageViewController: UIViewController {
     @IBOutlet var likeCountButton : UIButton!
     @IBOutlet var descriptionTextView : UITextView!
     
-    var imageURL : String =  ""
+    var imageId : Int = -1
     var username : String = ""
     
     override func viewDidLoad() {
         
-        imageView.sd_setImage(with: URL(string: imageURL), placeholderImage: UIImage(named: "bg"))
+        GetPostInfo(postId: imageId)
         
         usernameButton.setTitle(username, for: .normal)
         
@@ -43,8 +43,25 @@ class ImageViewController: UIViewController {
         
     }
     
-    func setup(imageURL: String, username: String){
-        self.imageURL = imageURL
+    private func GetPostInfo(postId: Int){
+        AppDelegate.globalAPI.GetPostInfo(postId: postId) { (res) in
+            let status_code : Int = res["status"] as! Int
+            
+            if(status_code == 200){
+                if let myData = res["data"] as? [String:AnyObject] {
+                    
+                    self.imageView.sd_setImage(with: URL(string: myData["image_url"] as! String), placeholderImage: #imageLiteral(resourceName: "placeholder"))
+                    
+                }
+            }else{
+                print("Post not found.")
+            }
+            
+        }
+    }
+    
+    func setup(imageId: Int, username: String){
+        self.imageId = imageId
         self.username = username
     }
     
