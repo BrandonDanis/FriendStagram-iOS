@@ -17,10 +17,10 @@
         <!--Item-->
         <scene sceneID="y7m-hZ-GRh">
             <objects>
-                <navigationController navigationBarHidden="YES" id="EDo-03-4Om" sceneMemberID="viewController">
+                <navigationController id="EDo-03-4Om" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="G4u-yd-upi"/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="mQO-7w-ev1">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mQO-7w-ev1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -32,7 +32,7 @@
             </objects>
             <point key="canvasLocation" x="316" y="133"/>
         </scene>
-        <!--Upload View Controller-->
+        <!--Image Upload-->
         <scene sceneID="4df-RA-FMp">
             <objects>
                 <viewController id="ewU-iO-QHq" customClass="UploadViewController" customModule="FriendStagram" customModuleProvider="target" sceneMemberID="viewController">
@@ -70,7 +70,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="hiC-Jt-LPB"/>
+                    <navigationItem key="navigationItem" title="Image Upload" id="hiC-Jt-LPB"/>
+                    <nil key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="errorLabel" destination="wRS-ZN-Azf" id="c4o-6s-yZ9"/>
                         <outlet property="imageView" destination="GiV-Uu-tr9" id="hfb-vm-fvk"/>

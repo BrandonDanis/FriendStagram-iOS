@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 import SDWebImage
-import DZNEmptyDataSet
 
 class ProfileViewController : UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     

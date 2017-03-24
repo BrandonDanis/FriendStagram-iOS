@@ -22,6 +22,9 @@ class UploadViewController : UIViewController, UIImagePickerControllerDelegate, 
         imageView.isUserInteractionEnabled = true
         imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(UpdatingProfilePicture)))
         
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Billabong", size: 28)!,  NSForegroundColorAttributeName: UIColor.black]
+        self.navigationController?.navigationBar.tintColor = UIColor.black
+        
         uploadButton.setTitleColor(UIColor.white, for: UIControlState.normal)
         uploadButton.backgroundColor = UIColor(red: 0.20, green: 0.60, blue: 0.86, alpha: 1.00)
         uploadButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(SubmitPost)))
@@ -35,6 +38,11 @@ class UploadViewController : UIViewController, UIImagePickerControllerDelegate, 
     
     override func didReceiveMemoryWarning() {
         
+    }
+    
+    //removing status bar
+    override var prefersStatusBarHidden: Bool {
+        return true
     }
     
     @IBAction func SubmitPost(){
