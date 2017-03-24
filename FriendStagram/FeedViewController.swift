@@ -31,16 +31,12 @@ class FeedViewController : UIViewController, UITableViewDelegate, UITableViewDat
     var posts : [Dictionary<String,String>] = [Dictionary<String,String>]()
     
     override func viewDidLoad() {
-        print("Main View Loaded")
-        
-        print(AppDelegate.globalAPI.GetUsername())
-        
         AppDelegate.globalAPI.GetAllPosts { (res : [String : Any]) in
             if let myData = res["data"] {
                 self.posts = myData as! [[String:String]]
                 self.postListView.reloadData()
             }else{
-                print(res["status"] ?? "Error Occurred when pulling post")
+                print("Error Occurred when pulling post")
             }
         }
         
@@ -89,7 +85,7 @@ class FeedViewController : UIViewController, UITableViewDelegate, UITableViewDat
                 self.posts = myData as! [[String:String]]
                 self.postListView.reloadData()
             }else{
-                print(data["status"] ?? "Error Occurred when pulling post")
+                print("Error Occurred when pulling post")
             }
             self.refreshControl.endRefreshing()
         })
@@ -136,12 +132,8 @@ class FeedViewController : UIViewController, UITableViewDelegate, UITableViewDat
     func usernameButtonClicked(_ sender: UIButton){
         let position : CGPoint = sender.convert(CGPoint.zero, to: self.postListView)
         let indexPath = self.postListView.indexPathForRow(at: position)
-        print(indexPath!.row)
-        print(posts[indexPath!.row]["username"]!)
-        print(posts[indexPath!.row]["url"]!)
         
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "profileView") as! ProfileViewController
-        print(posts[indexPath!.row]["username"]!)
         vc.setupFriendProfile(username: posts[indexPath!.row]["username"]!)
         self.navigationController?.pushViewController(vc, animated: true)
         

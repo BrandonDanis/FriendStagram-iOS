@@ -41,7 +41,6 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
     private let refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
-        print("Profile View Loaded")
         
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -139,8 +138,6 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
     //setting collection view header
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
-        print("Getting header")
-        
         var reusableview : UICollectionReusableView
             
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "headerCell", for: indexPath)
@@ -176,14 +173,7 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
         return reusableview
     }
     
-    func collectionView(_ collectionView: UICollectionView, didEndDisplayingSupplementaryView view: UICollectionReusableView, forElementOfKind elementKind: String, at indexPath: IndexPath)
-    {
-        print("Dealocating header")
-    }
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath)
-        
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "imageView") as! ImageViewController
         //vc.setup(imageId: posts[indexPath.row]["id"] as! String, username: _username)
         vc.setup(imageId: posts[indexPath.row]["id"] as! Int, username: _username)

@@ -146,6 +146,8 @@ class API {
     
     func GetPostInfo(postId: Int, completion: @escaping ([String: AnyObject]) -> Void){
         
+        print("Getting info about post", String(postId))
+        
         var responseDict : [String : AnyObject] = [:]
         
         Alamofire.request(self.API_URL + "/posts/id/" + String(postId), method: HTTPMethod.get, encoding: JSONEncoding.default).responseJSON {
@@ -168,6 +170,8 @@ class API {
     }
     
     func GetUserInfo(user : String, completion: @escaping ([String : AnyObject]) -> Void){
+        
+        print("Getting info about user", user)
         
         let header: HTTPHeaders = [
             "content-type": "application/json",
