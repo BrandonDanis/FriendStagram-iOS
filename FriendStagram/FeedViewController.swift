@@ -119,8 +119,7 @@ class FeedViewController : UIViewController, UITableViewDelegate, UITableViewDat
         cellContentView.layer.cornerRadius = 10
         
         let usernameButton = cell.viewWithTag(_usernameButtonID) as! UIButton
-        //usernameButton.setTitle(posts[indexPath.row]["user_id"] as! Int, for: UIControlState.normal)
-        usernameButton.setTitle("Brando", for: UIControlState.normal)
+        usernameButton.setTitle(posts[indexPath.row]["username"] as? String, for: UIControlState.normal)
         usernameButton.addTarget(self, action: #selector(usernameButtonClicked(_:)), for: .touchUpInside)
         
         let descriptionTextView = cell.viewWithTag(_descriptionTextViewID) as! UITextView
