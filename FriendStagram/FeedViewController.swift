@@ -28,12 +28,14 @@ class FeedViewController : UIViewController, UITableViewDelegate, UITableViewDat
     
     let refreshControl = UIRefreshControl()
     
-    var posts : [Dictionary<String,String>] = [Dictionary<String,String>]()
+    var posts : [Dictionary<String,AnyObject>] = [Dictionary<String,AnyObject>]()
     
     override func viewDidLoad() {
-        AppDelegate.globalAPI.GetAllPosts { (res : [String : Any]) in
-            if let myData = res["data"] {
-                self.posts = myData as! [[String:String]]
+        AppDelegate.globalAPI.GetAllPosts { (res : [String : AnyObject]) in
+            let res_status = res["status"] as! Int
+            print(res_status)
+            if let myData = res["data"] as? [[String:AnyObject]] {
+                self.posts = myData
                 self.postListView.reloadData()
             }else{
                 print("Error Occurred when pulling post")
@@ -81,8 +83,10 @@ class FeedViewController : UIViewController, UITableViewDelegate, UITableViewDat
     @IBAction func RefreshData(){
         AppDelegate.globalAPI.GetAllPosts(completion: {
             (data) in
-            if let myData = data["data"] {
-                self.posts = myData as! [[String:String]]
+            let res_status = data["status"] as! Int
+            print(res_status)
+            if let myData = data["data"] as? [[String:AnyObject]] {
+                self.posts = myData
                 self.postListView.reloadData()
             }else{
                 print("Error Occurred when pulling post")
@@ -100,7 +104,7 @@ class FeedViewController : UIViewController, UITableViewDelegate, UITableViewDat
         imageView.contentMode = UIViewContentMode.scaleAspectFit
         imageView.contentMode = UIViewContentMode.scaleAspectFill
         imageView.clipsToBounds = true
-        imageView.sd_setImage(with: URL(string: posts[indexPath.row]["url"]!), placeholderImage: _placeHolderUIImage)
+        imageView.sd_setImage(with: URL(string: posts[indexPath.row]["image_url"] as! String), placeholderImage: _placeHolderUIImage)
         
         let profileImageView = cell.viewWithTag(_profilePictureID) as! UIImageView
         profileImageView.layer.cornerRadius = profileImageView.frame.size.height / 2
@@ -115,7 +119,8 @@ class FeedViewController : UIViewController, UITableViewDelegate, UITableViewDat
         cellContentView.layer.cornerRadius = 10
         
         let usernameButton = cell.viewWithTag(_usernameButtonID) as! UIButton
-        usernameButton.setTitle(posts[indexPath.row]["username"]!, for: UIControlState.normal)
+        //usernameButton.setTitle(posts[indexPath.row]["user_id"] as! Int, for: UIControlState.normal)
+        usernameButton.setTitle("Brando", for: UIControlState.normal)
         usernameButton.addTarget(self, action: #selector(usernameButtonClicked(_:)), for: .touchUpInside)
         
         let descriptionTextView = cell.viewWithTag(_descriptionTextViewID) as! UITextView
@@ -131,11 +136,11 @@ class FeedViewController : UIViewController, UITableViewDelegate, UITableViewDat
     
     func usernameButtonClicked(_ sender: UIButton){
         let position : CGPoint = sender.convert(CGPoint.zero, to: self.postListView)
-        let indexPath = self.postListView.indexPathForRow(at: position)
+        //let indexPath = self.postListView.indexPathForRow(at: position)
         
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "profileView") as! ProfileViewController
-        vc.setupFriendProfile(username: posts[indexPath!.row]["username"]!)
-        self.navigationController?.pushViewController(vc, animated: true)
+        //let vc = self.storyboard?.instantiateViewController(withIdentifier: "profileView") as! ProfileViewController
+        //vc.setupFriendProfile(username: posts[indexPath.row]["user_id"] as! Int)
+        //self.navigationController?.pushViewController(vc, animated: true)
         
     }
     

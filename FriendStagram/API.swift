@@ -199,25 +199,25 @@ class API {
         
     }
     
-    func GetAllPosts(completion: @escaping ([String : Any]) -> Void){
+    func GetAllPosts(completion: @escaping ([String : AnyObject]) -> Void){
         
         let header: HTTPHeaders = [
             "content-type": "application/json",
             "token": session_key
         ]
         
-        var responseDict : [String : Any] = [:]
+        var responseDict : [String : AnyObject] = [:]
         
         Alamofire.request(self.API_URL + "/posts?limit=2000", method: HTTPMethod.get, encoding: JSONEncoding.default, headers: header).responseJSON{
             response in
             
             let status_code = response.response?.statusCode
             
-            responseDict["status"] = status_code
+            responseDict["status"] = status_code as AnyObject
             
             if(status_code == 200){
                 if let json = response.result.value as? [String: Any] {
-                    responseDict["data"] = json["data"] as! [Dictionary<String, String>]
+                    responseDict["data"] = json["data"] as AnyObject
                 }
             }
             
