@@ -13,22 +13,18 @@ class FeedViewController : UIViewController, UITableViewDelegate, UITableViewDat
     
     @IBOutlet var postListView : UITableView!
     
-    let _uiImageID = 1
-    let _contentViewID = 2
-    let _cellViewContainerID = 3
-    let _profilePictureID = 4
-    let _usernameButtonID = 5
-    let _descriptionTextViewID = 6
-    let _likesLabelID = 7
-    
-    let _emptyHeart : String = "\u{f08a}"
-    let _fullHeart : String = "\u{f004}"
-    
-    let _placeHolderUIImage = UIImage(named: "placeholder")
-    
-    let refreshControl = UIRefreshControl()
-    
-    var posts : [Dictionary<String,AnyObject>] = [Dictionary<String,AnyObject>]()
+    private let _uiImageID = 1
+    private let _contentViewID = 2
+    private let _cellViewContainerID = 3
+    private let _profilePictureID = 4
+    private let _usernameButtonID = 5
+    private let _descriptionTextViewID = 6
+    private let _likesLabelID = 7
+    private let _emptyHeart : String = "\u{f08a}"
+    private let _fullHeart : String = "\u{f004}"
+    private let _placeHolderUIImage = UIImage(named: "placeholder")
+    private let refreshControl = UIRefreshControl()
+    private var posts : [Dictionary<String,AnyObject>] = [Dictionary<String,AnyObject>]()
     
     override func viewDidLoad() {
         AppDelegate.globalAPI.GetAllPosts { (res : [String : AnyObject]) in

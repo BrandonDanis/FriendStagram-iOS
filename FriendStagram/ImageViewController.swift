@@ -12,10 +12,10 @@ import SDWebImage
 
 class ImageViewController: UIViewController {
     
-    let _emptyHeart : String = "\u{f08a}"
-    let _fullHeart : String = "\u{f004}"
+    private let _emptyHeart : String = "\u{f08a}"
+    private let _fullHeart : String = "\u{f004}"
     
-    var following = false
+    private var following = false
     
     @IBOutlet var usernameButton : UIButton!
     @IBOutlet var imageView : UIImageView!
@@ -23,8 +23,8 @@ class ImageViewController: UIViewController {
     @IBOutlet var likeCountButton : UIButton!
     @IBOutlet var descriptionTextView : UITextView!
     
-    var imageId : Int = -1
-    var username : String = ""
+    private var imageId : Int = -1
+    private var username : String = ""
     
     override func viewDidLoad() {
         
@@ -75,15 +75,11 @@ class ImageViewController: UIViewController {
     }
     
     @IBAction func usernamePressed(sender: Any?){
-        
         let vc = storyboard?.instantiateViewController(withIdentifier: "profileView") as! ProfileViewController
-        
         self.navigationController?.pushViewController(vc, animated: true)
-
     }
     
     @IBAction func likeButtonClicked(sender: UIButton) {
-        
         if(following){
             following = false
             sender.setTitle(_emptyHeart, for: .normal)
@@ -91,7 +87,6 @@ class ImageViewController: UIViewController {
             following = true
             sender.setTitle(_fullHeart, for: .normal)
         }
-        
     }
     
     @IBAction func likeCountClicked(sender: UIButton){
