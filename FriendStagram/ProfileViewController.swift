@@ -10,6 +10,13 @@ import Foundation
 import UIKit
 import SDWebImage
 
+struct User {
+    var username : String = ""
+    var name : String = ""
+    var description : String = ""
+    var posts : [[String:AnyObject]] = [[String:AnyObject]]()
+}
+
 class ProfileViewController : UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     var images = [
@@ -32,11 +39,9 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
     
     @IBOutlet var collectionView : UICollectionView!
     
-    var _username : String = "A Very Long Username"
-    
-    var following = false
-    
-    var posts : [Dictionary<String,AnyObject>] = [Dictionary<String,AnyObject>]()
+    private var _username : String = "A Very Long Username"
+    private var following : Bool = false
+    private var user : User = User()
     
     private let refreshControl = UIRefreshControl()
     
@@ -49,7 +54,7 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
              _username = AppDelegate.globalAPI.GetUsername()
         }
         
-        PullPosts()
+        PullUserData()
         
         // grid view refresh control
         if #available(iOS 10.0, *) {
@@ -72,6 +77,10 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
         navigationItem.rightBarButtonItem?.imageInsets = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        print("Profile about to load")
+    }
+    
     func setupFriendProfile(username: String){
         print("setting to", username)
         _username = username
@@ -88,7 +97,7 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
     
     // amount of cell in collection view
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return posts.count
+        return user.posts.count
     }
     
     @IBAction func Logout(){
@@ -99,7 +108,7 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
     }
     
     @IBAction func RefreshData(){
-        PullPosts(updating: true)
+        PullUserData(updating: true)
     }
     
     // creating cells
@@ -108,21 +117,29 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
         
         let imageView = cell.viewWithTag(1) as! UIImageView
-        let post = self.posts[indexPath.row]
+        let post = self.user.posts[indexPath.row]
         
         imageView.sd_setImage(with: URL(string: post["image_url"] as! String), placeholderImage: UIImage(named: "placeholder"))
         
         return cell
     }
     
-    private func PullPosts(updating : Bool = false) {
+    private func PullUserData(updating : Bool = false) {
         AppDelegate.globalAPI.GetUserInfo(user: _username, completion: {
             (data) in
             if let myData = data["data"] as? [String:AnyObject] {
                 if let myPosts = myData["posts"] as? [[String:AnyObject]] {
-                    self.posts = myPosts
+                    self.user.posts = myPosts
                 }else{
                     print("Failed to pull posts")
+                }
+                
+                if let name = myData["name"] as? String{
+                    self.user.name = name
+                }
+                
+                if let username = myData["username"] as? String{
+                    self.user.username = username
                 }
                 
                 self.collectionView.reloadData()
@@ -152,8 +169,11 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
         followButton.layer.cornerRadius = followButton.frame.width/2
         
         let usernameLabel = header.viewWithTag(3) as! UILabel
-        usernameLabel.text = _username
+        usernameLabel.text = user.username
         usernameLabel.textColor = UIColor.black
+        
+        let postCount = header.viewWithTag(4) as! UILabel
+        postCount.text = String(user.posts.count)
         
         if(following){
             followButton.backgroundColor = UIColor(red:0.22, green:0.79, blue:0.45, alpha:1.00)
@@ -176,7 +196,7 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "imageView") as! ImageViewController
         //vc.setup(imageId: posts[indexPath.row]["id"] as! String, username: _username)
-        vc.setup(imageId: posts[indexPath.row]["id"] as! Int, username: _username)
+        vc.setup(imageId: user.posts[indexPath.row]["id"] as! Int, username: _username)
         self.navigationController?.pushViewController(vc, animated: true)
         
     }

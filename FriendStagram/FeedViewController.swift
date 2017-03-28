@@ -135,11 +135,11 @@ class FeedViewController : UIViewController, UITableViewDelegate, UITableViewDat
     
     func usernameButtonClicked(_ sender: UIButton){
         let position : CGPoint = sender.convert(CGPoint.zero, to: self.postListView)
-        //let indexPath = self.postListView.indexPathForRow(at: position)
+        let indexPath = self.postListView.indexPathForRow(at: position)
         
-        //let vc = self.storyboard?.instantiateViewController(withIdentifier: "profileView") as! ProfileViewController
-        //vc.setupFriendProfile(username: posts[indexPath.row]["user_id"] as! Int)
-        //self.navigationController?.pushViewController(vc, animated: true)
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "profileView") as! ProfileViewController
+        vc.setupFriendProfile(username: posts[indexPath!.row]["user_id"] as! String)
+        self.navigationController?.pushViewController(vc, animated: true)
         
     }
     
