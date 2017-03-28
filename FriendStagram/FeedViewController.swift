@@ -138,7 +138,7 @@ class FeedViewController : UIViewController, UITableViewDelegate, UITableViewDat
         let indexPath = self.postListView.indexPathForRow(at: position)
         
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "profileView") as! ProfileViewController
-        vc.setupFriendProfile(username: posts[indexPath!.row]["user_id"] as! String)
+        vc.setupFriendProfile(username: posts[indexPath!.row]["username"] as! String)
         self.navigationController?.pushViewController(vc, animated: true)
         
     }
