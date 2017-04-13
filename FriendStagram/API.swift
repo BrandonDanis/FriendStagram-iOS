@@ -20,7 +20,7 @@ class API {
     
     let config = CLDConfiguration(cloudName: "dajzmd3d8", apiKey: "386623978827134")
     
-    var API_URL = "http://1857e72d.ngrok.io"
+    var API_URL = "http://906f25ae.ngrok.io"
     //var API_URL = "localhost:8080"
     
     init() {
