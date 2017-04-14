@@ -51,15 +51,15 @@ class FeedViewController : UIViewController, UITableViewDelegate, UITableViewDat
         postListView.sectionHeaderHeight = 0.0;
         postListView.separatorStyle = UITableViewCellSeparatorStyle.none
         
-        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Billabong", size: 28)!,  NSForegroundColorAttributeName: UIColor.black]
-        self.navigationController?.navigationBar.tintColor = UIColor.black
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Billabong", size: 28)!,  NSForegroundColorAttributeName: Style.navigation_title_color]
+        self.navigationController?.navigationBar.tintColor = Style.navigation_title_color
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
-        self.view.backgroundColor = UIColor(red:0.96, green:0.96, blue:0.96, alpha:1.00)
+        self.view.backgroundColor = Style.feed_background_color
         
         let listViewBackgroundView = UIView()
-        listViewBackgroundView.backgroundColor = UIColor(red:0.96, green:0.96, blue:0.96, alpha:1.00)
+        listViewBackgroundView.backgroundColor = Style.feed_background_color
         self.postListView.backgroundView = listViewBackgroundView
         
     }
@@ -108,10 +108,10 @@ class FeedViewController : UIViewController, UITableViewDelegate, UITableViewDat
         profileImageView.image = UIImage(named: "mountain")
         
         let contentView = cell.viewWithTag(_contentViewID)! as UIView
-        contentView.backgroundColor = UIColor(red:0.90, green:0.90, blue:0.90, alpha:1.00)
+        contentView.backgroundColor = Style.feed_cell_background_color
         
         let cellContentView = cell.viewWithTag(_cellViewContainerID)! as UIView
-        cellContentView.backgroundColor = UIColor.white
+        cellContentView.backgroundColor = Style.feed_cell_content_background_color
         cellContentView.layer.cornerRadius = 10
         
         let usernameButton = cell.viewWithTag(_usernameButtonID) as! UIButton
@@ -123,7 +123,7 @@ class FeedViewController : UIViewController, UITableViewDelegate, UITableViewDat
         
         let likeLabel = cell.viewWithTag(_likesLabelID) as! UILabel
         likeLabel.font = UIFont(name: "FontAwesome", size: 14)
-        likeLabel.textColor = UIColor(red:0.75, green:0.23, blue:0.19, alpha:1.00)
+        likeLabel.textColor = Style.feed_cell_like_button_color
         likeLabel.text = _fullHeart + " 1,425 likes"
         
         return cell
