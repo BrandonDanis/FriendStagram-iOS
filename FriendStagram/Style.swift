@@ -21,4 +21,10 @@ struct Style {
     static var feed_cell_content_background_color = UIColor.white //background color of cell content
     static var feed_cell_like_button_color = UIColor(red:0.75, green:0.23, blue:0.19, alpha:1.00)
     
+    static var profile_header_background_color = UIColor.white
+    static var profile_not_following_background_color = UIColor.black
+    static var profile_following_background_color = UIColor(red:0.22, green:0.79, blue:0.45, alpha:1.00)
+    static var profile_follow_button_title_color = UIColor.white
+    static var profile_username_label_color = UIColor.black
+    
 }

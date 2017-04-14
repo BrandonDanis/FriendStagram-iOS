@@ -22,7 +22,7 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
     @IBOutlet var collectionView : UICollectionView!
     
     private var _username : String = "A Very Long Username"
-    private var following : Bool = false
+    private var following : Bool = true
     private var user : User = User()
     
     private let refreshControl = UIRefreshControl()
@@ -46,8 +46,8 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
         }
         refreshControl.addTarget(self, action: #selector(RefreshData), for: .valueChanged)
         
-        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Billabong", size: 28)!,  NSForegroundColorAttributeName: UIColor.black]
-        self.navigationController?.navigationBar.tintColor = UIColor.black
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Billabong", size: 28)!,  NSForegroundColorAttributeName: Style.navigation_title_color]
+        self.navigationController?.navigationBar.tintColor = Style.navigation_title_color
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
         let logoutButton : UIButton = UIButton()
@@ -137,27 +137,27 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
             
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "headerCell", for: indexPath)
             
-        header.backgroundColor = UIColor.white
+        header.backgroundColor = Style.profile_header_background_color
         
         let followButton = header.viewWithTag(1) as! UIButton
         followButton.addTarget(self, action: #selector(followButtonClicked(_:)), for: UIControlEvents.touchUpInside)
         followButton.titleLabel!.font = UIFont(name: "FontAwesome", size: 20)
-        followButton.setTitleColor(UIColor.white, for: UIControlState.normal)
-        followButton.setTitleColor(UIColor.white, for: UIControlState.highlighted)
+        followButton.setTitleColor(Style.profile_follow_button_title_color, for: UIControlState.normal)
+        followButton.setTitleColor(Style.profile_follow_button_title_color, for: UIControlState.highlighted)
         followButton.layer.cornerRadius = followButton.frame.width/2
         
         let usernameLabel = header.viewWithTag(3) as! UILabel
         usernameLabel.text = user.username
-        usernameLabel.textColor = UIColor.black
+        usernameLabel.textColor = Style.profile_username_label_color
         
         let postCount = header.viewWithTag(4) as! UILabel
         postCount.text = String(user.posts.count)
         
         if(following){
-            followButton.backgroundColor = UIColor(red:0.22, green:0.79, blue:0.45, alpha:1.00)
+            followButton.backgroundColor = Style.profile_following_background_color
             followButton.setTitle("\u{f00c}", for: .normal)
         }else{
-            followButton.backgroundColor = UIColor.black
+            followButton.backgroundColor = Style.profile_not_following_background_color
             followButton.setTitle("\u{f067}", for: .normal)
         }
         
@@ -198,11 +198,11 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
         
         if(following){
             following = false
-            sender.backgroundColor = UIColor.black
+            sender.backgroundColor = Style.profile_following_background_color
             sender.setTitle("\u{f067}", for: .normal)
         }else{
             following = true
-            sender.backgroundColor = UIColor(red:0.22, green:0.79, blue:0.45, alpha:1.00)
+            sender.backgroundColor = Style.profile_not_following_background_color
             sender.setTitle("\u{f00c}", for: .normal)
         }
     }
