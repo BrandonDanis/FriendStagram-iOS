@@ -29,6 +29,9 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
     
     override func viewDidLoad() {
         
+        let selectedIndex = tabBarController!.selectedIndex
+        let stackCount = self.navigationController?.viewControllers.count
+        
         collectionView.delegate = self
         collectionView.dataSource = self
         
@@ -50,13 +53,16 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
         self.navigationController?.navigationBar.tintColor = Style.navigation_title_color
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
-        let logoutButton : UIButton = UIButton()
-        logoutButton.setImage(#imageLiteral(resourceName: "door"), for: .normal)
-        logoutButton.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
-        logoutButton.addTarget(self, action: #selector(Logout), for: UIControlEvents.touchUpInside)
-        let logoutBarButton = UIBarButtonItem(customView: logoutButton)
-        navigationItem.rightBarButtonItem = logoutBarButton
-        navigationItem.rightBarButtonItem?.imageInsets = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0)
+        if(selectedIndex == 2 && stackCount! == 1){
+            let logoutButton : UIButton = UIButton()
+            logoutButton.setImage(#imageLiteral(resourceName: "door"), for: .normal)
+            logoutButton.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
+            logoutButton.addTarget(self, action: #selector(Logout), for: UIControlEvents.touchUpInside)
+            let logoutBarButton = UIBarButtonItem(customView: logoutButton)
+            navigationItem.rightBarButtonItem = logoutBarButton
+            navigationItem.rightBarButtonItem?.imageInsets = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0)
+        }
+        
     }
     
     func setupFriendProfile(username: String){
@@ -195,15 +201,13 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
     }
     
     func followButtonClicked(_ sender: UIButton) {
-        
+        following = !following
         if(following){
-            following = false
             sender.backgroundColor = Style.profile_following_background_color
-            sender.setTitle("\u{f067}", for: .normal)
-        }else{
-            following = true
-            sender.backgroundColor = Style.profile_not_following_background_color
             sender.setTitle("\u{f00c}", for: .normal)
+        }else{
+            sender.backgroundColor = Style.profile_not_following_background_color
+            sender.setTitle("\u{f067}", for: .normal)
         }
     }
     
