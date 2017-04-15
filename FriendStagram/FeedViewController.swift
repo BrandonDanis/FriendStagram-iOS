@@ -53,6 +53,7 @@ class FeedViewController : UIViewController, UITableViewDelegate, UITableViewDat
         
         self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Billabong", size: 28)!,  NSForegroundColorAttributeName: Style.navigation_title_color]
         self.navigationController?.navigationBar.tintColor = Style.navigation_title_color
+        self.navigationController?.navigationBar.barTintColor = Style.navigation_bar_color
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         

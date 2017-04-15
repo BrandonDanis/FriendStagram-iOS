@@ -12,8 +12,8 @@ import UIKit
 struct Style {
     
     //Defining styles to be used in the app
-    
-    static var navigation_title_color = UIColor.black
+    static var navigation_title_color = UIColor.black //nav text color
+    static var navigation_bar_color = UIColor.white
     
     //tab bar
     static var tab_tint_color = UIColor(red:0.20, green:0.60, blue:0.86, alpha:1.00)
