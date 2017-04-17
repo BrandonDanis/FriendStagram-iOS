@@ -41,6 +41,8 @@ struct Style {
     static var profile_follower_label_color = UIColor.black
     static var profile_following_count_label_color = UIColor.black
     static var profile_following_label_color = UIColor.black
+    static var profile_desc_text_color = UIColor.black
+    static var profile_collection_view_background_color = UIColor.white
     
     static let themes : [String] = ["Light","Dark"]
     
@@ -85,6 +87,8 @@ struct Style {
         profile_follower_label_color = UIColor.black
         profile_following_count_label_color = UIColor.black
         profile_following_label_color = UIColor.black
+        profile_desc_text_color = UIColor.black
+        profile_collection_view_background_color = UIColor.white
     }
     
     static func darkTheme(){
@@ -104,6 +108,21 @@ struct Style {
         feed_cell_description_background_color = main_color
         feed_cell_description_text_color = UIColor.white
         feed_cell_username_label_color = UIColor.white
+        
+        profile_header_background_color = UIColor.black
+        profile_not_following_background_color = UIColor.white
+        profile_following_background_color = UIColor(red:0.22, green:0.79, blue:0.45, alpha:1.00)
+        profile_logout_button_color = UIColor.white
+        profile_follow_button_title_color = UIColor.black
+        profile_username_label_color = UIColor.white
+        profile_post_label_color = UIColor.white
+        profile_post_count_label_color = UIColor.white
+        profile_follower_count_label_color = UIColor.white
+        profile_follower_label_color = UIColor.white
+        profile_following_count_label_color = UIColor.white
+        profile_following_label_color = UIColor.white
+        profile_desc_text_color = UIColor.white
+        profile_collection_view_background_color = main_color
     }
     
 }

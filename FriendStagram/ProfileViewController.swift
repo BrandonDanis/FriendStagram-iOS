@@ -34,6 +34,7 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
         
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.backgroundColor = Style.profile_collection_view_background_color
         
         if(_username == "A Very Long Username"){
              _username = AppDelegate.globalAPI.GetUsername()
@@ -52,6 +53,7 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
         self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Billabong", size: 28)!,  NSForegroundColorAttributeName: Style.navigation_title_color]
         self.navigationController?.navigationBar.tintColor = Style.navigation_title_color
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        self.navigationController?.navigationBar.barTintColor = Style.navigation_bar_color
         
         if(selectedIndex == 2 && stackCount! == 1){
             let logoutButton : UIButton = UIButton()
@@ -184,6 +186,9 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
         
         let followingLabel = header.viewWithTag(9) as! UILabel
         followingLabel.textColor = Style.profile_following_label_color
+        
+        let profileDescription = header.viewWithTag(10) as! UILabel
+        profileDescription.textColor = Style.profile_desc_text_color
         
         let profilePicture = header.viewWithTag(2) as! UIImageView
         profilePicture.layer.cornerRadius = profilePicture.frame.size.width/2
