@@ -39,23 +39,24 @@ struct Style {
     static var profile_following_count_label_color = UIColor.black
     static var profile_following_label_color = UIColor.black
     
-    static let themes : [String] = ["Light"]
+    static let themes : [String] = ["Light","Dark"]
     
     static func loadTheme(){
         if let name = UserDefaults.standard.string(forKey: "theme"){
+            print("Theme already defined in UserDefaults. Theme:", name)
             if name == "Light" {
                 lightTheme()
             }
         }else{
             print("Setting to light theme")
-            UserDefaults.standard.set("Light", forKey: "theme")
-            lightTheme()
+            UserDefaults.standard.set("Dark", forKey: "theme")
+            darkTheme()
         }
     }
     
     static func lightTheme(){
         //Defining styles to be used in the app
-        navigation_title_color = UIColor.black //nav text color
+        navigation_title_color = UIColor.black
         navigation_bar_color = UIColor.white
         
         tab_tint_color = UIColor(red:0.20, green:0.60, blue:0.86, alpha:1.00)
@@ -78,6 +79,19 @@ struct Style {
         profile_follower_label_color = UIColor.black
         profile_following_count_label_color = UIColor.black
         profile_following_label_color = UIColor.black
+    }
+    
+    static func darkTheme(){
+        navigation_title_color = UIColor.white
+        navigation_bar_color = UIColor.black
+        
+        tab_tint_color = UIColor(red:0.20, green:0.60, blue:0.86, alpha:1.00)
+        tab_bar_tint_color = UIColor.black
+        
+        feed_background_color = UIColor.black
+        feed_cell_background_color = UIColor.black
+        feed_cell_content_background_color = UIColor(red:0.20, green:0.29, blue:0.37, alpha:1.00)
+        feed_cell_like_button_color = UIColor(red:0.75, green:0.23, blue:0.19, alpha:1.00)
     }
     
 }
