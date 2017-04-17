@@ -29,7 +29,14 @@ struct Style {
     static var profile_header_background_color = UIColor.white
     static var profile_not_following_background_color = UIColor.black
     static var profile_following_background_color = UIColor(red:0.22, green:0.79, blue:0.45, alpha:1.00)
+    static var profile_logout_button_color = UIColor.black
     static var profile_follow_button_title_color = UIColor.white
     static var profile_username_label_color = UIColor.black
+    static var profile_post_label_color = UIColor.black
+    static var profile_post_count_label_color = UIColor.black
+    static var profile_follower_count_label_color = UIColor.black
+    static var profile_follower_label_color = UIColor.black
+    static var profile_following_count_label_color = UIColor.black
+    static var profile_following_label_color = UIColor.black
     
 }

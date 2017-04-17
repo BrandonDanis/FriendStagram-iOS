@@ -55,9 +55,11 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
         
         if(selectedIndex == 2 && stackCount! == 1){
             let logoutButton : UIButton = UIButton()
-            logoutButton.setImage(#imageLiteral(resourceName: "door"), for: .normal)
+            logoutButton.titleLabel?.font = UIFont(name: "FontAwesome", size: 28)
+            logoutButton.setTitle("\u{f08b}", for: .normal)
             logoutButton.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
             logoutButton.addTarget(self, action: #selector(Logout), for: UIControlEvents.touchUpInside)
+            logoutButton.setTitleColor(Style.profile_logout_button_color, for: .normal)
             let logoutBarButton = UIBarButtonItem(customView: logoutButton)
             navigationItem.rightBarButtonItem = logoutBarButton
             navigationItem.rightBarButtonItem?.imageInsets = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0)
@@ -152,13 +154,6 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
         followButton.setTitleColor(Style.profile_follow_button_title_color, for: UIControlState.highlighted)
         followButton.layer.cornerRadius = followButton.frame.width/2
         
-        let usernameLabel = header.viewWithTag(3) as! UILabel
-        usernameLabel.text = user.username
-        usernameLabel.textColor = Style.profile_username_label_color
-        
-        let postCount = header.viewWithTag(4) as! UILabel
-        postCount.text = String(user.posts.count)
-        
         if(following){
             followButton.backgroundColor = Style.profile_following_background_color
             followButton.setTitle("\u{f00c}", for: .normal)
@@ -166,6 +161,29 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
             followButton.backgroundColor = Style.profile_not_following_background_color
             followButton.setTitle("\u{f067}", for: .normal)
         }
+        
+        let usernameLabel = header.viewWithTag(3) as! UILabel
+        usernameLabel.text = user.username
+        usernameLabel.textColor = Style.profile_username_label_color
+        
+        let postCount = header.viewWithTag(4) as! UILabel
+        postCount.textColor = Style.profile_post_count_label_color
+        postCount.text = String(user.posts.count)
+        
+        let postLabel = header.viewWithTag(5) as! UILabel
+        postLabel.textColor = Style.profile_post_label_color
+        
+        let followerCount = header.viewWithTag(6) as! UILabel
+        followerCount.textColor = Style.profile_follower_count_label_color
+        
+        let followerLabel = header.viewWithTag(7) as! UILabel
+        followerLabel.textColor = Style.profile_follower_label_color
+        
+        let followingCount = header.viewWithTag(8) as! UILabel
+        followingCount.textColor = Style.profile_following_count_label_color
+        
+        let followingLabel = header.viewWithTag(9) as! UILabel
+        followingLabel.textColor = Style.profile_following_label_color
         
         let profilePicture = header.viewWithTag(2) as! UIImageView
         profilePicture.layer.cornerRadius = profilePicture.frame.size.width/2
