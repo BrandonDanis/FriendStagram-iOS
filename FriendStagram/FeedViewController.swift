@@ -117,9 +117,12 @@ class FeedViewController : UIViewController, UITableViewDelegate, UITableViewDat
         
         let usernameButton = cell.viewWithTag(_usernameButtonID) as! UIButton
         usernameButton.setTitle(posts[indexPath.row]["username"] as? String, for: UIControlState.normal)
+        usernameButton.setTitleColor(Style.feed_cell_username_label_color, for: .normal)
         usernameButton.addTarget(self, action: #selector(usernameButtonClicked(_:)), for: .touchUpInside)
         
         let descriptionTextView = cell.viewWithTag(_descriptionTextViewID) as! UITextView
+        descriptionTextView.backgroundColor = Style.feed_cell_description_background_color
+        descriptionTextView.textColor = Style.feed_cell_description_text_color
         descriptionTextView.layoutMargins = UIEdgeInsetsMake(0, 0, 0, 0)
         
         let likeLabel = cell.viewWithTag(_likesLabelID) as! UILabel
