@@ -60,7 +60,7 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
             logoutButton.titleLabel?.font = UIFont(name: "FontAwesome", size: 28)
             logoutButton.setTitle("\u{f08b}", for: .normal)
             logoutButton.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
-            logoutButton.addTarget(self, action: #selector(Logout), for: UIControlEvents.touchUpInside)
+            logoutButton.addTarget(self, action: #selector(OpenSettingsView), for: UIControlEvents.touchUpInside)
             logoutButton.setTitleColor(Style.profile_logout_button_color, for: .normal)
             let logoutBarButton = UIBarButtonItem(customView: logoutButton)
             navigationItem.rightBarButtonItem = logoutBarButton
@@ -88,11 +88,9 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
         return user.posts.count
     }
     
-    @IBAction func Logout(){
-        AppDelegate.globalAPI.Logout()
-        let storyboard = UIStoryboard(name: "Login", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "loginVC")
-        self.present(vc, animated: true, completion: nil)
+    @IBAction func OpenSettingsView(){
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "settingsView") as! SettingsViewController
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func RefreshData(){
