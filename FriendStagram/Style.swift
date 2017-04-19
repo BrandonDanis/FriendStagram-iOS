@@ -11,6 +11,8 @@ import UIKit
 
 struct Style {
     
+    static private var darkModeOn : Bool = false
+    
     //Defining styles to be used in the app
     static var navigation_title_color = UIColor.black //nav text color
     static var navigation_bar_color = UIColor.white
@@ -52,6 +54,10 @@ struct Style {
             if name == "Light" {
                 darkTheme()
             }
+            if name == "Dark" {
+                darkModeOn = true
+                darkTheme()
+            }
         }else{
             print("Setting to light theme")
             UserDefaults.standard.set("Dark", forKey: "theme")
@@ -60,6 +66,9 @@ struct Style {
     }
     
     static func lightTheme(){
+        darkModeOn = false
+        print("Loading light theme")
+        
         //Defining styles to be used in the app
         navigation_title_color = UIColor.black
         navigation_bar_color = UIColor.white
@@ -89,9 +98,14 @@ struct Style {
         profile_following_label_color = UIColor.black
         profile_desc_text_color = UIColor.black
         profile_collection_view_background_color = UIColor.white
+        
+        resetViews()
     }
     
     static func darkTheme(){
+        darkModeOn = true
+        print("Loading dark theme")
+        
         let main_color = UIColor(red:0.16, green:0.16, blue:0.19, alpha:1.00)
         let main_accent_color = UIColor(red:0.75, green:0.23, blue:0.19, alpha:1.00)
         
@@ -123,6 +137,23 @@ struct Style {
         profile_following_label_color = UIColor.white
         profile_desc_text_color = UIColor.white
         profile_collection_view_background_color = main_color
+        
+        resetViews()
+    }
+    
+    static func IsDarkModeEnabled() -> Bool {
+        return darkModeOn
+    }
+    
+    private static func resetViews() {
+        let windows = UIApplication.shared.windows as [UIWindow]
+        for window in windows {
+            let subviews = window.subviews as [UIView]
+            for v in subviews {
+                v.removeFromSuperview()
+                window.addSubview(v)
+            }
+        }
     }
     
 }
