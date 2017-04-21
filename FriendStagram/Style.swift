@@ -154,6 +154,8 @@ struct Style {
     private static func UpdateAllUIAppearance(){
         UITabBar.appearance().tintColor = Style.tab_tint_color
         UITabBar.appearance().barTintColor = Style.tab_bar_tint_color
+        
+        resetViews()
     }
     
     static func IsDarkModeEnabled() -> Bool {
@@ -162,6 +164,19 @@ struct Style {
     
     private static func PostRefreshUINotification() {
         NotificationCenter.default.post(name: .refreshUI, object: nil)
+    }
+    
+    //Removes and re-adds the view to the stack. Refreshes the UI.
+    //Does not cause the views to calls the API again
+    private static func resetViews() {
+        let windows = UIApplication.shared.windows as [UIWindow]
+        for window in windows {
+            let subviews = window.subviews as [UIView]
+            for v in subviews {
+                v.removeFromSuperview()
+                window.addSubview(v)
+            }
+        }
     }
     
 }

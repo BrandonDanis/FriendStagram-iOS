@@ -50,6 +50,7 @@ class FeedViewController : UIViewController, UITableViewDelegate, UITableViewDat
         postListView.sectionFooterHeight = 0.0;
         postListView.sectionHeaderHeight = 0.0;
         postListView.separatorStyle = UITableViewCellSeparatorStyle.none
+        postListView.backgroundColor = Style.feed_background_color
         
         self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Billabong", size: 28)!,  NSForegroundColorAttributeName: Style.navigation_title_color]
         self.navigationController?.navigationBar.tintColor = Style.navigation_title_color
@@ -63,6 +64,8 @@ class FeedViewController : UIViewController, UITableViewDelegate, UITableViewDat
         listViewBackgroundView.backgroundColor = Style.feed_background_color
         self.postListView.backgroundView = listViewBackgroundView
         
+        //Adding refreshUI observer
+        NotificationCenter.default.addObserver(self, selector: #selector(RefreshUI(notification:)), name: Notification.Name.refreshUI, object: nil)
     }
     
     override func didReceiveMemoryWarning() {
@@ -141,6 +144,16 @@ class FeedViewController : UIViewController, UITableViewDelegate, UITableViewDat
         vc.setupFriendProfile(username: posts[indexPath!.row]["username"] as! String)
         self.navigationController?.pushViewController(vc, animated: true)
         
+    }
+    
+    func RefreshUI(notification: NSNotification) {
+        print("FeedViewController: Received RefreshUI notification")
+        
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Billabong", size: 28)!,  NSForegroundColorAttributeName: Style.navigation_title_color]
+        self.navigationController?.navigationBar.tintColor = Style.navigation_title_color
+        self.navigationController?.navigationBar.barTintColor = Style.navigation_bar_color
+        postListView.reloadData()
+        postListView.backgroundView?.backgroundColor = Style.feed_background_color
     }
     
 }

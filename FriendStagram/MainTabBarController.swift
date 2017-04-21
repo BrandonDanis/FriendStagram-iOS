@@ -29,8 +29,6 @@ class MainTabBarViewController : UITabBarController {
         tabBarItems[2].imageInsets = UIEdgeInsetsMake(6,0,-6,0)
         tabBarItems[2].image = UIImage(named: "user")
         
-        
-        //NotificationCenter.default.addObserver(self, selector: #selector(RefreshUIColors(notification:)), name: Notification.Name.refreshUI, object: nil)
     }
     
     override func didReceiveMemoryWarning() {

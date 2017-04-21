@@ -244,8 +244,7 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
         print("ProfileView: Received RefreshUI notification")
         collectionView.reloadData()
         
-        //all elements that need color reset
-        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Billabong", size: 28)!,  NSForegroundColorAttributeName: Style.navigation_title_color]
+        navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Billabong", size: 28)!,  NSForegroundColorAttributeName: Style.navigation_title_color]
         self.navigationController?.navigationBar.tintColor = Style.navigation_title_color
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         self.navigationController?.navigationBar.barTintColor = Style.navigation_bar_color
