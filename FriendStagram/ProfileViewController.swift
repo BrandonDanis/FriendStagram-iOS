@@ -67,6 +67,9 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
             navigationItem.rightBarButtonItem?.imageInsets = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0)
         }
         
+        //Adding refreshUI observer
+        NotificationCenter.default.addObserver(self, selector: #selector(RefreshUI(notification:)), name: Notification.Name.refreshUI, object: nil)
+        
     }
     
     func setupFriendProfile(username: String){
@@ -230,6 +233,12 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
             sender.backgroundColor = Style.profile_not_following_background_color
             sender.setTitle("\u{f067}", for: .normal)
         }
+    }
+    
+    func RefreshUI(notification: NSNotification) {
+        print("ProfileView: Received RefreshUI notification")
+        //collectionView.reloadData()
+        self.viewDidLoad() //BAD
     }
     
 }

@@ -9,6 +9,10 @@
 import Foundation
 import UIKit
 
+extension Notification.Name {
+    static let refreshUI = Notification.Name("refreshUI")
+}
+
 struct Style {
     
     static private var darkModeOn : Bool = false
@@ -99,7 +103,7 @@ struct Style {
         profile_desc_text_color = UIColor.black
         profile_collection_view_background_color = UIColor.white
         
-        resetViews()
+        PostRefreshUINotification()
     }
     
     static func darkTheme(){
@@ -138,22 +142,15 @@ struct Style {
         profile_desc_text_color = UIColor.white
         profile_collection_view_background_color = main_color
         
-        resetViews()
+        PostRefreshUINotification()
     }
     
     static func IsDarkModeEnabled() -> Bool {
         return darkModeOn
     }
     
-    private static func resetViews() {
-        let windows = UIApplication.shared.windows as [UIWindow]
-        for window in windows {
-            let subviews = window.subviews as [UIView]
-            for v in subviews {
-                v.removeFromSuperview()
-                window.addSubview(v)
-            }
-        }
+    private static func PostRefreshUINotification() {
+        NotificationCenter.default.post(name: .refreshUI, object: nil)
     }
     
 }
