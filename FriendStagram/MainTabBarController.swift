@@ -11,12 +11,9 @@ import UIKit
 
 class MainTabBarViewController : UITabBarController {
     
-    
-    
     override func viewDidLoad() {
         UITabBar.appearance().tintColor = Style.tab_tint_color
         UITabBar.appearance().barTintColor = Style.tab_bar_tint_color
-        
         
         let tabBarItems = tabBar.items! as [UITabBarItem]
         
@@ -32,11 +29,12 @@ class MainTabBarViewController : UITabBarController {
         tabBarItems[2].imageInsets = UIEdgeInsetsMake(6,0,-6,0)
         tabBarItems[2].image = UIImage(named: "user")
         
+        
+        //NotificationCenter.default.addObserver(self, selector: #selector(RefreshUIColors(notification:)), name: Notification.Name.refreshUI, object: nil)
     }
     
     override func didReceiveMemoryWarning() {
         print("Uh-Oh")
     }
-    
     
 }

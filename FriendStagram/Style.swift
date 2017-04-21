@@ -71,6 +71,7 @@ struct Style {
     
     static func lightTheme(){
         darkModeOn = false
+        UserDefaults.standard.set("Light", forKey: "theme")
         print("Loading light theme")
         
         //Defining styles to be used in the app
@@ -103,11 +104,13 @@ struct Style {
         profile_desc_text_color = UIColor.black
         profile_collection_view_background_color = UIColor.white
         
+        UpdateAllUIAppearance()
         PostRefreshUINotification()
     }
     
     static func darkTheme(){
         darkModeOn = true
+        UserDefaults.standard.set("Dark", forKey: "theme")
         print("Loading dark theme")
         
         let main_color = UIColor(red:0.16, green:0.16, blue:0.19, alpha:1.00)
@@ -142,7 +145,15 @@ struct Style {
         profile_desc_text_color = UIColor.white
         profile_collection_view_background_color = main_color
         
+        
+        UpdateAllUIAppearance()
         PostRefreshUINotification()
+        
+    }
+    
+    private static func UpdateAllUIAppearance(){
+        UITabBar.appearance().tintColor = Style.tab_tint_color
+        UITabBar.appearance().barTintColor = Style.tab_bar_tint_color
     }
     
     static func IsDarkModeEnabled() -> Bool {
