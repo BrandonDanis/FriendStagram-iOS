@@ -56,7 +56,7 @@ struct Style {
         if let name = UserDefaults.standard.string(forKey: "theme"){
             print("Theme already defined in UserDefaults. Theme:", name)
             if name == "Light" {
-                darkTheme()
+                lightTheme()
             }
             if name == "Dark" {
                 darkModeOn = true

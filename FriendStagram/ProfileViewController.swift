@@ -27,10 +27,9 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
     
     private let refreshControl = UIRefreshControl()
     
+    private let logoutButton : UIButton = UIButton()
+    
     override func viewDidLoad() {
-        
-        let selectedIndex = tabBarController!.selectedIndex
-        let stackCount = self.navigationController?.viewControllers.count
         
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -55,8 +54,7 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         self.navigationController?.navigationBar.barTintColor = Style.navigation_bar_color
         
-        if(selectedIndex == 2 && stackCount! == 1){
-            let logoutButton : UIButton = UIButton()
+        if(IsOnRootProfileView()){
             logoutButton.titleLabel?.font = UIFont(name: "FontAwesome", size: 28)
             logoutButton.setTitle("\u{f08b}", for: .normal)
             logoutButton.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
@@ -98,6 +96,13 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
     
     @IBAction func RefreshData(){
         PullUserData(updating: true)
+    }
+    
+    private func IsOnRootProfileView() -> Bool {
+        return (
+            tabBarController!.selectedIndex == 2 &&
+            self.navigationController?.viewControllers.count == 1
+        )
     }
     
     // creating cells
@@ -237,8 +242,21 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
     
     func RefreshUI(notification: NSNotification) {
         print("ProfileView: Received RefreshUI notification")
-        //collectionView.reloadData()
-        self.viewDidLoad() //BAD
+        collectionView.reloadData()
+        
+        //all elements that need color reset
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Billabong", size: 28)!,  NSForegroundColorAttributeName: Style.navigation_title_color]
+        self.navigationController?.navigationBar.tintColor = Style.navigation_title_color
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        self.navigationController?.navigationBar.barTintColor = Style.navigation_bar_color
+        collectionView.backgroundColor = Style.profile_collection_view_background_color
+        
+        if (IsOnRootProfileView()){
+            logoutButton.setTitleColor(UIColor.white, for: .normal)
+            let logoutBarButton = UIBarButtonItem(customView: logoutButton)
+            navigationItem.rightBarButtonItem = logoutBarButton
+        }
+        
     }
     
 }
