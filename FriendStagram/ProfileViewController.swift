@@ -15,6 +15,8 @@ struct User {
     var name : String = ""
     var description : String = ""
     var posts : [[String:AnyObject]] = [[String:AnyObject]]()
+    var folowers : [[String:String]] = []
+    var following : [[String:String]] = []
 }
 
 class ProfileViewController : UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -22,12 +24,10 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
     @IBOutlet var collectionView : UICollectionView!
     
     private var _username : String = "A Very Long Username"
-    private var following : Bool = true
     private var user : User = User()
-    
     private let refreshControl = UIRefreshControl()
-    
     private let logoutButton : UIButton = UIButton()
+    private var following : Bool = false
     
     override func viewDidLoad() {
         
@@ -136,9 +136,21 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
                     self.user.username = username
                 }
                 
+                if let followers = myData["followers"] as? [[String:String]] {
+                    self.user.folowers = followers
+                }else{
+                    print("failed to get followers")
+                }
+                
+                if let following = myData["following"] as? [[String:String]] {
+                    self.user.following = following
+                }else{
+                    print("failed to get following")
+                }
+                self.following = self.DoWeFollowThisUser()
                 self.collectionView.reloadData()
             }else{
-                print("Error Occurred when pulling post")
+                print("Error Occurred when pulling user data")
             }
             if(updating){
                 self.refreshControl.endRefreshing()
@@ -162,7 +174,8 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
         followButton.setTitleColor(Style.profile_follow_button_title_color, for: UIControlState.highlighted)
         followButton.layer.cornerRadius = followButton.frame.width/2
         
-        if(following){
+        if(AppDelegate.globalAPI.GetUsername() == self.user.username){
+        }else if(self.following){
             followButton.backgroundColor = Style.profile_following_background_color
             followButton.setTitle("\u{f00c}", for: .normal)
         }else{
@@ -183,12 +196,14 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
         
         let followerCount = header.viewWithTag(6) as! UILabel
         followerCount.textColor = Style.profile_follower_count_label_color
+        followerCount.text = String(user.folowers.count)
         
         let followerLabel = header.viewWithTag(7) as! UILabel
         followerLabel.textColor = Style.profile_follower_label_color
         
         let followingCount = header.viewWithTag(8) as! UILabel
         followingCount.textColor = Style.profile_following_count_label_color
+        followingCount.text = String(user.following.count)
         
         let followingLabel = header.viewWithTag(9) as! UILabel
         followingLabel.textColor = Style.profile_following_label_color
@@ -238,6 +253,15 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
             sender.backgroundColor = Style.profile_not_following_background_color
             sender.setTitle("\u{f067}", for: .normal)
         }
+    }
+    
+    private func DoWeFollowThisUser() -> Bool {
+        for user in self.user.folowers {
+            if(user["username"] == AppDelegate.globalAPI.GetUsername()){
+                return true
+            }
+        }
+        return false
     }
     
     func RefreshUI(notification: NSNotification) {
