@@ -25,27 +25,28 @@ class SettingsViewController : UITableViewController {
         
         //Profile settings
         updateProfileCell.selectionStyle = .none
-        updateProfileCell.backgroundColor = UIColor.black
-        updateProfileCell.textLabel?.textColor = UIColor.white
+        updateProfileCell.backgroundColor = Style.default_background_color
+        updateProfileCell.textLabel?.textColor = Style.default_lable_color
         
         updatePasswordCell.selectionStyle = .none
-        updatePasswordCell.backgroundColor = UIColor.black
-        updatePasswordCell.textLabel?.textColor = UIColor.white
+        updatePasswordCell.backgroundColor = Style.default_background_color
+        updatePasswordCell.textLabel?.textColor = Style.default_lable_color
         
-        //tableView.backgroundColor = UIColor.black
+        tableView.backgroundColor = Style.default_background_color
         
         //App Settings
         nightModeCell.selectionStyle = .none
-        nightModeCell.backgroundColor = UIColor.black
-        nightModeCell.textLabel?.textColor = UIColor.white
+        nightModeCell.backgroundColor = Style.default_background_color
         let nightModeToggle = nightModeCell.viewWithTag(1) as! UISwitch
         nightModeToggle.isOn = Style.IsDarkModeEnabled()
         nightModeToggle.addTarget(self, action: #selector(SwitchToggled), for: UIControlEvents.valueChanged)
+        let nightModeLabel = nightModeCell.viewWithTag(2) as! UILabel
+        nightModeLabel.textColor = Style.default_lable_color
         
-        logoutCell.backgroundColor = UIColor.black
+        logoutCell.backgroundColor = Style.default_background_color
         let logoutLabel = logoutCell.viewWithTag(1) as! UILabel
         let touchLogoutLabelGesture = UITapGestureRecognizer(target: self, action: #selector(Logout))
-        logoutLabel.textColor = UIColor.white
+        logoutLabel.textColor = Style.default_lable_color
         logoutLabel.addGestureRecognizer(touchLogoutLabelGesture)
     }
     

@@ -17,6 +17,9 @@ struct Style {
     
     static private var darkModeOn : Bool = false
     
+    static var default_lable_color = UIColor.black
+    static var default_background_color = UIColor.white
+    
     //Defining styles to be used in the app
     static var navigation_title_color = UIColor.black //nav text color
     static var navigation_bar_color = UIColor.white
@@ -50,6 +53,11 @@ struct Style {
     static var profile_desc_text_color = UIColor.black
     static var profile_collection_view_background_color = UIColor.white
     
+    //Image view colors
+    static var imageview_like_button_color = UIColor(red:0.75, green:0.23, blue:0.19, alpha:1.00)
+    static var imageview_desc_text_color = UIColor.black
+    static var imageview_background_color = UIColor.white
+    
     static let themes : [String] = ["Light","Dark"]
     
     static func loadTheme(){
@@ -73,6 +81,9 @@ struct Style {
         darkModeOn = false
         UserDefaults.standard.set("Light", forKey: "theme")
         print("Loading light theme")
+        
+        default_lable_color = UIColor.black
+        default_background_color = UIColor.white
         
         //Defining styles to be used in the app
         navigation_title_color = UIColor.black
@@ -104,6 +115,10 @@ struct Style {
         profile_desc_text_color = UIColor.black
         profile_collection_view_background_color = UIColor.white
         
+        imageview_like_button_color = UIColor(red:0.75, green:0.23, blue:0.19, alpha:1.00)
+        imageview_desc_text_color = UIColor.black
+        imageview_background_color = UIColor.white
+        
         UpdateAllUIAppearance()
         PostRefreshUINotification()
     }
@@ -115,6 +130,9 @@ struct Style {
         
         let main_color = UIColor(red:0.16, green:0.16, blue:0.19, alpha:1.00)
         let main_accent_color = UIColor(red:0.75, green:0.23, blue:0.19, alpha:1.00)
+        
+        default_lable_color = UIColor.white
+        default_background_color = UIColor.black
         
         navigation_title_color = UIColor.white
         navigation_bar_color = UIColor.black
@@ -145,6 +163,9 @@ struct Style {
         profile_desc_text_color = UIColor.white
         profile_collection_view_background_color = main_color
         
+        imageview_like_button_color = UIColor(red:0.75, green:0.23, blue:0.19, alpha:1.00)
+        imageview_desc_text_color = UIColor.white
+        imageview_background_color = main_accent_color
         
         UpdateAllUIAppearance()
         PostRefreshUINotification()
