@@ -245,13 +245,42 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
     }
     
     func followButtonClicked(_ sender: UIButton) {
-        following = !following
+        sender.isEnabled = false
         if(following){
-            sender.backgroundColor = Style.profile_following_background_color
-            sender.setTitle("\u{f00c}", for: .normal)
+            AppDelegate.globalAPI.UnFollowUser(userToUnFollow: self.user.username, completion: {
+                (res) in
+                
+                if let myData = res["data"] as? [String:AnyObject] {
+                    if let errorBool = myData["error"] as? Bool {
+                        if(errorBool == false){
+                            self.following = !self.following
+                            sender.backgroundColor = Style.profile_following_background_color
+                            sender.setTitle("\u{f00c}", for: .normal)
+                        }else{
+                            print("Error unfollowing")
+                        }
+                        sender.isEnabled = true
+                    }
+                }
+            })
         }else{
-            sender.backgroundColor = Style.profile_not_following_background_color
-            sender.setTitle("\u{f067}", for: .normal)
+            AppDelegate.globalAPI.FollowUser(userToFollow: self.user.username, completion: {
+                (res) in
+                
+                if let myData = res["data"] as? [String:AnyObject] {
+                    if let errorBool = myData["error"] as? Bool {
+                        if(errorBool == false){
+                            self.following = !self.following
+                            sender.backgroundColor = Style.profile_not_following_background_color
+                            sender.setTitle("\u{f067}", for: .normal)
+                        }else{
+                            print("Error following")
+                        }
+                        sender.isEnabled = true
+                    }
+                }
+            })
+            
         }
     }
     

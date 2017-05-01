@@ -108,7 +108,7 @@ class API {
                     self.username = _username
                 }
             }
-        
+            
             completion([
                 "status": String(describing: status_code!)
             ])
@@ -225,6 +225,59 @@ class API {
             
         }
         
+    }
+    
+    func FollowUser(userToFollow : String, completion: @escaping ([String : AnyObject]) -> Void){
+        
+        let header: HTTPHeaders = [
+            "content-type": "application/json",
+            "token": session_key
+        ]
+        
+        let params = [
+            "followUsername": userToFollow
+        ]
+        
+        var responseDict : [String : AnyObject] = [:]
+        
+        Alamofire.request(self.API_URL + "/follow", method: HTTPMethod.post, parameters: params, encoding: JSONEncoding.default, headers: header).responseJSON {
+            response in
+            let status_code = response.response?.statusCode
+            
+            if(status_code == 200){
+                if let json = response.result.value as? [String: AnyObject] {
+                    responseDict["data"] = json as AnyObject
+                }
+            }
+            
+            completion(responseDict)
+        }
+    }
+    
+    func UnFollowUser(userToUnFollow : String, completion: @escaping ([String : AnyObject]) -> Void){
+        
+        let header: HTTPHeaders = [
+            "content-type": "application/json",
+            "token": session_key
+        ]
+        
+        let params = [
+            "unfollowUsername": userToUnFollow
+        ]
+        
+        var responseDict : [String : AnyObject] = [:]
+        
+        Alamofire.request(self.API_URL + "/follow", method: HTTPMethod.delete, parameters: params, encoding: JSONEncoding.default, headers: header).responseJSON {
+            response in
+            let status_code = response.response?.statusCode
+            
+            if(status_code == 200){
+                if let json = response.result.value as? [String: AnyObject] {
+                    responseDict["data"] = json as AnyObject
+                }
+            }
+            completion(responseDict)
+        }
     }
     
     ///////////////////////////////
