@@ -86,7 +86,6 @@
         <!--Settings View Controller-->
         <scene sceneID="yEY-94-h8g">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gm1-7W-GyQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController storyboardIdentifier="settingsView" id="9x5-9r-RXf" customClass="SettingsViewController" customModule="FriendStagram" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="041-F8-NRb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
@@ -161,7 +160,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Log Out" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ROG-4a-Iqa">
+                                                <label opaque="NO" multipleTouchEnabled="YES" tag="1" contentMode="left" text="Log Out" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ROG-4a-Iqa">
                                                     <rect key="frame" x="15" y="0.0" width="384" height="43.666666666666664"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -180,11 +179,13 @@
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="logoutCell" destination="E7W-gH-udZ" id="ILy-bZ-c8E"/>
                         <outlet property="nightModeCell" destination="2t5-R0-gp9" id="B9e-T9-iud"/>
                         <outlet property="updatePasswordCell" destination="zpY-2l-zwH" id="2M6-uE-7Oj"/>
                         <outlet property="updateProfileCell" destination="wkx-89-n0F" id="Sty-zw-1oO"/>
                     </connections>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gm1-7W-GyQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1902.8985507246377" y="132.88043478260872"/>
         </scene>

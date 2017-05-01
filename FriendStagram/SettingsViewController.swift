@@ -14,6 +14,7 @@ class SettingsViewController : UITableViewController {
     @IBOutlet var updateProfileCell : UITableViewCell!
     @IBOutlet var updatePasswordCell : UITableViewCell!
     @IBOutlet var nightModeCell : UITableViewCell!
+    @IBOutlet var logoutCell : UITableViewCell!
     
     override func viewDidLoad() {
         //Navigation bar
@@ -41,6 +42,11 @@ class SettingsViewController : UITableViewController {
         nightModeToggle.isOn = Style.IsDarkModeEnabled()
         nightModeToggle.addTarget(self, action: #selector(SwitchToggled), for: UIControlEvents.valueChanged)
         
+        logoutCell.backgroundColor = UIColor.black
+        let logoutLabel = logoutCell.viewWithTag(1) as! UILabel
+        let touchLogoutLabelGesture = UITapGestureRecognizer(target: self, action: #selector(Logout))
+        logoutLabel.textColor = UIColor.white
+        logoutLabel.addGestureRecognizer(touchLogoutLabelGesture)
     }
     
     @IBAction func SwitchToggled(sender: UISwitch){
@@ -50,6 +56,13 @@ class SettingsViewController : UITableViewController {
         }else{
             Style.lightTheme()
         }
+    }
+    
+    public func Logout(){
+        AppDelegate.globalAPI.Logout()
+        let storyboard = UIStoryboard(name: "Login", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "loginVC")
+        self.present(vc, animated: true, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {
