@@ -254,8 +254,8 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
                     if let errorBool = myData["error"] as? Bool {
                         if(errorBool == false){
                             self.following = !self.following
-                            sender.backgroundColor = Style.profile_following_background_color
-                            sender.setTitle("\u{f00c}", for: .normal)
+                            sender.backgroundColor = Style.profile_not_following_background_color
+                            sender.setTitle("\u{f067}", for: .normal)
                         }else{
                             print("Error unfollowing")
                         }
@@ -271,8 +271,8 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
                     if let errorBool = myData["error"] as? Bool {
                         if(errorBool == false){
                             self.following = !self.following
-                            sender.backgroundColor = Style.profile_not_following_background_color
-                            sender.setTitle("\u{f067}", for: .normal)
+                            sender.backgroundColor = Style.profile_following_background_color
+                            sender.setTitle("\u{f00c}", for: .normal)
                         }else{
                             print("Error following")
                         }
@@ -286,7 +286,7 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
     
     private func DoWeFollowThisUser() -> Bool {
         for user in self.user.folowers {
-            if(user["username"] == AppDelegate.globalAPI.GetUsername()){
+            if(user["username"]! == AppDelegate.globalAPI.GetUsername()){
                 return true
             }
         }
