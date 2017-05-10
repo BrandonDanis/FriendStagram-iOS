@@ -26,7 +26,7 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
     private var _username : String = "A Very Long Username"
     private var user : User = User()
     private let refreshControl = UIRefreshControl()
-    private let logoutButton : UIButton = UIButton()
+    private let settingsButton : UIButton = UIButton()
     private var following : Bool = false
     
     override func viewDidLoad() {
@@ -55,13 +55,13 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
         self.navigationController?.navigationBar.barTintColor = Style.navigation_bar_color
         
         if(IsOnRootProfileView()){
-            logoutButton.titleLabel?.font = UIFont(name: "FontAwesome", size: 28)
-            logoutButton.setTitle("\u{f08b}", for: .normal)
-            logoutButton.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
-            logoutButton.addTarget(self, action: #selector(OpenSettingsView), for: UIControlEvents.touchUpInside)
-            logoutButton.setTitleColor(Style.profile_logout_button_color, for: .normal)
-            let logoutBarButton = UIBarButtonItem(customView: logoutButton)
-            navigationItem.rightBarButtonItem = logoutBarButton
+            settingsButton.titleLabel?.font = UIFont(name: "FontAwesome", size: 28)
+            settingsButton.setTitle("\u{f013}", for: .normal)
+            settingsButton.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
+            settingsButton.addTarget(self, action: #selector(OpenSettingsView), for: UIControlEvents.touchUpInside)
+            settingsButton.setTitleColor(Style.profile_logout_button_color, for: .normal)
+            let settingsBarButton = UIBarButtonItem(customView: settingsButton)
+            navigationItem.rightBarButtonItem = settingsBarButton
             navigationItem.rightBarButtonItem?.imageInsets = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0)
         }
         
@@ -304,9 +304,9 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
         collectionView.backgroundColor = Style.profile_collection_view_background_color
         
         if (IsOnRootProfileView()){
-            logoutButton.setTitleColor(UIColor.white, for: .normal)
-            let logoutBarButton = UIBarButtonItem(customView: logoutButton)
-            navigationItem.rightBarButtonItem = logoutBarButton
+            settingsButton.setTitleColor(UIColor.white, for: .normal)
+            let settingsBarButton = UIBarButtonItem(customView: settingsButton)
+            navigationItem.rightBarButtonItem = settingsBarButton
         }
         
     }
