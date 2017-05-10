@@ -20,7 +20,7 @@ class UploadViewController : UIViewController, UIImagePickerControllerDelegate, 
     override func viewDidLoad() {
         
         imageView.isUserInteractionEnabled = true
-        imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(UpdatingProfilePicture)))
+        imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(UpdatingPicture)))
         
         self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Billabong", size: 28)!,  NSForegroundColorAttributeName: UIColor.black]
         self.navigationController?.navigationBar.tintColor = UIColor.black
@@ -72,6 +72,9 @@ class UploadViewController : UIViewController, UIImagePickerControllerDelegate, 
                         
                         if(res["status"] == "200"){
                             self.uploadButton.setTitle("Success!", for: .normal)
+                            
+                            //re-enabling upload button
+                            self.uploadButton.isUserInteractionEnabled = true
                         }else{
                             self.uploadButton.setTitle("Failed to upload", for: .normal)
                             self.DisplayError("Failed to Upload. Error code: " + res["status"]!)
@@ -86,7 +89,8 @@ class UploadViewController : UIViewController, UIImagePickerControllerDelegate, 
         
     }
     
-    @IBAction func UpdatingProfilePicture(){
+    @IBAction func UpdatingPicture(){
+        self.uploadButton.setTitle("Upload", for: .normal)
         
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
@@ -108,7 +112,6 @@ class UploadViewController : UIViewController, UIImagePickerControllerDelegate, 
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
         
         self.present(actionSheet, animated: true, completion: nil)
-        
     }
     
     private func ResetDisplay(){
