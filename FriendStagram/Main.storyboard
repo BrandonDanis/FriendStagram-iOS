@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16F54b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Hav-HK-PI0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16G8c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Hav-HK-PI0">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -20,7 +20,7 @@
                 <navigationController id="EDo-03-4Om" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="G4u-yd-upi"/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="mQO-7w-ev1">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mQO-7w-ev1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -302,9 +302,9 @@
                                             <state key="normal" title="-"/>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="10" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kxp-Oj-P1y">
-                                            <rect key="frame" x="35" y="206" width="345" height="79"/>
+                                            <rect key="frame" x="8" y="206" width="398" height="79"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <string key="text">This is a long description to test out the functonality if ever some asshole decides to put a very large description to his profile in an attempt to try and break something or just make me look like a fool</string>
+                                            <string key="text">This is a long description to test out the functonality if ever someone decides to put a very large description to his profile in an attempt to try and break something or just make me look like a fool</string>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -471,7 +471,7 @@
             <objects>
                 <navigationController id="g1B-C2-aNG" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="oSI-cn-k6u"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="79l-ne-3Bz">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="79l-ne-3Bz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -596,7 +596,7 @@
             <objects>
                 <navigationController id="HcI-Wf-8Jj" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="uQF-lL-LHc"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="hAO-r4-VMd">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hAO-r4-VMd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
