@@ -21,7 +21,6 @@ class API {
     let config = CLDConfiguration(cloudName: "dajzmd3d8", apiKey: "386623978827134")
     
     var API_URL = "http://cd09b6e7.ngrok.io"
-    //var API_URL = "localhost:8080"
     
     init() {
         print("GLobal API Object Created")

@@ -127,6 +127,7 @@ class FeedViewController : UIViewController, UITableViewDelegate, UITableViewDat
         descriptionTextView.backgroundColor = Style.feed_cell_description_background_color
         descriptionTextView.textColor = Style.feed_cell_description_text_color
         descriptionTextView.layoutMargins = UIEdgeInsetsMake(0, 0, 0, 0)
+        descriptionTextView.text = posts[indexPath.row]["description"] as? String
         
         let likeLabel = cell.viewWithTag(_likesLabelID) as! UILabel
         likeLabel.font = UIFont(name: "FontAwesome", size: 14)
