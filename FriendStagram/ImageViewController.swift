@@ -25,6 +25,7 @@ class ImageViewController: UIViewController {
     
     private var imageId : Int = -1
     private var username : String = ""
+    private var user_id : Int = -1
     
     override func viewDidLoad() {
         
@@ -53,6 +54,13 @@ class ImageViewController: UIViewController {
                     self.imageView.sd_setImage(with: URL(string: myData["image_url"] as! String), placeholderImage: #imageLiteral(resourceName: "placeholder"))
                     self.descriptionTextView.text = myData["description"] as! String
                     
+                    if let userInfo = myData["user_info"] as? [String:AnyObject] {
+                        self.usernameButton.setTitle(userInfo["username"] as! String, for: .normal)
+                        self.user_id = userInfo["user_id"] as! Int
+                    }else{
+                        print("Failed to get user info")
+                    }
+                    
                 }
             }else{
                 print("Post not found.")
@@ -61,9 +69,8 @@ class ImageViewController: UIViewController {
         }
     }
     
-    func setup(imageId: Int, username: String){
+    func setup(imageId: Int){
         self.imageId = imageId
-        self.username = username
     }
     
     override func didReceiveMemoryWarning() {

@@ -224,7 +224,7 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "imageView") as! ImageViewController
         //vc.setup(imageId: posts[indexPath.row]["id"] as! String, username: _username)
-        vc.setup(imageId: user.posts[indexPath.row]["id"] as! Int, username: _username)
+        vc.setup(imageId: user.posts[indexPath.row]["id"] as! Int)
         self.navigationController?.pushViewController(vc, animated: true)
         
     }
