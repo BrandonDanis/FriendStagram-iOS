@@ -51,6 +51,7 @@ class UploadViewController : UIViewController, UIImagePickerControllerDelegate, 
     
     @IBAction func SubmitPost(){
         let image = imageView.image
+        let description = descriptionTextView.text!
         
         if(image == #imageLiteral(resourceName: "placeholder")){
             return
@@ -72,7 +73,7 @@ class UploadViewController : UIViewController, UIImagePickerControllerDelegate, 
                     
                     self.uploadButton.setTitle("Uploading to FriendStagram", for: .normal)
                     
-                    AppDelegate.globalAPI.SubmitPost(_imageUrl: res!.url!, _desc: "Description!", _tags: "", completion: { (res) in
+                    AppDelegate.globalAPI.SubmitPost(_imageUrl: res!.url!, _desc: description, _tags: "", completion: { (res) in
                         
                         if(res["status"] == "200"){
                             self.uploadButton.setTitle("Success!", for: .normal)
