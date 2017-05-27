@@ -53,6 +53,9 @@ struct Style {
     static var profile_desc_text_color = UIColor.black
     static var profile_collection_view_background_color = UIColor.white
     
+    //Image upload view colors
+    static var upload_description_textview_border_color = UIColor(red:0.84, green:0.84, blue:0.84, alpha:1.00)
+    
     //Image view colors
     static var imageview_like_button_color = UIColor(red:0.75, green:0.23, blue:0.19, alpha:1.00)
     static var imageview_desc_text_color = UIColor.black

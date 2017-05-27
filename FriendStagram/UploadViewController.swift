@@ -10,12 +10,13 @@ import Foundation
 import UIKit
 import Cloudinary
 
-class UploadViewController : UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class UploadViewController : UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate {
     
     @IBOutlet var imageView : UIImageView!
     @IBOutlet var uploadButton : UIButton!
     @IBOutlet var progressBar : UIProgressView!
     @IBOutlet var errorLabel : UILabel!
+    @IBOutlet var descriptionTextView : UITextView!
     
     override func viewDidLoad() {
         
@@ -34,6 +35,9 @@ class UploadViewController : UIViewController, UIImagePickerControllerDelegate, 
         
         errorLabel.alpha = 0
         
+        descriptionTextView.delegate = self
+        descriptionTextView.layer.borderColor = Style.upload_description_textview_border_color.cgColor
+        descriptionTextView.layer.borderWidth = 2.0
     }
     
     override func didReceiveMemoryWarning() {
@@ -129,6 +133,17 @@ class UploadViewController : UIViewController, UIImagePickerControllerDelegate, 
                 self.errorLabel.alpha = 0.0
             }, completion: nil)
         })
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        print(text)
+        if(text == "\n"){
+            descriptionTextView.resignFirstResponder()
+            return false
+        }
+        
+        return true
+        
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
