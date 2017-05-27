@@ -51,6 +51,7 @@ class ImageViewController: UIViewController {
                 if let myData = res["data"] as? [String:AnyObject] {
                     
                     self.imageView.sd_setImage(with: URL(string: myData["image_url"] as! String), placeholderImage: #imageLiteral(resourceName: "placeholder"))
+                    self.descriptionTextView.text = myData["description"] as! String
                     
                 }
             }else{
