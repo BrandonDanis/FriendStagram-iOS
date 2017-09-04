@@ -256,6 +256,7 @@ class ProfileViewController : UIViewController, UICollectionViewDelegate, UIColl
                             self.following = !self.following
                             sender.backgroundColor = Style.profile_not_following_background_color
                             sender.setTitle("\u{f067}", for: .normal)
+                            
                         }else{
                             print("Error unfollowing")
                         }

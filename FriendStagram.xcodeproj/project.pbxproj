@@ -31,6 +31,7 @@
 		CAB28E2F1DA7336500298E78 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB28E2E1DA7336500298E78 /* ProfileViewController.swift */; };
 		CAC8DF6D1E613FC1009C110A /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC8DF6C1E613FC1009C110A /* UploadViewController.swift */; };
 		CAEFAF6E1EDA00CA008AC242 /* UserListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAEFAF6D1EDA00CA008AC242 /* UserListView.swift */; };
+		CAEFAF701EDA0A8F008AC242 /* ProfilePictureUpdateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAEFAF6F1EDA0A8F008AC242 /* ProfilePictureUpdateView.swift */; };
 		CC9A817D208CA36DC2AB0AB0 /* Pods_FriendStagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBB33C1F5D209993F1368EC3 /* Pods_FriendStagram.framework */; };
 		D7CA04E8B0E7724CBF4EC34B /* Pods_FriendStagramTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 978EDBC8704C59C81AA35EEF /* Pods_FriendStagramTests.framework */; };
 /* End PBXBuildFile section */
@@ -88,6 +89,7 @@
 		CAB28E2E1DA7336500298E78 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		CAC8DF6C1E613FC1009C110A /* UploadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadViewController.swift; sourceTree = "<group>"; };
 		CAEFAF6D1EDA00CA008AC242 /* UserListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListView.swift; sourceTree = "<group>"; };
+		CAEFAF6F1EDA0A8F008AC242 /* ProfilePictureUpdateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilePictureUpdateView.swift; sourceTree = "<group>"; };
 		EB0743F8E5D65CA270DF0E93 /* Pods-FriendStagramUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendStagramUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FriendStagramUITests/Pods-FriendStagramUITests.release.xcconfig"; sourceTree = "<group>"; };
 		EBB33C1F5D209993F1368EC3 /* Pods_FriendStagram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FriendStagram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE099313D282895AD9BD5D2D /* Pods-FriendStagramUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendStagramUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FriendStagramUITests/Pods-FriendStagramUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -178,9 +180,9 @@
 		CA9A34451DA6DF8700AED7FF /* FriendStagram */ = {
 			isa = PBXGroup;
 			children = (
-				CAEFAF6D1EDA00CA008AC242 /* UserListView.swift */,
 				CA63DF831DA6F79D00F57C81 /* Fonts */,
 				CA9A34461DA6DF8700AED7FF /* AppDelegate.swift */,
+				CAEFAF6D1EDA00CA008AC242 /* UserListView.swift */,
 				CA9A34481DA6DF8700AED7FF /* ViewController.swift */,
 				CA63DF7B1DA6E2BC00F57C81 /* LoginViewController.swift */,
 				CA63DF7D1DA6E35B00F57C81 /* RegisterViewController.swift */,
@@ -199,6 +201,7 @@
 				CA9824391E635853004EFB5B /* LaunchViewController.swift */,
 				CA1F2FFE1EA3F9CF00A36103 /* Style.swift */,
 				CA1F30001EA5B87F00A36103 /* SettingsViewController.swift */,
+				CAEFAF6F1EDA0A8F008AC242 /* ProfilePictureUpdateView.swift */,
 			);
 			path = FriendStagram;
 			sourceTree = "<group>";
@@ -512,6 +515,7 @@
 				CAEFAF6E1EDA00CA008AC242 /* UserListView.swift in Sources */,
 				CAC8DF6D1E613FC1009C110A /* UploadViewController.swift in Sources */,
 				CA63DF7C1DA6E2BC00F57C81 /* LoginViewController.swift in Sources */,
+				CAEFAF701EDA0A8F008AC242 /* ProfilePictureUpdateView.swift in Sources */,
 				CAA9B5451DAEACE80060FF32 /* ImageViewController.swift in Sources */,
 				CA1F2FFF1EA3F9CF00A36103 /* Style.swift in Sources */,
 				CA9A34491DA6DF8700AED7FF /* ViewController.swift in Sources */,
