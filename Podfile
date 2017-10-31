@@ -6,7 +6,7 @@ target 'FriendStagram' do
   use_frameworks!
 
   # Pods for FriendStagram
-  pod 'Alamofire', '~> 4.1'
+  pod 'Alamofire', '~> 4.5'
   pod 'CameraManager', '~> 3.1'
   pod 'SkyFloatingLabelTextField', '~> 2.0.1'
   pod 'SDWebImage'
