@@ -11,6 +11,7 @@
 		CA1F2FFF1EA3F9CF00A36103 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1F2FFE1EA3F9CF00A36103 /* Style.swift */; };
 		CA1F30011EA5B87F00A36103 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1F30001EA5B87F00A36103 /* SettingsViewController.swift */; };
 		CA38BB7C1DB158DA00AB161B /* Billabong.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA38BB7B1DB158DA00AB161B /* Billabong.ttf */; };
+		CA422F4F1FA697170093B40E /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA422F4E1FA697170093B40E /* Post.swift */; };
 		CA42EF9B1DA7210E0067176D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA42EF9A1DA7210E0067176D /* Main.storyboard */; };
 		CA42EF9D1DA7246E0067176D /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA42EF9C1DA7246E0067176D /* FeedViewController.swift */; };
 		CA42EF9F1DA7266A0067176D /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA42EF9E1DA7266A0067176D /* MainTabBarController.swift */; };
@@ -63,6 +64,7 @@
 		CA1F2FFE1EA3F9CF00A36103 /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		CA1F30001EA5B87F00A36103 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		CA38BB7B1DB158DA00AB161B /* Billabong.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Billabong.ttf; sourceTree = "<group>"; };
+		CA422F4E1FA697170093B40E /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		CA42EF9A1DA7210E0067176D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		CA42EF9C1DA7246E0067176D /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		CA42EF9E1DA7266A0067176D /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
@@ -146,6 +148,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		CA422F4D1FA696F00093B40E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CA422F4E1FA697170093B40E /* Post.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		CA63DF831DA6F79D00F57C81 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -180,6 +190,7 @@
 		CA9A34451DA6DF8700AED7FF /* FriendStagram */ = {
 			isa = PBXGroup;
 			children = (
+				CA422F4D1FA696F00093B40E /* Models */,
 				CA63DF831DA6F79D00F57C81 /* Fonts */,
 				CA9A34461DA6DF8700AED7FF /* AppDelegate.swift */,
 				CAEFAF6D1EDA00CA008AC242 /* UserListView.swift */,
@@ -375,9 +386,24 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-FriendStagram/Pods-FriendStagram-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/CameraManager/CameraManager.framework",
+				"${BUILT_PRODUCTS_DIR}/Cloudinary/Cloudinary.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework",
+				"${BUILT_PRODUCTS_DIR}/Spring/Spring.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CameraManager.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cloudinary.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkyFloatingLabelTextField.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Spring.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -390,13 +416,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FriendStagramUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		70437543B549306A1DE47806 /* [CP] Copy Pods Resources */ = {
@@ -465,13 +494,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FriendStagramTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D96704C273FA16CDEAE5BC8E /* [CP] Copy Pods Resources */ = {
@@ -495,13 +527,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FriendStagram-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -515,6 +550,7 @@
 				CAEFAF6E1EDA00CA008AC242 /* UserListView.swift in Sources */,
 				CAC8DF6D1E613FC1009C110A /* UploadViewController.swift in Sources */,
 				CA63DF7C1DA6E2BC00F57C81 /* LoginViewController.swift in Sources */,
+				CA422F4F1FA697170093B40E /* Post.swift in Sources */,
 				CAEFAF701EDA0A8F008AC242 /* ProfilePictureUpdateView.swift in Sources */,
 				CAA9B5451DAEACE80060FF32 /* ImageViewController.swift in Sources */,
 				CA1F2FFF1EA3F9CF00A36103 /* Style.swift in Sources */,

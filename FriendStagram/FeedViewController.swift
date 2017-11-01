@@ -27,16 +27,20 @@ class FeedViewController : UIViewController, UITableViewDelegate, UITableViewDat
     private var posts : [Dictionary<String,AnyObject>] = [Dictionary<String,AnyObject>]()
     
     override func viewDidLoad() {
-        AppDelegate.globalAPI.GetAllPosts { (res : [String : AnyObject]) in
-            let res_status = res["status"] as! Int
-            print(res_status)
-            if let myData = res["data"] as? [[String:AnyObject]] {
-                self.posts = myData
-                self.postListView.reloadData()
-            }else{
-                print("Error Occurred when pulling post")
-            }
+        AppDelegate.globalAPI.GetAllPosts { (status, posts) in
+            
         }
+        
+//        AppDelegate.globalAPI.GetAllPosts { (res : [String : AnyObject]) in
+//            let res_status = res["status"] as! Int
+//            print(res_status)
+//            if let myData = res["data"] as? [[String:AnyObject]] {
+//                self.posts = myData
+//                self.postListView.reloadData()
+//            }else{
+//                print("Error Occurred when pulling post")
+//            }
+//        }
         
         if #available(iOS 10.0, *) {
             postListView.refreshControl = refreshControl
@@ -81,18 +85,18 @@ class FeedViewController : UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     @IBAction func RefreshData(){
-        AppDelegate.globalAPI.GetAllPosts(completion: {
-            (data) in
-            let res_status = data["status"] as! Int
-            print(res_status)
-            if let myData = data["data"] as? [[String:AnyObject]] {
-                self.posts = myData
-                self.postListView.reloadData()
-            }else{
-                print("Error Occurred when pulling post")
-            }
-            self.refreshControl.endRefreshing()
-        })
+//        AppDelegate.globalAPI.GetAllPosts(completion: {
+//            (data) in
+//            let res_status = data["status"] as! Int
+//            print(res_status)
+//            if let myData = data["data"] as? [[String:AnyObject]] {
+//                self.posts = myData
+//                self.postListView.reloadData()
+//            }else{
+//                print("Error Occurred when pulling post")
+//            }
+//            self.refreshControl.endRefreshing()
+//        })
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

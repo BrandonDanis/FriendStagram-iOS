@@ -7,3 +7,13 @@
 //
 
 import Foundation
+
+struct Post : Codable {
+    
+    let id : Int
+    let user_id : Int
+    let description : String
+    let image_url : String
+    let username : String
+    
+}

@@ -65,7 +65,6 @@ struct Style {
     
     static func loadTheme(){
         if let name = UserDefaults.standard.string(forKey: "theme"){
-            print("Theme already defined in UserDefaults. Theme:", name)
             if name == "Light" {
                 lightTheme()
             }
@@ -74,7 +73,6 @@ struct Style {
                 darkTheme()
             }
         }else{
-            print("Setting to light theme")
             UserDefaults.standard.set("Dark", forKey: "theme")
             darkTheme()
         }
@@ -83,7 +81,6 @@ struct Style {
     static func lightTheme(){
         darkModeOn = false
         UserDefaults.standard.set("Light", forKey: "theme")
-        print("Loading light theme")
         
         default_lable_color = UIColor.black
         default_background_color = UIColor.white
@@ -129,7 +126,6 @@ struct Style {
     static func darkTheme(){
         darkModeOn = true
         UserDefaults.standard.set("Dark", forKey: "theme")
-        print("Loading dark theme")
         
         let main_color = UIColor(red:0.16, green:0.16, blue:0.19, alpha:1.00)
         let main_accent_color = UIColor(red:0.75, green:0.23, blue:0.19, alpha:1.00)

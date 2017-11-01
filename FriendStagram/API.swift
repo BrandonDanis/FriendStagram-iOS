@@ -20,11 +20,9 @@ class API {
     
     let config = CLDConfiguration(cloudName: "dajzmd3d8", apiKey: "386623978827134")
     
-    var API_URL = "localhost:8080"
+    var API_URL = "http://localhost:8080"
     
     init() {
-        print("GLobal API Object Created")
-        
         if let _user = UserDefaults.standard.string(forKey: "username") {
             username = _user
         }else{
@@ -36,10 +34,6 @@ class API {
         }else{
             session_key = ""
         }
-        
-        print("Session: ", session_key)
-        print("Username: ", username)
-        
     }
     
     func SetCredentials(_username : String){
@@ -94,14 +88,12 @@ class API {
     func LoginUser(_username : String, _password : String, completion: @escaping ([String : String]) -> Void){
         
         let params = ["username": _username, "password": _password]
-        
-        Alamofire.request(self.API_URL + "/users/login", method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON {
-            response in
-            
-            let status_code = response.response?.statusCode
+        print(params)
+        Alamofire.request(self.API_URL + "/users/login", method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON {res in
+            let status_code = res.response?.statusCode
             
             if(status_code == 200){
-                if let result = response.result.value {
+                if let result = res.result.value {
                     let JSON = result as! NSDictionary
                     self.session_key = JSON["data"] as! String
                     self.username = _username
@@ -129,8 +121,7 @@ class API {
             "token": session_key
         ]
         
-        Alamofire.request(self.API_URL + "/posts", method: HTTPMethod.post, parameters: params, encoding: JSONEncoding.default, headers: header).responseString {
-            response in
+        Alamofire.request(self.API_URL + "/posts", method: HTTPMethod.post, parameters: params, encoding: JSONEncoding.default, headers: header).responseString { response in
             let status_code = response.response?.statusCode
             
             if(status_code == 401 || status_code == 412 ){
@@ -198,32 +189,49 @@ class API {
         
     }
     
-    func GetAllPosts(completion: @escaping ([String : AnyObject]) -> Void){
+    func GetAllPosts(_ completion: @escaping (_ status: Int,_ posts: [Post]?) -> Void){
         
         let header: HTTPHeaders = [
             "content-type": "application/json",
             "token": session_key
         ]
         
-        var responseDict : [String : AnyObject] = [:]
-        
-        Alamofire.request(self.API_URL + "/posts?limit=2000", method: HTTPMethod.get, encoding: JSONEncoding.default, headers: header).responseJSON{
-            response in
+        Alamofire.request(
+            self.API_URL + "/posts?limit=2000",
+            method: HTTPMethod.get,
+            encoding: JSONEncoding.default,
+            headers: header
+        )
+        .validate(statusCode: 200..<300)
+        .responseJSON { response in
             
-            let status_code = response.response?.statusCode
-            
-            responseDict["status"] = status_code as AnyObject
-            
-            if(status_code == 200){
-                if let json = response.result.value as? [String: Any] {
-                    responseDict["data"] = json["data"] as AnyObject
-                }
+            // If we fail to request from server
+            if response.result.isFailure {
+                print("Failed to request from server")
+                return completion(500, nil)
             }
             
-            completion(responseDict)
+            guard let responseJSON = response.result.value as? [String: Any] else {
+                print("FAILED: couldn't get responseJSON")
+                return completion(500, nil)
+            }
             
+            guard let status = responseJSON["error"] as? Bool else {
+                print("FAILED: couldn't get status")
+                return completion(500, nil)
+            }
+            
+            guard let data = responseJSON["data"] as? [[String:Any]] else {
+                print("FAILED: couldn't get JSON data")
+                return completion(500, nil)
+            }
+            
+            if let theJSONData = try? JSONSerialization.data(withJSONObject: data) {
+                var posts = try? JSONDecoder().decode([Post].self, from: theJSONData)
+                return completion(200, posts)
+            }
+            return completion(500, nil)
         }
-        
     }
     
     func FollowUser(userToFollow : String, completion: @escaping ([String : AnyObject]) -> Void){
