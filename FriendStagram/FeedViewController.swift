@@ -24,23 +24,21 @@ class FeedViewController : UIViewController, UITableViewDelegate, UITableViewDat
     private let _fullHeart : String = "\u{f004}"
     private let _placeHolderUIImage = UIImage(named: "placeholder")
     private let refreshControl = UIRefreshControl()
-    private var posts : [Dictionary<String,AnyObject>] = [Dictionary<String,AnyObject>]()
+    private var posts : [Post] = [Post]()
     
     override func viewDidLoad() {
-        AppDelegate.globalAPI.GetAllPosts { (res : NetResponse<[Post]>?) in
-            
+        AppDelegate.globalAPI.GetAllPosts { res in
+            if res != nil {
+                if res!.error {
+                    // An error occured in the backend
+                } else {
+                    self.posts = res!.data
+                    self.postListView.reloadData()
+                }
+            } else {
+                //error occured when processing the request
+            }
         }
-        
-//        AppDelegate.globalAPI.GetAllPosts { (res : [String : AnyObject]) in
-//            let res_status = res["status"] as! Int
-//            print(res_status)
-//            if let myData = res["data"] as? [[String:AnyObject]] {
-//                self.posts = myData
-//                self.postListView.reloadData()
-//            }else{
-//                print("Error Occurred when pulling post")
-//            }
-//        }
         
         if #available(iOS 10.0, *) {
             postListView.refreshControl = refreshControl
@@ -85,18 +83,18 @@ class FeedViewController : UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     @IBAction func RefreshData(){
-//        AppDelegate.globalAPI.GetAllPosts(completion: {
-//            (data) in
-//            let res_status = data["status"] as! Int
-//            print(res_status)
-//            if let myData = data["data"] as? [[String:AnyObject]] {
-//                self.posts = myData
-//                self.postListView.reloadData()
-//            }else{
-//                print("Error Occurred when pulling post")
-//            }
-//            self.refreshControl.endRefreshing()
-//        })
+        AppDelegate.globalAPI.GetAllPosts { res in
+            if res != nil {
+                if res!.error {
+                    // An error occured in the backend
+                } else {
+                    self.posts = res!.data
+                    self.postListView.reloadData()
+                }
+            } else {
+                //error occured when processing the request
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -104,11 +102,13 @@ class FeedViewController : UIViewController, UITableViewDelegate, UITableViewDat
         let cell = postListView.dequeueReusableCell(withIdentifier: "basicCell", for: indexPath)
         cell.selectionStyle = UITableViewCellSelectionStyle.none
         
+        let post = posts[indexPath.row]
+        
         let imageView = cell.viewWithTag(_uiImageID) as! UIImageView
         imageView.contentMode = UIViewContentMode.scaleAspectFit
         imageView.contentMode = UIViewContentMode.scaleAspectFill
         imageView.clipsToBounds = true
-        imageView.sd_setImage(with: URL(string: posts[indexPath.row]["image_url"] as! String), placeholderImage: _placeHolderUIImage)
+        imageView.sd_setImage(with: URL(string: post.image_url), placeholderImage: _placeHolderUIImage)
         
         let profileImageView = cell.viewWithTag(_profilePictureID) as! UIImageView
         profileImageView.layer.cornerRadius = profileImageView.frame.size.height / 2
@@ -123,7 +123,7 @@ class FeedViewController : UIViewController, UITableViewDelegate, UITableViewDat
         cellContentView.layer.cornerRadius = 10
         
         let usernameButton = cell.viewWithTag(_usernameButtonID) as! UIButton
-        usernameButton.setTitle(posts[indexPath.row]["username"] as? String, for: UIControlState.normal)
+        usernameButton.setTitle(post.username, for: UIControlState.normal)
         usernameButton.setTitleColor(Style.feed_cell_username_label_color, for: .normal)
         usernameButton.addTarget(self, action: #selector(usernameButtonClicked(_:)), for: .touchUpInside)
         
@@ -131,7 +131,7 @@ class FeedViewController : UIViewController, UITableViewDelegate, UITableViewDat
         descriptionTextView.backgroundColor = Style.feed_cell_description_background_color
         descriptionTextView.textColor = Style.feed_cell_description_text_color
         descriptionTextView.layoutMargins = UIEdgeInsetsMake(0, 0, 0, 0)
-        descriptionTextView.text = posts[indexPath.row]["description"] as? String
+        descriptionTextView.text = post.description
         
         let likeLabel = cell.viewWithTag(_likesLabelID) as! UILabel
         likeLabel.font = UIFont(name: "FontAwesome", size: 14)
@@ -146,7 +146,7 @@ class FeedViewController : UIViewController, UITableViewDelegate, UITableViewDat
         let indexPath = self.postListView.indexPathForRow(at: position)
         
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "profileView") as! ProfileViewController
-        vc.setupFriendProfile(username: posts[indexPath!.row]["username"] as! String)
+        vc.setupFriendProfile(username: posts[indexPath!.row].username)
         self.navigationController?.pushViewController(vc, animated: true)
         
     }
