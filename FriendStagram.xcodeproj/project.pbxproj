@@ -35,6 +35,7 @@
 		CAEFAF701EDA0A8F008AC242 /* ProfilePictureUpdateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAEFAF6F1EDA0A8F008AC242 /* ProfilePictureUpdateView.swift */; };
 		CC9A817D208CA36DC2AB0AB0 /* Pods_FriendStagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBB33C1F5D209993F1368EC3 /* Pods_FriendStagram.framework */; };
 		D7CA04E8B0E7724CBF4EC34B /* Pods_FriendStagramTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 978EDBC8704C59C81AA35EEF /* Pods_FriendStagramTests.framework */; };
+		F651307A1FACDC4100D9C634 /* NetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65130791FACDC4100D9C634 /* NetResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +95,7 @@
 		CAEFAF6F1EDA0A8F008AC242 /* ProfilePictureUpdateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilePictureUpdateView.swift; sourceTree = "<group>"; };
 		EB0743F8E5D65CA270DF0E93 /* Pods-FriendStagramUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendStagramUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FriendStagramUITests/Pods-FriendStagramUITests.release.xcconfig"; sourceTree = "<group>"; };
 		EBB33C1F5D209993F1368EC3 /* Pods_FriendStagram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FriendStagram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F65130791FACDC4100D9C634 /* NetResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetResponse.swift; sourceTree = "<group>"; };
 		FE099313D282895AD9BD5D2D /* Pods-FriendStagramUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendStagramUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FriendStagramUITests/Pods-FriendStagramUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -152,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				CA422F4E1FA697170093B40E /* Post.swift */,
+				F65130791FACDC4100D9C634 /* NetResponse.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -554,6 +557,7 @@
 				CAEFAF701EDA0A8F008AC242 /* ProfilePictureUpdateView.swift in Sources */,
 				CAA9B5451DAEACE80060FF32 /* ImageViewController.swift in Sources */,
 				CA1F2FFF1EA3F9CF00A36103 /* Style.swift in Sources */,
+				F651307A1FACDC4100D9C634 /* NetResponse.swift in Sources */,
 				CA9A34491DA6DF8700AED7FF /* ViewController.swift in Sources */,
 				CA9A34471DA6DF8700AED7FF /* AppDelegate.swift in Sources */,
 				CA1F30011EA5B87F00A36103 /* SettingsViewController.swift in Sources */,

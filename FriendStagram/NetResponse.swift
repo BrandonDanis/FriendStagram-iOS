@@ -7,3 +7,8 @@
 //
 
 import Foundation
+
+struct NetResponse <D : Codable> : Codable {
+    let error : Bool
+    let data : D
+}

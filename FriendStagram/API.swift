@@ -189,7 +189,7 @@ class API {
         
     }
     
-    func GetAllPosts(_ completion: @escaping (_ status: Int,_ posts: [Post]?) -> Void){
+    func GetAllPosts(_ completion: @escaping (_ : NetResponse<[Post]>?) -> Void){
         
         let header: HTTPHeaders = [
             "content-type": "application/json",
@@ -208,29 +208,19 @@ class API {
             // If we fail to request from server
             if response.result.isFailure {
                 print("Failed to request from server")
-                return completion(500, nil)
+                return completion(nil)
             }
             
             guard let responseJSON = response.result.value as? [String: Any] else {
                 print("FAILED: couldn't get responseJSON")
-                return completion(500, nil)
+                return completion(nil)
             }
             
-            guard let status = responseJSON["error"] as? Bool else {
-                print("FAILED: couldn't get status")
-                return completion(500, nil)
+            if let theJSONData = try? JSONSerialization.data(withJSONObject: responseJSON) {
+                let netResponse = try? JSONDecoder().decode(NetResponse<[Post]>.self, from: theJSONData)
+                return completion(netResponse)
             }
-            
-            guard let data = responseJSON["data"] as? [[String:Any]] else {
-                print("FAILED: couldn't get JSON data")
-                return completion(500, nil)
-            }
-            
-            if let theJSONData = try? JSONSerialization.data(withJSONObject: data) {
-                var posts = try? JSONDecoder().decode([Post].self, from: theJSONData)
-                return completion(200, posts)
-            }
-            return completion(500, nil)
+            return completion(nil)
         }
     }
     

@@ -27,7 +27,7 @@ class FeedViewController : UIViewController, UITableViewDelegate, UITableViewDat
     private var posts : [Dictionary<String,AnyObject>] = [Dictionary<String,AnyObject>]()
     
     override func viewDidLoad() {
-        AppDelegate.globalAPI.GetAllPosts { (status, posts) in
+        AppDelegate.globalAPI.GetAllPosts { (res : NetResponse<[Post]>?) in
             
         }
         
