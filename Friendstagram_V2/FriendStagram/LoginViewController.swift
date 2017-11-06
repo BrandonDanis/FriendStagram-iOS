@@ -10,7 +10,13 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
-    var titleView : UIView = {
+    var titleSubView : UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    var inputSubView : UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -32,11 +38,12 @@ class LoginViewController: UIViewController {
         // Setup basic view attributes
         self.view.backgroundColor = UIColor.white
         
-        // Setup TITLE VIEW
-        self.view.addSubview(titleView)
+        // Setup subviews
+        self.view.addSubview(titleSubView)
+        self.view.addSubview(inputSubView)
         
-        // Setup title label
-        titleView.addSubview(titleLabel)
+        // add elements to titleSubView
+        titleSubView.addSubview(titleLabel)
         
         // Setup Constraint
         SetupConstraints()
@@ -49,16 +56,22 @@ class LoginViewController: UIViewController {
     
     private func SetupConstraints() {
         
-        // Title View
-        titleView.widthAnchor.constraint(equalTo: self.view.widthAnchor).isActive = true
-        titleView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.33).isActive = true
-        titleView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        titleView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
+        // Title Subview
+        titleSubView.widthAnchor.constraint(equalTo: self.view.widthAnchor).isActive = true
+        titleSubView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 1/3).isActive = true
+        titleSubView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        titleSubView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
         
         // Title Label
-        titleLabel.widthAnchor.constraint(equalTo: self.titleView.widthAnchor).isActive = true
-        titleLabel.centerXAnchor.constraint(equalTo: self.titleView.centerXAnchor).isActive = true
-        titleLabel.centerYAnchor.constraint(equalTo: self.titleView.centerYAnchor).isActive = true
+        titleLabel.widthAnchor.constraint(equalTo: self.titleSubView.widthAnchor).isActive = true
+        titleLabel.centerXAnchor.constraint(equalTo: self.titleSubView.centerXAnchor).isActive = true
+        titleLabel.centerYAnchor.constraint(equalTo: self.titleSubView.centerYAnchor).isActive = true
+        
+        // Input Subview
+        inputSubView.widthAnchor.constraint(equalTo: self.view.widthAnchor).isActive = true
+        inputSubView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 1/3).isActive = true
+        inputSubView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        inputSubView.topAnchor.constraint(equalTo: self.titleSubView.bottomAnchor).isActive = true
         
     }
 
