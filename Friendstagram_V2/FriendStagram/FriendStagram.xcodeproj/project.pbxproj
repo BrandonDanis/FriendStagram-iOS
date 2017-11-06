@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CAF7AC601FAFFB1400124BB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF7AC5F1FAFFB1400124BB5 /* AppDelegate.swift */; };
-		CAF7AC621FAFFB1400124BB5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF7AC611FAFFB1400124BB5 /* ViewController.swift */; };
+		CAF7AC621FAFFB1400124BB5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF7AC611FAFFB1400124BB5 /* LoginViewController.swift */; };
 		CAF7AC671FAFFB1400124BB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAF7AC661FAFFB1400124BB5 /* Assets.xcassets */; };
 		CAF7AC6A1FAFFB1400124BB5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAF7AC681FAFFB1400124BB5 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -16,7 +16,7 @@
 /* Begin PBXFileReference section */
 		CAF7AC5C1FAFFB1400124BB5 /* FriendStagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FriendStagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAF7AC5F1FAFFB1400124BB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CAF7AC611FAFFB1400124BB5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CAF7AC611FAFFB1400124BB5 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CAF7AC661FAFFB1400124BB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CAF7AC691FAFFB1400124BB5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CAF7AC6B1FAFFB1400124BB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -52,11 +52,11 @@
 		CAF7AC5E1FAFFB1400124BB5 /* FriendStagram */ = {
 			isa = PBXGroup;
 			children = (
+				CAF7AC611FAFFB1400124BB5 /* LoginViewController.swift */,
 				CAF7AC5F1FAFFB1400124BB5 /* AppDelegate.swift */,
-				CAF7AC611FAFFB1400124BB5 /* ViewController.swift */,
-				CAF7AC661FAFFB1400124BB5 /* Assets.xcassets */,
 				CAF7AC681FAFFB1400124BB5 /* LaunchScreen.storyboard */,
 				CAF7AC6B1FAFFB1400124BB5 /* Info.plist */,
+				CAF7AC661FAFFB1400124BB5 /* Assets.xcassets */,
 			);
 			path = FriendStagram;
 			sourceTree = "<group>";
@@ -132,7 +132,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CAF7AC621FAFFB1400124BB5 /* ViewController.swift in Sources */,
+				CAF7AC621FAFFB1400124BB5 /* LoginViewController.swift in Sources */,
 				CAF7AC601FAFFB1400124BB5 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
