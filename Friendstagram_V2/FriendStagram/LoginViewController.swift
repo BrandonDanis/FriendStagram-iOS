@@ -22,6 +22,12 @@ class LoginViewController: UIViewController {
         return view
     }()
     
+    var buttonsSubView : UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     var titleLabel : UILabel = {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 250, height: 100))
         label.text = "FriendStagram"
@@ -41,6 +47,7 @@ class LoginViewController: UIViewController {
         // Setup subviews
         self.view.addSubview(titleSubView)
         self.view.addSubview(inputSubView)
+        self.view.addSubview(buttonsSubView)
         
         // add elements to titleSubView
         titleSubView.addSubview(titleLabel)
@@ -73,6 +80,11 @@ class LoginViewController: UIViewController {
         inputSubView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         inputSubView.topAnchor.constraint(equalTo: self.titleSubView.bottomAnchor).isActive = true
         
+        // Button Subview
+        buttonsSubView.widthAnchor.constraint(equalTo: self.view.widthAnchor).isActive = true
+        buttonsSubView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 1/3).isActive = true
+        buttonsSubView.topAnchor.constraint(equalTo: self.inputSubView.bottomAnchor).isActive = true
+        buttonsSubView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
     }
 
 }
