@@ -51,6 +51,7 @@ class LoginViewController: UIViewController {
     var usernameTextField : UITextField = {
         let field = UITextField()
         field.placeholder = "Username"
+        field.tintColor = .black
         field.translatesAutoresizingMaskIntoConstraints = false
         return field
     }()
@@ -58,8 +59,20 @@ class LoginViewController: UIViewController {
     var passwordTextField : UITextField = {
         let field = UITextField()
         field.placeholder = "Password"
+        field.tintColor = .black
         field.translatesAutoresizingMaskIntoConstraints = false
         return field
+    }()
+    
+    /////////////////////////////
+    // BUTTON SUBVIEW ELEMENTS //
+    /////////////////////////////
+    var loginButton : UIButton = {
+        let button = UIButton()
+        button.setTitle("Login", for: .normal)
+        button.backgroundColor = UIColor(red: 0.52, green: 0.73, blue: 0.94, alpha: 1.0)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
     }()
     
     override func viewDidLoad() {
@@ -79,6 +92,9 @@ class LoginViewController: UIViewController {
         // add elements to inputSubView
         inputSubView.addSubview(usernameTextField)
         inputSubView.addSubview(passwordTextField)
+        
+        // add elements to buttonSubView
+        buttonsSubView.addSubview(loginButton)
         
         // Setup Constraint
         SetupConstraints()
@@ -125,6 +141,12 @@ class LoginViewController: UIViewController {
         buttonsSubView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 1/3).isActive = true
         buttonsSubView.topAnchor.constraint(equalTo: self.inputSubView.bottomAnchor).isActive = true
         buttonsSubView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+    
+        // Login button
+        loginButton.centerXAnchor.constraint(equalTo: self.buttonsSubView.centerXAnchor).isActive = true
+        loginButton.centerYAnchor.constraint(equalTo: self.buttonsSubView.centerYAnchor).isActive = true
+        loginButton.widthAnchor.constraint(equalTo: self.buttonsSubView.widthAnchor, multiplier: 0.5).isActive = true
+        loginButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
 
 }
