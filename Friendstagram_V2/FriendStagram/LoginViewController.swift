@@ -31,7 +31,6 @@ class LoginViewController: UIViewController {
         return view
     }()
     
-    
     ////////////////////////////
     // TITLE SUBVIEW ELEMENTS //
     ////////////////////////////
@@ -76,6 +75,27 @@ class LoginViewController: UIViewController {
         return button
     }()
     
+    var registerLabel : UILabel = {
+        let label = UILabel()
+        label.text = "Don't have an account?"
+        label.font = UIFont(name: "PingFangHK-Ultralight", size: 20)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textAlignment = .center
+        return label
+    }()
+    
+    var registerButton : UIButton = {
+        let button = UIButton()
+        button.setTitle("Register", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.titleLabel?.font = UIFont(name: "PingFangHK-Light", size: 20)
+        button.backgroundColor = .clear
+        button.contentEdgeInsets = UIEdgeInsets(top: 0, left: 0.01, bottom: 0.01, right: 0) //Removing top/bottom padding on button. 
+        button.addTarget(self, action: #selector(LoginViewController.RegisterButtonClicked), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -96,6 +116,8 @@ class LoginViewController: UIViewController {
         
         // add elements to buttonSubView
         buttonsSubView.addSubview(loginButton)
+        buttonsSubView.addSubview(registerLabel)
+        buttonsSubView.addSubview(registerButton)
         
         // Setup Constraint
         SetupConstraints()
@@ -109,6 +131,10 @@ class LoginViewController: UIViewController {
     @IBAction private func LoginButtonSelected(sender: UIButton) {
         print("Clicked")
         NetworkManager.shared.CheckServerHealth()
+    }
+    
+    @IBAction private func RegisterButtonClicked(sender: UIButton) {
+        print("Clicked Register")
     }
     
     private func SetupConstraints() {
@@ -153,6 +179,15 @@ class LoginViewController: UIViewController {
         loginButton.centerYAnchor.constraint(equalTo: self.buttonsSubView.centerYAnchor).isActive = true
         loginButton.widthAnchor.constraint(equalTo: self.buttonsSubView.widthAnchor, multiplier: 0.5).isActive = true
         loginButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
+        // Register Label
+        registerLabel.centerXAnchor.constraint(equalTo: buttonsSubView.centerXAnchor).isActive = true
+        registerLabel.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 15).isActive = true
+        registerLabel.widthAnchor.constraint(equalTo: buttonsSubView.widthAnchor).isActive = true
+    
+        // Register Button
+        registerButton.centerXAnchor.constraint(equalTo: buttonsSubView.centerXAnchor).isActive = true
+        registerButton.topAnchor.constraint(equalTo: registerLabel.bottomAnchor).isActive = true
     }
 
 }
