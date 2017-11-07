@@ -108,6 +108,7 @@ class LoginViewController: UIViewController {
     
     @IBAction private func LoginButtonSelected(sender: UIButton) {
         print("Clicked")
+        NetworkManager.shared.CheckServerHealth()
     }
     
     private func SetupConstraints() {
