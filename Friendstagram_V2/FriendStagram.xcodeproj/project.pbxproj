@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CAED07B01FB166DC00E9A853 /* BetterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAED07AF1FB166DC00E9A853 /* BetterButton.swift */; };
 		CAF7AC601FAFFB1400124BB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF7AC5F1FAFFB1400124BB5 /* AppDelegate.swift */; };
 		CAF7AC621FAFFB1400124BB5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF7AC611FAFFB1400124BB5 /* LoginViewController.swift */; };
 		CAF7AC671FAFFB1400124BB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAF7AC661FAFFB1400124BB5 /* Assets.xcassets */; };
@@ -14,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CAED07AF1FB166DC00E9A853 /* BetterButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BetterButton.swift; sourceTree = "<group>"; };
 		CAF7AC5C1FAFFB1400124BB5 /* FriendStagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FriendStagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAF7AC5F1FAFFB1400124BB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CAF7AC611FAFFB1400124BB5 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -33,6 +35,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CAED07AE1FB1669B00E9A853 /* Custom Elements */ = {
+			isa = PBXGroup;
+			children = (
+				CAED07AF1FB166DC00E9A853 /* BetterButton.swift */,
+			);
+			path = "Custom Elements";
+			sourceTree = "<group>";
+		};
 		CAF7AC531FAFFB1400124BB5 = {
 			isa = PBXGroup;
 			children = (
@@ -52,6 +62,7 @@
 		CAF7AC5E1FAFFB1400124BB5 /* FriendStagram */ = {
 			isa = PBXGroup;
 			children = (
+				CAED07AE1FB1669B00E9A853 /* Custom Elements */,
 				CAF7AC611FAFFB1400124BB5 /* LoginViewController.swift */,
 				CAF7AC5F1FAFFB1400124BB5 /* AppDelegate.swift */,
 				CAF7AC681FAFFB1400124BB5 /* LaunchScreen.storyboard */,
@@ -133,6 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CAF7AC621FAFFB1400124BB5 /* LoginViewController.swift in Sources */,
+				CAED07B01FB166DC00E9A853 /* BetterButton.swift in Sources */,
 				CAF7AC601FAFFB1400124BB5 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

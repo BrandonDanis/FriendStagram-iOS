@@ -67,10 +67,11 @@ class LoginViewController: UIViewController {
     /////////////////////////////
     // BUTTON SUBVIEW ELEMENTS //
     /////////////////////////////
-    var loginButton : UIButton = {
-        let button = UIButton()
+    var loginButton : BetterButton = {
+        let button = BetterButton()
         button.setTitle("Login", for: .normal)
-        button.backgroundColor = UIColor(red: 0.52, green: 0.73, blue: 0.94, alpha: 1.0)
+        button.color = BeautifulButtonColorStyle.Blue
+        button.addTarget(self, action: #selector(LoginViewController.LoginButtonSelected), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -103,6 +104,10 @@ class LoginViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction private func LoginButtonSelected(sender: UIButton) {
+        print("Clicked")
     }
     
     private func SetupConstraints() {
