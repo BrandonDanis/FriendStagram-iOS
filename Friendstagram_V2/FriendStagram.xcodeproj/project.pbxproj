@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CAED07B01FB166DC00E9A853 /* BetterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAED07AF1FB166DC00E9A853 /* BetterButton.swift */; };
+		CAED07B21FB168EF00E9A853 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAED07B11FB168EF00E9A853 /* NetworkManager.swift */; };
 		CAF7AC601FAFFB1400124BB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF7AC5F1FAFFB1400124BB5 /* AppDelegate.swift */; };
 		CAF7AC621FAFFB1400124BB5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF7AC611FAFFB1400124BB5 /* LoginViewController.swift */; };
 		CAF7AC671FAFFB1400124BB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAF7AC661FAFFB1400124BB5 /* Assets.xcassets */; };
@@ -16,6 +17,7 @@
 
 /* Begin PBXFileReference section */
 		CAED07AF1FB166DC00E9A853 /* BetterButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BetterButton.swift; sourceTree = "<group>"; };
+		CAED07B11FB168EF00E9A853 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		CAF7AC5C1FAFFB1400124BB5 /* FriendStagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FriendStagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAF7AC5F1FAFFB1400124BB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CAF7AC611FAFFB1400124BB5 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 			children = (
 				CAED07AE1FB1669B00E9A853 /* Custom Elements */,
 				CAF7AC611FAFFB1400124BB5 /* LoginViewController.swift */,
+				CAED07B11FB168EF00E9A853 /* NetworkManager.swift */,
 				CAF7AC5F1FAFFB1400124BB5 /* AppDelegate.swift */,
 				CAF7AC681FAFFB1400124BB5 /* LaunchScreen.storyboard */,
 				CAF7AC6B1FAFFB1400124BB5 /* Info.plist */,
@@ -143,6 +146,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAED07B21FB168EF00E9A853 /* NetworkManager.swift in Sources */,
 				CAF7AC621FAFFB1400124BB5 /* LoginViewController.swift in Sources */,
 				CAED07B01FB166DC00E9A853 /* BetterButton.swift in Sources */,
 				CAF7AC601FAFFB1400124BB5 /* AppDelegate.swift in Sources */,
