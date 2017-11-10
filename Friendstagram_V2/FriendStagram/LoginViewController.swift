@@ -135,6 +135,10 @@ class LoginViewController: UIViewController {
     
     @IBAction private func RegisterButtonClicked(sender: UIButton) {
         print("Clicked Register")
+        let vc = RegisterViewController()
+        self.present(vc, animated: true) {
+            print("Returned from register view")
+        }
     }
     
     private func SetupConstraints() {
