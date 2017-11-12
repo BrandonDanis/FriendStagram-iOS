@@ -27,6 +27,12 @@ class RegisterViewController : UIViewController {
         return view
     }()
     
+    var inputSubView : UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     ////////////////////////////
     // TITLE SUBVIEW ELEMENTS //
     ////////////////////////////
@@ -40,17 +46,44 @@ class RegisterViewController : UIViewController {
         return label
     }()
     
+    ////////////////////////////
+    // INPUT SUBVIEW ELEMENTS //
+    ////////////////////////////
+    var usernameTextField : UITextField = {
+        let field = UITextField()
+        field.attributedPlaceholder = NSAttributedString(string: "username", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+        field.textColor = .white
+        field.tintColor = .white
+        field.translatesAutoresizingMaskIntoConstraints = false
+        return field
+    }()
+    
+    var passwordTextField : UITextField = {
+        let field = UITextField()
+        field.attributedPlaceholder = NSAttributedString(string: "password", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+        field.textColor = .white
+        field.tintColor = .white
+        field.translatesAutoresizingMaskIntoConstraints = false
+        return field
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.view.backgroundColor = .black
         self.view.addSubview(titleSubView)
+        self.view.addSubview(inputSubView)
         
         // add elements to titleSubView
         titleSubView.addSubview(titleLabel)
         
+        // add elements to inputSubView
+        inputSubView.addSubview(usernameTextField)
+        inputSubView.addSubview(passwordTextField)
+        
         self.view.addSubview(dismissViewButton)
         
+        // Setup constraints
         SetupConstraints()
     }
     
@@ -76,6 +109,26 @@ class RegisterViewController : UIViewController {
         titleLabel.widthAnchor.constraint(equalTo: self.titleSubView.widthAnchor).isActive = true
         titleLabel.centerXAnchor.constraint(equalTo: self.titleSubView.centerXAnchor).isActive = true
         titleLabel.centerYAnchor.constraint(equalTo: self.titleSubView.centerYAnchor).isActive = true
+        
+        // Input Subview
+        inputSubView.widthAnchor.constraint(equalTo: self.view.widthAnchor).isActive = true
+        inputSubView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 1/3).isActive = true
+        inputSubView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        inputSubView.topAnchor.constraint(equalTo: self.titleSubView.bottomAnchor).isActive = true
+        
+        // Username field
+        usernameTextField.widthAnchor.constraint(equalTo: self.inputSubView.widthAnchor, multiplier: 0.80).isActive = true
+        usernameTextField.heightAnchor.constraint(equalToConstant: 40.0).isActive = true
+        usernameTextField.centerXAnchor.constraint(equalTo: self.inputSubView.centerXAnchor).isActive = true
+        usernameTextField.centerYAnchor.constraint(equalTo: self.inputSubView.centerYAnchor, constant: -25).isActive = true
+        
+        // Password field
+        passwordTextField.widthAnchor.constraint(equalTo: self.inputSubView.widthAnchor, multiplier: 0.80).isActive = true
+        passwordTextField.heightAnchor.constraint(equalToConstant: 40.0).isActive = true
+        passwordTextField.centerXAnchor.constraint(equalTo: self.inputSubView.centerXAnchor).isActive = true
+        passwordTextField.centerYAnchor.constraint(equalTo: self.inputSubView.centerYAnchor, constant: 25).isActive = true
+        
+        
     }
     
 }
