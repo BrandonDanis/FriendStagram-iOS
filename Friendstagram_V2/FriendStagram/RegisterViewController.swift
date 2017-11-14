@@ -52,6 +52,13 @@ class RegisterViewController : UIViewController {
     var usernameTextField : UITextField = {
         let field = UITextField()
         field.attributedPlaceholder = NSAttributedString(string: "username", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+        
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 25, height: 40))
+        label.font = UIFont(name: "fontawesome", size: 20)
+        label.attributedText = NSAttributedString(string: "\u{f067}", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+        field.leftView = label
+        field.leftViewMode = .always
+        
         field.textColor = .white
         field.tintColor = .white
         field.translatesAutoresizingMaskIntoConstraints = false

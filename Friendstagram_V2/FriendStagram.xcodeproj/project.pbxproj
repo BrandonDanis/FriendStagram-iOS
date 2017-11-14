@@ -14,6 +14,7 @@
 		CAF7AC621FAFFB1400124BB5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF7AC611FAFFB1400124BB5 /* LoginViewController.swift */; };
 		CAF7AC671FAFFB1400124BB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAF7AC661FAFFB1400124BB5 /* Assets.xcassets */; };
 		CAF7AC6A1FAFFB1400124BB5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAF7AC681FAFFB1400124BB5 /* LaunchScreen.storyboard */; };
+		F66EB1F61FBB868700616C07 /* fontawesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F66EB1F51FBB868700616C07 /* fontawesome.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		CAF7AC661FAFFB1400124BB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CAF7AC691FAFFB1400124BB5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CAF7AC6B1FAFFB1400124BB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F66EB1F51FBB868700616C07 /* fontawesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = fontawesome.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 		CAF7AC5E1FAFFB1400124BB5 /* FriendStagram */ = {
 			isa = PBXGroup;
 			children = (
+				F66EB1F21FBB843B00616C07 /* Fonts */,
 				CAED07AE1FB1669B00E9A853 /* Custom Elements */,
 				CAF7AC611FAFFB1400124BB5 /* LoginViewController.swift */,
 				CAED07B31FB3C50F00E9A853 /* RegisterViewController.swift */,
@@ -76,6 +79,14 @@
 				CAF7AC661FAFFB1400124BB5 /* Assets.xcassets */,
 			);
 			path = FriendStagram;
+			sourceTree = "<group>";
+		};
+		F66EB1F21FBB843B00616C07 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				F66EB1F51FBB868700616C07 /* fontawesome.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +148,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F66EB1F61FBB868700616C07 /* fontawesome.ttf in Resources */,
 				CAF7AC6A1FAFFB1400124BB5 /* LaunchScreen.storyboard in Resources */,
 				CAF7AC671FAFFB1400124BB5 /* Assets.xcassets in Resources */,
 			);
