@@ -9,10 +9,8 @@
 <img src="http://i.imgur.com/x4dAMVt.png" width="250">
 <img src="http://i.imgur.com/SljnSbt.png" width="250">
 
-<h3>Feed View</h3>
+<h3>Feed & Profile View</h3>
 <img src="http://i.imgur.com/dSvpHy1.png" width="250">
-
-<h3>Profile View</h3>
 <img src="http://i.imgur.com/XL5saMu.png" width="250">
 
 <h3>Image View</h3>
