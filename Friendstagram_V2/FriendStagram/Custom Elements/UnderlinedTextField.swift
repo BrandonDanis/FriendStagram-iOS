@@ -48,7 +48,6 @@ class UnderlinedTextField : UITextField {
     }
     
     override func draw(_ rect: CGRect) {
-        print("Drawing")
         // Draw gets called when field is selected & when field becomes empty again
         drawUnderline(rect)
     }

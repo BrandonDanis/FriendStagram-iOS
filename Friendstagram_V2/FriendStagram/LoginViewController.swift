@@ -122,20 +122,16 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction private func LoginButtonSelected(sender: UIButton) {
-        print("Clicked")
         NetworkManager.shared.CheckServerHealth()
     }
     
     @IBAction private func RegisterButtonClicked(sender: UIButton) {
-        print("Clicked Register")
         let vc = RegisterViewController()
         self.present(vc, animated: true) {
-            print("Returned from register view")
         }
     }
     
     private func SetupConstraints() {
-        print("Applying constraints")
         // Title Subview
         titleSubView.widthAnchor.constraint(equalTo: self.view.widthAnchor).isActive = true
         titleSubView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 1/3).isActive = true
