@@ -119,7 +119,7 @@ public class BetterButton: UIButton {
         }, completion: nil)
     }
     
-    public func shake(_ duration: Double = 0.75) {
+    public func shake(_ duration: Double = 0.50) {
         let animation = CAKeyframeAnimation(keyPath: "transform.translation.x")
         animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
         animation.duration = duration

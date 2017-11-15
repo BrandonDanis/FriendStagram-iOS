@@ -9,21 +9,31 @@
 import Foundation
 import UIKit
 
-class UnderlinedTextField : UITextField {
+class UnderlinedTextField : UITextField, UITextFieldDelegate {
     
+    private let ERROR_COLOR = UIColor.red
     private let borderLayer = CALayer()
     private let borderThickness : CGFloat = 2.0
     private var icon : String? = nil
     private var placeholderText : String = ""
     
+    private var currentAccentColor = Colors.GRAY {
+        didSet {
+            SetupLeftView()
+            setNeedsDisplay()
+        }
+    }
+    
     init(icon: String?, placeholderText: String) {
         super.init(frame: CGRect.zero)
-            
+        
+        self.delegate = self
         self.translatesAutoresizingMaskIntoConstraints = false
         self.textColor = UIColor.white
         self.tintColor = Colors.GRAY
         self.icon = icon
         self.placeholderText = placeholderText
+        self.autocorrectionType = .no
         
         SetupLeftView()
         SetupPlaceholder()
@@ -34,7 +44,7 @@ class UnderlinedTextField : UITextField {
     }
     
     private func SetupPlaceholder() {
-        self.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSAttributedStringKey.foregroundColor: tintColor])
+        self.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSAttributedStringKey.foregroundColor: currentAccentColor])
     }
     
     private func SetupLeftView() {
@@ -42,9 +52,21 @@ class UnderlinedTextField : UITextField {
         
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 25, height: 40))
         label.font = UIFont(name: "fontawesome", size: 20)
-        label.attributedText = NSAttributedString(string: icon!, attributes: [NSAttributedStringKey.foregroundColor: self.tintColor])
+        label.attributedText = NSAttributedString(string: icon!, attributes: [NSAttributedStringKey.foregroundColor: currentAccentColor])
         self.leftView = label
         self.leftViewMode = .always
+    }
+    
+    // Called when you want the textfield to be turned red to indicate an error.
+    // Will return to normal after the user selects the field
+    public func Error() {
+        currentAccentColor = ERROR_COLOR
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if currentAccentColor == ERROR_COLOR {
+            currentAccentColor = self.tintColor
+        }
     }
     
     override func draw(_ rect: CGRect) {
@@ -54,7 +76,7 @@ class UnderlinedTextField : UITextField {
     
     private func drawUnderline(_ rect: CGRect) {
         borderLayer.frame = CGRect(x: 0, y: bounds.size.height - borderThickness, width: bounds.size.width, height: borderThickness)
-        borderLayer.backgroundColor = Colors.GRAY.cgColor
+        borderLayer.backgroundColor = currentAccentColor.cgColor
         
         self.layer.addSublayer(borderLayer)
     }

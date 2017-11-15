@@ -122,7 +122,12 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction private func LoginButtonSelected(sender: UIButton) {
-        NetworkManager.shared.CheckServerHealth()
+        let username = usernameTextField.text
+        let password = passwordTextField.text
+        
+        guard username != "" else { self.loginButton.shake(); self.usernameTextField.Error(); return }
+        guard password != "" else { self.loginButton.shake(); self.passwordTextField.Error(); return }
+        
     }
     
     @IBAction private func RegisterButtonClicked(sender: UIButton) {
