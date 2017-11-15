@@ -47,21 +47,38 @@ class LoginViewController: UIViewController {
     ////////////////////////////
     // INPUT SUBVIEW ELEMENTS //
     ////////////////////////////
-    var usernameTextField : UITextField = {
-        let field = UITextField()
+    var usernameTextField : UnderlinedTextField = {
+        print("About to create")
+        let field = UnderlinedTextField()
+        print("Created")
         field.attributedPlaceholder = NSAttributedString(string: "Username", attributes: [NSAttributedStringKey.foregroundColor: Colors.GRAY])
         field.tintColor = Colors.GRAY
-        field.textColor = Colors.GRAY
+        field.textColor = UIColor.white
         field.translatesAutoresizingMaskIntoConstraints = false
+        
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 25, height: 40))
+        label.font = UIFont(name: "fontawesome", size: 20)
+        label.attributedText = NSAttributedString(string: "\u{f007}", attributes: [NSAttributedStringKey.foregroundColor: Colors.GRAY])
+        field.leftView = label
+        field.leftViewMode = .always
+        
+        print("Returning")
         return field
     }()
     
-    var passwordTextField : UITextField = {
-        let field = UITextField()
+    var passwordTextField : UnderlinedTextField = {
+        let field = UnderlinedTextField()
         field.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSAttributedStringKey.foregroundColor: Colors.GRAY])
         field.tintColor = Colors.GRAY
-        field.textColor = Colors.GRAY
+        field.textColor = UIColor.white
         field.translatesAutoresizingMaskIntoConstraints = false
+        
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 25, height: 40))
+        label.font = UIFont(name: "fontawesome", size: 20)
+        label.attributedText = NSAttributedString(string: "\u{f023}", attributes: [NSAttributedStringKey.foregroundColor: Colors.GRAY])
+        field.leftView = label
+        field.leftViewMode = .always
+        
         return field
     }()
     
@@ -145,7 +162,7 @@ class LoginViewController: UIViewController {
     }
     
     private func SetupConstraints() {
-        
+        print("Applying constraints")
         // Title Subview
         titleSubView.widthAnchor.constraint(equalTo: self.view.widthAnchor).isActive = true
         titleSubView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 1/3).isActive = true
@@ -189,7 +206,7 @@ class LoginViewController: UIViewController {
         
         // Register Label
         registerLabel.centerXAnchor.constraint(equalTo: buttonsSubView.centerXAnchor).isActive = true
-        registerLabel.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 15).isActive = true
+        registerLabel.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 20).isActive = true
         registerLabel.widthAnchor.constraint(equalTo: buttonsSubView.widthAnchor).isActive = true
     
         // Register Button
