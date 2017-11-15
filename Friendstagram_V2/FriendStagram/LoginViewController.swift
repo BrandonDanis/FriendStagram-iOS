@@ -48,38 +48,11 @@ class LoginViewController: UIViewController {
     // INPUT SUBVIEW ELEMENTS //
     ////////////////////////////
     var usernameTextField : UnderlinedTextField = {
-        print("About to create")
-        let field = UnderlinedTextField()
-        print("Created")
-        field.attributedPlaceholder = NSAttributedString(string: "Username", attributes: [NSAttributedStringKey.foregroundColor: Colors.GRAY])
-        field.tintColor = Colors.GRAY
-        field.textColor = UIColor.white
-        field.translatesAutoresizingMaskIntoConstraints = false
-        
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 25, height: 40))
-        label.font = UIFont(name: "fontawesome", size: 20)
-        label.attributedText = NSAttributedString(string: "\u{f007}", attributes: [NSAttributedStringKey.foregroundColor: Colors.GRAY])
-        field.leftView = label
-        field.leftViewMode = .always
-        
-        print("Returning")
-        return field
+        return UnderlinedTextField(icon: "\u{f007}", placeholderText: "Username")
     }()
     
     var passwordTextField : UnderlinedTextField = {
-        let field = UnderlinedTextField()
-        field.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSAttributedStringKey.foregroundColor: Colors.GRAY])
-        field.tintColor = Colors.GRAY
-        field.textColor = UIColor.white
-        field.translatesAutoresizingMaskIntoConstraints = false
-        
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 25, height: 40))
-        label.font = UIFont(name: "fontawesome", size: 20)
-        label.attributedText = NSAttributedString(string: "\u{f023}", attributes: [NSAttributedStringKey.foregroundColor: Colors.GRAY])
-        field.leftView = label
-        field.leftViewMode = .always
-        
-        return field
+        return UnderlinedTextField(icon: "\u{f023}", placeholderText: "Password")
     }()
     
     /////////////////////////////

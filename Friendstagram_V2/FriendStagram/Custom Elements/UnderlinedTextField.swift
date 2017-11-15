@@ -13,6 +13,39 @@ class UnderlinedTextField : UITextField {
     
     private let borderLayer = CALayer()
     private let borderThickness : CGFloat = 2.0
+    private var icon : String? = nil
+    private var placeholderText : String = ""
+    
+    init(icon: String?, placeholderText: String) {
+        super.init(frame: CGRect.zero)
+            
+        self.translatesAutoresizingMaskIntoConstraints = false
+        self.textColor = UIColor.white
+        self.tintColor = Colors.GRAY
+        self.icon = icon
+        self.placeholderText = placeholderText
+        
+        SetupLeftView()
+        SetupPlaceholder()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func SetupPlaceholder() {
+        self.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSAttributedStringKey.foregroundColor: tintColor])
+    }
+    
+    private func SetupLeftView() {
+        guard icon != nil else { return }
+        
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 25, height: 40))
+        label.font = UIFont(name: "fontawesome", size: 20)
+        label.attributedText = NSAttributedString(string: icon!, attributes: [NSAttributedStringKey.foregroundColor: self.tintColor])
+        self.leftView = label
+        self.leftViewMode = .always
+    }
     
     override func draw(_ rect: CGRect) {
         print("Drawing")
