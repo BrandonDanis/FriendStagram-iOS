@@ -16,6 +16,7 @@
 		CAF7AC6A1FAFFB1400124BB5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAF7AC681FAFFB1400124BB5 /* LaunchScreen.storyboard */; };
 		F66EB1F61FBB868700616C07 /* fontawesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F66EB1F51FBB868700616C07 /* fontawesome.ttf */; };
 		F69D61F61FBCACD10016FE60 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69D61F51FBCACD10016FE60 /* Colors.swift */; };
+		F69D61F81FBCBF3F0016FE60 /* UnderlinedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69D61F71FBCBF3F0016FE60 /* UnderlinedTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		CAF7AC6B1FAFFB1400124BB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F66EB1F51FBB868700616C07 /* fontawesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = fontawesome.ttf; sourceTree = "<group>"; };
 		F69D61F51FBCACD10016FE60 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		F69D61F71FBCBF3F0016FE60 /* UnderlinedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlinedTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +49,7 @@
 			isa = PBXGroup;
 			children = (
 				CAED07AF1FB166DC00E9A853 /* BetterButton.swift */,
+				F69D61F71FBCBF3F0016FE60 /* UnderlinedTextField.swift */,
 			);
 			path = "Custom Elements";
 			sourceTree = "<group>";
@@ -167,6 +170,7 @@
 				CAED07B21FB168EF00E9A853 /* NetworkManager.swift in Sources */,
 				F69D61F61FBCACD10016FE60 /* Colors.swift in Sources */,
 				CAED07B41FB3C50F00E9A853 /* RegisterViewController.swift in Sources */,
+				F69D61F81FBCBF3F0016FE60 /* UnderlinedTextField.swift in Sources */,
 				CAF7AC621FAFFB1400124BB5 /* LoginViewController.swift in Sources */,
 				CAED07B01FB166DC00E9A853 /* BetterButton.swift in Sources */,
 				CAF7AC601FAFFB1400124BB5 /* AppDelegate.swift in Sources */,
