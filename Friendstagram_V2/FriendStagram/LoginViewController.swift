@@ -37,7 +37,7 @@ class LoginViewController: UIViewController {
     var titleLabel : UILabel = {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 250, height: 100))
         label.text = "FriendStagram"
-        label.textColor = .black
+        label.textColor = Colors.MAIN_ACCENT_COLOR
         label.textAlignment = .center
         label.font = UIFont(name: "PingFangHK-Ultralight", size: 40)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -49,16 +49,18 @@ class LoginViewController: UIViewController {
     ////////////////////////////
     var usernameTextField : UITextField = {
         let field = UITextField()
-        field.placeholder = "Username"
-        field.tintColor = .black
+        field.attributedPlaceholder = NSAttributedString(string: "Username", attributes: [NSAttributedStringKey.foregroundColor: Colors.GRAY])
+        field.tintColor = Colors.GRAY
+        field.textColor = Colors.GRAY
         field.translatesAutoresizingMaskIntoConstraints = false
         return field
     }()
     
     var passwordTextField : UITextField = {
         let field = UITextField()
-        field.placeholder = "Password"
-        field.tintColor = .black
+        field.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSAttributedStringKey.foregroundColor: Colors.GRAY])
+        field.tintColor = Colors.GRAY
+        field.textColor = Colors.GRAY
         field.translatesAutoresizingMaskIntoConstraints = false
         return field
     }()
@@ -69,7 +71,7 @@ class LoginViewController: UIViewController {
     var loginButton : BetterButton = {
         let button = BetterButton()
         button.setTitle("Login", for: .normal)
-        button.color = BeautifulButtonColorStyle.Blue
+        button.backgroundColor = Colors.MAIN_ACCENT_COLOR
         button.addTarget(self, action: #selector(LoginViewController.LoginButtonSelected), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -81,13 +83,14 @@ class LoginViewController: UIViewController {
         label.font = UIFont(name: "PingFangHK-Ultralight", size: 20)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
+        label.textColor = Colors.GRAY
         return label
     }()
     
     var registerButton : UIButton = {
         let button = UIButton()
         button.setTitle("Register", for: .normal)
-        button.setTitleColor(.black, for: .normal)
+        button.setTitleColor(Colors.GRAY, for: .normal)
         button.titleLabel?.font = UIFont(name: "PingFangHK-Light", size: 20)
         button.backgroundColor = .clear
         button.contentEdgeInsets = UIEdgeInsets(top: 0, left: 0.01, bottom: 0.01, right: 0) //Removing top/bottom padding on button. 
@@ -100,7 +103,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         
         // Setup basic view attributes
-        self.view.backgroundColor = UIColor.white
+        self.view.backgroundColor = Colors.MAIN_BG_COLOR
         
         // Setup subviews
         self.view.addSubview(titleSubView)
