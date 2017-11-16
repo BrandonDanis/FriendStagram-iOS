@@ -57,11 +57,12 @@ class UnderlinedTextField : UITextField, UITextFieldDelegate {
         SetupPlaceholder()
     }
     
-    convenience init(icon: String?, placeholderText: String, iconColor: UIColor, underlineColor: UIColor, placeholderColor: UIColor) {
+    convenience init(icon: String?, placeholderText: String, iconColor: UIColor, underlineColor: UIColor, placeholderColor: UIColor, textColor: UIColor) {
         self.init(icon: icon, placeholderText: placeholderText)
         self.iconColor = iconColor
         self.placeholderColor = placeholderColor
         self.underlineColor = underlineColor
+        self.textColor = textColor
         
         // Called twice... must be a better way
         SetupLeftView()

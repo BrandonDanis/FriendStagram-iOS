@@ -59,11 +59,15 @@ class RegisterViewController : UIViewController {
     // INPUT SUBVIEW ELEMENTS //
     ////////////////////////////
     var usernameTextField : UnderlinedTextField = {
-        return UnderlinedTextField(icon: "\u{f007}", placeholderText: "Username", iconColor: Colors.MAIN_ACCENT_COLOR, underlineColor: Colors.MAIN_ACCENT_COLOR, placeholderColor: Colors.GRAY)
+        return UnderlinedTextField(icon: "\u{f007}", placeholderText: "Username", iconColor: Colors.MAIN_ACCENT_COLOR, underlineColor: Colors.MAIN_ACCENT_COLOR, placeholderColor: Colors.GRAY, textColor: Colors.DARK_GRAY)
     }()
     
     var passwordTextField : UnderlinedTextField = {
-       return UnderlinedTextField(icon: "\u{f023}", placeholderText: "Password", iconColor: Colors.MAIN_ACCENT_COLOR, underlineColor: Colors.MAIN_ACCENT_COLOR, placeholderColor: Colors.GRAY)
+       return UnderlinedTextField(icon: "\u{f023}", placeholderText: "Password", iconColor: Colors.MAIN_ACCENT_COLOR, underlineColor: Colors.MAIN_ACCENT_COLOR, placeholderColor: Colors.GRAY, textColor: Colors.DARK_GRAY)
+    }()
+    
+    var emailTextField : UnderlinedTextField = {
+        return UnderlinedTextField(icon: "\u{f0e0}", placeholderText: "Email Address", iconColor: Colors.MAIN_ACCENT_COLOR, underlineColor: Colors.MAIN_ACCENT_COLOR, placeholderColor: Colors.GRAY, textColor: Colors.DARK_GRAY)
     }()
     
     /////////////////////////////
@@ -91,6 +95,7 @@ class RegisterViewController : UIViewController {
         
         // add elements to inputSubView
         inputSubView.addSubview(usernameTextField)
+        inputSubView.addSubview(emailTextField)
         inputSubView.addSubview(passwordTextField)
         
         // add elements to buttonSubView
@@ -135,13 +140,19 @@ class RegisterViewController : UIViewController {
         usernameTextField.widthAnchor.constraint(equalTo: self.inputSubView.widthAnchor, multiplier: 0.80).isActive = true
         usernameTextField.heightAnchor.constraint(equalToConstant: 40.0).isActive = true
         usernameTextField.centerXAnchor.constraint(equalTo: self.inputSubView.centerXAnchor).isActive = true
-        usernameTextField.centerYAnchor.constraint(equalTo: self.inputSubView.centerYAnchor, constant: -25).isActive = true
+        usernameTextField.bottomAnchor.constraint(equalTo: self.emailTextField.topAnchor, constant: -25).isActive = true
+        
+        // Email field
+        emailTextField.widthAnchor.constraint(equalTo: self.inputSubView.widthAnchor, multiplier: 0.80).isActive = true
+        emailTextField.heightAnchor.constraint(equalToConstant: 40.0).isActive = true
+        emailTextField.centerXAnchor.constraint(equalTo: self.inputSubView.centerXAnchor).isActive = true
+        emailTextField.centerYAnchor.constraint(equalTo: self.inputSubView.centerYAnchor).isActive = true
         
         // Password field
         passwordTextField.widthAnchor.constraint(equalTo: self.inputSubView.widthAnchor, multiplier: 0.80).isActive = true
         passwordTextField.heightAnchor.constraint(equalToConstant: 40.0).isActive = true
         passwordTextField.centerXAnchor.constraint(equalTo: self.inputSubView.centerXAnchor).isActive = true
-        passwordTextField.centerYAnchor.constraint(equalTo: self.inputSubView.centerYAnchor, constant: 25).isActive = true
+        passwordTextField.topAnchor.constraint(equalTo: self.emailTextField.bottomAnchor, constant: 25).isActive = true
         
         // Button Subview
         buttonsSubView.widthAnchor.constraint(equalTo: self.view.widthAnchor).isActive = true

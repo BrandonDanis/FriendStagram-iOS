@@ -14,4 +14,5 @@ struct Colors {
     static let MAIN_ACCENT_COLOR = UIColor(red:0.08, green:0.68, blue:0.81, alpha:1.00)
     static let GRAY = UIColor(red:0.75, green:0.75, blue:0.75, alpha:0.90)
     static let LIGHT_GRAY = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1.00)
+    static let DARK_GRAY = UIColor(red: 0.1, green: 0.1, blue: 0.1, alpha: 1.00)
 }
