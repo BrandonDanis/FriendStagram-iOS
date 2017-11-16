@@ -53,7 +53,7 @@ class NetworkManager {
     public func RegisterAccount(_ name: String, _ username: String, _ email: String, _ password: String) {
         registerUserTask?.cancel()
         
-        guard var url = URL(string: "\(API_URL)/users") else { return }
+        guard let url = URL(string: "\(API_URL)/users") else { return }
         
         let body  =  [
             "name": name,
@@ -62,26 +62,18 @@ class NetworkManager {
             "password": password
         ]
         
-        let headers = [
-            "content-type": "application/json",
-            "cache-control": "no-cache"
-        ]
-        
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
-        
-        do {
-            request.httpBody = try JSONSerialization.data(withJSONObject: body, options: .prettyPrinted)
-        } catch let error {
-            print("fuck")
-            print(error.localizedDescription)
+
+        guard let jsonBody = try? JSONSerialization.data(withJSONObject: body, options: []) else {
+            print("Failed to convert body dict to JSON")
+            return
         }
+        request.httpBody = jsonBody
         
-        request.allHTTPHeaderFields = headers
-        request.addValue("application/json", forHTTPHeaderField: "content-type")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        registerUserTask = defaultSession.dataTask(with: request as URLRequest, completionHandler: { (data, res, err) in
+        registerUserTask = defaultSession.dataTask(with: request, completionHandler: { (data, res, err) in
             if let err = err {
                 print("ERROR: \(err.localizedDescription)")
                 return
