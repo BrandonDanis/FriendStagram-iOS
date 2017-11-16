@@ -18,6 +18,7 @@
 		F69D61F61FBCACD10016FE60 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69D61F51FBCACD10016FE60 /* Colors.swift */; };
 		F69D61F81FBCBF3F0016FE60 /* UnderlinedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69D61F71FBCBF3F0016FE60 /* UnderlinedTextField.swift */; };
 		F69D61FA1FBE17C20016FE60 /* NetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69D61F91FBE17C20016FE60 /* NetResponse.swift */; };
+		F69D61FC1FBE233F0016FE60 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69D61FB1FBE233F0016FE60 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		F69D61F51FBCACD10016FE60 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		F69D61F71FBCBF3F0016FE60 /* UnderlinedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlinedTextField.swift; sourceTree = "<group>"; };
 		F69D61F91FBE17C20016FE60 /* NetResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetResponse.swift; sourceTree = "<group>"; };
+		F69D61FB1FBE233F0016FE60 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 				CAED07B31FB3C50F00E9A853 /* RegisterViewController.swift */,
 				CAED07B11FB168EF00E9A853 /* NetworkManager.swift */,
 				F69D61F91FBE17C20016FE60 /* NetResponse.swift */,
+				F69D61FB1FBE233F0016FE60 /* User.swift */,
 				CAF7AC5F1FAFFB1400124BB5 /* AppDelegate.swift */,
 				CAF7AC681FAFFB1400124BB5 /* LaunchScreen.storyboard */,
 				CAF7AC6B1FAFFB1400124BB5 /* Info.plist */,
@@ -175,6 +178,7 @@
 				F69D61FA1FBE17C20016FE60 /* NetResponse.swift in Sources */,
 				CAED07B41FB3C50F00E9A853 /* RegisterViewController.swift in Sources */,
 				F69D61F81FBCBF3F0016FE60 /* UnderlinedTextField.swift in Sources */,
+				F69D61FC1FBE233F0016FE60 /* User.swift in Sources */,
 				CAF7AC621FAFFB1400124BB5 /* LoginViewController.swift in Sources */,
 				CAED07B01FB166DC00E9A853 /* BetterButton.swift in Sources */,
 				CAF7AC601FAFFB1400124BB5 /* AppDelegate.swift in Sources */,
