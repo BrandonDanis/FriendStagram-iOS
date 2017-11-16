@@ -80,8 +80,9 @@ class UnderlinedTextField : UITextField, UITextFieldDelegate {
     private func SetupLeftView() {
         guard icon != nil else { return }
         
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 25, height: 40))
-        label.font = UIFont(name: "fontawesome", size: 20)
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 45, height: 40))
+        label.font = UIFont(name: "fontawesome", size: 25)
+        label.textAlignment = .center
         label.attributedText = NSAttributedString(string: icon!, attributes: [NSAttributedStringKey.foregroundColor: displayingError ? ERROR_COLOR : iconColor])
         self.leftView = label
         self.leftViewMode = .always
