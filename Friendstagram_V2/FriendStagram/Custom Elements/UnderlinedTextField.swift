@@ -44,7 +44,7 @@ class UnderlinedTextField : UITextField, UITextFieldDelegate {
     }
     
     private func SetupPlaceholder() {
-        self.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSAttributedStringKey.foregroundColor: currentAccentColor])
+        self.attributedPlaceholder = NSAttributedString(string: placeholderText, attributes: [NSAttributedStringKey.foregroundColor: currentAccentColor])
     }
     
     private func SetupLeftView() {
@@ -67,6 +67,11 @@ class UnderlinedTextField : UITextField, UITextFieldDelegate {
         if currentAccentColor == ERROR_COLOR {
             currentAccentColor = self.tintColor
         }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.resignFirstResponder()
+        return true
     }
     
     override func draw(_ rect: CGRect) {
