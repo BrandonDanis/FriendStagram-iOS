@@ -77,7 +77,7 @@ class RegisterViewController : UIViewController {
         let button = BetterButton()
         button.setTitle("Register", for: .normal)
         button.backgroundColor = Colors.MAIN_ACCENT_COLOR
-//        button.addTarget(self, action: #selector(LoginViewController.LoginButtonSelected), for: .touchUpInside)
+        button.addTarget(self, action: #selector(RegisterViewController.RegisterButtonSelected), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -109,6 +109,16 @@ class RegisterViewController : UIViewController {
     
     @IBAction private func dismissView(sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction private func RegisterButtonSelected(sender: UIButton) {
+        //let username = usernameTextField.text
+        //let password = passwordTextField.text
+        
+        //guard username != "" else { self.loginButton.shake(); self.usernameTextField.Error(); return }
+        //guard password != "" else { self.loginButton.shake(); self.passwordTextField.Error(); return }
+        
+        NetworkManager.shared.RegisterAccount("b", "b", "b@b.com", "b")
     }
     
     private func SetupConstraints() {

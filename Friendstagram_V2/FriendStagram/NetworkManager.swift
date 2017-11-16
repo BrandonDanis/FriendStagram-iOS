@@ -18,6 +18,7 @@ class NetworkManager {
     
     //Tasks
     private var checkHealthTask : URLSessionDataTask?
+    private var registerUserTask : URLSessionDataTask?
     
     private init(serverURL: String) {
         self.API_URL = serverURL
@@ -47,6 +48,50 @@ class NetworkManager {
         })
         
         checkHealthTask?.resume()
+    }
+    
+    public func RegisterAccount(_ name: String, _ username: String, _ email: String, _ password: String) {
+        registerUserTask?.cancel()
+        
+        guard var url = URL(string: "\(API_URL)/users") else { return }
+        
+        let body  =  [
+            "name": name,
+            "username": username,
+            "email": email,
+            "password": password
+        ]
+        
+        let headers = [
+            "content-type": "application/json",
+            "cache-control": "no-cache"
+        ]
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        
+        do {
+            request.httpBody = try JSONSerialization.data(withJSONObject: body, options: .prettyPrinted)
+        } catch let error {
+            print("fuck")
+            print(error.localizedDescription)
+        }
+        
+        request.allHTTPHeaderFields = headers
+        request.addValue("application/json", forHTTPHeaderField: "content-type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        
+        registerUserTask = defaultSession.dataTask(with: request as URLRequest, completionHandler: { (data, res, err) in
+            if let err = err {
+                print("ERROR: \(err.localizedDescription)")
+                return
+            } else if let data = data, let res = res as? HTTPURLResponse {
+                print("HTTP Status: \(res.statusCode)")
+                print(data)
+            }
+        })
+        
+        registerUserTask?.resume()
     }
     
 }
