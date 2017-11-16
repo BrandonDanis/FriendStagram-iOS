@@ -12,7 +12,10 @@ class RegisterViewController : UIViewController {
     
     var dismissViewButton : UIButton = {
         let button = UIButton()
-        button.setTitle("X", for: .normal)
+        let label = UILabel()
+        button.titleLabel?.font = UIFont(name: "fontawesome", size: 30)
+        button.setTitle("\u{f00d}", for: .normal)
+        button.setTitleColor(Colors.MAIN_ACCENT_COLOR, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(RegisterViewController.dismissView), for: .touchUpInside)
         return button
@@ -33,13 +36,19 @@ class RegisterViewController : UIViewController {
         return view
     }()
     
+    var buttonsSubView : UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     ////////////////////////////
     // TITLE SUBVIEW ELEMENTS //
     ////////////////////////////
     var titleLabel : UILabel = {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 250, height: 100))
         label.text = "Register"
-        label.textColor = .white
+        label.textColor = Colors.MAIN_ACCENT_COLOR
         label.textAlignment = .center
         label.font = UIFont(name: "PingFangHK-Ultralight", size: 40)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -49,37 +58,33 @@ class RegisterViewController : UIViewController {
     ////////////////////////////
     // INPUT SUBVIEW ELEMENTS //
     ////////////////////////////
-    var usernameTextField : UITextField = {
-        let field = UITextField()
-        field.attributedPlaceholder = NSAttributedString(string: "username", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
-        
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 25, height: 40))
-        label.font = UIFont(name: "fontawesome", size: 20)
-        label.attributedText = NSAttributedString(string: "\u{f067}", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
-        field.leftView = label
-        field.leftViewMode = .always
-        
-        field.textColor = .white
-        field.tintColor = .white
-        field.translatesAutoresizingMaskIntoConstraints = false
-        return field
+    var usernameTextField : UnderlinedTextField = {
+        return UnderlinedTextField(icon: "\u{f007}", placeholderText: "Username", iconColor: Colors.MAIN_ACCENT_COLOR, underlineColor: Colors.MAIN_ACCENT_COLOR, placeholderColor: Colors.GRAY)
     }()
     
-    var passwordTextField : UITextField = {
-        let field = UITextField()
-        field.attributedPlaceholder = NSAttributedString(string: "password", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
-        field.textColor = .white
-        field.tintColor = .white
-        field.translatesAutoresizingMaskIntoConstraints = false
-        return field
+    var passwordTextField : UnderlinedTextField = {
+       return UnderlinedTextField(icon: "\u{f023}", placeholderText: "Password", iconColor: Colors.MAIN_ACCENT_COLOR, underlineColor: Colors.MAIN_ACCENT_COLOR, placeholderColor: Colors.GRAY)
+    }()
+    
+    /////////////////////////////
+    // BUTTON SUBVIEW ELEMENTS //
+    /////////////////////////////
+    var loginButton : BetterButton = {
+        let button = BetterButton()
+        button.setTitle("Register", for: .normal)
+        button.backgroundColor = Colors.MAIN_ACCENT_COLOR
+//        button.addTarget(self, action: #selector(LoginViewController.LoginButtonSelected), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = .black
+        self.view.backgroundColor = Colors.LIGHT_GRAY
         self.view.addSubview(titleSubView)
         self.view.addSubview(inputSubView)
+        self.view.addSubview(buttonsSubView)
         
         // add elements to titleSubView
         titleSubView.addSubview(titleLabel)
@@ -87,6 +92,9 @@ class RegisterViewController : UIViewController {
         // add elements to inputSubView
         inputSubView.addSubview(usernameTextField)
         inputSubView.addSubview(passwordTextField)
+        
+        // add elements to buttonSubView
+        buttonsSubView.addSubview(loginButton)
         
         self.view.addSubview(dismissViewButton)
         
@@ -102,7 +110,7 @@ class RegisterViewController : UIViewController {
         
         // Dismiss view button
         dismissViewButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
-        dismissViewButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        dismissViewButton.heightAnchor.constraint(equalToConstant: 70).isActive = true
         dismissViewButton.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 5).isActive = true
         dismissViewButton.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 5).isActive = true
         
@@ -135,6 +143,17 @@ class RegisterViewController : UIViewController {
         passwordTextField.centerXAnchor.constraint(equalTo: self.inputSubView.centerXAnchor).isActive = true
         passwordTextField.centerYAnchor.constraint(equalTo: self.inputSubView.centerYAnchor, constant: 25).isActive = true
         
+        // Button Subview
+        buttonsSubView.widthAnchor.constraint(equalTo: self.view.widthAnchor).isActive = true
+        buttonsSubView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 1/3).isActive = true
+        buttonsSubView.topAnchor.constraint(equalTo: self.inputSubView.bottomAnchor).isActive = true
+        buttonsSubView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        
+        // Login button
+        loginButton.centerXAnchor.constraint(equalTo: self.buttonsSubView.centerXAnchor).isActive = true
+        loginButton.centerYAnchor.constraint(equalTo: self.buttonsSubView.centerYAnchor).isActive = true
+        loginButton.widthAnchor.constraint(equalTo: self.buttonsSubView.widthAnchor, multiplier: 0.5).isActive = true
+        loginButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
     }
     

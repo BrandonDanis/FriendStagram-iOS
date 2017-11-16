@@ -12,12 +12,31 @@ import UIKit
 class UnderlinedTextField : UITextField, UITextFieldDelegate {
     
     private let ERROR_COLOR = UIColor.red
+    
     private let borderLayer = CALayer()
     private let borderThickness : CGFloat = 2.0
-    private var icon : String? = nil
-    private var placeholderText : String = ""
+    public var underlineColor = Colors.GRAY {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
     
-    private var currentAccentColor = Colors.GRAY {
+    private var displayingError : Bool = false {
+        didSet {
+            SetupLeftView()
+            setNeedsDisplay()
+        }
+    }
+    
+    private var placeholderText : String = ""
+    public var placeholderColor = Colors.GRAY {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
+    
+    private var icon : String? = nil
+    private var iconColor = Colors.GRAY {
         didSet {
             SetupLeftView()
             setNeedsDisplay()
@@ -30,11 +49,21 @@ class UnderlinedTextField : UITextField, UITextFieldDelegate {
         self.delegate = self
         self.translatesAutoresizingMaskIntoConstraints = false
         self.textColor = UIColor.white
-        self.tintColor = Colors.GRAY
         self.icon = icon
         self.placeholderText = placeholderText
         self.autocorrectionType = .no
         
+        SetupLeftView()
+        SetupPlaceholder()
+    }
+    
+    convenience init(icon: String?, placeholderText: String, iconColor: UIColor, underlineColor: UIColor, placeholderColor: UIColor) {
+        self.init(icon: icon, placeholderText: placeholderText)
+        self.iconColor = iconColor
+        self.placeholderColor = placeholderColor
+        self.underlineColor = underlineColor
+        
+        // Called twice... must be a better way
         SetupLeftView()
         SetupPlaceholder()
     }
@@ -44,7 +73,7 @@ class UnderlinedTextField : UITextField, UITextFieldDelegate {
     }
     
     private func SetupPlaceholder() {
-        self.attributedPlaceholder = NSAttributedString(string: placeholderText, attributes: [NSAttributedStringKey.foregroundColor: currentAccentColor])
+        self.attributedPlaceholder = NSAttributedString(string: placeholderText, attributes: [NSAttributedStringKey.foregroundColor: placeholderColor])
     }
     
     private func SetupLeftView() {
@@ -52,7 +81,7 @@ class UnderlinedTextField : UITextField, UITextFieldDelegate {
         
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 25, height: 40))
         label.font = UIFont(name: "fontawesome", size: 20)
-        label.attributedText = NSAttributedString(string: icon!, attributes: [NSAttributedStringKey.foregroundColor: currentAccentColor])
+        label.attributedText = NSAttributedString(string: icon!, attributes: [NSAttributedStringKey.foregroundColor: displayingError ? ERROR_COLOR : iconColor])
         self.leftView = label
         self.leftViewMode = .always
     }
@@ -60,13 +89,11 @@ class UnderlinedTextField : UITextField, UITextFieldDelegate {
     // Called when you want the textfield to be turned red to indicate an error.
     // Will return to normal after the user selects the field
     public func Error() {
-        currentAccentColor = ERROR_COLOR
+        displayingError = true
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        if currentAccentColor == ERROR_COLOR {
-            currentAccentColor = self.tintColor
-        }
+        if displayingError { displayingError = false }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -81,7 +108,7 @@ class UnderlinedTextField : UITextField, UITextFieldDelegate {
     
     private func drawUnderline(_ rect: CGRect) {
         borderLayer.frame = CGRect(x: 0, y: bounds.size.height - borderThickness, width: bounds.size.width, height: borderThickness)
-        borderLayer.backgroundColor = currentAccentColor.cgColor
+        borderLayer.backgroundColor = displayingError ? ERROR_COLOR.cgColor : underlineColor.cgColor
         
         self.layer.addSublayer(borderLayer)
     }
