@@ -124,7 +124,9 @@ public class BetterButton: UIButton {
         animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
         animation.duration = duration
         animation.values = [-15.0, 15.0, -15.0, 15.0, -10.0, 10.0, -5.0, 5.0, 0.0 ]
-        layer.add(animation, forKey: "shake") //TODO: check what .add does
+        DispatchQueue.main.async {
+            self.layer.add(animation, forKey: "shake") //TODO: check what .add does
+        }
     }
     
     public func rippleButton(_ duration: Double = 0.25) {
