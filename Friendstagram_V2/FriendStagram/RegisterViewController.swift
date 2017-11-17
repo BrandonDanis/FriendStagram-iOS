@@ -63,7 +63,9 @@ class RegisterViewController : UIViewController {
     }()
     
     var passwordTextField : UnderlinedTextField = {
-       return UnderlinedTextField(icon: "\u{f023}", placeholderText: "Password", iconColor: Colors.MAIN_ACCENT_COLOR, underlineColor: Colors.MAIN_ACCENT_COLOR, placeholderColor: Colors.GRAY, textColor: Colors.DARK_GRAY)
+       let field = UnderlinedTextField(icon: "\u{f023}", placeholderText: "Password", iconColor: Colors.MAIN_ACCENT_COLOR, underlineColor: Colors.MAIN_ACCENT_COLOR, placeholderColor: Colors.GRAY, textColor: Colors.DARK_GRAY)
+        field.isSecureTextEntry = true
+        return field
     }()
     
     var emailTextField : UnderlinedTextField = {
@@ -117,8 +119,8 @@ class RegisterViewController : UIViewController {
         let email = emailTextField.text
         
         guard username != "" else { self.registerButton.shake(); self.usernameTextField.Error(); return }
-        guard password != "" else { self.registerButton.shake(); self.passwordTextField.Error(); return }
         guard email != "" else { self.registerButton.shake(); self.emailTextField.Error(); return }
+        guard password != "" else { self.registerButton.shake(); self.passwordTextField.Error(); return }
         
         NetworkManager.shared.RegisterAccount(name: "Brandon Danis", username: username!, email: email!, password: password!) { err, res in
             
@@ -128,12 +130,9 @@ class RegisterViewController : UIViewController {
                 return
             }
             
-            // if err is nil, we know forsure we have some data to look at.
-            // Therefore it is safe to force unwrap it
-            
-            if let err = res?.error {
+            if let err = res?.error, let errCode = err.code { //currently error is never null, but rather empty {}. This will be fixed soon
                 // TODO: Display error to user
-                print("Failed to create user. Error code: \(err.code). Title: \(err.title). Detail: \(err.detail)")
+                print("Failed to create user. Error code: \(errCode). Title: \(err.title!). Detail: \(err.detail!)")
                 self.registerButton.shake()
                 return
             }
@@ -141,6 +140,11 @@ class RegisterViewController : UIViewController {
             if let data = res?.data {
                 // TODO: Push to login screen and display a modal popup saying user created
                 print("User created! ID: \(data.id) Name: \(data.name) Username: \(data.username)")
+                
+                if let parentVc = self.parent as? LoginViewController {
+                    parentVc.DisplayMessageModally(msg: "User created!")
+                }
+                
                 self.dismiss(animated: true, completion: nil)
             }
             

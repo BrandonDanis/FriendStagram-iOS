@@ -80,6 +80,9 @@ class NetworkManager {
                 return callback(err.debugDescription, nil)
             }
             
+            let returnData = String(data: data!, encoding: .utf8)
+            print(returnData)
+            
             guard let data = data, let netRes = try? JSONDecoder().decode(NetResponse<User>.self, from: data) else {
                 debugPrint("Failed to decode data")
                 return callback("Failed to decode data", nil)

@@ -132,8 +132,12 @@ class LoginViewController: UIViewController {
     
     @IBAction private func RegisterButtonClicked(sender: UIButton) {
         let vc = RegisterViewController()
-        self.present(vc, animated: true) {
-        }
+        self.present(vc, animated: true, completion: nil)
+    }
+    
+    public func DisplayMessageModally(msg: String) {
+        // Display using a modal popup
+        print("\(msg)")
     }
     
     private func SetupConstraints() {

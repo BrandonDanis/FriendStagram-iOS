@@ -9,8 +9,8 @@
 import Foundation
 
 struct NetError : Codable {
-    let code : String
-    let title : String
-    let status : String
-    let detail : String
+    let code : String?
+    let title : String?
+    let status : String?
+    let detail : String?
 }

@@ -13,4 +13,5 @@ struct User : Codable {
     let username : String
     let id : Int
     let datecreated : String
+    let email : String
 }
