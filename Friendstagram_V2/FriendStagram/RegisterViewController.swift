@@ -73,7 +73,7 @@ class RegisterViewController : UIViewController {
     /////////////////////////////
     // BUTTON SUBVIEW ELEMENTS //
     /////////////////////////////
-    var loginButton : BetterButton = {
+    var registerButton : BetterButton = {
         let button = BetterButton()
         button.setTitle("Register", for: .normal)
         button.backgroundColor = Colors.MAIN_ACCENT_COLOR
@@ -99,7 +99,7 @@ class RegisterViewController : UIViewController {
         inputSubView.addSubview(passwordTextField)
         
         // add elements to buttonSubView
-        buttonsSubView.addSubview(loginButton)
+        buttonsSubView.addSubview(registerButton)
         
         self.view.addSubview(dismissViewButton)
         
@@ -115,10 +115,30 @@ class RegisterViewController : UIViewController {
         //let username = usernameTextField.text
         //let password = passwordTextField.text
         
-        //guard username != "" else { self.loginButton.shake(); self.usernameTextField.Error(); return }
-        //guard password != "" else { self.loginButton.shake(); self.passwordTextField.Error(); return }
+        //guard username != "" else { self.registerButton.shake(); self.usernameTextField.Error(); return }
+        //guard password != "" else { self.registerButton.shake(); self.passwordTextField.Error(); return }
         
-        NetworkManager.shared.RegisterAccount("b", "b", "b@b.com", "b") { err in
+        NetworkManager.shared.RegisterAccount("b", "b", "b@b.com", "b") { err, res in
+            
+            if err != nil {
+                //Display error message?
+                self.registerButton.shake()
+                return
+            }
+            
+            // if err is nil, we know forsure we have some data to look at.
+            // Therefore it is safe to force unwrap it
+            
+            if let err = res?.error {
+                // Display error to user
+                print("Failed to create user. Error code: \(err.code). Title: \(err.title). Detail: \(err.detail)")
+                self.registerButton.shake()
+                return
+            }
+            
+            if let data = res?.data {
+                print("User created! ID: \(data.id) Name: \(data.name) Username: \(data.username)")
+            }
             
         }
     }
@@ -173,10 +193,10 @@ class RegisterViewController : UIViewController {
         buttonsSubView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         
         // Login button
-        loginButton.centerXAnchor.constraint(equalTo: self.buttonsSubView.centerXAnchor).isActive = true
-        loginButton.centerYAnchor.constraint(equalTo: self.buttonsSubView.centerYAnchor).isActive = true
-        loginButton.widthAnchor.constraint(equalTo: self.buttonsSubView.widthAnchor, multiplier: 0.5).isActive = true
-        loginButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        registerButton.centerXAnchor.constraint(equalTo: self.buttonsSubView.centerXAnchor).isActive = true
+        registerButton.centerYAnchor.constraint(equalTo: self.buttonsSubView.centerYAnchor).isActive = true
+        registerButton.widthAnchor.constraint(equalTo: self.buttonsSubView.widthAnchor, multiplier: 0.5).isActive = true
+        registerButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
     }
     

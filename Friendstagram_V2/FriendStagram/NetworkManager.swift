@@ -50,7 +50,7 @@ class NetworkManager {
         checkHealthTask?.resume()
     }
     
-    public func RegisterAccount(_ name: String, _ username: String, _ email: String, _ password: String, callback : @escaping (_ err: String) -> Void) {
+    public func RegisterAccount(_ name: String, _ username: String, _ email: String, _ password: String, callback : @escaping (_ err: String?,_ res: NetResponse<User>?) -> Void) {
         registerUserTask?.cancel()
         
         guard let url = URL(string: "\(API_URL)/users") else { return }
@@ -75,7 +75,17 @@ class NetworkManager {
         
         registerUserTask = defaultSession.dataTask(with: request, completionHandler: { (data, res, err) in
             
+            if err != nil {
+                debugPrint("Error when creating user")
+                return callback(err.debugDescription, nil)
+            }
             
+            guard let data = data, let netRes = try? JSONDecoder().decode(NetResponse<User>.self, from: data) else {
+                debugPrint("Failed to decode data")
+                return callback("Failed to decode data", nil)
+            }
+            
+            callback(nil, netRes)
             
         })
         

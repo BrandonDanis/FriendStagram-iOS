@@ -9,6 +9,6 @@
 import Foundation
 
 struct NetResponse <T : Codable> : Codable {
-    let error : Bool
-    let data : T
+    let error : NetError?
+    let data : T?
 }
