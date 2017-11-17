@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA4F946E1FBEAA9E00B3B162 /* NetError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4F946D1FBEAA9E00B3B162 /* NetError.swift */; };
 		CAED07B01FB166DC00E9A853 /* BetterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAED07AF1FB166DC00E9A853 /* BetterButton.swift */; };
 		CAED07B21FB168EF00E9A853 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAED07B11FB168EF00E9A853 /* NetworkManager.swift */; };
 		CAED07B41FB3C50F00E9A853 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAED07B31FB3C50F00E9A853 /* RegisterViewController.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CA4F946D1FBEAA9E00B3B162 /* NetError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetError.swift; sourceTree = "<group>"; };
 		CAED07AF1FB166DC00E9A853 /* BetterButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BetterButton.swift; sourceTree = "<group>"; };
 		CAED07B11FB168EF00E9A853 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		CAED07B31FB3C50F00E9A853 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				CAED07B31FB3C50F00E9A853 /* RegisterViewController.swift */,
 				CAED07B11FB168EF00E9A853 /* NetworkManager.swift */,
 				F69D61F91FBE17C20016FE60 /* NetResponse.swift */,
+				CA4F946D1FBEAA9E00B3B162 /* NetError.swift */,
 				F69D61FB1FBE233F0016FE60 /* User.swift */,
 				CAF7AC5F1FAFFB1400124BB5 /* AppDelegate.swift */,
 				CAF7AC681FAFFB1400124BB5 /* LaunchScreen.storyboard */,
@@ -181,6 +184,7 @@
 				F69D61FC1FBE233F0016FE60 /* User.swift in Sources */,
 				CAF7AC621FAFFB1400124BB5 /* LoginViewController.swift in Sources */,
 				CAED07B01FB166DC00E9A853 /* BetterButton.swift in Sources */,
+				CA4F946E1FBEAA9E00B3B162 /* NetError.swift in Sources */,
 				CAF7AC601FAFFB1400124BB5 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
