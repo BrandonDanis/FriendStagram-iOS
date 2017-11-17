@@ -118,7 +118,9 @@ class RegisterViewController : UIViewController {
         //guard username != "" else { self.loginButton.shake(); self.usernameTextField.Error(); return }
         //guard password != "" else { self.loginButton.shake(); self.passwordTextField.Error(); return }
         
-        NetworkManager.shared.RegisterAccount("b", "b", "b@b.com", "b")
+        NetworkManager.shared.RegisterAccount("b", "b", "b@b.com", "b") { err in
+            
+        }
     }
     
     private func SetupConstraints() {

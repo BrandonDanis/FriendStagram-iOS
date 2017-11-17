@@ -50,7 +50,7 @@ class NetworkManager {
         checkHealthTask?.resume()
     }
     
-    public func RegisterAccount(_ name: String, _ username: String, _ email: String, _ password: String) {
+    public func RegisterAccount(_ name: String, _ username: String, _ email: String, _ password: String, callback : @escaping (_ err: String) -> Void) {
         registerUserTask?.cancel()
         
         guard let url = URL(string: "\(API_URL)/users") else { return }
@@ -74,13 +74,9 @@ class NetworkManager {
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
         registerUserTask = defaultSession.dataTask(with: request, completionHandler: { (data, res, err) in
-            if let err = err {
-                print("ERROR: \(err.localizedDescription)")
-                return
-            } else if let data = data, let res = res as? HTTPURLResponse {
-                print("HTTP Status: \(res.statusCode)")
-                print(data)
-            }
+            
+            
+            
         })
         
         registerUserTask?.resume()
