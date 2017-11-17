@@ -112,13 +112,15 @@ class RegisterViewController : UIViewController {
     }
     
     @IBAction private func RegisterButtonSelected(sender: UIButton) {
-        //let username = usernameTextField.text
-        //let password = passwordTextField.text
+        let username = usernameTextField.text
+        let password = passwordTextField.text
+        let email = emailTextField.text
         
-        //guard username != "" else { self.registerButton.shake(); self.usernameTextField.Error(); return }
-        //guard password != "" else { self.registerButton.shake(); self.passwordTextField.Error(); return }
+        guard username != "" else { self.registerButton.shake(); self.usernameTextField.Error(); return }
+        guard password != "" else { self.registerButton.shake(); self.passwordTextField.Error(); return }
+        guard email != "" else { self.registerButton.shake(); self.emailTextField.Error(); return }
         
-        NetworkManager.shared.RegisterAccount("b", "b", "b@b.com", "b") { err, res in
+        NetworkManager.shared.RegisterAccount(name: "Brandon Danis", username: username!, email: email!, password: password!) { err, res in
             
             if err != nil {
                 //Display error message?
@@ -130,14 +132,16 @@ class RegisterViewController : UIViewController {
             // Therefore it is safe to force unwrap it
             
             if let err = res?.error {
-                // Display error to user
+                // TODO: Display error to user
                 print("Failed to create user. Error code: \(err.code). Title: \(err.title). Detail: \(err.detail)")
                 self.registerButton.shake()
                 return
             }
             
             if let data = res?.data {
+                // TODO: Push to login screen and display a modal popup saying user created
                 print("User created! ID: \(data.id) Name: \(data.name) Username: \(data.username)")
+                self.dismiss(animated: true, completion: nil)
             }
             
         }

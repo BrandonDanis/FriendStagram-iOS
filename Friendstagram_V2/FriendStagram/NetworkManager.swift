@@ -50,7 +50,7 @@ class NetworkManager {
         checkHealthTask?.resume()
     }
     
-    public func RegisterAccount(_ name: String, _ username: String, _ email: String, _ password: String, callback : @escaping (_ err: String?,_ res: NetResponse<User>?) -> Void) {
+    public func RegisterAccount(name: String, username: String, email: String, password: String, callback : @escaping (_ err: String?,_ res: NetResponse<User>?) -> Void) {
         registerUserTask?.cancel()
         
         guard let url = URL(string: "\(API_URL)/users") else { return }
