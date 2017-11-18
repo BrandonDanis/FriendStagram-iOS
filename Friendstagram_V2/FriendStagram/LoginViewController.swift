@@ -128,6 +128,24 @@ class LoginViewController: UIViewController {
         guard username != "" else { self.loginButton.shake(); self.usernameTextField.Error(); return }
         guard password != "" else { self.loginButton.shake(); self.passwordTextField.Error(); return }
         
+        NetworkManager.shared.Login(username: username!, password: password!) { (err, res) in
+            if err != nil {
+                // TODO: Display error in modal
+                self.loginButton.shake()
+                return
+            }
+            
+            if let netErr = res?.error {
+                // TODO: Display error in modal
+                print("Failed to login. Status: \(netErr.code). Reason: \(netErr.title)")
+            }
+            
+            if let sessionKey = res?.data {
+                print("LOGGED IN!")
+                print("Session: \(sessionKey)")
+            }
+            
+        }
     }
     
     @IBAction private func RegisterButtonClicked(sender: UIButton) {

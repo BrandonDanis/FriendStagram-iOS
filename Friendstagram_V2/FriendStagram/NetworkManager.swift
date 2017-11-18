@@ -14,11 +14,14 @@ class NetworkManager {
     
     private let API_URL : String
     
+    private var sessionKey : String?
+    
     private let defaultSession = URLSession(configuration: .default)
     
     //Tasks
     private var checkHealthTask : URLSessionDataTask?
     private var registerUserTask : URLSessionDataTask?
+    private var loginUserTask : URLSessionDataTask?
     
     private init(serverURL: String) {
         self.API_URL = serverURL
@@ -50,6 +53,44 @@ class NetworkManager {
         checkHealthTask?.resume()
     }
     
+    public func Login(username: String, password: String, callback: @escaping (_ err: String?, _ res: NetResponse<String>?) -> Void) {
+        loginUserTask?.cancel()
+        
+        guard let url = URL(string: "\(API_URL)/users/login") else { return }
+        
+        let body = [
+            "username": username,
+            "password": password
+        ]
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        
+        guard let jsonBody = try? JSONSerialization.data(withJSONObject: body, options: []) else {
+            print("Failed to convert body dict to JSON")
+            return
+        }
+        request.httpBody = jsonBody
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        loginUserTask = defaultSession.dataTask(with: request, completionHandler: { (data, res, err) in
+            
+            if err != nil {
+                debugPrint("Error during login")
+                return callback(err.debugDescription, nil)
+            }
+            
+            guard let data = data, let netRes = try? JSONDecoder().decode(NetResponse<String>.self, from: data) else {
+                debugPrint("Failed to decode data")
+                return callback("Failed to decode data", nil)
+            }
+            
+            callback(nil, netRes)
+        })
+        
+        loginUserTask?.resume()
+    }
+    
     public func RegisterAccount(name: String, username: String, email: String, password: String, callback : @escaping (_ err: String?,_ res: NetResponse<User>?) -> Void) {
         registerUserTask?.cancel()
         
@@ -79,9 +120,6 @@ class NetworkManager {
                 debugPrint("Error when creating user")
                 return callback(err.debugDescription, nil)
             }
-            
-            let returnData = String(data: data!, encoding: .utf8)
-            print(returnData)
             
             guard let data = data, let netRes = try? JSONDecoder().decode(NetResponse<User>.self, from: data) else {
                 debugPrint("Failed to decode data")
