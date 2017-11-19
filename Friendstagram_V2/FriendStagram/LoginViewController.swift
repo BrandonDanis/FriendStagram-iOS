@@ -10,6 +10,10 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
+    private let gradientLayer = CAGradientLayer()
+    let topColor = UIColor(red:0.08, green:0.62, blue:0.85, alpha:1.00)
+    let bottomColor = UIColor(red:0.49, green:0.31, blue:0.82, alpha:1.00)
+    
     //////////////
     // SUBVIEWS //
     //////////////
@@ -37,7 +41,7 @@ class LoginViewController: UIViewController {
     var titleLabel : UILabel = {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 250, height: 100))
         label.text = "FriendStagram"
-        label.textColor = Colors.MAIN_ACCENT_COLOR
+        label.textColor = UIColor.white
         label.textAlignment = .center
         label.font = UIFont(name: "PingFangHK-Ultralight", size: 40)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -48,11 +52,11 @@ class LoginViewController: UIViewController {
     // INPUT SUBVIEW ELEMENTS //
     ////////////////////////////
     var usernameTextField : UnderlinedTextField = {
-        return UnderlinedTextField(icon: "\u{f007}", placeholderText: "Username", iconColor: Colors.MAIN_ACCENT_COLOR, underlineColor: Colors.MAIN_ACCENT_COLOR, placeholderColor: Colors.GRAY, textColor: Colors.DARK_GRAY)
+        return UnderlinedTextField(icon: "\u{f007}", placeholderText: "Username", iconColor: Colors.LIGHT_WHITE, underlineColor: Colors.LIGHT_WHITE, placeholderColor: Colors.LIGHT_WHITE, textColor: .white)
     }()
     
     var passwordTextField : UnderlinedTextField = {
-        return UnderlinedTextField(icon: "\u{f023}", placeholderText: "Password", iconColor: Colors.MAIN_ACCENT_COLOR, underlineColor: Colors.MAIN_ACCENT_COLOR, placeholderColor: Colors.GRAY, textColor: Colors.DARK_GRAY)
+        return UnderlinedTextField(icon: "\u{f023}", placeholderText: "Password", iconColor: Colors.LIGHT_WHITE, underlineColor: Colors.LIGHT_WHITE, placeholderColor: Colors.LIGHT_WHITE, textColor: .white)
     }()
     
     /////////////////////////////
@@ -61,7 +65,8 @@ class LoginViewController: UIViewController {
     var loginButton : BetterButton = {
         let button = BetterButton()
         button.setTitle("Login", for: .normal)
-        button.backgroundColor = Colors.MAIN_ACCENT_COLOR
+        button.backgroundColor = .white
+        button.setTitleColor(UIColor(red:0.08, green:0.62, blue:0.85, alpha:1.00), for: .normal)
         button.addTarget(self, action: #selector(LoginViewController.LoginButtonSelected), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -73,14 +78,14 @@ class LoginViewController: UIViewController {
         label.font = UIFont(name: "PingFangHK-Ultralight", size: 20)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
-        label.textColor = Colors.DARK_GRAY
+        label.textColor = UIColor.white
         return label
     }()
     
     var registerButton : UIButton = {
         let button = UIButton()
         button.setTitle("Register", for: .normal)
-        button.setTitleColor(Colors.DARK_GRAY, for: .normal)
+        button.setTitleColor(UIColor.white, for: .normal)
         button.titleLabel?.font = UIFont(name: "PingFangHK-Light", size: 20)
         button.backgroundColor = .clear
         button.contentEdgeInsets = UIEdgeInsets(top: 0, left: 0.01, bottom: 0.01, right: 0) //Removing top/bottom padding on button. 
@@ -93,7 +98,10 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         
         // Setup basic view attributes
-        self.view.backgroundColor = Colors.LIGHT_GRAY
+        gradientLayer.frame = self.view.bounds
+        gradientLayer.colors = [topColor.cgColor, bottomColor.cgColor]
+        gradientLayer.locations = [0.0, 1.1]
+        self.view.layer.addSublayer(gradientLayer)
         
         // Setup subviews
         self.view.addSubview(titleSubView)
