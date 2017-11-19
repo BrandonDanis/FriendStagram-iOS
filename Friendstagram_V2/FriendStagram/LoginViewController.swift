@@ -48,11 +48,11 @@ class LoginViewController: UIViewController {
     // INPUT SUBVIEW ELEMENTS //
     ////////////////////////////
     var usernameTextField : UnderlinedTextField = {
-        return UnderlinedTextField(icon: "\u{f007}", placeholderText: "Username")
+        return UnderlinedTextField(icon: "\u{f007}", placeholderText: "Username", iconColor: Colors.MAIN_ACCENT_COLOR, underlineColor: Colors.MAIN_ACCENT_COLOR, placeholderColor: Colors.GRAY, textColor: Colors.DARK_GRAY)
     }()
     
     var passwordTextField : UnderlinedTextField = {
-        return UnderlinedTextField(icon: "\u{f023}", placeholderText: "Password")
+        return UnderlinedTextField(icon: "\u{f023}", placeholderText: "Password", iconColor: Colors.MAIN_ACCENT_COLOR, underlineColor: Colors.MAIN_ACCENT_COLOR, placeholderColor: Colors.GRAY, textColor: Colors.DARK_GRAY)
     }()
     
     /////////////////////////////
@@ -73,14 +73,14 @@ class LoginViewController: UIViewController {
         label.font = UIFont(name: "PingFangHK-Ultralight", size: 20)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
-        label.textColor = Colors.GRAY
+        label.textColor = Colors.DARK_GRAY
         return label
     }()
     
     var registerButton : UIButton = {
         let button = UIButton()
         button.setTitle("Register", for: .normal)
-        button.setTitleColor(Colors.GRAY, for: .normal)
+        button.setTitleColor(Colors.DARK_GRAY, for: .normal)
         button.titleLabel?.font = UIFont(name: "PingFangHK-Light", size: 20)
         button.backgroundColor = .clear
         button.contentEdgeInsets = UIEdgeInsets(top: 0, left: 0.01, bottom: 0.01, right: 0) //Removing top/bottom padding on button. 
@@ -93,7 +93,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         
         // Setup basic view attributes
-        self.view.backgroundColor = Colors.MAIN_BG_COLOR
+        self.view.backgroundColor = Colors.LIGHT_GRAY
         
         // Setup subviews
         self.view.addSubview(titleSubView)
