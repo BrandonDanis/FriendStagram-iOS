@@ -85,6 +85,8 @@ class NetworkManager {
                 return callback("Failed to decode data", nil)
             }
             
+            self.sessionKey = netRes.data
+            
             callback(nil, netRes)
         })
         
