@@ -149,8 +149,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction private func RegisterButtonClicked(sender: UIButton) {
-        let vc = RegisterViewController()
-        self.present(vc, animated: true, completion: nil)
+        self.navigationController?.pushViewController(RegisterViewController(), animated: true)
     }
     
     public func DisplayMessageModally(msg: String) {

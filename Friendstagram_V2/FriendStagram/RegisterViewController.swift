@@ -110,7 +110,7 @@ class RegisterViewController : UIViewController {
     }
     
     @IBAction private func dismissView(sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction private func RegisterButtonSelected(sender: UIButton) {
