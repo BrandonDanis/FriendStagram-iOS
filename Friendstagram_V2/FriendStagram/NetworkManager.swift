@@ -27,6 +27,11 @@ class NetworkManager {
         self.API_URL = serverURL
     }
     
+    public func HasValidSession() -> Bool {
+        guard sessionKey != nil && sessionKey != "" else { return false }
+        return true
+    }
+    
     public func CheckServerHealth() {
         checkHealthTask?.cancel()
         

@@ -13,11 +13,16 @@ class RootNavigationController : UINavigationController {
     
     override func viewDidLoad() {
         self.isNavigationBarHidden = true
-        
-        let loginVC = LoginViewController()
-        
-        self.viewControllers = [loginVC]
-        
+        DisplayView()
+    }
+    
+    private func DisplayView() {
+        if NetworkManager.shared.HasValidSession() {
+            let loginVC = LoginViewController()
+            self.viewControllers = [loginVC]
+        } else {
+            // Display another view :)
+        }
     }
     
 }
