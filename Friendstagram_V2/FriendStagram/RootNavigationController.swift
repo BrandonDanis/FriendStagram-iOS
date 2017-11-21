@@ -18,10 +18,10 @@ class RootNavigationController : UINavigationController {
     
     private func DisplayView() {
         if NetworkManager.shared.HasValidSession() {
+            // Display another view :)
+        } else {
             let loginVC = LoginViewController()
             self.viewControllers = [loginVC]
-        } else {
-            // Display another view :)
         }
     }
     
