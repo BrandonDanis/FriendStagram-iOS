@@ -11,8 +11,6 @@ import UIKit
 class LoginViewController: UIViewController {
 
     private let gradientLayer = CAGradientLayer()
-    let topColor = UIColor(red:0.08, green:0.62, blue:0.85, alpha:1.00)
-    let bottomColor = UIColor(red:0.49, green:0.31, blue:0.82, alpha:1.00)
     
     //////////////
     // SUBVIEWS //
@@ -104,8 +102,10 @@ class LoginViewController: UIViewController {
         // Setup basic view attributes
         
         gradientLayer.frame = self.view.bounds
-        gradientLayer.colors = [topColor.cgColor, bottomColor.cgColor]
+        gradientLayer.colors = [Colors.SOFT_BLUE.cgColor, Colors.SOFT_PURPLE.cgColor]
         gradientLayer.locations = [0.0, 1.1]
+        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
+        gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)
         self.view.layer.addSublayer(gradientLayer)
         
         // Setup subviews
