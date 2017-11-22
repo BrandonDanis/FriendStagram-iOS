@@ -59,20 +59,20 @@ class RegisterViewController : UIViewController {
     // INPUT SUBVIEW ELEMENTS //
     ////////////////////////////
     var usernameTextField : UnderlinedTextField = {
-        let field = UnderlinedTextField(icon: "\u{f007}", placeholderText: "Username", iconColor: Colors.MAIN_ACCENT_COLOR, underlineColor: Colors.MAIN_ACCENT_COLOR, placeholderColor: Colors.GRAY, textColor: Colors.DARK_GRAY)
+        let field = UnderlinedTextField(icon: "\u{f007}", placeholderText: "Username", placeholderColor: Colors.GRAY, textColor: Colors.DARK_GRAY, elementsColor: Colors.MAIN_ACCENT_COLOR, activeColor: Colors.MAIN_ACCENT_COLOR)
         field.autocapitalizationType = .none
         return field
     }()
     
     var passwordTextField : UnderlinedTextField = {
-       let field = UnderlinedTextField(icon: "\u{f023}", placeholderText: "Password", iconColor: Colors.MAIN_ACCENT_COLOR, underlineColor: Colors.MAIN_ACCENT_COLOR, placeholderColor: Colors.GRAY, textColor: Colors.DARK_GRAY)
+        let field = UnderlinedTextField(icon: "\u{f023}", placeholderText: "Password", placeholderColor: Colors.GRAY, textColor: Colors.DARK_GRAY, elementsColor: Colors.MAIN_ACCENT_COLOR, activeColor: Colors.MAIN_ACCENT_COLOR)
         field.isSecureTextEntry = true
         field.autocapitalizationType = .none
         return field
     }()
     
     var emailTextField : UnderlinedTextField = {
-        let field = UnderlinedTextField(icon: "\u{f0e0}", placeholderText: "Email Address", iconColor: Colors.MAIN_ACCENT_COLOR, underlineColor: Colors.MAIN_ACCENT_COLOR, placeholderColor: Colors.GRAY, textColor: Colors.DARK_GRAY)
+        let field = UnderlinedTextField(icon: "\u{f0e0}", placeholderText: "Email Address", placeholderColor: Colors.GRAY, textColor: Colors.DARK_GRAY, elementsColor: Colors.MAIN_ACCENT_COLOR, activeColor: Colors.MAIN_ACCENT_COLOR)
         field.autocapitalizationType = .none
         return field
     }()

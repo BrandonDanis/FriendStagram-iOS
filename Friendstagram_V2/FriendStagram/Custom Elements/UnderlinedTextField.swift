@@ -13,6 +13,10 @@ class UnderlinedTextField : UITextField, UITextFieldDelegate {
     
     private let ERROR_COLOR = UIColor.red
     
+    private var activeColor : UIColor = .white
+    // used for icon and underline
+    private var elementsColor : UIColor = .white
+    
     private let borderLayer = CALayer()
     private let borderThickness : CGFloat = 2.0
     public var underlineColor = Colors.GRAY {
@@ -60,13 +64,17 @@ class UnderlinedTextField : UITextField, UITextFieldDelegate {
         SetupPlaceholder()
     }
     
-    convenience init(icon: String?, placeholderText: String, iconColor: UIColor, underlineColor: UIColor, placeholderColor: UIColor, textColor: UIColor) {
+    convenience init(icon: String?, placeholderText: String, placeholderColor: UIColor, textColor: UIColor, elementsColor: UIColor, activeColor: UIColor) {
         self.init(icon: icon, placeholderText: placeholderText)
-        self.iconColor = iconColor
+        
+        self.activeColor = activeColor
+        self.elementsColor = elementsColor
+        
+        self.iconColor = elementsColor
+        self.tintColor = elementsColor
+        self.underlineColor = elementsColor
         self.placeholderColor = placeholderColor
-        self.underlineColor = underlineColor
         self.textColor = textColor
-        self.tintColor = underlineColor
         
         // Called twice... must be a better way
         SetupLeftView()
@@ -148,9 +156,9 @@ class UnderlinedTextField : UITextField, UITextFieldDelegate {
         if (displayingError) {
             return ERROR_COLOR
         } else if (isFirstResponder || hasText) {
-            return UIColor.white
+            return activeColor
         }
-        return underlineColor
+        return elementsColor
     }
     
 }

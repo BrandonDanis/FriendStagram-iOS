@@ -50,13 +50,13 @@ class LoginViewController: UIViewController {
     // INPUT SUBVIEW ELEMENTS //
     ////////////////////////////
     var usernameTextField : UnderlinedTextField = {
-        let field = UnderlinedTextField(icon: "\u{f007}", placeholderText: "Username", iconColor: Colors.LIGHT_WHITE, underlineColor: Colors.LIGHT_WHITE, placeholderColor: Colors.LIGHT_WHITE, textColor: .white)
+        let field = UnderlinedTextField(icon: "\u{f007}", placeholderText: "Username", placeholderColor: Colors.LIGHT_WHITE, textColor: .white, elementsColor: Colors.LIGHT_WHITE, activeColor: .white)
         field.autocapitalizationType = .none
         return field
     }()
     
     var passwordTextField : UnderlinedTextField = {
-        let field = UnderlinedTextField(icon: "\u{f023}", placeholderText: "Password", iconColor: Colors.LIGHT_WHITE, underlineColor: Colors.LIGHT_WHITE, placeholderColor: Colors.LIGHT_WHITE, textColor: .white)
+        let field = UnderlinedTextField(icon: "\u{f023}", placeholderText: "Password", placeholderColor: Colors.LIGHT_WHITE, textColor: .white, elementsColor: Colors.LIGHT_WHITE, activeColor: .white)
         field.autocapitalizationType = .none
         return field
     }()
