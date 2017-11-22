@@ -53,6 +53,9 @@ class UnderlinedTextField : UITextField, UITextFieldDelegate {
         self.placeholderText = placeholderText
         self.autocorrectionType = .no
         
+        addTarget(self, action: #selector(UnderlinedTextField.editingChanged(_:)), for: UIControlEvents.editingChanged)
+        addTarget(self, action: #selector(UnderlinedTextField.editingDidEnd(_:)), for: UIControlEvents.editingDidEnd)
+        
         SetupLeftView()
         SetupPlaceholder()
     }
@@ -63,6 +66,7 @@ class UnderlinedTextField : UITextField, UITextFieldDelegate {
         self.placeholderColor = placeholderColor
         self.underlineColor = underlineColor
         self.textColor = textColor
+        self.tintColor = underlineColor
         
         // Called twice... must be a better way
         SetupLeftView()
@@ -83,7 +87,10 @@ class UnderlinedTextField : UITextField, UITextFieldDelegate {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
         label.font = UIFont(name: "fontawesome", size: 20)
         label.textAlignment = .center
-        label.attributedText = NSAttributedString(string: icon!, attributes: [NSAttributedStringKey.foregroundColor: displayingError ? ERROR_COLOR : iconColor])
+        
+        
+        
+        label.attributedText = NSAttributedString(string: icon!, attributes: [NSAttributedStringKey.foregroundColor: DetermineColorForElements()])
         self.leftView = label
         self.leftViewMode = .always
     }
@@ -104,15 +111,46 @@ class UnderlinedTextField : UITextField, UITextFieldDelegate {
     }
     
     override func draw(_ rect: CGRect) {
-        // Draw gets called when field is selected & when field becomes empty again
+        super.draw(rect)
         drawUnderline(rect)
+        SetupLeftView()
     }
     
     private func drawUnderline(_ rect: CGRect) {
         borderLayer.frame = CGRect(x: 0, y: bounds.size.height - borderThickness, width: bounds.size.width, height: borderThickness)
-        borderLayer.backgroundColor = displayingError ? ERROR_COLOR.cgColor : underlineColor.cgColor
+        
+        borderLayer.backgroundColor = DetermineColorForElements().cgColor
         
         self.layer.addSublayer(borderLayer)
+    }
+    
+    private func DrawActiveField() {
+        setNeedsDisplay()
+    }
+    
+    private func DrawInactiveField() {
+        setNeedsDisplay()
+    }
+    
+    // Called every time the text changes
+    @objc open func editingChanged(_ textField: UITextField) {
+        DrawActiveField()
+    }
+    
+    // Called every time we leave the text field
+    @objc open func editingDidEnd(_ textField: UITextField) {
+        DrawInactiveField()
+    }
+    
+    // used to determine what color we want to draw our elements
+    private func DetermineColorForElements() -> UIColor {
+        let hasText = text != nil && !text!.isEmpty
+        if (displayingError) {
+            return ERROR_COLOR
+        } else if (isFirstResponder || hasText) {
+            return UIColor.white
+        }
+        return underlineColor
     }
     
 }

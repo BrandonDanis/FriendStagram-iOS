@@ -16,4 +16,7 @@ struct Colors {
     static let LIGHT_GRAY = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1.00)
     static let LIGHT_WHITE = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.60)
     static let DARK_GRAY = UIColor(red: 0.1, green: 0.1, blue: 0.1, alpha: 1.00)
+    
+    static let SOFT_BLUE = UIColor(red:0.15, green:0.57, blue:0.85, alpha:1.0)
+    static let SOFT_PURPLE = UIColor(red:0.49, green:0.31, blue:0.82, alpha:1.00)
 }
