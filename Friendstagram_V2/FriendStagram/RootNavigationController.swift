@@ -19,9 +19,14 @@ class RootNavigationController : UINavigationController {
     private func DisplayView() {
 //        if NetworkManager.shared.HasValidSession() {
         if true {
-        // Display another view :)
             let tabController = UITabBarController()
             tabController.viewControllers = [FeedViewController()]
+            
+            let tabBarItems = tabController.tabBar.items! as [UITabBarItem]
+            tabBarItems[0].title = nil
+            tabBarItems[0].imageInsets = UIEdgeInsetsMake(6,0,-6,0)
+            tabBarItems[0].image = UIImage(named: "home")
+            
             self.viewControllers = [tabController]
         } else {
             let loginVC = LoginViewController()
