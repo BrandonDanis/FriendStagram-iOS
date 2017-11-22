@@ -17,8 +17,12 @@ class RootNavigationController : UINavigationController {
     }
     
     private func DisplayView() {
-        if NetworkManager.shared.HasValidSession() {
-            // Display another view :)
+//        if NetworkManager.shared.HasValidSession() {
+        if true {
+        // Display another view :)
+            let tabController = UITabBarController()
+            tabController.viewControllers = [FeedViewController()]
+            self.viewControllers = [tabController]
         } else {
             let loginVC = LoginViewController()
             self.viewControllers = [loginVC]

@@ -95,9 +95,6 @@ class UnderlinedTextField : UITextField, UITextFieldDelegate {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
         label.font = UIFont(name: "fontawesome", size: 20)
         label.textAlignment = .center
-        
-        
-        
         label.attributedText = NSAttributedString(string: icon!, attributes: [NSAttributedStringKey.foregroundColor: DetermineColorForElements()])
         self.leftView = label
         self.leftViewMode = .always

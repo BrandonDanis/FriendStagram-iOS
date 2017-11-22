@@ -21,6 +21,7 @@
 		F69D61F81FBCBF3F0016FE60 /* UnderlinedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69D61F71FBCBF3F0016FE60 /* UnderlinedTextField.swift */; };
 		F69D61FA1FBE17C20016FE60 /* NetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69D61F91FBE17C20016FE60 /* NetResponse.swift */; };
 		F69D61FC1FBE233F0016FE60 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69D61FB1FBE233F0016FE60 /* User.swift */; };
+		F6E26D611FC602E1005D4AC1 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E26D601FC602E1005D4AC1 /* FeedViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		F69D61F71FBCBF3F0016FE60 /* UnderlinedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlinedTextField.swift; sourceTree = "<group>"; };
 		F69D61F91FBE17C20016FE60 /* NetResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetResponse.swift; sourceTree = "<group>"; };
 		F69D61FB1FBE233F0016FE60 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		F6E26D601FC602E1005D4AC1 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 				CAED07AE1FB1669B00E9A853 /* Custom Elements */,
 				F61FD1B81FC4C392004772C4 /* Custom Objects */,
 				CAF7AC611FAFFB1400124BB5 /* LoginViewController.swift */,
+				F6E26D601FC602E1005D4AC1 /* FeedViewController.swift */,
 				CAED07B31FB3C50F00E9A853 /* RegisterViewController.swift */,
 				CA4F94731FC3A9D500B3B162 /* RootNavigationController.swift */,
 				CAED07B11FB168EF00E9A853 /* NetworkManager.swift */,
@@ -197,6 +200,7 @@
 				CAF7AC621FAFFB1400124BB5 /* LoginViewController.swift in Sources */,
 				CAED07B01FB166DC00E9A853 /* BetterButton.swift in Sources */,
 				CA4F946E1FBEAA9E00B3B162 /* NetError.swift in Sources */,
+				F6E26D611FC602E1005D4AC1 /* FeedViewController.swift in Sources */,
 				CAF7AC601FAFFB1400124BB5 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
