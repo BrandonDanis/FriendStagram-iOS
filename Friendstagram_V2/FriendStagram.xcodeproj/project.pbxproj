@@ -17,6 +17,7 @@
 		CAF7AC621FAFFB1400124BB5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF7AC611FAFFB1400124BB5 /* LoginViewController.swift */; };
 		CAF7AC671FAFFB1400124BB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAF7AC661FAFFB1400124BB5 /* Assets.xcassets */; };
 		CAF7AC6A1FAFFB1400124BB5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAF7AC681FAFFB1400124BB5 /* LaunchScreen.storyboard */; };
+		F62478691FC749290058094C /* FeedViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62478681FC749290058094C /* FeedViewCell.swift */; };
 		F66EB1F61FBB868700616C07 /* fontawesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F66EB1F51FBB868700616C07 /* fontawesome.ttf */; };
 		F69D61F61FBCACD10016FE60 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69D61F51FBCACD10016FE60 /* Colors.swift */; };
 		F69D61F81FBCBF3F0016FE60 /* UnderlinedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69D61F71FBCBF3F0016FE60 /* UnderlinedTextField.swift */; };
@@ -38,6 +39,7 @@
 		CAF7AC661FAFFB1400124BB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CAF7AC691FAFFB1400124BB5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CAF7AC6B1FAFFB1400124BB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F62478681FC749290058094C /* FeedViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewCell.swift; sourceTree = "<group>"; };
 		F66EB1F51FBB868700616C07 /* fontawesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = fontawesome.ttf; sourceTree = "<group>"; };
 		F69D61F51FBCACD10016FE60 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		F69D61F71FBCBF3F0016FE60 /* UnderlinedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlinedTextField.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 			children = (
 				CAED07AF1FB166DC00E9A853 /* BetterButton.swift */,
 				F69D61F71FBCBF3F0016FE60 /* UnderlinedTextField.swift */,
+				F62478681FC749290058094C /* FeedViewCell.swift */,
 			);
 			path = "Custom Elements";
 			sourceTree = "<group>";
@@ -205,6 +208,7 @@
 				CAED07B01FB166DC00E9A853 /* BetterButton.swift in Sources */,
 				CA4F946E1FBEAA9E00B3B162 /* NetError.swift in Sources */,
 				F6E26D611FC602E1005D4AC1 /* FeedViewController.swift in Sources */,
+				F62478691FC749290058094C /* FeedViewCell.swift in Sources */,
 				CAF7AC601FAFFB1400124BB5 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
