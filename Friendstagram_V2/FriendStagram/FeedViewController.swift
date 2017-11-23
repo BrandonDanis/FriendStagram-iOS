@@ -28,6 +28,17 @@ class FeedViewController : UIViewController {
         self.view.addSubview(titleLabel)
         
         ApplyConstraints()
+        RequestFeedData()
+    }
+    
+    private func RequestFeedData() {
+        
+        NetworkManager.shared.GetFeedPosts() { (err, data) in
+            
+            print(data)
+            
+        }
+        
     }
     
     private func ApplyConstraints() {

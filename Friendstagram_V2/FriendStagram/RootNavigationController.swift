@@ -18,7 +18,7 @@ class RootNavigationController : UINavigationController {
     
     private func DisplayView() {
 //        if NetworkManager.shared.HasValidSession() {
-        if true {
+        if false {
             let tabController = UITabBarController()
             tabController.viewControllers = [FeedViewController()]
             

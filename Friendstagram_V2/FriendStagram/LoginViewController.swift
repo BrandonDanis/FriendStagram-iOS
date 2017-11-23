@@ -155,6 +155,7 @@ class LoginViewController: UIViewController {
             if let netErr = res?.error {
                 // TODO: Display error in modal
                 print("Failed to login. Status: \(netErr.code). Reason: \(netErr.title)")
+                self.loginButton.shake()
             }
             
             if let sessionKey = res?.data {
