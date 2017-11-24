@@ -47,15 +47,29 @@ class FeedViewController : UIViewController, UITableViewDataSource, UITableViewD
     }
     
     private func RequestFeedData() {
-        NetworkManager.shared.GetFeedPosts() { (err, data) in
-            //print(data)
+        NetworkManager.shared.GetFeedPosts() { (err, res) in
+            
+            guard err == nil else { print("Failed to get posts"); return }
+            
+            guard let data = res else { print("No data returned"); return }
+            
+            if data.error != nil {
+                print(data.error!)
+                return
+            }
+            
+            self.posts = data.data!
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "mycell", for: indexPath) as! FeedViewCell
         
-        cell.label.text = "testingtestingtestingtestingtestingtestingtestingtestingtestingtestingtestingtestingtestingtestingtestingtestingtesting"
+        cell.label.text = posts[indexPath.row].description
         if indexPath.row == 1 {
             cell.label.text = "testingtestingtestingtestingtesting"
         }
@@ -63,7 +77,7 @@ class FeedViewController : UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 100
+        return posts.count
     }
     
     private func ApplyConstraints() {
