@@ -90,7 +90,7 @@
 			children = (
 				F66EB1F21FBB843B00616C07 /* Resources */,
 				CAED07AE1FB1669B00E9A853 /* Custom Elements */,
-				F61FD1B81FC4C392004772C4 /* Custom Objects */,
+				F61FD1B81FC4C392004772C4 /* Models */,
 				CAF7AC611FAFFB1400124BB5 /* LoginViewController.swift */,
 				F6E26D601FC602E1005D4AC1 /* FeedViewController.swift */,
 				CAED07B31FB3C50F00E9A853 /* RegisterViewController.swift */,
@@ -104,7 +104,7 @@
 			path = FriendStagram;
 			sourceTree = "<group>";
 		};
-		F61FD1B81FC4C392004772C4 /* Custom Objects */ = {
+		F61FD1B81FC4C392004772C4 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				F69D61F91FBE17C20016FE60 /* NetResponse.swift */,
@@ -112,7 +112,7 @@
 				F69D61FB1FBE233F0016FE60 /* User.swift */,
 				CA4F94751FC6867900B3B162 /* Post.swift */,
 			);
-			path = "Custom Objects";
+			path = Models;
 			sourceTree = "<group>";
 		};
 		F66EB1F21FBB843B00616C07 /* Resources */ = {
