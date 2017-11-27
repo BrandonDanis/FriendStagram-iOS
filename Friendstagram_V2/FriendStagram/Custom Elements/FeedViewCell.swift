@@ -11,12 +11,29 @@ import UIKit
 
 class FeedViewCell : UITableViewCell {
     
-    var label = UILabel()
+    private let TOP_ROW_HEIGHT : CGFloat = 30.0
     
-    let topView : UIView = {
-        let view = UIView()
+    var label : UILabel = {
+        let label = UILabel()
+        label.text = "fasdasdfasdf"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont(name: "PingFangHK-Ultralight", size: 20)
+        label.textColor = .black
+        label.numberOfLines = 0
+        return label
+    }()
+    
+    var profileImage : UIImageView = {
+        let image = UIImageView(image: UIImage(named: "placeholder"))
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.contentMode = .scaleAspectFit
+        return image
+    }()
+    
+    let topView : UIStackView = {
+        let view = UIStackView()
+        view.spacing = 10.0
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = Colors.SOFT_PURPLE
         return view
     }()
     
@@ -32,15 +49,9 @@ class FeedViewCell : UITableViewCell {
         contentView.addSubview(topView)
         contentView.addSubview(postImage)
         
-        topView.addSubview(label)
-        
-        label.text = "fasdasdfasdf"
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = Colors.LIGHT_WHITE
-        label.font = UIFont(name: "PingFangHK-Ultralight", size: 20)
-        label.textColor = .black
-        label.numberOfLines = 0
-        
+        topView.addArrangedSubview(profileImage)
+        topView.addArrangedSubview(label)
+
         ApplyConstraints()
     }
     
@@ -52,25 +63,35 @@ class FeedViewCell : UITableViewCell {
         
         
         //Top view
-        topView.widthAnchor.constraint(equalTo: contentView.widthAnchor).isActive = true
-        topView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+        let contentMargins = contentView.layoutMarginsGuide
+        
+        topView.widthAnchor.constraint(equalTo: contentMargins.widthAnchor).isActive = true
+        topView.topAnchor.constraint(equalTo: contentMargins.topAnchor).isActive = true
+        topView.centerXAnchor.constraint(equalTo: contentMargins.centerXAnchor).isActive = true
+        topView.heightAnchor.constraint(equalToConstant: TOP_ROW_HEIGHT).isActive = true
         
         // Top view subviews
         let topViewMargins = topView.layoutMarginsGuide
-        label.trailingAnchor.constraint(equalTo: topViewMargins.trailingAnchor, constant: -20).isActive = true
-        label.leadingAnchor.constraint(equalTo: topViewMargins.leadingAnchor, constant: 20).isActive = true
-        label.topAnchor.constraint(equalTo: topViewMargins.topAnchor).isActive = true
-        label.bottomAnchor.constraint(equalTo: topViewMargins.bottomAnchor).isActive = true
+        
+        profileImage.widthAnchor.constraint(equalToConstant: TOP_ROW_HEIGHT).isActive = true
+        profileImage.heightAnchor.constraint(equalToConstant: TOP_ROW_HEIGHT).isActive = true
+        profileImage.layer.cornerRadius = self.TOP_ROW_HEIGHT / 2.0
+        profileImage.clipsToBounds = true
+        
+//        label.trailingAnchor.constraint(equalTo: topViewMargins.trailingAnchor, constant: -20).isActive = true
+//        label.leadingAnchor.constraint(equalTo: topViewMargins.leadingAnchor, constant: 20).isActive = true
+//        label.topAnchor.constraint(equalTo: topViewMargins.topAnchor).isActive = true
+//        label.bottomAnchor.constraint(equalTo: topViewMargins.bottomAnchor).isActive = true
+        
+        
         
         // image view subviews
-        postImage.topAnchor.constraint(equalTo: topView.bottomAnchor).isActive = true
-        postImage.widthAnchor.constraint(equalToConstant: 50.0).isActive = true
-        postImage.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
-        
-        postImage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
-        postImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
-        
-        postImage.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+        let dimension = contentView.frame.width * 0.9
+        postImage.topAnchor.constraint(equalTo: topView.bottomAnchor, constant: 10.0).isActive = true
+        postImage.widthAnchor.constraint(equalToConstant: dimension).isActive = true
+        postImage.heightAnchor.constraint(equalToConstant: dimension).isActive = true
+        postImage.centerXAnchor.constraint(equalTo: contentMargins.centerXAnchor).isActive = true
+        postImage.bottomAnchor.constraint(equalTo: contentMargins.bottomAnchor).isActive = true
         
         
     }
