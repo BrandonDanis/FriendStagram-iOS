@@ -11,7 +11,11 @@ import UIKit
 
 class FeedViewController : UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    private var posts : [Post] = []
+    private var posts : [Post] = [
+        Post(id: 1, desc: "This is my desc", image: "image.png", user_id: 1, username: "Brandon Danis"),
+        Post(id: 1, desc: "This is my desc", image: "image.png", user_id: 1, username: "Vivian Germain")
+    ]
+    
     
     var tableView : UITableView = {
         let view = UITableView()
