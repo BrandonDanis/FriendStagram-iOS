@@ -11,22 +11,22 @@ import UIKit
 
 class FeedViewCell : UITableViewCell {
     
-    private let TOP_ROW_HEIGHT : CGFloat = 30.0
+    private let TOP_ROW_HEIGHT : CGFloat = 35.0
     
-    var label : UILabel = {
+    var usernameLabel : UILabel = {
         let label = UILabel()
-        label.text = "fasdasdfasdf"
+        label.text = "Default"
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont(name: "PingFangHK-Ultralight", size: 20)
         label.textColor = .black
-        label.numberOfLines = 0
         return label
     }()
     
     var profileImage : UIImageView = {
         let image = UIImageView(image: UIImage(named: "placeholder"))
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.contentMode = .scaleAspectFit
+        image.clipsToBounds = true
+        image.contentMode = .scaleToFill
         return image
     }()
     
@@ -38,7 +38,10 @@ class FeedViewCell : UITableViewCell {
     }()
     
     let postImage : UIImageView = {
-        let image = UIImageView(image: UIImage(named: "placeholder"))
+        let image = UIImageView()
+        image.image = UIImage(named: "placeholder")
+        image.contentMode = .scaleAspectFill
+        image.clipsToBounds = true
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
@@ -50,7 +53,7 @@ class FeedViewCell : UITableViewCell {
         contentView.addSubview(postImage)
         
         topView.addArrangedSubview(profileImage)
-        topView.addArrangedSubview(label)
+        topView.addArrangedSubview(usernameLabel)
 
         ApplyConstraints()
     }
@@ -60,40 +63,25 @@ class FeedViewCell : UITableViewCell {
     }
     
     private func ApplyConstraints() {
-        
-        
         //Top view
         let contentMargins = contentView.layoutMarginsGuide
         
         topView.widthAnchor.constraint(equalTo: contentMargins.widthAnchor).isActive = true
         topView.topAnchor.constraint(equalTo: contentMargins.topAnchor).isActive = true
         topView.centerXAnchor.constraint(equalTo: contentMargins.centerXAnchor).isActive = true
-        topView.heightAnchor.constraint(equalToConstant: TOP_ROW_HEIGHT).isActive = true
+//        topView.heightAnchor.constraint(equalToConstant: TOP_ROW_HEIGHT).isActive = true
         
         // Top view subviews
-        let topViewMargins = topView.layoutMarginsGuide
-        
         profileImage.widthAnchor.constraint(equalToConstant: TOP_ROW_HEIGHT).isActive = true
         profileImage.heightAnchor.constraint(equalToConstant: TOP_ROW_HEIGHT).isActive = true
         profileImage.layer.cornerRadius = self.TOP_ROW_HEIGHT / 2.0
-        profileImage.clipsToBounds = true
-        
-//        label.trailingAnchor.constraint(equalTo: topViewMargins.trailingAnchor, constant: -20).isActive = true
-//        label.leadingAnchor.constraint(equalTo: topViewMargins.leadingAnchor, constant: 20).isActive = true
-//        label.topAnchor.constraint(equalTo: topViewMargins.topAnchor).isActive = true
-//        label.bottomAnchor.constraint(equalTo: topViewMargins.bottomAnchor).isActive = true
-        
-        
         
         // image view subviews
-        let dimension = contentView.frame.width * 0.9
         postImage.topAnchor.constraint(equalTo: topView.bottomAnchor, constant: 10.0).isActive = true
-        postImage.widthAnchor.constraint(equalToConstant: dimension).isActive = true
-        postImage.heightAnchor.constraint(equalToConstant: dimension).isActive = true
+        postImage.widthAnchor.constraint(equalTo: contentView.widthAnchor).isActive = true
+        postImage.heightAnchor.constraint(equalTo: contentView.widthAnchor).isActive = true
         postImage.centerXAnchor.constraint(equalTo: contentMargins.centerXAnchor).isActive = true
         postImage.bottomAnchor.constraint(equalTo: contentMargins.bottomAnchor).isActive = true
-        
-        
     }
     
 }

@@ -69,10 +69,12 @@ class FeedViewController : UIViewController, UITableViewDataSource, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "mycell", for: indexPath) as! FeedViewCell
         
-        cell.label.text = posts[indexPath.row].description
-        if indexPath.row == 1 {
-            cell.label.text = "testingtestingtestingtestingtesting"
+        cell.usernameLabel.text = "Brandon Danis"
+        
+        if indexPath.row == 2 {
+            cell.postImage.image = UIImage(named: "test1")
         }
+        
         return cell
     }
     
