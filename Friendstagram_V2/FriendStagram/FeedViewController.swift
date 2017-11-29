@@ -13,7 +13,7 @@ class FeedViewController : UIViewController, UITableViewDataSource, UITableViewD
     
     private var posts : [Post] = [
         Post(id: 1, desc: "This is my desc", image: "image.png", user_id: 1, username: "Brandon Danis"),
-        Post(id: 1, desc: "This is my desc", image: "image.png", user_id: 1, username: "Vivian Germain")
+        Post(id: 1, desc: "This is a lovely picture that I took myself with my camera which I then decided that all my friends on FriendStagram should see!", image: "image.png", user_id: 1, username: "Vivian Germain")
     ]
     
     
@@ -73,11 +73,8 @@ class FeedViewController : UIViewController, UITableViewDataSource, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "mycell", for: indexPath) as! FeedViewCell
         
-        cell.usernameLabel.text = "Brandon Danis"
-        
-        if indexPath.row == 2 {
-            cell.postImage.image = UIImage(named: "test1")
-        }
+        cell.usernameLabel.text = posts[indexPath.row].username
+        cell.descriptionLabel.text = posts[indexPath.row].description
         
         return cell
     }
