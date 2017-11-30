@@ -13,6 +13,15 @@ class FeedViewCell : UITableViewCell {
     
     private let TOP_ROW_HEIGHT : CGFloat = 35.0
     
+    var mainStack : UIStackView = {
+        let view = UIStackView()
+        view.alignment = .fill
+        view.axis = .vertical
+        view.spacing = 5.0
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     var usernameLabel : UILabel = {
         let label = UILabel()
         label.text = "Default"
@@ -48,6 +57,7 @@ class FeedViewCell : UITableViewCell {
     
     let bottomView : UIStackView = {
         let view = UIStackView()
+        view.alignment = .fill
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -62,17 +72,36 @@ class FeedViewCell : UITableViewCell {
         return label
     }()
     
+    let postButtonsView : UIStackView = {
+        let view = UIStackView()
+        view.alignment = .fill
+        view.translatesAutoresizingMaskIntoConstraints = true
+        return view
+    }()
+    
+    let heartIcon : UILabel = {
+        let label = UILabel()
+        label.font = UIFont(name: "fontawesome", size: 20)
+        label.attributedText = NSAttributedString(string: "\u{f08a}", attributes: [NSAttributedStringKey.foregroundColor: UIColor.black])
+        return label
+    }()
+    
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        contentView.addSubview(topView)
-        contentView.addSubview(postImage)
-        contentView.addSubview(bottomView)
+        contentView.addSubview(mainStack)
         
         topView.addArrangedSubview(profileImage)
         topView.addArrangedSubview(usernameLabel)
-
+        
+        postButtonsView.addArrangedSubview(heartIcon)
+        
         bottomView.addArrangedSubview(descriptionLabel)
+        
+        mainStack.addArrangedSubview(topView)
+        mainStack.addArrangedSubview(postImage)
+        mainStack.addArrangedSubview(postButtonsView)
+        mainStack.addArrangedSubview(bottomView)
         
         ApplyConstraints()
     }
@@ -82,32 +111,19 @@ class FeedViewCell : UITableViewCell {
     }
     
     private func ApplyConstraints() {
-        //Top view
         let contentMargins = contentView.layoutMarginsGuide
         
-        topView.topAnchor.constraint(equalTo: contentMargins.topAnchor).isActive = true
-        topView.widthAnchor.constraint(equalTo: contentMargins.widthAnchor).isActive = true
-        topView.centerXAnchor.constraint(equalTo: contentMargins.centerXAnchor).isActive = true
-//        topView.heightAnchor.constraint(equalToConstant: TOP_ROW_HEIGHT).isActive = true
-        
-        // Top view subviews
+        mainStack.topAnchor.constraint(equalTo: contentMargins.topAnchor).isActive = true
+        mainStack.trailingAnchor.constraint(equalTo: contentMargins.trailingAnchor).isActive = true
+        mainStack.leadingAnchor.constraint(equalTo: contentMargins.leadingAnchor).isActive = true
+
         profileImage.widthAnchor.constraint(equalToConstant: TOP_ROW_HEIGHT).isActive = true
         profileImage.heightAnchor.constraint(equalToConstant: TOP_ROW_HEIGHT).isActive = true
         profileImage.layer.cornerRadius = self.TOP_ROW_HEIGHT / 2.0
         
-        // image view subviews
-        postImage.topAnchor.constraint(equalTo: topView.bottomAnchor, constant: 10.0).isActive = true
-        postImage.widthAnchor.constraint(equalTo: contentView.widthAnchor).isActive = true
-        postImage.heightAnchor.constraint(equalTo: contentView.widthAnchor).isActive = true
-        postImage.centerXAnchor.constraint(equalTo: contentMargins.centerXAnchor).isActive = true
-        
-        bottomView.topAnchor.constraint(equalTo: postImage.bottomAnchor).isActive = true
-        bottomView.centerXAnchor.constraint(equalTo: contentMargins.centerXAnchor).isActive = true
-        bottomView.widthAnchor.constraint(equalTo: contentMargins.widthAnchor).isActive = true
-        
-        // Difference between setting contentView.bottomAnchor = postImage.bottomAnchor vs the opposite?
-        contentView.bottomAnchor.constraint(equalTo: bottomView.bottomAnchor).isActive = true
-//        postImage.bottomAnchor.constraint(equalTo: contentMargins.bottomAnchor).isActive = true
+        // Difference between setting contentView.bottomAnchor = mainStack.bottomAnchor vs the opposite?
+//        contentView.bottomAnchor.constraint(equalTo: mainStack.bottomAnchor).isActive = true
+        mainStack.bottomAnchor.constraint(equalTo: contentMargins.bottomAnchor).isActive = true
     }
     
 }
