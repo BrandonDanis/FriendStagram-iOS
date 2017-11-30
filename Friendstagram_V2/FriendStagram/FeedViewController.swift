@@ -72,6 +72,7 @@ class FeedViewController : UIViewController, UITableViewDataSource, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "mycell", for: indexPath) as! FeedViewCell
+        cell.selectionStyle = .none
         
         cell.usernameLabel.text = posts[indexPath.row].username
         cell.descriptionLabel.text = posts[indexPath.row].description
