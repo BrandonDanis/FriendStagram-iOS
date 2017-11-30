@@ -74,8 +74,7 @@ class FeedViewCell : UITableViewCell {
     
     let postButtonsView : UIStackView = {
         let view = UIStackView()
-        view.alignment = .fill
-        view.translatesAutoresizingMaskIntoConstraints = true
+        view.spacing = 5.0
         return view
     }()
     
@@ -83,6 +82,15 @@ class FeedViewCell : UITableViewCell {
         let label = UILabel()
         label.font = UIFont(name: "fontawesome", size: 20)
         label.attributedText = NSAttributedString(string: "\u{f08a}", attributes: [NSAttributedStringKey.foregroundColor: UIColor.black])
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let likesCount : UILabel = {
+        let label = UILabel()
+        label.text = "1234 Likes"
+        label.font = UIFont(name: "PingFangHK-light", size: 16)
+        label.textColor = .black
         return label
     }()
     
@@ -93,9 +101,8 @@ class FeedViewCell : UITableViewCell {
         
         topView.addArrangedSubview(profileImage)
         topView.addArrangedSubview(usernameLabel)
-        
         postButtonsView.addArrangedSubview(heartIcon)
-        
+        postButtonsView.addArrangedSubview(likesCount)
         bottomView.addArrangedSubview(descriptionLabel)
         
         mainStack.addArrangedSubview(topView)
@@ -120,6 +127,12 @@ class FeedViewCell : UITableViewCell {
         profileImage.widthAnchor.constraint(equalToConstant: TOP_ROW_HEIGHT).isActive = true
         profileImage.heightAnchor.constraint(equalToConstant: TOP_ROW_HEIGHT).isActive = true
         profileImage.layer.cornerRadius = self.TOP_ROW_HEIGHT / 2.0
+        
+        postImage.widthAnchor.constraint(equalTo: mainStack.widthAnchor).isActive = true
+        postImage.heightAnchor.constraint(equalTo: mainStack.widthAnchor, multiplier: 0.75).isActive = true
+        
+        // Without this constraint, it will use most of the width of the stackView and push likesCount to the far right
+        heartIcon.widthAnchor.constraint(equalToConstant: 20.0).isActive = true
         
         // Difference between setting contentView.bottomAnchor = mainStack.bottomAnchor vs the opposite?
 //        contentView.bottomAnchor.constraint(equalTo: mainStack.bottomAnchor).isActive = true
