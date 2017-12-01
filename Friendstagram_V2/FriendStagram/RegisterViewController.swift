@@ -23,7 +23,7 @@ class RegisterViewController : UIViewController {
         let button = UIButton()
         let label = UILabel()
         button.titleLabel?.font = UIFont(name: "fontawesome", size: 30)
-        button.setTitle("\u{f00d}", for: .normal)
+        button.setTitle("\u{f104}", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(RegisterViewController.dismissView), for: .touchUpInside)
@@ -63,21 +63,27 @@ class RegisterViewController : UIViewController {
     ////////////////////////////
     // INPUT SUBVIEW ELEMENTS //
     ////////////////////////////
-    var usernameTextField : UnderlinedTextField = {
-        let field = UnderlinedTextField(icon: "\u{f007}", placeholderText: "Username", placeholderColor: Colors.GRAY, textColor: Colors.DARK_GRAY, elementsColor: Colors.MAIN_ACCENT_COLOR, activeColor: Colors.MAIN_ACCENT_COLOR)
+    var fullnameTextField : UnderlinedTextField = {
+        let field = UnderlinedTextField(icon: "\u{f040}", placeholderText: "Name", placeholderColor: Colors.LIGHT_WHITE, textColor: .white, elementsColor: Colors.LIGHT_WHITE, activeColor: .white)
         field.autocapitalizationType = .none
         return field
     }()
     
-    var passwordTextField : UnderlinedTextField = {
-        let field = UnderlinedTextField(icon: "\u{f023}", placeholderText: "Password", placeholderColor: Colors.GRAY, textColor: Colors.DARK_GRAY, elementsColor: Colors.MAIN_ACCENT_COLOR, activeColor: Colors.MAIN_ACCENT_COLOR)
-        field.isSecureTextEntry = true
+    var usernameTextField : UnderlinedTextField = {
+        let field = UnderlinedTextField(icon: "\u{f007}", placeholderText: "Username", placeholderColor: Colors.LIGHT_WHITE, textColor: .white, elementsColor: Colors.LIGHT_WHITE, activeColor: .white)
         field.autocapitalizationType = .none
         return field
     }()
     
     var emailTextField : UnderlinedTextField = {
-        let field = UnderlinedTextField(icon: "\u{f0e0}", placeholderText: "Email Address", placeholderColor: Colors.GRAY, textColor: Colors.DARK_GRAY, elementsColor: Colors.MAIN_ACCENT_COLOR, activeColor: Colors.MAIN_ACCENT_COLOR)
+        let field = UnderlinedTextField(icon: "\u{f0e0}", placeholderText: "Email Address", placeholderColor: Colors.LIGHT_WHITE, textColor: .white, elementsColor: Colors.LIGHT_WHITE, activeColor: .white)
+        field.autocapitalizationType = .none
+        return field
+    }()
+    
+    var passwordTextField : UnderlinedTextField = {
+        let field = UnderlinedTextField(icon: "\u{f023}", placeholderText: "Password", placeholderColor: Colors.LIGHT_WHITE, textColor: .white, elementsColor: Colors.LIGHT_WHITE, activeColor: .white)
+        field.isSecureTextEntry = true
         field.autocapitalizationType = .none
         return field
     }()
@@ -88,7 +94,8 @@ class RegisterViewController : UIViewController {
     var registerButton : BetterButton = {
         let button = BetterButton()
         button.setTitle("Register", for: .normal)
-        button.backgroundColor = Colors.MAIN_ACCENT_COLOR
+        button.setTitleColor(UIColor(red:0.08, green:0.62, blue:0.85, alpha:1.00), for: .normal)
+        button.backgroundColor = .white
         button.addTarget(self, action: #selector(RegisterViewController.RegisterButtonSelected), for: .touchUpInside)
         return button
     }()
@@ -109,6 +116,7 @@ class RegisterViewController : UIViewController {
         mainStackView.addArrangedSubview(titleLabel)
         
         // add elements to inputSubView
+        inputSubView.addSubview(fullnameTextField)
         inputSubView.addSubview(usernameTextField)
         inputSubView.addSubview(emailTextField)
         inputSubView.addSubview(passwordTextField)
@@ -188,18 +196,22 @@ class RegisterViewController : UIViewController {
         passwordTextField.translatesAutoresizingMaskIntoConstraints = false
         emailTextField.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
+            fullnameTextField.widthAnchor.constraint(equalTo: self.inputSubView.widthAnchor, multiplier: 0.80),
+            fullnameTextField.heightAnchor.constraint(equalToConstant: 40.0),
+            fullnameTextField.centerXAnchor.constraint(equalTo: self.inputSubView.centerXAnchor),
+            fullnameTextField.bottomAnchor.constraint(equalTo: self.usernameTextField.topAnchor, constant: -10),
             usernameTextField.widthAnchor.constraint(equalTo: self.inputSubView.widthAnchor, multiplier: 0.80),
             usernameTextField.heightAnchor.constraint(equalToConstant: 40.0),
             usernameTextField.centerXAnchor.constraint(equalTo: self.inputSubView.centerXAnchor),
-            usernameTextField.bottomAnchor.constraint(equalTo: self.emailTextField.topAnchor, constant: -25),
-            passwordTextField.widthAnchor.constraint(equalTo: self.inputSubView.widthAnchor, multiplier: 0.80),
-            passwordTextField.heightAnchor.constraint(equalToConstant: 40.0),
-            passwordTextField.centerXAnchor.constraint(equalTo: self.inputSubView.centerXAnchor),
-            passwordTextField.topAnchor.constraint(equalTo: self.emailTextField.bottomAnchor, constant: 25),
+            usernameTextField.bottomAnchor.constraint(equalTo: self.inputSubView.centerYAnchor, constant: -5),
             emailTextField.widthAnchor.constraint(equalTo: self.inputSubView.widthAnchor, multiplier: 0.80),
             emailTextField.heightAnchor.constraint(equalToConstant: 40.0),
             emailTextField.centerXAnchor.constraint(equalTo: self.inputSubView.centerXAnchor),
-            emailTextField.centerYAnchor.constraint(equalTo: self.inputSubView.centerYAnchor)
+            emailTextField.topAnchor.constraint(equalTo: self.inputSubView.centerYAnchor, constant: 5),
+            passwordTextField.widthAnchor.constraint(equalTo: self.inputSubView.widthAnchor, multiplier: 0.80),
+            passwordTextField.heightAnchor.constraint(equalToConstant: 40.0),
+            passwordTextField.centerXAnchor.constraint(equalTo: self.inputSubView.centerXAnchor),
+            passwordTextField.topAnchor.constraint(equalTo: self.emailTextField.bottomAnchor, constant: 10)
         ])
 
         registerButton.translatesAutoresizingMaskIntoConstraints = false
