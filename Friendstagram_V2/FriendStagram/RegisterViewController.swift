@@ -135,6 +135,10 @@ class RegisterViewController : UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     @IBAction private func RegisterButtonSelected(sender: UIButton) {
         let username = usernameTextField.text
         let password = passwordTextField.text
