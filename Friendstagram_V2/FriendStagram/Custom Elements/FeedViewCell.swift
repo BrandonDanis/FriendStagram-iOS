@@ -15,7 +15,6 @@ class FeedViewCell : UITableViewCell {
     
     var mainStack : UIStackView = {
         let view = UIStackView()
-        view.alignment = .fill
         view.axis = .vertical
         view.spacing = 5.0
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -57,7 +56,6 @@ class FeedViewCell : UITableViewCell {
     
     let bottomView : UIStackView = {
         let view = UIStackView()
-        view.alignment = .fill
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -119,24 +117,18 @@ class FeedViewCell : UITableViewCell {
     
     private func ApplyConstraints() {
         let contentMargins = contentView.layoutMarginsGuide
-        
-        mainStack.topAnchor.constraint(equalTo: contentMargins.topAnchor).isActive = true
-        mainStack.trailingAnchor.constraint(equalTo: contentMargins.trailingAnchor).isActive = true
-        mainStack.leadingAnchor.constraint(equalTo: contentMargins.leadingAnchor).isActive = true
-
-        profileImage.widthAnchor.constraint(equalToConstant: TOP_ROW_HEIGHT).isActive = true
-        profileImage.heightAnchor.constraint(equalToConstant: TOP_ROW_HEIGHT).isActive = true
+        NSLayoutConstraint.activate([
+            mainStack.topAnchor.constraint(equalTo: contentMargins.topAnchor),
+            mainStack.trailingAnchor.constraint(equalTo: contentMargins.trailingAnchor),
+            mainStack.leadingAnchor.constraint(equalTo: contentMargins.leadingAnchor),
+            mainStack.bottomAnchor.constraint(equalTo: contentMargins.bottomAnchor),
+            profileImage.widthAnchor.constraint(equalToConstant: TOP_ROW_HEIGHT),
+            profileImage.heightAnchor.constraint(equalToConstant: TOP_ROW_HEIGHT),
+            postImage.widthAnchor.constraint(equalTo: mainStack.widthAnchor),
+            postImage.heightAnchor.constraint(equalTo: mainStack.widthAnchor, multiplier: 0.75),
+            heartIcon.widthAnchor.constraint(equalToConstant: 20.0)
+        ])
         profileImage.layer.cornerRadius = self.TOP_ROW_HEIGHT / 2.0
-        
-        postImage.widthAnchor.constraint(equalTo: mainStack.widthAnchor).isActive = true
-        postImage.heightAnchor.constraint(equalTo: mainStack.widthAnchor, multiplier: 0.75).isActive = true
-        
-        // Without this constraint, it will use most of the width of the stackView and push likesCount to the far right
-        heartIcon.widthAnchor.constraint(equalToConstant: 20.0).isActive = true
-        
-        // Difference between setting contentView.bottomAnchor = mainStack.bottomAnchor vs the opposite?
-//        contentView.bottomAnchor.constraint(equalTo: mainStack.bottomAnchor).isActive = true
-        mainStack.bottomAnchor.constraint(equalTo: contentMargins.bottomAnchor).isActive = true
     }
     
 }
