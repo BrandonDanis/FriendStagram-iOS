@@ -4,7 +4,6 @@
 //
 //  Created by Brandon Danis on 11/22/17.
 //  Copyright © 2017 Brandon Danis. All rights reserved.
-//
 
 import Foundation
 import UIKit
@@ -13,39 +12,29 @@ class FeedViewController : UIViewController, UITableViewDataSource, UITableViewD
     
     private var posts : [Post] = [
         Post(id: 1, desc: "This is my desc", image: "image.png", user_id: 1, username: "Brandon Danis"),
-        Post(id: 1, desc: "This is a lovely picture that I took myself with my camera which I then decided that all my friends on FriendStagram should see!", image: "image.png", user_id: 1, username: "Vivian Germain")
+        Post(id: 2, desc: "This is a lovely picture that I took myself with my camera which I then decided that all my friends on FriendStagram should see!", image: "image.png", user_id: 1, username: "Vivian Germain"),
+        Post(id: 3, desc: "This is a picture of a potato. What a great potato it is.", image: "potato.png", user_id: 3, username: "Potato Lover")
     ]
     
-    
-    var tableView : UITableView = {
+    private var tableView : UITableView = {
         let view = UITableView()
         view.separatorStyle = .none
-        view.translatesAutoresizingMaskIntoConstraints = false
+        view.rowHeight = UITableViewAutomaticDimension
+        view.estimatedRowHeight = 50
         return view
-    }()
-    
-    var titleLabel : UILabel = {
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 250, height: 100))
-        label.text = "FeedViewController"
-        label.textColor = Colors.MAIN_ACCENT_COLOR
-        label.textAlignment = .center
-        label.font = UIFont(name: "PingFangHK-Ultralight", size: 40)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = Colors.LIGHT_GRAY
-        view.addSubview(titleLabel)
+        navigationController?.navigationBar.topItem?.title = "Home"
+        
         view.addSubview(tableView)
         
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 10
-        tableView.register(FeedViewCell.self, forCellReuseIdentifier: "mycell")
+        tableView.register(FeedViewCell.self, forCellReuseIdentifier: "cell")
         
         ApplyConstraints()
         RequestFeedData()
@@ -53,9 +42,7 @@ class FeedViewController : UIViewController, UITableViewDataSource, UITableViewD
     
     private func RequestFeedData() {
         NetworkManager.shared.GetFeedPosts() { (err, res) in
-            
             guard err == nil else { print("Failed to get posts"); return }
-            
             guard let data = res else { print("No data returned"); return }
             
             if data.error != nil {
@@ -72,12 +59,11 @@ class FeedViewController : UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "mycell", for: indexPath) as! FeedViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! FeedViewCell
         cell.selectionStyle = .none
-        
         cell.usernameLabel.text = posts[indexPath.row].username
         cell.descriptionLabel.text = posts[indexPath.row].description
-        
+        cell.profileImage.image = UIImage(named: "test1")
         return cell
     }
     
@@ -90,15 +76,14 @@ class FeedViewController : UIViewController, UITableViewDataSource, UITableViewD
     }
     
     private func ApplyConstraints() {
-        
-        titleLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        titleLabel.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
-        
-        tableView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        tableView.widthAnchor.constraint(equalTo: self.view.widthAnchor).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
-        tableView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
-        
+        let safeArea = self.view.safeAreaLayoutGuide
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            tableView.centerXAnchor.constraint(equalTo: safeArea.centerXAnchor),
+            tableView.widthAnchor.constraint(equalTo: safeArea.widthAnchor),
+            tableView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
+            tableView.topAnchor.constraint(equalTo: safeArea.topAnchor)
+        ])
     }
     
 }
