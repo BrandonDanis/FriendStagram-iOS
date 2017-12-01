@@ -19,6 +19,7 @@ class FeedViewController : UIViewController, UITableViewDataSource, UITableViewD
     
     var tableView : UITableView = {
         let view = UITableView()
+        view.separatorStyle = .none
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -80,6 +81,10 @@ class FeedViewController : UIViewController, UITableViewDataSource, UITableViewD
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.navigationController?.pushViewController(LoginViewController(), animated: true)
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return posts.count
     }
@@ -91,7 +96,7 @@ class FeedViewController : UIViewController, UITableViewDataSource, UITableViewD
         
         tableView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         tableView.widthAnchor.constraint(equalTo: self.view.widthAnchor).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
         tableView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
         
     }

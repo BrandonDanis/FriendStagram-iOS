@@ -20,7 +20,11 @@ class RootNavigationController : UINavigationController {
 //        if NetworkManager.shared.HasValidSession() {
         if true {
             let tabController = UITabBarController()
-            tabController.viewControllers = [FeedViewController()]
+            
+            let feedNavigationController = UINavigationController()
+            feedNavigationController.pushViewController(FeedViewController(), animated: false)
+            
+            tabController.viewControllers = [feedNavigationController]
             tabController.tabBar.tintColor = UIColor(red:0.20, green:0.60, blue:0.86, alpha:1.00)
             tabController.tabBar.barTintColor = nil
             let tabBarItems = tabController.tabBar.items! as [UITabBarItem]
