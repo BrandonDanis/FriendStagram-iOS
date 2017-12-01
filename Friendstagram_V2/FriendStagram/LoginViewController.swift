@@ -12,24 +12,28 @@ class LoginViewController: UIViewController {
 
     private let gradientLayer = CAGradientLayer()
     
+    let mainStackView : UIStackView = {
+        let view = UIStackView()
+        view.axis = .vertical
+        view.distribution = .fillEqually
+        return view
+    }()
+    
     //////////////
     // SUBVIEWS //
     //////////////
     var titleSubView : UIView = {
         let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    
-    var inputSubView : UIView = {
+
+    var inputSubview : UIView = {
         let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
     var buttonsSubView : UIView = {
         let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
@@ -42,7 +46,6 @@ class LoginViewController: UIViewController {
         label.textColor = UIColor.white
         label.textAlignment = .center
         label.font = UIFont(name: "PingFangHK-Ultralight", size: 40)
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
@@ -70,7 +73,6 @@ class LoginViewController: UIViewController {
         button.backgroundColor = .white
         button.setTitleColor(UIColor(red:0.08, green:0.62, blue:0.85, alpha:1.00), for: .normal)
         button.addTarget(self, action: #selector(LoginViewController.LoginButtonSelected), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
@@ -78,7 +80,6 @@ class LoginViewController: UIViewController {
         let label = UILabel()
         label.text = "Don't have an account?"
         label.font = UIFont(name: "PingFangHK-Ultralight", size: 20)
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
         label.textColor = UIColor.white
         return label
@@ -92,7 +93,6 @@ class LoginViewController: UIViewController {
         button.backgroundColor = .clear
         button.contentEdgeInsets = UIEdgeInsets(top: 0, left: 0.01, bottom: 0.01, right: 0) //Removing top/bottom padding on button. 
         button.addTarget(self, action: #selector(LoginViewController.RegisterButtonClicked), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
@@ -107,22 +107,19 @@ class LoginViewController: UIViewController {
         gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)
         self.view.layer.addSublayer(gradientLayer)
         
-        // Setup subviews
-        self.view.addSubview(titleSubView)
-        self.view.addSubview(inputSubView)
-        self.view.addSubview(buttonsSubView)
         
-        // add elements to titleSubView
-        titleSubView.addSubview(titleLabel)
+        view.addSubview(mainStackView)
         
-        // add elements to inputSubView
-        inputSubView.addSubview(usernameTextField)
-        inputSubView.addSubview(passwordTextField)
+        mainStackView.addArrangedSubview(titleLabel)
         
-        // add elements to buttonSubView
+        inputSubview.addSubview(usernameTextField)
+        inputSubview.addSubview(passwordTextField)
+        mainStackView.addArrangedSubview(inputSubview)
+        
         buttonsSubView.addSubview(loginButton)
         buttonsSubView.addSubview(registerLabel)
         buttonsSubView.addSubview(registerButton)
+        mainStackView.addArrangedSubview(buttonsSubView)
         
         // Setup Constraint
         SetupConstraints()
@@ -175,56 +172,43 @@ class LoginViewController: UIViewController {
     }
     
     private func SetupConstraints() {
-        // Title Subview
-        titleSubView.widthAnchor.constraint(equalTo: self.view.widthAnchor).isActive = true
-        titleSubView.heightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.heightAnchor, multiplier: 1/3).isActive = true
-        titleSubView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        titleSubView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
+        let safeArea = self.view.safeAreaLayoutGuide
         
-        // Title Label
-        titleLabel.widthAnchor.constraint(equalTo: self.titleSubView.widthAnchor).isActive = true
-        titleLabel.centerXAnchor.constraint(equalTo: self.titleSubView.centerXAnchor).isActive = true
-        titleLabel.centerYAnchor.constraint(equalTo: self.titleSubView.centerYAnchor).isActive = true
+        mainStackView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            mainStackView.topAnchor.constraint(equalTo: safeArea.topAnchor),
+            mainStackView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
+            mainStackView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
+            mainStackView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor)
+        ])
         
-        // Input Subview
-        inputSubView.widthAnchor.constraint(equalTo: self.view.widthAnchor).isActive = true
-        inputSubView.heightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.heightAnchor, multiplier: 1/3).isActive = true
-        inputSubView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        inputSubView.topAnchor.constraint(equalTo: self.titleSubView.bottomAnchor).isActive = true
+        usernameTextField.translatesAutoresizingMaskIntoConstraints = false
+        passwordTextField.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            usernameTextField.widthAnchor.constraint(equalTo: self.inputSubview.widthAnchor, multiplier: 0.80),
+            usernameTextField.heightAnchor.constraint(equalToConstant: 40.0),
+            usernameTextField.centerXAnchor.constraint(equalTo: self.inputSubview.centerXAnchor),
+            usernameTextField.centerYAnchor.constraint(equalTo: self.inputSubview.centerYAnchor, constant: -25),
+            passwordTextField.widthAnchor.constraint(equalTo: self.inputSubview.widthAnchor, multiplier: 0.80),
+            passwordTextField.heightAnchor.constraint(equalToConstant: 40.0),
+            passwordTextField.centerXAnchor.constraint(equalTo: self.inputSubview.centerXAnchor),
+            passwordTextField.centerYAnchor.constraint(equalTo: self.inputSubview.centerYAnchor, constant: 25)
+        ])
         
-        // Username field
-        usernameTextField.widthAnchor.constraint(equalTo: self.inputSubView.widthAnchor, multiplier: 0.80).isActive = true
-        usernameTextField.heightAnchor.constraint(equalToConstant: 40.0).isActive = true
-        usernameTextField.centerXAnchor.constraint(equalTo: self.inputSubView.centerXAnchor).isActive = true
-        usernameTextField.centerYAnchor.constraint(equalTo: self.inputSubView.centerYAnchor, constant: -25).isActive = true
-        
-        // Password field
-        passwordTextField.widthAnchor.constraint(equalTo: self.inputSubView.widthAnchor, multiplier: 0.80).isActive = true
-        passwordTextField.heightAnchor.constraint(equalToConstant: 40.0).isActive = true
-        passwordTextField.centerXAnchor.constraint(equalTo: self.inputSubView.centerXAnchor).isActive = true
-        passwordTextField.centerYAnchor.constraint(equalTo: self.inputSubView.centerYAnchor, constant: 25).isActive = true
-        
-        // Button Subview
-        buttonsSubView.widthAnchor.constraint(equalTo: self.view.widthAnchor).isActive = true
-        buttonsSubView.heightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.heightAnchor, multiplier: 1/3).isActive = true
-        buttonsSubView.topAnchor.constraint(equalTo: self.inputSubView.bottomAnchor).isActive = true
-        buttonsSubView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
-        buttonsSubView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-    
-        // Login button
-        loginButton.centerXAnchor.constraint(equalTo: self.buttonsSubView.centerXAnchor).isActive = true
-        loginButton.centerYAnchor.constraint(equalTo: self.buttonsSubView.centerYAnchor).isActive = true
-        loginButton.widthAnchor.constraint(equalTo: self.buttonsSubView.widthAnchor, multiplier: 0.5).isActive = true
-        loginButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        
-        // Register Label
-        registerLabel.centerXAnchor.constraint(equalTo: buttonsSubView.centerXAnchor).isActive = true
-        registerLabel.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 20).isActive = true
-        registerLabel.widthAnchor.constraint(equalTo: buttonsSubView.widthAnchor).isActive = true
-    
-        // Register Button
-        registerButton.centerXAnchor.constraint(equalTo: buttonsSubView.centerXAnchor).isActive = true
-        registerButton.topAnchor.constraint(equalTo: registerLabel.bottomAnchor).isActive = true
+        loginButton.translatesAutoresizingMaskIntoConstraints = false
+        registerLabel.translatesAutoresizingMaskIntoConstraints = false
+        registerButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            loginButton.centerXAnchor.constraint(equalTo: self.buttonsSubView.centerXAnchor),
+            loginButton.centerYAnchor.constraint(equalTo: self.buttonsSubView.centerYAnchor),
+            loginButton.widthAnchor.constraint(equalTo: self.buttonsSubView.widthAnchor, multiplier: 0.5),
+            loginButton.heightAnchor.constraint(equalToConstant: 50),
+            registerLabel.centerXAnchor.constraint(equalTo: buttonsSubView.centerXAnchor),
+            registerLabel.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 20),
+            registerLabel.widthAnchor.constraint(equalTo: buttonsSubView.widthAnchor),
+            registerButton.centerXAnchor.constraint(equalTo: buttonsSubView.centerXAnchor),
+            registerButton.topAnchor.constraint(equalTo: registerLabel.bottomAnchor)
+        ])
     }
 
 }
