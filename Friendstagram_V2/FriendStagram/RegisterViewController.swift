@@ -10,12 +10,21 @@ import UIKit
 
 class RegisterViewController : UIViewController {
     
+    private let gradientLayer = CAGradientLayer()
+    
+    var mainStackView : UIStackView = {
+        let view = UIStackView()
+        view.axis = .vertical
+        view.distribution = .fillEqually
+        return view
+    }()
+    
     var dismissViewButton : UIButton = {
         let button = UIButton()
         let label = UILabel()
         button.titleLabel?.font = UIFont(name: "fontawesome", size: 30)
         button.setTitle("\u{f00d}", for: .normal)
-        button.setTitleColor(Colors.MAIN_ACCENT_COLOR, for: .normal)
+        button.setTitleColor(.white, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(RegisterViewController.dismissView), for: .touchUpInside)
         return button
@@ -26,19 +35,16 @@ class RegisterViewController : UIViewController {
     //////////////
     var titleSubView : UIView = {
         let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
     var inputSubView : UIView = {
         let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
     var buttonsSubView : UIView = {
         let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
@@ -46,12 +52,11 @@ class RegisterViewController : UIViewController {
     // TITLE SUBVIEW ELEMENTS //
     ////////////////////////////
     var titleLabel : UILabel = {
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 250, height: 100))
+        let label = UILabel()
         label.text = "Register"
-        label.textColor = Colors.MAIN_ACCENT_COLOR
+        label.textColor = .white
         label.textAlignment = .center
         label.font = UIFont(name: "PingFangHK-Ultralight", size: 40)
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
@@ -85,30 +90,34 @@ class RegisterViewController : UIViewController {
         button.setTitle("Register", for: .normal)
         button.backgroundColor = Colors.MAIN_ACCENT_COLOR
         button.addTarget(self, action: #selector(RegisterViewController.RegisterButtonSelected), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = Colors.LIGHT_GRAY
-        self.view.addSubview(titleSubView)
-        self.view.addSubview(inputSubView)
-        self.view.addSubview(buttonsSubView)
+        // Setup basic view attributes
+        gradientLayer.frame = self.view.bounds
+        gradientLayer.colors = [Colors.SOFT_BLUE.cgColor, Colors.SOFT_PURPLE.cgColor]
+        gradientLayer.locations = [0.0, 1.1]
+        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
+        gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)
+        self.view.layer.addSublayer(gradientLayer)
         
-        // add elements to titleSubView
-        titleSubView.addSubview(titleLabel)
+        view.addSubview(mainStackView)
+        
+        mainStackView.addArrangedSubview(titleLabel)
         
         // add elements to inputSubView
         inputSubView.addSubview(usernameTextField)
         inputSubView.addSubview(emailTextField)
         inputSubView.addSubview(passwordTextField)
+        mainStackView.addArrangedSubview(inputSubView)
         
-        // add elements to buttonSubView
         buttonsSubView.addSubview(registerButton)
+        mainStackView.addArrangedSubview(buttonsSubView)
         
-        self.view.addSubview(dismissViewButton)
+        view.addSubview(dismissViewButton)
         
         // Setup constraints
         SetupConstraints()
@@ -157,61 +166,50 @@ class RegisterViewController : UIViewController {
     }
     
     private func SetupConstraints() {
+        let safeArea = self.view.safeAreaLayoutGuide
         
-        // Dismiss view button
-        dismissViewButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
-        dismissViewButton.heightAnchor.constraint(equalToConstant: 70).isActive = true
-        dismissViewButton.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 5).isActive = true
-        dismissViewButton.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 5).isActive = true
-        
-        // Title Subview
-        titleSubView.widthAnchor.constraint(equalTo: self.view.widthAnchor).isActive = true
-        titleSubView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 1/3).isActive = true
-        titleSubView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        titleSubView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
-        
-        // Title Label
-        titleLabel.widthAnchor.constraint(equalTo: self.titleSubView.widthAnchor).isActive = true
-        titleLabel.centerXAnchor.constraint(equalTo: self.titleSubView.centerXAnchor).isActive = true
-        titleLabel.centerYAnchor.constraint(equalTo: self.titleSubView.centerYAnchor).isActive = true
-        
-        // Input Subview
-        inputSubView.widthAnchor.constraint(equalTo: self.view.widthAnchor).isActive = true
-        inputSubView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 1/3).isActive = true
-        inputSubView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        inputSubView.topAnchor.constraint(equalTo: self.titleSubView.bottomAnchor).isActive = true
-        
-        // Username field
-        usernameTextField.widthAnchor.constraint(equalTo: self.inputSubView.widthAnchor, multiplier: 0.80).isActive = true
-        usernameTextField.heightAnchor.constraint(equalToConstant: 40.0).isActive = true
-        usernameTextField.centerXAnchor.constraint(equalTo: self.inputSubView.centerXAnchor).isActive = true
-        usernameTextField.bottomAnchor.constraint(equalTo: self.emailTextField.topAnchor, constant: -25).isActive = true
-        
-        // Email field
-        emailTextField.widthAnchor.constraint(equalTo: self.inputSubView.widthAnchor, multiplier: 0.80).isActive = true
-        emailTextField.heightAnchor.constraint(equalToConstant: 40.0).isActive = true
-        emailTextField.centerXAnchor.constraint(equalTo: self.inputSubView.centerXAnchor).isActive = true
-        emailTextField.centerYAnchor.constraint(equalTo: self.inputSubView.centerYAnchor).isActive = true
-        
-        // Password field
-        passwordTextField.widthAnchor.constraint(equalTo: self.inputSubView.widthAnchor, multiplier: 0.80).isActive = true
-        passwordTextField.heightAnchor.constraint(equalToConstant: 40.0).isActive = true
-        passwordTextField.centerXAnchor.constraint(equalTo: self.inputSubView.centerXAnchor).isActive = true
-        passwordTextField.topAnchor.constraint(equalTo: self.emailTextField.bottomAnchor, constant: 25).isActive = true
-        
-        // Button Subview
-        buttonsSubView.widthAnchor.constraint(equalTo: self.view.widthAnchor).isActive = true
-        buttonsSubView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 1/3).isActive = true
-        buttonsSubView.topAnchor.constraint(equalTo: self.inputSubView.bottomAnchor).isActive = true
-        buttonsSubView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        
-        // Login button
-        registerButton.centerXAnchor.constraint(equalTo: self.buttonsSubView.centerXAnchor).isActive = true
-        registerButton.centerYAnchor.constraint(equalTo: self.buttonsSubView.centerYAnchor).isActive = true
-        registerButton.widthAnchor.constraint(equalTo: self.buttonsSubView.widthAnchor, multiplier: 0.5).isActive = true
-        registerButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        mainStackView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            mainStackView.topAnchor.constraint(equalTo: safeArea.topAnchor),
+            mainStackView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
+            mainStackView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
+            mainStackView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor)
+        ])
+    
+        dismissViewButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            dismissViewButton.widthAnchor.constraint(equalToConstant: 50),
+            dismissViewButton.heightAnchor.constraint(equalToConstant: 70),
+            dismissViewButton.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 5),
+            dismissViewButton.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 5)
+        ])
+
+        usernameTextField.translatesAutoresizingMaskIntoConstraints = false
+        passwordTextField.translatesAutoresizingMaskIntoConstraints = false
+        emailTextField.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            usernameTextField.widthAnchor.constraint(equalTo: self.inputSubView.widthAnchor, multiplier: 0.80),
+            usernameTextField.heightAnchor.constraint(equalToConstant: 40.0),
+            usernameTextField.centerXAnchor.constraint(equalTo: self.inputSubView.centerXAnchor),
+            usernameTextField.bottomAnchor.constraint(equalTo: self.emailTextField.topAnchor, constant: -25),
+            passwordTextField.widthAnchor.constraint(equalTo: self.inputSubView.widthAnchor, multiplier: 0.80),
+            passwordTextField.heightAnchor.constraint(equalToConstant: 40.0),
+            passwordTextField.centerXAnchor.constraint(equalTo: self.inputSubView.centerXAnchor),
+            passwordTextField.topAnchor.constraint(equalTo: self.emailTextField.bottomAnchor, constant: 25),
+            emailTextField.widthAnchor.constraint(equalTo: self.inputSubView.widthAnchor, multiplier: 0.80),
+            emailTextField.heightAnchor.constraint(equalToConstant: 40.0),
+            emailTextField.centerXAnchor.constraint(equalTo: self.inputSubView.centerXAnchor),
+            emailTextField.centerYAnchor.constraint(equalTo: self.inputSubView.centerYAnchor)
+        ])
+
+        registerButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            registerButton.centerXAnchor.constraint(equalTo: self.buttonsSubView.centerXAnchor),
+            registerButton.centerYAnchor.constraint(equalTo: self.buttonsSubView.centerYAnchor),
+            registerButton.widthAnchor.constraint(equalTo: self.buttonsSubView.widthAnchor, multiplier: 0.5),
+            registerButton.heightAnchor.constraint(equalToConstant: 50)
+        ])
         
     }
-    
 }
 
