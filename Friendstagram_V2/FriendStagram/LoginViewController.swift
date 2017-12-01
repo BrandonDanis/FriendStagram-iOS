@@ -100,7 +100,6 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         
         // Setup basic view attributes
-        
         gradientLayer.frame = self.view.bounds
         gradientLayer.colors = [Colors.SOFT_BLUE.cgColor, Colors.SOFT_PURPLE.cgColor]
         gradientLayer.locations = [0.0, 1.1]
@@ -178,9 +177,9 @@ class LoginViewController: UIViewController {
     private func SetupConstraints() {
         // Title Subview
         titleSubView.widthAnchor.constraint(equalTo: self.view.widthAnchor).isActive = true
-        titleSubView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 1/3).isActive = true
+        titleSubView.heightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.heightAnchor, multiplier: 1/3).isActive = true
         titleSubView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        titleSubView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
+        titleSubView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
         
         // Title Label
         titleLabel.widthAnchor.constraint(equalTo: self.titleSubView.widthAnchor).isActive = true
@@ -189,7 +188,7 @@ class LoginViewController: UIViewController {
         
         // Input Subview
         inputSubView.widthAnchor.constraint(equalTo: self.view.widthAnchor).isActive = true
-        inputSubView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 1/3).isActive = true
+        inputSubView.heightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.heightAnchor, multiplier: 1/3).isActive = true
         inputSubView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         inputSubView.topAnchor.constraint(equalTo: self.titleSubView.bottomAnchor).isActive = true
         
@@ -207,8 +206,9 @@ class LoginViewController: UIViewController {
         
         // Button Subview
         buttonsSubView.widthAnchor.constraint(equalTo: self.view.widthAnchor).isActive = true
-        buttonsSubView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 1/3).isActive = true
+        buttonsSubView.heightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.heightAnchor, multiplier: 1/3).isActive = true
         buttonsSubView.topAnchor.constraint(equalTo: self.inputSubView.bottomAnchor).isActive = true
+        buttonsSubView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
         buttonsSubView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
     
         // Login button
