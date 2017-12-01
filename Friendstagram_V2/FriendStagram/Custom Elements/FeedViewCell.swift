@@ -17,14 +17,12 @@ class FeedViewCell : UITableViewCell {
         let view = UIStackView()
         view.axis = .vertical
         view.spacing = 5.0
-        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
     var usernameLabel : UILabel = {
         let label = UILabel()
         label.text = "Default"
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont(name: "PingFangHK-Ultralight", size: 20)
         label.textColor = .black
         return label
@@ -32,7 +30,6 @@ class FeedViewCell : UITableViewCell {
     
     var profileImage : UIImageView = {
         let image = UIImageView(image: UIImage(named: "placeholder"))
-        image.translatesAutoresizingMaskIntoConstraints = false
         image.clipsToBounds = true
         image.contentMode = .scaleToFill
         return image
@@ -41,7 +38,6 @@ class FeedViewCell : UITableViewCell {
     let topView : UIStackView = {
         let view = UIStackView()
         view.spacing = 10.0
-        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
@@ -50,13 +46,11 @@ class FeedViewCell : UITableViewCell {
         image.image = UIImage(named: "placeholder")
         image.contentMode = .scaleAspectFill
         image.clipsToBounds = true
-        image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
     
     let bottomView : UIStackView = {
         let view = UIStackView()
-        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
@@ -66,7 +60,6 @@ class FeedViewCell : UITableViewCell {
         label.font = UIFont(name: "PingFangHK-Ultralight", size: 16)
         label.textColor = .black
         label.numberOfLines = 0
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
@@ -80,7 +73,7 @@ class FeedViewCell : UITableViewCell {
         let label = UILabel()
         label.font = UIFont(name: "fontawesome", size: 20)
         label.attributedText = NSAttributedString(string: "\u{f08a}", attributes: [NSAttributedStringKey.foregroundColor: UIColor.black])
-        label.translatesAutoresizingMaskIntoConstraints = false
+        label.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         return label
     }()
     
@@ -94,7 +87,6 @@ class FeedViewCell : UITableViewCell {
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
         contentView.addSubview(mainStack)
         
         topView.addArrangedSubview(profileImage)
@@ -117,6 +109,9 @@ class FeedViewCell : UITableViewCell {
     
     private func ApplyConstraints() {
         let contentMargins = contentView.layoutMarginsGuide
+        mainStack.translatesAutoresizingMaskIntoConstraints = false
+        profileImage.translatesAutoresizingMaskIntoConstraints = false
+        postImage.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             mainStack.topAnchor.constraint(equalTo: contentMargins.topAnchor),
             mainStack.trailingAnchor.constraint(equalTo: contentMargins.trailingAnchor),
@@ -125,8 +120,7 @@ class FeedViewCell : UITableViewCell {
             profileImage.widthAnchor.constraint(equalToConstant: TOP_ROW_HEIGHT),
             profileImage.heightAnchor.constraint(equalToConstant: TOP_ROW_HEIGHT),
             postImage.widthAnchor.constraint(equalTo: mainStack.widthAnchor),
-            postImage.heightAnchor.constraint(equalTo: mainStack.widthAnchor, multiplier: 0.75),
-            heartIcon.widthAnchor.constraint(equalToConstant: 20.0)
+            postImage.heightAnchor.constraint(equalTo: mainStack.widthAnchor, multiplier: 0.75)
         ])
         profileImage.layer.cornerRadius = self.TOP_ROW_HEIGHT / 2.0
     }
