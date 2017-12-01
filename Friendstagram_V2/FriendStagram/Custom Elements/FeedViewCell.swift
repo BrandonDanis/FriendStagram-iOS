@@ -72,7 +72,7 @@ class FeedViewCell : UITableViewCell {
     let heartIcon : UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "fontawesome", size: 20)
-        label.attributedText = NSAttributedString(string: "\u{f08a}", attributes: [NSAttributedStringKey.foregroundColor: UIColor.black])
+        label.attributedText = NSAttributedString(string: "\u{f004}", attributes: [NSAttributedStringKey.foregroundColor: UIColor.red])
         label.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         return label
     }()
@@ -124,5 +124,4 @@ class FeedViewCell : UITableViewCell {
         ])
         profileImage.layer.cornerRadius = self.TOP_ROW_HEIGHT / 2.0
     }
-    
 }

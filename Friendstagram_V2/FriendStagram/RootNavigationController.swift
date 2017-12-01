@@ -22,7 +22,7 @@ class RootNavigationController : UINavigationController {
             let tabController = UITabBarController()
             
             let feedNavigationController = UINavigationController()
-            feedNavigationController.pushViewController(FeedViewController(), animated: false)
+            feedNavigationController.viewControllers = [FeedViewController()]
             
             tabController.viewControllers = [feedNavigationController]
             tabController.tabBar.tintColor = UIColor(red:0.20, green:0.60, blue:0.86, alpha:1.00)
