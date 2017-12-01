@@ -18,28 +18,15 @@ class LoginViewController: UIViewController {
         view.distribution = .fillEqually
         return view
     }()
-    
-    //////////////
-    // SUBVIEWS //
-    //////////////
-    var titleSubView : UIView = {
-        let view = UIView()
-        return view
-    }()
 
     var inputSubview : UIView = {
-        let view = UIView()
-        return view
+        return UIView()
     }()
     
     var buttonsSubView : UIView = {
-        let view = UIView()
-        return view
+        return UIView()
     }()
     
-    ////////////////////////////
-    // TITLE SUBVIEW ELEMENTS //
-    ////////////////////////////
     var titleLabel : UILabel = {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 250, height: 100))
         label.text = "FriendStagram"
@@ -49,9 +36,6 @@ class LoginViewController: UIViewController {
         return label
     }()
     
-    ////////////////////////////
-    // INPUT SUBVIEW ELEMENTS //
-    ////////////////////////////
     var usernameTextField : UnderlinedTextField = {
         let field = UnderlinedTextField(icon: "\u{f007}", placeholderText: "Username", placeholderColor: Colors.LIGHT_WHITE, textColor: .white, elementsColor: Colors.LIGHT_WHITE, activeColor: .white)
         field.autocapitalizationType = .none
@@ -64,9 +48,6 @@ class LoginViewController: UIViewController {
         return field
     }()
     
-    /////////////////////////////
-    // BUTTON SUBVIEW ELEMENTS //
-    /////////////////////////////
     var loginButton : BetterButton = {
         let button = BetterButton()
         button.setTitle("Login", for: .normal)
@@ -106,7 +87,6 @@ class LoginViewController: UIViewController {
         gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
         gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)
         self.view.layer.addSublayer(gradientLayer)
-        
         
         view.addSubview(mainStackView)
         
@@ -158,7 +138,6 @@ class LoginViewController: UIViewController {
                 print("LOGGED IN!")
                 print("Session: \(sessionKey)")
             }
-            
         }
     }
     
