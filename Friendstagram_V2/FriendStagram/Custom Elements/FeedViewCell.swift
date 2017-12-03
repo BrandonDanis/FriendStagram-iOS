@@ -13,6 +13,28 @@ class FeedViewCell : UITableViewCell {
     
     private let TOP_ROW_HEIGHT : CGFloat = 35.0
     
+    var post : Post? {
+        
+        self.postImage.image = nil
+        
+        didSet {
+            print("Loaded post")
+            if let imageString = post?.image_url, let imageURL = URL(string: imageString) {
+                URLSession(configuration: .default).dataTask(with: imageURL, completionHandler: { (data, res, err) in
+                    
+                    if err != nil {
+                        print(err!)
+                        return
+                    }
+                    DispatchQueue.main.async {
+                        self.postImage.image = UIImage(data: data!)
+                    }
+                    
+                }).resume()
+            }
+        }
+    }
+    
     var mainStack : UIStackView = {
         let view = UIStackView()
         view.axis = .vertical

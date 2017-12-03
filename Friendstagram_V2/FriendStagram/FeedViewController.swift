@@ -11,9 +11,12 @@ import UIKit
 class FeedViewController : UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     private var posts : [Post] = [
-        Post(id: 1, desc: "This is my desc", image: "image.png", user_id: 1, username: "Brandon Danis"),
-        Post(id: 2, desc: "This is a lovely picture that I took myself with my camera which I then decided that all my friends on FriendStagram should see!", image: "image.png", user_id: 1, username: "Vivian Germain"),
-        Post(id: 3, desc: "This is a picture of a potato. What a great potato it is.", image: "potato.png", user_id: 3, username: "Potato Lover")
+        Post(id: 1, desc: "This is my desc", image: "https://i.redd.it/sbuv3lwq1h101.jpg", user_id: 1, username: "Brandon Danis"),
+        Post(id: 1, desc: "This is my desc", image: "https://i.redd.it/sbuv3lwq1h101.jpg", user_id: 1, username: "Brandon Danis"),
+        Post(id: 1, desc: "This is my desc", image: "https://i.redd.it/sbuv3lwq1h101.jpg", user_id: 1, username: "Brandon Danis"),
+        Post(id: 1, desc: "This is my desc", image: "https://i.redd.it/sbuv3lwq1h101.jpg", user_id: 1, username: "Brandon Danis"),
+        Post(id: 2, desc: "This is a lovely picture that I took myself with my camera which I then decided that all my friends on FriendStagram should see!", image: "https://i.imgur.com/WqVxsGS.jpg", user_id: 1, username: "Vivian Germain"),
+        Post(id: 3, desc: "This is a picture of a potato. What a great potato it is.", image: "https://i.imgur.com/WqVxsGS.jpg", user_id: 3, username: "Potato Lover")
     ]
     
     private var tableView : UITableView = {
@@ -60,10 +63,11 @@ class FeedViewController : UIViewController, UITableViewDataSource, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! FeedViewCell
+        cell.post = posts[indexPath.row]
         cell.selectionStyle = .none
         cell.usernameLabel.text = posts[indexPath.row].username
         cell.descriptionLabel.text = posts[indexPath.row].description
-        cell.profileImage.image = UIImage(named: "test1")
+//        cell.profileImage.image = UIImage(named: "test1")
         return cell
     }
     
