@@ -67,9 +67,6 @@ class FeedViewController : UIViewController, UITableViewDataSource, UITableViewD
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! FeedViewCell
         cell.post = posts[indexPath.row]
         cell.selectionStyle = .none
-        cell.usernameLabel.text = posts[indexPath.row].username
-        cell.descriptionLabel.text = posts[indexPath.row].description
-//        cell.profileImage.image = UIImage(named: "test1")
         return cell
     }
     

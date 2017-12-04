@@ -15,7 +15,10 @@ class FeedViewCell : UITableViewCell {
     
     var post : Post? {
         didSet {
-            self.postImage.image = nil
+            postImage.image = nil
+            
+            usernameLabel.text = post?.username
+            descriptionLabel.text = post?.description
             
             if let imageString = post?.image_url {
                 NetworkManager.shared.GetImageByUrl(imageString, callback: { (image) in
