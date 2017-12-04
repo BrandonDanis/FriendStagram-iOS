@@ -71,7 +71,8 @@ class FeedViewController : UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.navigationController?.pushViewController(LoginViewController(), animated: true)
+        view.addSubview(PopupNotificationView())
+//        self.navigationController?.pushViewController(LoginViewController(), animated: true)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
