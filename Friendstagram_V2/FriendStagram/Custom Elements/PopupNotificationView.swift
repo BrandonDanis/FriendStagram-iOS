@@ -24,11 +24,31 @@ class PopupNotificationView : UIView {
         return view
     }()
     
+    private var modalStack : UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .vertical
+        stack.spacing = 10.0
+        stack.distribution = .fillEqually
+        return stack
+    }()
+    
+    private var modalTitle : UILabel = {
+        let label = UILabel()
+        label.font = UIFont(name: "fontawesome", size: 40)
+        label.textAlignment = .center
+        label.attributedText = NSAttributedString(string: "\u{f058}", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+        return label
+    }()
+    
     init() {
         super.init(frame: UIScreen.main.bounds)
         backgroundColor = .clear
         
+        modalStack.addArrangedSubview(modalTitle)
+        modalView.addSubview(modalStack)
+        
         addSubview(modalView)
+        
         ApplyConstraint()
     }
     
@@ -70,6 +90,14 @@ class PopupNotificationView : UIView {
             modalView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.35),
             modalView.centerXAnchor.constraint(equalTo: centerXAnchor),
             modalView.centerYAnchor.constraint(equalTo: centerYAnchor)
+        ])
+        
+        modalStack.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            modalStack.leadingAnchor.constraint(equalTo: modalView.leadingAnchor),
+            modalStack.trailingAnchor.constraint(equalTo: modalView.trailingAnchor),
+            modalStack.topAnchor.constraint(equalTo: modalView.topAnchor),
+            modalStack.bottomAnchor.constraint(equalTo: modalView.bottomAnchor)
         ])
     }
     
