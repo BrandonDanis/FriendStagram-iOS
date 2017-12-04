@@ -13,31 +13,16 @@ class FeedViewCell : UITableViewCell {
     
     private let TOP_ROW_HEIGHT : CGFloat = 35.0
     
-    private let postImageCache = NSCache<NSString, UIImage>()
-    
     var post : Post? {
         didSet {
             self.postImage.image = nil
             
             if let imageString = post?.image_url {
-                if let image = postImageCache.object(forKey: imageString as NSString) {
-                    print("Found \(imageString) in cache!")
+                NetworkManager.shared.GetImageByUrl(imageString, callback: { (image) in
                     DispatchQueue.main.async {
                         self.postImage.image = image
                     }
-                } else if let imageURL = URL(string: imageString) {
-                    URLSession(configuration: .default).dataTask(with: imageURL, completionHandler: { (data, res, err) in
-                        if err != nil {
-                            print(err!)
-                            return
-                        }
-                        let postImage = UIImage(data: data!)
-                        DispatchQueue.main.async {
-                            self.postImage.image = postImage
-                            self.postImageCache.setObject(postImage!, forKey: imageString as NSString)
-                        }
-                    }).resume()
-                }
+                })
             }
         }
     }

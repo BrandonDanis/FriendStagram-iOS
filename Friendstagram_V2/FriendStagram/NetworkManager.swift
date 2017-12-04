@@ -7,8 +7,11 @@
 //
 
 import Foundation
+import UIKit.UIImage
 
 class NetworkManager {
+    
+    private let postImageCache = NSCache<NSString, UIImage>()
     
     static let shared : NetworkManager = NetworkManager(serverURL: "http://localhost:8080")
     
@@ -166,6 +169,23 @@ class NetworkManager {
         })
         
         feedPostsTasks?.resume()
+    }
+    
+    public func GetImageByUrl(_ imageURLString : String, callback: @escaping (_ image: UIImage?) -> Void) {
+        if let image = postImageCache.object(forKey: imageURLString as NSString) {
+            print("Found \(imageURLString) in cache!")
+            return callback(image)
+        } else if let imageURL = URL(string: imageURLString) {
+            URLSession(configuration: .default).dataTask(with: imageURL, completionHandler: { (data, res, err) in
+                if err != nil {
+                    print(err!)
+                    return
+                }
+                let postImage = UIImage(data: data!)
+                self.postImageCache.setObject(postImage!, forKey: imageURLString as NSString)
+                return callback(postImage)
+            }).resume()
+        }
     }
     
 }
