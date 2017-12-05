@@ -27,7 +27,9 @@ class RootNavigationController : UINavigationController {
             tabController.viewControllers = [feedNavigationController]
             tabController.tabBar.tintColor = UIColor(red:0.20, green:0.60, blue:0.86, alpha:1.00)
             tabController.tabBar.barTintColor = nil
+            
             let tabBarItems = tabController.tabBar.items! as [UITabBarItem]
+            
             tabBarItems[0].title = nil
             tabBarItems[0].imageInsets = UIEdgeInsetsMake(6,0,-6,0)
             tabBarItems[0].image = UIImage(named: "home")
