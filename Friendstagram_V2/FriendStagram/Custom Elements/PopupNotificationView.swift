@@ -11,13 +11,13 @@ import UIKit
 
 class PopupNotificationView : UIView {
     
-    private var DISPLAY_DURATION = 2.0
+    private var DISPLAY_DURATION = 5.0
     private var ANIMATION_DURATION = 0.5
-    
+
     private let BACKGROUND_COLOR = UIColor(red: 0, green: 0, blue: 0, alpha: 0.40)
     private let MODAL_BACKGROUND_COLOR = UIColor(red: 0, green: 0, blue: 0, alpha: 0.75)
     private let ANIMATED = true
-    
+
     private let modalView : UIView = {
         let view = UIView()
         view.layer.cornerRadius = 10.0
