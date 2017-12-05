@@ -17,14 +17,15 @@ class PopupNotificationView : UIView {
     private let BACKGROUND_COLOR = UIColor(red: 0, green: 0, blue: 0, alpha: 0.40)
     private let MODAL_BACKGROUND_COLOR = UIColor(red: 0, green: 0, blue: 0, alpha: 0.75)
     
-    private var modalView : UIView = {
+    private let modalView : UIView = {
         let view = UIView()
         view.layer.cornerRadius = 10.0
         view.backgroundColor = .clear
+        view.alpha = 0.0
         return view
     }()
     
-    private var modalStack : UIStackView = {
+    private let modalStack : UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
         stack.spacing = 10.0
@@ -32,11 +33,21 @@ class PopupNotificationView : UIView {
         return stack
     }()
     
-    private var modalTitle : UILabel = {
+    private let modalIcon : UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "fontawesome", size: 40)
+        label.font = UIFont(name: "fontawesome", size: 70)
         label.textAlignment = .center
         label.attributedText = NSAttributedString(string: "\u{f058}", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+        label.setContentHuggingPriority(.defaultHigh, for: .vertical)
+        return label
+    }()
+    
+    private let modalTitle : UILabel = {
+        let label = UILabel()
+        label.text = "User created!"
+        label.textColor = UIColor.white
+        label.textAlignment = .center
+        label.font = UIFont(name: "PingFangHK-Ultralight", size: 30)
         return label
     }()
     
@@ -44,6 +55,7 @@ class PopupNotificationView : UIView {
         super.init(frame: UIScreen.main.bounds)
         backgroundColor = .clear
         
+        modalStack.addArrangedSubview(modalIcon)
         modalStack.addArrangedSubview(modalTitle)
         modalView.addSubview(modalStack)
         
@@ -56,6 +68,7 @@ class PopupNotificationView : UIView {
         UIView.animate(withDuration: ANIMATION_DURATION, animations: {
             self.backgroundColor = self.BACKGROUND_COLOR
             self.modalView.backgroundColor = self.MODAL_BACKGROUND_COLOR
+            self.modalView.alpha = 1.0
         }) { (true) in
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + self.DISPLAY_DURATION) {
                 self.RemoveFromSuperview(animated: true)
@@ -68,6 +81,7 @@ class PopupNotificationView : UIView {
             return UIView.animate(withDuration: ANIMATION_DURATION, animations: {
                 self.backgroundColor = .clear
                 self.modalView.backgroundColor = .clear
+                self.modalView.alpha = 0.0
             }) { (true) in
                 self.removeFromSuperview()
             }
@@ -86,18 +100,16 @@ class PopupNotificationView : UIView {
     private func ApplyConstraint() {
         modalView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            modalView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.60),
-            modalView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.35),
             modalView.centerXAnchor.constraint(equalTo: centerXAnchor),
             modalView.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
         
         modalStack.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            modalStack.leadingAnchor.constraint(equalTo: modalView.leadingAnchor),
-            modalStack.trailingAnchor.constraint(equalTo: modalView.trailingAnchor),
-            modalStack.topAnchor.constraint(equalTo: modalView.topAnchor),
-            modalStack.bottomAnchor.constraint(equalTo: modalView.bottomAnchor)
+            modalStack.leftAnchor.constraint(equalTo: modalView.leftAnchor, constant: 20.0),
+            modalStack.rightAnchor.constraint(equalTo: modalView.rightAnchor, constant: -20.0),
+            modalStack.topAnchor.constraint(equalTo: modalView.topAnchor, constant: 20.0),
+            modalStack.bottomAnchor.constraint(equalTo: modalView.bottomAnchor, constant: -20.0)
         ])
     }
     
