@@ -24,7 +24,10 @@ class RootNavigationController : UINavigationController {
             let feedNavigationController = UINavigationController()
             feedNavigationController.viewControllers = [FeedViewController()]
             
-            tabController.viewControllers = [feedNavigationController]
+            let profileNavigationController = UINavigationController()
+            profileNavigationController.viewControllers = [ProfileViewController()]
+            
+            tabController.viewControllers = [feedNavigationController, profileNavigationController]
             tabController.tabBar.tintColor = UIColor(red:0.20, green:0.60, blue:0.86, alpha:1.00)
             tabController.tabBar.barTintColor = nil
             
@@ -33,6 +36,10 @@ class RootNavigationController : UINavigationController {
             tabBarItems[0].title = nil
             tabBarItems[0].imageInsets = UIEdgeInsetsMake(6,0,-6,0)
             tabBarItems[0].image = UIImage(named: "home")
+            
+            tabBarItems[1].title = nil
+            tabBarItems[1].imageInsets = UIEdgeInsetsMake(6,0,-6,0)
+            tabBarItems[1].image = UIImage(named: "user")
             
             self.viewControllers = [tabController]
         } else {

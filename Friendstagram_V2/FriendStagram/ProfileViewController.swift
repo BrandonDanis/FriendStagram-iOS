@@ -15,7 +15,7 @@ class ProfileViewController : UIViewController {
     
     var titleLabel : UILabel = {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 250, height: 100))
-        label.text = "FriendStagram"
+        label.text = "ProfileViewController"
         label.textColor = UIColor.white
         label.textAlignment = .center
         label.font = UIFont(name: "PingFangHK-Ultralight", size: 40)
