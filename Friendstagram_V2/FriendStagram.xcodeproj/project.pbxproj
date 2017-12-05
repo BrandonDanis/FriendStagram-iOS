@@ -24,6 +24,7 @@
 		F69D61F81FBCBF3F0016FE60 /* UnderlinedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69D61F71FBCBF3F0016FE60 /* UnderlinedTextField.swift */; };
 		F69D61FA1FBE17C20016FE60 /* NetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69D61F91FBE17C20016FE60 /* NetResponse.swift */; };
 		F69D61FC1FBE233F0016FE60 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69D61FB1FBE233F0016FE60 /* User.swift */; };
+		F6A94FF71FD5BD5900D7A1A2 /* PopupNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A94FF61FD5BD5900D7A1A2 /* PopupNotificationView.swift */; };
 		F6E26D611FC602E1005D4AC1 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E26D601FC602E1005D4AC1 /* FeedViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		F69D61F71FBCBF3F0016FE60 /* UnderlinedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlinedTextField.swift; sourceTree = "<group>"; };
 		F69D61F91FBE17C20016FE60 /* NetResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetResponse.swift; sourceTree = "<group>"; };
 		F69D61FB1FBE233F0016FE60 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		F6A94FF61FD5BD5900D7A1A2 /* PopupNotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupNotificationView.swift; sourceTree = "<group>"; };
 		F6E26D601FC602E1005D4AC1 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -67,6 +69,7 @@
 				CAED07AF1FB166DC00E9A853 /* BetterButton.swift */,
 				F69D61F71FBCBF3F0016FE60 /* UnderlinedTextField.swift */,
 				F62478681FC749290058094C /* FeedViewCell.swift */,
+				F6A94FF61FD5BD5900D7A1A2 /* PopupNotificationView.swift */,
 			);
 			path = "Custom Elements";
 			sourceTree = "<group>";
@@ -201,6 +204,7 @@
 			files = (
 				CAED07B21FB168EF00E9A853 /* NetworkManager.swift in Sources */,
 				F69D61F61FBCACD10016FE60 /* Colors.swift in Sources */,
+				F6A94FF71FD5BD5900D7A1A2 /* PopupNotificationView.swift in Sources */,
 				F69D61FA1FBE17C20016FE60 /* NetResponse.swift in Sources */,
 				CA4F94741FC3A9D500B3B162 /* RootNavigationController.swift in Sources */,
 				CA4F94761FC6867900B3B162 /* Post.swift in Sources */,
