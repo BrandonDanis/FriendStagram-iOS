@@ -30,7 +30,7 @@ class PopupNotificationView : UIView {
         let stack = UIStackView()
         stack.axis = .vertical
         stack.spacing = 10.0
-        stack.distribution = .fillEqually
+        stack.distribution = .fill
         return stack
     }()
     
@@ -39,7 +39,7 @@ class PopupNotificationView : UIView {
         label.font = UIFont(name: "fontawesome", size: 70)
         label.textAlignment = .center
         label.attributedText = NSAttributedString(string: "\u{f2bd}", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
-        label.setContentHuggingPriority(.defaultHigh, for: .vertical)
+        label.setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
         return label
     }()
     
@@ -49,7 +49,19 @@ class PopupNotificationView : UIView {
         label.textColor = .white
         label.textAlignment = .center
         label.numberOfLines = 0
-        label.font = UIFont(name: "PingFangHK-Ultralight", size: 30)
+        label.lineBreakMode = .byWordWrapping
+        label.font = UIFont(name: "PingFangHK-Light", size: 30)
+        return label
+    }()
+    
+    private let modalDescription : UILabel = {
+        let label = UILabel()
+        label.text = "You can now login!"
+        label.textColor = .white
+        label.textAlignment = .center
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
+        label.font = UIFont(name: "PingFangHK-Ultralight", size: 22)
         return label
     }()
     
@@ -71,6 +83,13 @@ class PopupNotificationView : UIView {
         
         modalIcon.attributedText = NSAttributedString(string: icon, attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
         modalTitle.text = title
+    }
+    
+    convenience init(icon: String, title: String, desc: String) {
+        self.init(icon: icon, title: title)
+        
+        modalDescription.text = desc
+        modalStack.addArrangedSubview(modalDescription)
     }
     
     override func didMoveToWindow() {
