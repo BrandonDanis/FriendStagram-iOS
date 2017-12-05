@@ -142,7 +142,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction private func RegisterButtonClicked(sender: UIButton) {
-        view.addSubview(PopupNotificationView())
+        view.addSubview(PopupNotificationView(icon: "\u{f2bd}", title: "User created! asdfasdfas asdfas dasd asdf "))
 //        self.navigationController?.pushViewController(RegisterViewController(), animated: true)
     }
     

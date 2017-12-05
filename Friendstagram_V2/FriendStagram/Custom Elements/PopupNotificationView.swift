@@ -16,6 +16,7 @@ class PopupNotificationView : UIView {
     
     private let BACKGROUND_COLOR = UIColor(red: 0, green: 0, blue: 0, alpha: 0.40)
     private let MODAL_BACKGROUND_COLOR = UIColor(red: 0, green: 0, blue: 0, alpha: 0.75)
+    private let ANIMATED = true
     
     private let modalView : UIView = {
         let view = UIView()
@@ -37,7 +38,7 @@ class PopupNotificationView : UIView {
         let label = UILabel()
         label.font = UIFont(name: "fontawesome", size: 70)
         label.textAlignment = .center
-        label.attributedText = NSAttributedString(string: "\u{f058}", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+        label.attributedText = NSAttributedString(string: "\u{f2bd}", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
         label.setContentHuggingPriority(.defaultHigh, for: .vertical)
         return label
     }()
@@ -45,8 +46,9 @@ class PopupNotificationView : UIView {
     private let modalTitle : UILabel = {
         let label = UILabel()
         label.text = "User created!"
-        label.textColor = UIColor.white
+        label.textColor = .white
         label.textAlignment = .center
+        label.numberOfLines = 0
         label.font = UIFont(name: "PingFangHK-Ultralight", size: 30)
         return label
     }()
@@ -64,6 +66,13 @@ class PopupNotificationView : UIView {
         ApplyConstraint()
     }
     
+    convenience init(icon: String, title: String) {
+        self.init()
+        
+        modalIcon.attributedText = NSAttributedString(string: icon, attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+        modalTitle.text = title
+    }
+    
     override func didMoveToWindow() {
         UIView.animate(withDuration: ANIMATION_DURATION, animations: {
             self.backgroundColor = self.BACKGROUND_COLOR
@@ -71,7 +80,7 @@ class PopupNotificationView : UIView {
             self.modalView.alpha = 1.0
         }) { (true) in
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + self.DISPLAY_DURATION) {
-                self.RemoveFromSuperview(animated: true)
+                self.RemoveFromSuperview(animated: self.ANIMATED)
             }
         }
     }
@@ -101,7 +110,8 @@ class PopupNotificationView : UIView {
         modalView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             modalView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            modalView.centerYAnchor.constraint(equalTo: centerYAnchor)
+            modalView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            modalView.widthAnchor.constraint(lessThanOrEqualTo: widthAnchor, multiplier: 0.80)
         ])
         
         modalStack.translatesAutoresizingMaskIntoConstraints = false
