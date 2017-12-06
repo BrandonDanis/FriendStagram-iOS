@@ -20,7 +20,6 @@ class ProfileViewController : UIViewController, UICollectionViewDataSource, UICo
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         view.backgroundColor = Colors.LIGHT_GRAY
         
         collectionView.dataSource = self
@@ -53,7 +52,7 @@ class ProfileViewController : UIViewController, UICollectionViewDataSource, UICo
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ProfileViewCell
-        
+        cell.post = TEST_POSTS[indexPath.row]
         return cell
     }
     

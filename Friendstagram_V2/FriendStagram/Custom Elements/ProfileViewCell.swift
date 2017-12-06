@@ -11,9 +11,25 @@ import UIKit
 
 class ProfileViewCell : UICollectionViewCell {
     
+    var post : Post? = nil {
+        didSet {
+            imageView.image = UIImage(named: "placeholder")
+            
+            if let imageString = post?.image_url {
+                NetworkManager.shared.GetImageByUrl(imageString) { (image) in
+                    guard image != nil else { return }
+                    DispatchQueue.main.async {
+                        self.imageView.image = image
+                    }
+                }
+            }
+        }
+    }
+    
     private let imageView : UIImageView = {
         let view = UIImageView(image: UIImage(named: "placeholder"))
         view.contentMode = .scaleAspectFill
+        view.clipsToBounds = true
         return view
     }()
     
