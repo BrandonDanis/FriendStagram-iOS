@@ -14,11 +14,14 @@ class ProfileViewController : UIViewController, UICollectionViewDataSource, UICo
     private let collectionView : UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let view = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
+        view.backgroundColor = UIColor.white
         return view
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.backgroundColor = Colors.LIGHT_GRAY
         
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -35,7 +38,7 @@ class ProfileViewController : UIViewController, UICollectionViewDataSource, UICo
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return 20
     }
     
     // cell bottom padding
