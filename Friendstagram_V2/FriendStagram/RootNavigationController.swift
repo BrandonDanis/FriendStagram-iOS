@@ -25,6 +25,7 @@ class RootNavigationController : UINavigationController {
             feedNavigationController.viewControllers = [FeedViewController()]
             
             let profileNavigationController = UINavigationController()
+            profileNavigationController.navigationBar.isTranslucent = true
             profileNavigationController.viewControllers = [ProfileViewController()]
             
             tabController.viewControllers = [feedNavigationController, profileNavigationController]

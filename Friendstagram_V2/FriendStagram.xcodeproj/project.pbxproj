@@ -11,6 +11,7 @@
 		CA4F94741FC3A9D500B3B162 /* RootNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4F94731FC3A9D500B3B162 /* RootNavigationController.swift */; };
 		CA4F94761FC6867900B3B162 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4F94751FC6867900B3B162 /* Post.swift */; };
 		CA80790D1FD64BAB00D57319 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA80790C1FD64BAB00D57319 /* ProfileViewController.swift */; };
+		CA9EDDE01FD79C98001A322B /* ProfileViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9EDDDF1FD79C98001A322B /* ProfileViewCell.swift */; };
 		CAED07B01FB166DC00E9A853 /* BetterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAED07AF1FB166DC00E9A853 /* BetterButton.swift */; };
 		CAED07B21FB168EF00E9A853 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAED07B11FB168EF00E9A853 /* NetworkManager.swift */; };
 		CAED07B41FB3C50F00E9A853 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAED07B31FB3C50F00E9A853 /* RegisterViewController.swift */; };
@@ -33,6 +34,7 @@
 		CA4F94731FC3A9D500B3B162 /* RootNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootNavigationController.swift; sourceTree = "<group>"; };
 		CA4F94751FC6867900B3B162 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		CA80790C1FD64BAB00D57319 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		CA9EDDDF1FD79C98001A322B /* ProfileViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewCell.swift; sourceTree = "<group>"; };
 		CAED07AF1FB166DC00E9A853 /* BetterButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BetterButton.swift; sourceTree = "<group>"; };
 		CAED07B11FB168EF00E9A853 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		CAED07B31FB3C50F00E9A853 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 				F69D61F71FBCBF3F0016FE60 /* UnderlinedTextField.swift */,
 				F62478681FC749290058094C /* FeedViewCell.swift */,
 				F6A94FF61FD5BD5900D7A1A2 /* PopupNotificationView.swift */,
+				CA9EDDDF1FD79C98001A322B /* ProfileViewCell.swift */,
 			);
 			path = "Custom Elements";
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 				CAED07B41FB3C50F00E9A853 /* RegisterViewController.swift in Sources */,
 				F69D61F81FBCBF3F0016FE60 /* UnderlinedTextField.swift in Sources */,
 				F69D61FC1FBE233F0016FE60 /* User.swift in Sources */,
+				CA9EDDE01FD79C98001A322B /* ProfileViewCell.swift in Sources */,
 				CAF7AC621FAFFB1400124BB5 /* LoginViewController.swift in Sources */,
 				CAED07B01FB166DC00E9A853 /* BetterButton.swift in Sources */,
 				CA4F946E1FBEAA9E00B3B162 /* NetError.swift in Sources */,
