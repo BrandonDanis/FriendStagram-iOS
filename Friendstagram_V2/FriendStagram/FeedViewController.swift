@@ -10,16 +10,7 @@ import UIKit
 
 class FeedViewController : UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    private var posts : [Post] = [
-        Post(id: 1, desc: "I personally love the new hexagonal style angel eyes", image: "https://i.redd.it/167u5u6r8ltz.jpg", user_id: 1, username: "BMW"),
-        Post(id: 1, desc: "This is my desc", image: "https://i.redd.it/uw97nvc6rjfz.jpg", user_id: 1, username: "BMW"),
-        Post(id: 1, desc: "This is my desc", image: "https://i.redd.it/sbuv3lwq1h101.jpg", user_id: 1, username: "BMW"),
-        Post(id: 1, desc: "Since you all liked the 1m drawing so much . I followed it up with an M2", image: "https://i.redd.it/vea3mvaxs8sz.jpg", user_id: 1, username: "BMW"),
-        Post(id: 2, desc: "This is a lovely picture that I took myself with my camera which I then decided that all my friends on FriendStagram should see!", image: "https://i.imgur.com/tf9GpKr.jpg", user_id: 1, username: "Vivian Germain"),
-        Post(id: 3, desc: "Quite happy with how this shot of my friends M4 came out", image: "https://i.redd.it/u7tj49w3uu101.jpg", user_id: 3, username: "BMW Lover"),
-        Post(id: 3, desc: "Absolutely obsessed with this car", image: "https://i.redd.it/evkcc9th1dmz.jpg", user_id: 3, username: "BMW"),
-        Post(id: 3, desc: "M4", image: "https://i.reddituploads.com/5a488ee92ef346389bfef38afa3fc3b0?fit=max&h=1536&w=1536&s=4848737a98e2818c2818a2458d112bc0", user_id: 3, username: "BMW")
-    ]
+    private var posts : [Post]?
     
     private var tableView : UITableView = {
         let view = UITableView()
@@ -65,7 +56,7 @@ class FeedViewController : UIViewController, UITableViewDataSource, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! FeedViewCell
-        cell.post = posts[indexPath.row]
+        cell.post = TEST_POSTS[indexPath.row]
         cell.selectionStyle = .none
         return cell
     }
@@ -75,7 +66,7 @@ class FeedViewController : UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return posts.count
+        return TEST_POSTS.count
     }
     
     private func ApplyConstraints() {

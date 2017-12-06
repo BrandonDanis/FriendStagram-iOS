@@ -38,7 +38,7 @@ class ProfileViewController : UIViewController, UICollectionViewDataSource, UICo
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        return TEST_POSTS.count
     }
     
     // cell bottom padding
