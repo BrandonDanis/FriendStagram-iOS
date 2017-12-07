@@ -14,7 +14,6 @@ class ProfileViewHeaderCell : UICollectionReusableView {
     private let mainStack : UIStackView = {
         let view = UIStackView()
         view.axis = .vertical
-        view.distribution = .fill
         return view
     }()
     
@@ -27,7 +26,7 @@ class ProfileViewHeaderCell : UICollectionReusableView {
        return gradientLayer
     }()
     
-    var titleLabel : UILabel = {
+    private let titleLabel : UILabel = {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 250, height: 100))
         label.text = "FriendStagram"
         label.textColor = UIColor.white
@@ -36,12 +35,18 @@ class ProfileViewHeaderCell : UICollectionReusableView {
         return label
     }()
     
+    private let profileImageView : UIImageView = {
+        let view = UIImageView(image: UIImage(named: "placeholder"))
+        view.clipsToBounds = true
+        return view
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         layer.addSublayer(gradientLayer)
         
         mainStack.addArrangedSubview(titleLabel)
+//        mainStack.addArrangedSubview(profileImageView)
         addSubview(mainStack)
         
         ApplyConstraint()
@@ -52,17 +57,24 @@ class ProfileViewHeaderCell : UICollectionReusableView {
     }
     
     private func ApplyConstraint() {
-        
         gradientLayer.frame = frame
         
         mainStack.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            mainStack.widthAnchor.constraint(equalTo: widthAnchor),
+//            mainStack.widthAnchor.constraint(equalTo: widthAnchor),
             mainStack.topAnchor.constraint(equalTo: topAnchor),
             mainStack.bottomAnchor.constraint(equalTo: bottomAnchor),
             mainStack.leftAnchor.constraint(equalTo: leftAnchor),
             mainStack.rightAnchor.constraint(equalTo: rightAnchor)
         ])
+        
+//        profileImageView.translatesAutoresizingMaskIntoConstraints = false
+//        NSLayoutConstraint.activate([
+//            profileImageView.widthAnchor.constraint(equalTo: mainStack.widthAnchor, multiplier: 0.30),
+//            profileImageView.heightAnchor.constraint(equalTo: mainStack.heightAnchor, multiplier: 0.30)
+////            profileImageView.centerXAnchor.constraint(equalTo: mainStack.centerXAnchor)
+//        ])
+        // profileImageView.layer.cornerRadius = profileImageView.layer.bounds.width / 2.0
     }
     
 }

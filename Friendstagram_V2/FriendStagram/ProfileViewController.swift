@@ -22,10 +22,11 @@ class ProfileViewController : UIViewController, UICollectionViewDataSource, UICo
         super.viewDidLoad()
         view.backgroundColor = Colors.LIGHT_GRAY
         
+        navigationController?.navigationBar.topItem?.title = "Profile"
+        
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.register(ProfileViewCell.self, forCellWithReuseIdentifier: "cell")
-        
         collectionView.register(ProfileViewHeaderCell.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "header_cell")
         
         view.addSubview(collectionView)
