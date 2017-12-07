@@ -14,13 +14,14 @@ class ProfileViewHeaderCell : UICollectionReusableView {
     private let mainStack : UIStackView = {
         let view = UIStackView()
         view.axis = .vertical
+        view.distribution = .fill
         return view
     }()
     
     var titleLabel : UILabel = {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 250, height: 100))
         label.text = "FriendStagram"
-        label.textColor = UIColor.white
+        label.textColor = UIColor.black
         label.textAlignment = .center
         label.font = UIFont(name: "PingFangHK-Ultralight", size: 40)
         return label
@@ -31,8 +32,6 @@ class ProfileViewHeaderCell : UICollectionReusableView {
         
         mainStack.addArrangedSubview(titleLabel)
         addSubview(mainStack)
-        
-        backgroundColor = UIColor.blue
         
         ApplyConstraint()
     }
@@ -46,6 +45,7 @@ class ProfileViewHeaderCell : UICollectionReusableView {
         NSLayoutConstraint.activate([
             mainStack.widthAnchor.constraint(equalTo: widthAnchor),
             mainStack.topAnchor.constraint(equalTo: topAnchor),
+            mainStack.bottomAnchor.constraint(equalTo: bottomAnchor),
             mainStack.leftAnchor.constraint(equalTo: leftAnchor),
             mainStack.rightAnchor.constraint(equalTo: rightAnchor)
         ])

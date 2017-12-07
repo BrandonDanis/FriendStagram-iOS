@@ -26,6 +26,8 @@ class ProfileViewController : UIViewController, UICollectionViewDataSource, UICo
         collectionView.delegate = self
         collectionView.register(ProfileViewCell.self, forCellWithReuseIdentifier: "cell")
         
+        collectionView.register(ProfileViewHeaderCell.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "header_cell")
+        
         view.addSubview(collectionView)
         
         ApplyConstraints()
@@ -53,6 +55,15 @@ class ProfileViewController : UIViewController, UICollectionViewDataSource, UICo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ProfileViewCell
         cell.post = TEST_POSTS[indexPath.row]
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: view.frame.width, height: view.frame.height * 0.50)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let cell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "header_cell", for: indexPath) as! ProfileViewHeaderCell
         return cell
     }
     
