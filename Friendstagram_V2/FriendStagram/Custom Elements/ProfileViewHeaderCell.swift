@@ -18,10 +18,19 @@ class ProfileViewHeaderCell : UICollectionReusableView {
         return view
     }()
     
+    private let gradientLayer : CAGradientLayer = {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [Colors.SOFT_BLUE.cgColor, Colors.SOFT_PURPLE.cgColor]
+        gradientLayer.locations = [0.0, 1.1]
+        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
+        gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)
+       return gradientLayer
+    }()
+    
     var titleLabel : UILabel = {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 250, height: 100))
         label.text = "FriendStagram"
-        label.textColor = UIColor.black
+        label.textColor = UIColor.white
         label.textAlignment = .center
         label.font = UIFont(name: "PingFangHK-Ultralight", size: 40)
         return label
@@ -29,6 +38,8 @@ class ProfileViewHeaderCell : UICollectionReusableView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
+        layer.addSublayer(gradientLayer)
         
         mainStack.addArrangedSubview(titleLabel)
         addSubview(mainStack)
@@ -41,6 +52,9 @@ class ProfileViewHeaderCell : UICollectionReusableView {
     }
     
     private func ApplyConstraint() {
+        
+        gradientLayer.frame = frame
+        
         mainStack.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             mainStack.widthAnchor.constraint(equalTo: widthAnchor),
