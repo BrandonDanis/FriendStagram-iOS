@@ -14,6 +14,8 @@ class ProfileViewHeaderCell : UICollectionReusableView {
     private let mainStack : UIStackView = {
         let view = UIStackView()
         view.axis = .vertical
+        view.alignment = .center
+        view.distribution = .fillEqually
         return view
     }()
     
@@ -35,18 +37,24 @@ class ProfileViewHeaderCell : UICollectionReusableView {
         return label
     }()
     
-    private let profileImageView : UIImageView = {
+    private let profileImage : UIImageView = {
         let view = UIImageView(image: UIImage(named: "placeholder"))
+        view.contentMode = .scaleAspectFill
         view.clipsToBounds = true
         return view
     }()
     
+    private let profileImageView : UIView = {
+        return UIView()
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        layer.addSublayer(gradientLayer)
         
+        layer.addSublayer(gradientLayer)
+        mainStack.addArrangedSubview(profileImageView)
         mainStack.addArrangedSubview(titleLabel)
-//        mainStack.addArrangedSubview(profileImageView)
+        profileImageView.addSubview(profileImage)
         addSubview(mainStack)
         
         ApplyConstraint()
@@ -61,20 +69,21 @@ class ProfileViewHeaderCell : UICollectionReusableView {
         
         mainStack.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-//            mainStack.widthAnchor.constraint(equalTo: widthAnchor),
             mainStack.topAnchor.constraint(equalTo: topAnchor),
             mainStack.bottomAnchor.constraint(equalTo: bottomAnchor),
             mainStack.leftAnchor.constraint(equalTo: leftAnchor),
             mainStack.rightAnchor.constraint(equalTo: rightAnchor)
         ])
         
-//        profileImageView.translatesAutoresizingMaskIntoConstraints = false
-//        NSLayoutConstraint.activate([
-//            profileImageView.widthAnchor.constraint(equalTo: mainStack.widthAnchor, multiplier: 0.30),
-//            profileImageView.heightAnchor.constraint(equalTo: mainStack.heightAnchor, multiplier: 0.30)
-////            profileImageView.centerXAnchor.constraint(equalTo: mainStack.centerXAnchor)
-//        ])
-        // profileImageView.layer.cornerRadius = profileImageView.layer.bounds.width / 2.0
+        profileImage.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            profileImage.widthAnchor.constraint(equalToConstant: frame.width * 0.30),
+            profileImage.heightAnchor.constraint(equalToConstant: frame.width * 0.30),
+            profileImage.centerXAnchor.constraint(equalTo: profileImageView.centerXAnchor),
+            profileImage.centerYAnchor.constraint(equalTo: profileImageView.centerYAnchor)
+        ])
+        print(profileImage.bounds)
+        profileImage.layer.cornerRadius = (frame.width * 0.30) / 2.0
     }
     
 }
