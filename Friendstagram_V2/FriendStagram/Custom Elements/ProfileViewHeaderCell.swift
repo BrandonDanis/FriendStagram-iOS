@@ -14,8 +14,6 @@ class ProfileViewHeaderCell : UICollectionReusableView {
     private let mainStack : UIStackView = {
         let view = UIStackView()
         view.axis = .vertical
-//        view.alignment = .center
-//        view.distribution = .fillEqually
         return view
     }()
     
@@ -28,6 +26,11 @@ class ProfileViewHeaderCell : UICollectionReusableView {
     
     private let topStackView : UIView = {
         return UIView()
+    }()
+    
+    private let bottomStack : UIStackView = {
+        let view = UIStackView()
+        return view
     }()
     
     private let gradientLayer : CAGradientLayer = {
@@ -53,13 +56,13 @@ class ProfileViewHeaderCell : UICollectionReusableView {
         label.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
         label.textColor = UIColor.white
         label.textAlignment = .center
-        label.font = UIFont(name: "PingFangHK-Ultralight", size: 16)
+        label.font = UIFont(name: "PingFangHK-Light", size: 16)
         label.numberOfLines = 0
         return label
     }()
     
     private let profileImage : UIImageView = {
-        let view = UIImageView(image: UIImage(named: "placeholder"))
+        let view = UIImageView(image: UIImage(named: "test1"))
         view.contentMode = .scaleAspectFill
         view.clipsToBounds = true
         return view
@@ -71,8 +74,14 @@ class ProfileViewHeaderCell : UICollectionReusableView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        clipsToBounds = true
         
-        layer.addSublayer(gradientLayer)
+        let bgImg = UIImageView(image: UIImage(named: "background"))
+        bgImg.contentMode = .scaleAspectFit
+        let filterView = UIView(frame: bgImg.bounds)
+        filterView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.50)
+        bgImg.addSubview(filterView)
+        addSubview(bgImg)
         
         profileImageView.addSubview(profileImage)
         
