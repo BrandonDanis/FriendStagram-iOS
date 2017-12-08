@@ -9,6 +9,26 @@
 import Foundation
 import UIKit
 
+extension UIImage {
+    
+    func scaledImage(withSize size: CGSize) -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
+        defer { UIGraphicsEndImageContext() }
+        draw(in: CGRect(x: 0.0, y: 0.0, width: size.width, height: size.height))
+        return UIGraphicsGetImageFromCurrentImageContext()!
+    }
+    
+    func scaleImageToFitSize(size: CGSize) -> UIImage {
+        let aspect = self.size.width / self.size.height
+        if size.width / aspect <= size.height {
+            return scaledImage(withSize: CGSize(width: size.width, height: size.width / aspect))
+        } else {
+            return scaledImage(withSize: CGSize(width: size.height * aspect, height: size.height))
+        }
+    }
+    
+}
+
 class ProfileViewHeaderCell : UICollectionReusableView {
     
     private let mainStack : UIStackView = {
@@ -63,25 +83,20 @@ class ProfileViewHeaderCell : UICollectionReusableView {
     
     private let profileImage : UIImageView = {
         let view = UIImageView(image: UIImage(named: "test1"))
-        view.contentMode = .scaleAspectFill
         view.clipsToBounds = true
+        view.contentMode = .scaleAspectFill
         return view
     }()
     
     private let profileImageView : UIView = {
         return UIView()
     }()
-    
+       
     override init(frame: CGRect) {
         super.init(frame: frame)
         clipsToBounds = true
-        
-        let bgImg = UIImageView(image: UIImage(named: "background"))
-        bgImg.contentMode = .scaleAspectFit
-        let filterView = UIView(frame: bgImg.bounds)
-        filterView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.50)
-        bgImg.addSubview(filterView)
-        addSubview(bgImg)
+
+        layer.addSublayer(gradientLayer)
         
         profileImageView.addSubview(profileImage)
         
