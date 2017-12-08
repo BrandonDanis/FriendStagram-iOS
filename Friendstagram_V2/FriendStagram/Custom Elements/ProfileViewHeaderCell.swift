@@ -14,9 +14,20 @@ class ProfileViewHeaderCell : UICollectionReusableView {
     private let mainStack : UIStackView = {
         let view = UIStackView()
         view.axis = .vertical
-        view.alignment = .center
-        view.distribution = .fillEqually
+//        view.alignment = .center
+//        view.distribution = .fillEqually
         return view
+    }()
+    
+    private let topStack : UIStackView = {
+        let view = UIStackView()
+        view.axis = .vertical
+        view.alignment = .center
+        return view
+    }()
+    
+    private let topStackView : UIView = {
+        return UIView()
     }()
     
     private let gradientLayer : CAGradientLayer = {
@@ -28,12 +39,22 @@ class ProfileViewHeaderCell : UICollectionReusableView {
        return gradientLayer
     }()
     
-    private let titleLabel : UILabel = {
+    private let nameLabel : UILabel = {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 250, height: 100))
-        label.text = "FriendStagram"
+        label.text = "Brandon Danis"
         label.textColor = UIColor.white
         label.textAlignment = .center
-        label.font = UIFont(name: "PingFangHK-Ultralight", size: 40)
+        label.font = UIFont(name: "PingFangHK-Light", size: 28)
+        return label
+    }()
+    
+    private let descriptionLabel : UILabel = {
+        let label = UILabel()
+        label.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        label.textColor = UIColor.white
+        label.textAlignment = .center
+        label.font = UIFont(name: "PingFangHK-Ultralight", size: 16)
+        label.numberOfLines = 0
         return label
     }()
     
@@ -52,9 +73,16 @@ class ProfileViewHeaderCell : UICollectionReusableView {
         super.init(frame: frame)
         
         layer.addSublayer(gradientLayer)
-        mainStack.addArrangedSubview(profileImageView)
-        mainStack.addArrangedSubview(titleLabel)
+        
         profileImageView.addSubview(profileImage)
+        
+        topStack.addArrangedSubview(profileImageView)
+        topStack.addArrangedSubview(nameLabel)
+        topStack.addArrangedSubview(descriptionLabel)
+        
+        topStackView.addSubview(topStack)
+        mainStack.addArrangedSubview(topStackView)
+        
         addSubview(mainStack)
         
         ApplyConstraint()
@@ -75,15 +103,29 @@ class ProfileViewHeaderCell : UICollectionReusableView {
             mainStack.rightAnchor.constraint(equalTo: rightAnchor)
         ])
         
-        profileImage.translatesAutoresizingMaskIntoConstraints = false
+        topStack.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            profileImage.widthAnchor.constraint(equalToConstant: frame.width * 0.30),
-            profileImage.heightAnchor.constraint(equalToConstant: frame.width * 0.30),
+            topStack.centerXAnchor.constraint(equalTo: topStackView.centerXAnchor),
+            topStack.centerYAnchor.constraint(equalTo: topStackView.centerYAnchor),
+            topStack.widthAnchor.constraint(equalTo: topStackView.widthAnchor, multiplier: 0.80)
+        ])
+        
+        // Without this, the profileImage (UIImageView) was not behaving properly in the stackView.
+        // profileImageView would have a height/width of 0 so topStack would not be displaying properly
+        profileImageView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            profileImageView.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.30)
+        ])
+        
+        profileImage.translatesAutoresizingMaskIntoConstraints = false
+        let pictureDiameter = frame.width * 0.30
+        NSLayoutConstraint.activate([
+            profileImage.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.30),
+            profileImage.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.30),
             profileImage.centerXAnchor.constraint(equalTo: profileImageView.centerXAnchor),
             profileImage.centerYAnchor.constraint(equalTo: profileImageView.centerYAnchor)
         ])
-        print(profileImage.bounds)
-        profileImage.layer.cornerRadius = (frame.width * 0.30) / 2.0
+        profileImage.layer.cornerRadius = pictureDiameter / 2.0
     }
     
 }
