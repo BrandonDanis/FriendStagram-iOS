@@ -9,26 +9,6 @@
 import Foundation
 import UIKit
 
-extension UIImage {
-    
-    func scaledImage(withSize size: CGSize) -> UIImage {
-        UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
-        defer { UIGraphicsEndImageContext() }
-        draw(in: CGRect(x: 0.0, y: 0.0, width: size.width, height: size.height))
-        return UIGraphicsGetImageFromCurrentImageContext()!
-    }
-    
-    func scaleImageToFitSize(size: CGSize) -> UIImage {
-        let aspect = self.size.width / self.size.height
-        if size.width / aspect <= size.height {
-            return scaledImage(withSize: CGSize(width: size.width, height: size.width / aspect))
-        } else {
-            return scaledImage(withSize: CGSize(width: size.height * aspect, height: size.height))
-        }
-    }
-    
-}
-
 class ProfileViewHeaderCell : UICollectionReusableView {
     
     private let mainStack : UIStackView = {
@@ -91,7 +71,89 @@ class ProfileViewHeaderCell : UICollectionReusableView {
     private let profileImageView : UIView = {
         return UIView()
     }()
-       
+    
+    
+    private let profileStatsStack : UIStackView = {
+        let view = UIStackView()
+        view.distribution = .fillEqually
+        return view
+    }()
+    
+    // Post count
+    private let postCountStack : UIStackView = {
+        let view = UIStackView()
+        view.axis = .vertical
+        return view
+    }()
+    
+    private let postCountNameLabel : UILabel = {
+        let label = UILabel()
+        label.text = "Posts"
+        label.textColor = UIColor.white
+        label.textAlignment = .center
+        label.font = UIFont(name: "PingFangHK-Light", size: 18)
+        return label
+    }()
+    
+    private let postCountLabel : UILabel = {
+        let label = UILabel()
+        label.text = "1234"
+        label.textColor = UIColor.white
+        label.textAlignment = .center
+        label.font = UIFont(name: "PingFangHK-Ultralight", size: 16)
+        return label
+    }()
+    
+    // Follower count
+    private let followerCountStack : UIStackView = {
+        let view = UIStackView()
+        view.axis = .vertical
+        return view
+    }()
+    
+    private let followerCountNameLabel : UILabel = {
+        let label = UILabel()
+        label.text = "Followers"
+        label.textColor = UIColor.white
+        label.textAlignment = .center
+        label.font = UIFont(name: "PingFangHK-Light", size: 18)
+        return label
+    }()
+    
+    private let followerCountLabel : UILabel = {
+        let label = UILabel()
+        label.text = "328k"
+        label.textColor = UIColor.white
+        label.textAlignment = .center
+        label.font = UIFont(name: "PingFangHK-Ultralight", size: 16)
+        return label
+    }()
+    
+    // Following count
+    private let followingCountStack : UIStackView = {
+        let view = UIStackView()
+        view.axis = .vertical
+        return view
+    }()
+    
+    private let followingCountNameLabel : UILabel = {
+        let label = UILabel()
+        label.text = "Following"
+        label.textColor = UIColor.white
+        label.textAlignment = .center
+        label.font = UIFont(name: "PingFangHK-Light", size: 18)
+        return label
+    }()
+    
+    private let followingCountLabel : UILabel = {
+        let label = UILabel()
+        label.text = "48"
+        label.textColor = UIColor.white
+        label.textAlignment = .center
+        label.font = UIFont(name: "PingFangHK-Ultralight", size: 16)
+        return label
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         clipsToBounds = true
@@ -106,6 +168,23 @@ class ProfileViewHeaderCell : UICollectionReusableView {
         
         topStackView.addSubview(topStack)
         mainStack.addArrangedSubview(topStackView)
+        
+        // Post count
+        postCountStack.addArrangedSubview(postCountNameLabel)
+        postCountStack.addArrangedSubview(postCountLabel)
+        profileStatsStack.addArrangedSubview(postCountStack)
+        
+        // Follower count
+        followerCountStack.addArrangedSubview(followerCountNameLabel)
+        followerCountStack.addArrangedSubview(followerCountLabel)
+        profileStatsStack.addArrangedSubview(followerCountStack)
+        
+        // Following count
+        followingCountStack.addArrangedSubview(followingCountNameLabel)
+        followingCountStack.addArrangedSubview(followingCountLabel)
+        profileStatsStack.addArrangedSubview(followingCountStack)
+        
+        mainStack.addArrangedSubview(profileStatsStack)
         
         addSubview(mainStack)
         
