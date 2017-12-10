@@ -31,7 +31,7 @@ class ProfileViewHeaderCell : UICollectionReusableView {
     // Gradient layer in profile background
     private let gradientLayer : CAGradientLayer = {
         let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = [Colors.SOFT_BLUE.cgColor, Colors.SOFT_PURPLE.cgColor]
+        gradientLayer.colors = [Colors.DUSK_BLUE.cgColor, Colors.DUSK_PURPLE.cgColor]
         gradientLayer.locations = [0.0, 1.1]
         gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
         gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)
@@ -90,7 +90,7 @@ class ProfileViewHeaderCell : UICollectionReusableView {
         label.text = "Posts"
         label.textColor = UIColor.white
         label.textAlignment = .center
-        label.font = UIFont(name: "PingFangHK-Light", size: 18)
+        label.font = UIFont(name: "PingFangHK-Regular", size: 18)
         return label
     }()
     
@@ -99,7 +99,7 @@ class ProfileViewHeaderCell : UICollectionReusableView {
         label.text = "1234"
         label.textColor = UIColor.white
         label.textAlignment = .center
-        label.font = UIFont(name: "PingFangHK-Ultralight", size: 16)
+        label.font = UIFont(name: "PingFangHK-Ultralight", size: 18)
         return label
     }()
     
@@ -115,7 +115,7 @@ class ProfileViewHeaderCell : UICollectionReusableView {
         label.text = "Followers"
         label.textColor = UIColor.white
         label.textAlignment = .center
-        label.font = UIFont(name: "PingFangHK-Light", size: 18)
+        label.font = UIFont(name: "PingFangHK-Regular", size: 18)
         return label
     }()
     
@@ -124,7 +124,7 @@ class ProfileViewHeaderCell : UICollectionReusableView {
         label.text = "328k"
         label.textColor = UIColor.white
         label.textAlignment = .center
-        label.font = UIFont(name: "PingFangHK-Ultralight", size: 16)
+        label.font = UIFont(name: "PingFangHK-Ultralight", size: 18)
         return label
     }()
     
@@ -140,7 +140,7 @@ class ProfileViewHeaderCell : UICollectionReusableView {
         label.text = "Following"
         label.textColor = UIColor.white
         label.textAlignment = .center
-        label.font = UIFont(name: "PingFangHK-Light", size: 18)
+        label.font = UIFont(name: "PingFangHK-Regular", size: 18)
         return label
     }()
     
@@ -149,7 +149,7 @@ class ProfileViewHeaderCell : UICollectionReusableView {
         label.text = "48"
         label.textColor = UIColor.white
         label.textAlignment = .center
-        label.font = UIFont(name: "PingFangHK-Ultralight", size: 16)
+        label.font = UIFont(name: "PingFangHK-Ultralight", size: 18)
         return label
     }()
     
