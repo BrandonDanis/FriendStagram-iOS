@@ -11,6 +11,7 @@
 		CA4F94741FC3A9D500B3B162 /* RootNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4F94731FC3A9D500B3B162 /* RootNavigationController.swift */; };
 		CA4F94761FC6867900B3B162 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4F94751FC6867900B3B162 /* Post.swift */; };
 		CA80790D1FD64BAB00D57319 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA80790C1FD64BAB00D57319 /* ProfileViewController.swift */; };
+		CA8C70391FDDD37C00649465 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8C70381FDDD37C00649465 /* PostViewController.swift */; };
 		CA9EDDE01FD79C98001A322B /* ProfileViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9EDDDF1FD79C98001A322B /* ProfileViewCell.swift */; };
 		CA9EDDE21FD8B46E001A322B /* ProfileViewHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9EDDE11FD8B46E001A322B /* ProfileViewHeaderCell.swift */; };
 		CAED07B01FB166DC00E9A853 /* BetterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAED07AF1FB166DC00E9A853 /* BetterButton.swift */; };
@@ -35,6 +36,7 @@
 		CA4F94731FC3A9D500B3B162 /* RootNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootNavigationController.swift; sourceTree = "<group>"; };
 		CA4F94751FC6867900B3B162 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		CA80790C1FD64BAB00D57319 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		CA8C70381FDDD37C00649465 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		CA9EDDDF1FD79C98001A322B /* ProfileViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewCell.swift; sourceTree = "<group>"; };
 		CA9EDDE11FD8B46E001A322B /* ProfileViewHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewHeaderCell.swift; sourceTree = "<group>"; };
 		CAED07AF1FB166DC00E9A853 /* BetterButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BetterButton.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				CAF7AC681FAFFB1400124BB5 /* LaunchScreen.storyboard */,
 				CAF7AC6B1FAFFB1400124BB5 /* Info.plist */,
 				CAF7AC661FAFFB1400124BB5 /* Assets.xcassets */,
+				CA8C70381FDDD37C00649465 /* PostViewController.swift */,
 			);
 			path = FriendStagram;
 			sourceTree = "<group>";
@@ -220,6 +223,7 @@
 				F69D61FC1FBE233F0016FE60 /* User.swift in Sources */,
 				CA9EDDE01FD79C98001A322B /* ProfileViewCell.swift in Sources */,
 				CAF7AC621FAFFB1400124BB5 /* LoginViewController.swift in Sources */,
+				CA8C70391FDDD37C00649465 /* PostViewController.swift in Sources */,
 				CAED07B01FB166DC00E9A853 /* BetterButton.swift in Sources */,
 				CA4F946E1FBEAA9E00B3B162 /* NetError.swift in Sources */,
 				F6E26D611FC602E1005D4AC1 /* FeedViewController.swift in Sources */,
