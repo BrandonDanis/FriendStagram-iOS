@@ -28,11 +28,7 @@ class ProfileViewHeaderCell : UICollectionReusableView {
         return UIView()
     }()
     
-    private let bottomStack : UIStackView = {
-        let view = UIStackView()
-        return view
-    }()
-    
+    // Gradient layer in profile background
     private let gradientLayer : CAGradientLayer = {
         let gradientLayer = CAGradientLayer()
         gradientLayer.colors = [Colors.SOFT_BLUE.cgColor, Colors.SOFT_PURPLE.cgColor]
@@ -42,6 +38,7 @@ class ProfileViewHeaderCell : UICollectionReusableView {
        return gradientLayer
     }()
     
+    // Profile name label
     private let nameLabel : UILabel = {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 250, height: 100))
         label.text = "Brandon Danis"
@@ -51,16 +48,18 @@ class ProfileViewHeaderCell : UICollectionReusableView {
         return label
     }()
     
+    // Profile description label
     private let descriptionLabel : UILabel = {
         let label = UILabel()
         label.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-        label.textColor = UIColor.white
+        label.textColor = Colors.LIGHT_WHITE
         label.textAlignment = .center
         label.font = UIFont(name: "PingFangHK-Light", size: 16)
         label.numberOfLines = 0
         return label
     }()
     
+    // Profile picture
     private let profileImage : UIImageView = {
         let view = UIImageView(image: UIImage(named: "test1"))
         view.clipsToBounds = true
@@ -68,10 +67,10 @@ class ProfileViewHeaderCell : UICollectionReusableView {
         return view
     }()
     
+    // Profile picture parent view
     private let profileImageView : UIView = {
         return UIView()
     }()
-    
     
     private let profileStatsStack : UIStackView = {
         let view = UIStackView()
