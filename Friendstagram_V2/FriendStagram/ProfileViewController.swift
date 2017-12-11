@@ -68,6 +68,13 @@ class ProfileViewController : UIViewController, UICollectionViewDataSource, UICo
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedPost = TEST_POSTS[indexPath.row]
+        let vc = PostViewController()
+        vc.post = selectedPost
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
     private func ApplyConstraints() {
         let safeArea = view.safeAreaLayoutGuide
         
