@@ -11,6 +11,12 @@ import UIKit
 
 class ProfileViewHeaderCell : UICollectionReusableView {
     
+    var user : User? {
+        didSet {
+            nameLabel.text = user?.name
+        }
+    }
+    
     private let mainStack : UIStackView = {
         let view = UIStackView()
         view.axis = .vertical

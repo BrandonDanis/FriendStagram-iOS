@@ -15,3 +15,7 @@ struct User : Codable {
     let datecreated : String
     let email : String
 }
+
+let TEST_USERS : [Int : User] = [
+    1 : User(name: "Brando", username: "brando", id: 1, datecreated: "11/11/11", email: "brando_danis@gmail.com")
+]

@@ -11,12 +11,33 @@ import UIKit
 
 class ProfileViewController : UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
+    private var user : User?
+    
     private let collectionView : UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let view = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         view.backgroundColor = UIColor.white
         return view
     }()
+    
+    // View created with user id
+    init(userId id: Int) {
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    // View created with user object
+    init(user u: User) {
+        super.init(nibName: nil, bundle: nil)
+        user = u
+    }
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,6 +86,7 @@ class ProfileViewController : UIViewController, UICollectionViewDataSource, UICo
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let cell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "header_cell", for: indexPath) as! ProfileViewHeaderCell
+        cell.user = user
         return cell
     }
     
