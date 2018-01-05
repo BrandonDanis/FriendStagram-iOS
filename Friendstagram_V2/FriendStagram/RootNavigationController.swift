@@ -25,7 +25,7 @@ class RootNavigationController : UINavigationController {
             feedNavigationController.viewControllers = [FeedViewController()]
             
             let profileNavigationController = UINavigationController()
-            profileNavigationController.viewControllers = [ProfileViewController()]
+            profileNavigationController.viewControllers = [ProfileViewController(user: TEST_USERS[1]!)]
             
             tabController.viewControllers = [feedNavigationController, profileNavigationController]
             tabController.tabBar.tintColor = UIColor(red:0.20, green:0.60, blue:0.86, alpha:1.00)
