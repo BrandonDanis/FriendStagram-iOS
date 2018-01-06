@@ -14,6 +14,15 @@ class ProfileViewHeaderCell : UICollectionReusableView {
     var user : User? {
         didSet {
             nameLabel.text = user?.name
+            
+            if let imageString = user?.profile_url {
+                NetworkManager.shared.GetImageByUrl(imageString, callback: { (image) in
+                    DispatchQueue.main.async {
+                        self.profileImage.image = image
+                    }
+                })
+            }
+            
         }
     }
     
@@ -47,7 +56,6 @@ class ProfileViewHeaderCell : UICollectionReusableView {
     // Profile name label
     private let nameLabel : UILabel = {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 250, height: 100))
-        label.text = "Brandon Danis"
         label.textColor = UIColor.white
         label.textAlignment = .center
         label.font = UIFont(name: "PingFangHK-Light", size: 28)
@@ -67,7 +75,7 @@ class ProfileViewHeaderCell : UICollectionReusableView {
     
     // Profile picture
     private let profileImage : UIImageView = {
-        let view = UIImageView(image: UIImage(named: "test1"))
+        let view = UIImageView(image: UIImage(named: "placeholder"))
         view.clipsToBounds = true
         view.contentMode = .scaleAspectFill
         return view

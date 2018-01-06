@@ -108,13 +108,13 @@
 				F6E26D601FC602E1005D4AC1 /* FeedViewController.swift */,
 				CA80790C1FD64BAB00D57319 /* ProfileViewController.swift */,
 				CAED07B31FB3C50F00E9A853 /* RegisterViewController.swift */,
+				CA8C70381FDDD37C00649465 /* PostViewController.swift */,
 				CA4F94731FC3A9D500B3B162 /* RootNavigationController.swift */,
 				CAED07B11FB168EF00E9A853 /* NetworkManager.swift */,
 				CAF7AC5F1FAFFB1400124BB5 /* AppDelegate.swift */,
 				CAF7AC681FAFFB1400124BB5 /* LaunchScreen.storyboard */,
 				CAF7AC6B1FAFFB1400124BB5 /* Info.plist */,
 				CAF7AC661FAFFB1400124BB5 /* Assets.xcassets */,
-				CA8C70381FDDD37C00649465 /* PostViewController.swift */,
 			);
 			path = FriendStagram;
 			sourceTree = "<group>";
