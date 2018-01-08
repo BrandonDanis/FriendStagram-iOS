@@ -62,7 +62,9 @@ class FeedViewController : UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.navigationController?.pushViewController(LoginViewController(), animated: true)
+        let selectedPost = TEST_POSTS[indexPath.row]
+        let profileVC = ProfileViewController(userId: selectedPost.user_id)
+        self.navigationController?.pushViewController(profileVC, animated: true)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
