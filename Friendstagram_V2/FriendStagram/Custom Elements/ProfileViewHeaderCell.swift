@@ -57,6 +57,7 @@ class ProfileViewHeaderCell : UICollectionReusableView {
     private let nameLabel : UILabel = {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 250, height: 100))
         label.textColor = UIColor.white
+        label.text = " "
         label.textAlignment = .center
         label.font = UIFont(name: "PingFangHK-Light", size: 28)
         return label
