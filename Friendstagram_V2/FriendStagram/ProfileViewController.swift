@@ -23,6 +23,7 @@ class ProfileViewController : UIViewController, UICollectionViewDataSource, UICo
     // View created with user id
     init(userId id: Int) {
         super.init(nibName: nil, bundle: nil)
+        RetrieveUserDataById(userId: id)
     }
     
     // View created with user object
@@ -53,6 +54,12 @@ class ProfileViewController : UIViewController, UICollectionViewDataSource, UICo
         view.addSubview(collectionView)
         
         ApplyConstraints()
+    }
+    
+    private func RetrieveUserDataById(userId : Int) {
+        NetworkManager.shared.GetUserInfoById(userId) { (user) in
+            self.user = user
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

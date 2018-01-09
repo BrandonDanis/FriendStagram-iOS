@@ -188,4 +188,9 @@ class NetworkManager {
         }
     }
     
+    // TODO: actually request user info from server
+    public func GetUserInfoById(_ id : Int, callback: @escaping (_ user: User?) -> Void) {
+        callback(TEST_USERS[id])
+    }
+    
 }
