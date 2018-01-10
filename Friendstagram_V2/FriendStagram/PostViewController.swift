@@ -46,7 +46,10 @@ class PostViewController : UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.navigationController?.pushViewController(LoginViewController(), animated: true)
+        if let selectedPost = post {
+            let profileVC = ProfileViewController(userId: selectedPost.user_id)
+            self.navigationController?.pushViewController(profileVC, animated: true)
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
